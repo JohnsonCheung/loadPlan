@@ -68,14 +68,14 @@
         }
 
         function do_sav() {
-            debugger;
+            data.vdt = _vdt();
+            if (vdt.isEr) return;
+
             if (_noChg()) {
                 $rootScope.mode = "dsp";
                 return;
             }
 
-            data.vdt = _vdt();
-            if (vdt.isEr) return
             var region = $scope.data.region;
             var nearBy = $scope.data.nearBy;
             var nearByAy = [];
