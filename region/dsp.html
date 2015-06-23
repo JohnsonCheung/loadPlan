@@ -14,16 +14,16 @@
         <caption style="font-weight:bold">{{lbl.txt.region}}</caption>
         <tr>
             <td style="font-weight:bold">{{lbl.fld.regCd}}
-            <td class="readOnly">{{region.regCd}}
+            <td class="readOnly">{{data.regDro.regCd}}
         <tr>
             <td style="font-weight:bold">{{lbl.fld.inpCd}}
-            <td class="readOnly">{{region.inpCd}}
+            <td class="readOnly">{{data.regDro.inpCd}}
         <tr>
             <td style="font-weight:bold">{{lbl.fld.chiNm}}
-            <td class="readOnly">{{region.chiNm}}
+            <td class="readOnly">{{data.regDro.chiNm}}
         <tr>
             <td style="font-weight:bold">{{lbl.fld.engNm}}
-            <td class="readOnly">{{region.engNm}}
+            <td class="readOnly">{{data.regDro.engNm}}
         <tr>
             <td style="font-weight:bold">{{lbl.fld.majRegCd}}
             <td class="readOnly">{{region.majRegCd}}
@@ -36,7 +36,7 @@
         <th>{{lbl.fld.chiNm}}
         <th>{{lbl.fld.engNm}}
         <th>{{lbl.fld.majRegCd}}
-            <tr ng-repeat="i in nearBy">
+            <tr ng-repeat="i in nearByDt">
                 <td class="readOnly">{{($index + 1)}}
                 <td class="readOnly">{{i.nearBy}}
                 <td class="readOnly">{{i.engNm}}

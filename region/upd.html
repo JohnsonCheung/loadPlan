@@ -10,17 +10,17 @@
         <td class="readOnly">{{data.region.regCd}}
     <tr>
         <td style="font-weight:bold">{{lbl.fld.inpCd}}
-        <td><input name="inpCd" required ng-maxlength="30" ng-model="data.region.inpCd" type="text">
+        <td><input name="inpCd" required ng-maxlength="30" ng-model="data.regDro.inpCd" type="text">
     <tr>
         <td style="font-weight:bold">{{lbl.fld.chiNm}}
-        <td><input ng-model="data.region.chiNm" ng-maxlength="255" type="text"/>
+        <td><input ng-model="data.regDro.chiNm" ng-maxlength="255" type="text"/>
     <tr>
         <td style="font-weight:bold">{{lbl.fld.engNm}}
-        <td><input ng-model="data.region.engNm" ng-maxlength="255" type="text"/>
+        <td><input ng-model="data.regDro.engNm" ng-maxlength="255" type="text"/>
     <tr>
         <td style="font-weight:bold">{{lbl.fld.majRegCd}}
         <td>
-            <select ng-model="data.region.majRegCd">
+            <select ng-model="data.regDro.majRegCd">
                 <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
             </select><br>{{data.erMsg.region.majRegCd}}
 </table>
@@ -33,7 +33,7 @@
     <th>{{lbl.fld.chiNm}}
     <th>{{lbl.fld.engNm}}
     <th>{{lbl.fld.majRegCd}}
-        <tr ng-repeat="i in data.nearBy">
+        <tr ng-repeat="i in data.nearByDt">
             <td class="readOnly">{{($index + 1)}}
             <td>
                 <select ng-model="i.nearBy" ng-change="do_nearBy_changed()">
