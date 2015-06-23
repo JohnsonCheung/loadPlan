@@ -12,6 +12,9 @@ const eYYYYMMDD = "Y-m-d";
 const eYYYYMMDDHH = "Y-m-d H";
 const eYYYYMMDDHHMM = "Y-m-d Hi";
 const eYYYYMMDDHHMMSS = "Y-m-d His";
+function pass($s) {
+    echo 'pass: ' . $s;
+}
 function esc_lf($s)
 {
     return str_replace("\n", '\n', $s);
@@ -425,4 +428,3 @@ function strbrk($_s, $_brkchr, $_notrim = false)
     }
     return [$o1, $o2];
 }
-

@@ -5,15 +5,6 @@
  * Date: 19/6/2015
  * Time: 8:25
  */
-function logg($varNm, $val, $ft)
-{
-    $fd = fopen("c:/temp/$ft", "a");
-    fwrite($fd, "\r\n-------------\r\n");
-    fwrite($fd, $varNm . "\r\n");
-    $o = print_r($val, true);
-    fwrite($fd, $o);
-    fclose($fd);
-}
 
 function updCus($cusDta)
 {

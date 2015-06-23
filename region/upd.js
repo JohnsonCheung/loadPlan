@@ -33,21 +33,15 @@
             });
         })
         return;
-        function do_vdt() {
-
-        }
 
         function do_nearBy_changed() {
             var regCd = this.i.nearBy;
-            var self = this;
+            var regDr = this.i;
             $http.get("../phpResp/tblDr.php?t=region&f=regCd&v=" + regCd).success(function (data) {
-                var regDr = self.i
-                var regCd = $scope.regCd;
                 regDr.chiNm = data.chiNm;
                 regDr.engNm = data.engNm;
                 regDr.inpCd = data.inpCd;
                 regDr.majRegCd = data.majRegCd;
-
             })
         }
 

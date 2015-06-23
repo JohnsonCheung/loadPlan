@@ -7,20 +7,34 @@
  */
 require_once "pth.php";
 require_once "System\Launcher.php";
+function ay_newByLpAp($lp, ...$ap)
+{
+    $kAy = preg_split('/ / ', $lp);
+    $o = [];
+    reset($ap);
+    foreach ($kAy as $k) {
+        $o[$k] = current($ap);
+        next($ap);
+    }
+    return $o;
+}
+
 function push_noDup(array &$ay, $i)
 {
     ay_push_noDup($ay, $i);
 }
 
-function ay_minus($new, $old) {
+function ay_minus($new, $old)
+{
     $o = [];
-    foreach($new as $v) {
-        if(!in_array($v, $old))
+    foreach ($new as $v) {
+        if (!in_array($v, $old))
             array_push($o, $v);
     }
     return $o;
 }
-function ay_quote($ay, $q)
+
+function ay_quote($ay, $q = "'")
 {
     $o = [];
     foreach ($ay as $k => $v) {
@@ -171,7 +185,7 @@ function brw_dtaAy($nm_lvs, ...$dtaAy)
     return brw_csvPth($p);
 }
 
-// return the tmpPth which has each $dtaAy written as a csv file
+/** return the tmpPth which has each $dtaAy written as a csv file */
 function dtaAy_tmpPth_array($nm_lvs, array $dtaAy)
 {
     $p = pth_tmp("dtaAy");

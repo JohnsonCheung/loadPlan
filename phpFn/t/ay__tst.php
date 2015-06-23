@@ -11,9 +11,11 @@ require_once '..\str.php';
 function run()
 {
     if (true) {
-        test_dtaAy_tmpPth();
+        test_ay_newByLpAp();
+
 
     } else {
+        test_ay_newByLpAp();
         test_brw_ft();
         test_dtaAy_tmpPth1();
         test_dtaAy_tmpPth();
@@ -24,6 +26,18 @@ function run()
         test_ay_pk();
         test_ay_firstKey();
     }
+}
+
+function test_ay_newByLpAp()
+{
+    $act = ay_newByLpAp("a b c", 1, 2, 3);
+    $exp = [
+        "a" => 1,
+        "b" => 2,
+        "c" => 3,
+    ];
+    assert($act === $exp);
+    pass(__FUNCTION__);
 }
 
 function test_brw_ft()

@@ -11,6 +11,16 @@ function db_cvStr(mysqli $con, $s)
     throw new Exception("dta is not string nor NULL, but [$a]");
 }
 
+function logFt($varNm, $val, $ft)
+{
+    $fd = fopen("c:/temp/$ft", "a");
+    fwrite($fd, "\r\n-------------\r\n");
+    fwrite($fd, $varNm . "\r\n");
+    $o = print_r($val, true);
+    fwrite($fd, $o);
+    fclose($fd);
+}
+
 function runsql_dataObj(mysqli $con, $sql)
 {
     $o = [];
@@ -152,7 +162,7 @@ function runsql_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
 function runsql_isAny(mysqli $con, $sql)
 {
     $res = runsql($con, $sql);
-    return  $res->num_rows > 0;
+    return $res->num_rows > 0;
 }
 
 function runsql_datetime(mysqli $con, $sql)
