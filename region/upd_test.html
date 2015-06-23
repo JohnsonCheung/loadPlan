@@ -13,6 +13,9 @@
             $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
                 $scope.lang = "zh";
                 $scope.regCdDc = data;
+                $scope.do_brk = function() {
+                    debugger;
+                }
             })
         }
     </script>

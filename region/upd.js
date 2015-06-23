@@ -98,7 +98,8 @@
                 var o1, o2;
                 var o1 = $scope.data;
                 var o2 = $scope.dataOrg;
-                $scope.noChg = $obj.isEq(o1, o2);
+                console.log("noChg is set.....");
+                $rootScope.noChg = $obj.isEq(o1, o2);
                 return $scope.noChg;
             }
 
