@@ -7,7 +7,7 @@
     <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
     <tr>
         <td style="font-weight:bold">{{lbl.fld.regCd}}
-        <td class="readOnly">{{data.region.regCd}}
+        <td class="readOnly">{{data.regDro.regCd}}
     <tr>
         <td style="font-weight:bold">{{lbl.fld.inpCd}}
         <td><input name="inpCd" required ng-maxlength="30" ng-model="data.regDro.inpCd" type="text">
@@ -22,7 +22,7 @@
         <td>
             <select ng-model="data.regDro.majRegCd">
                 <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
-            </select><br>{{data.erMsg.region.majRegCd}}
+            </select>{{dataVdt.regDro.majRegCd}}
 </table>
 <br>
 <input type="button" value="{{lbl.btn.add}}" ng-click="do_add_nearBy()"/>

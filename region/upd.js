@@ -68,21 +68,21 @@
         }
 
         function do_sav() {
-            data.vdt = _vdt();
-            if (vdt.isEr) return;
+            var dataVdt = _vdt();
+            $scope.dataVdt = dataVdt;
+            if (dataVdt.isEr)
+                return;
 
             if (_noChg()) {
                 $rootScope.mode = "dsp";
                 return;
             }
 
-            var region = $scope.data.region;
-            var nearBy = $scope.data.nearBy;
             var nearByAy = [];
             for (var i in nearBy) {
                 nearByAy.push(nearBy[i].nearBy);
             }
-            var data = {region: region, nearByAy: nearByAy};
+            var data = {regDro: $scope.data.regDro, nearByAy: nearByAy};
             $http.post("upd.php", data).success(function (data) {
                 var regCd = $scope.data.region.regCd;
                 $rootScope.mode = "dsp";
@@ -99,11 +99,11 @@
 
             function _vdt() {
                 var vdt = {isEr: true};
-                if ($scope.data.region.majRegCd === '') {
-                    vdt.region.majRegCd = $scope.lbl.fldMsg.majRegCd.cannotBlank;
-                    return;
+                var a = $scope.data.regDro.majRegCd;
+                if (a === '' || a===null) {
+                    vdt.regDro = {};
+                    vdt.regDro.majRegCd = $scope.lbl.fldMsg.majRegCd.cannotBlank;
                 }
-                vdt.isOk = true;
                 return vdt;
             }
         }

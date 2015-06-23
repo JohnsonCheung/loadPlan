@@ -8,5 +8,6 @@
 table {border-collapse: collapse;}
 td.readOnly {background-color: lightblue}
 input.readOnly {background-color: lightblue}
-td input {border:none}
-td select {border:none}
+td > input {border:none}
+td > select {border:none}
+.selected { background-color: #80ff80 }
