@@ -1,0 +1,32 @@
+<html ng-app="app">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Add Region</title>
+    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app',[]);</script>
+    <script src="../ngSvc/app_facFn.js"></script>
+    <script>
+        angular.module('app').controller('testAdd',['$scope', '$rootScope',a]);
+        function a($scope, $rootScope) {
+            $scope.lang='en';
+            $scope.$watch('lang', function(lang) {
+                $rootScope.lang = lang
+            })
+        }
+    </script>
+    <script src="add.js"></script>
+</head>
+<body ng-controller="testAdd">
+<table border='2px'>
+<tr><td>lang<td>
+<field><input type="radio" name='lang' ng-model='lang' value="en">en</input></field>
+<field><input type="radio" name='lang' ng-model='lang' value="zh">zh</input></field>
+<tr><td>mode<td>{{mode}}
+<tr><td>regCd<td>{{regCd}}
+</table>
+
+<hr>
+    <ng-include src="'add.html'"/>
+</body>
+</html>

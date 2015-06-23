@@ -1,0 +1,46 @@
+<div ng-controller="dsp">
+    <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()" ng-if="mode==='dea' || mode==='rea' || mode==='dlt' || mode==='imp' || mode ==='exp' || mode==='log' "/>
+    <input type="button" value="{{lbl.btn.dea}}" ng-click="do_dea()" ng-if="mode==='dea'"/>
+    <input type="button" value="{{lbl.btn.rea}}" ng-click="do_rea()" ng-if="mode==='rea'"/>
+    <input type="button" value="{{lbl.btn.dlt}}" ng-click="do_dlt()" ng-if="mode==='dlt'"/>
+    <br><br>
+    <div ng-If="data.isDea">
+        De-activate: by <span class="boxWord">{{data.deaBy}}</span>
+        on <span class="boxWord">{{data.deaOn}}</span>
+        remark <span class="boxWord">{{data.deaRmk}}</span>
+        <br>
+    </div>
+    <table border="2px">
+        <caption style="font-weight:bold">{{lbl.txt.region}}</caption>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.regCd}}
+            <td class="readOnly">{{region.regCd}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.inpCd}}
+            <td class="readOnly">{{region.inpCd}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.chiNm}}
+            <td class="readOnly">{{region.chiNm}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.engNm}}
+            <td class="readOnly">{{region.engNm}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.majRegCd}}
+            <td class="readOnly">{{region.majRegCd}}
+    </table>
+    <br>
+    <table border="2px">
+        <caption style="font-weight:bold">{{lbl.txt.nearBy}}</caption>
+        <th>##
+        <th>{{lbl.fld.regCd}}
+        <th>{{lbl.fld.chiNm}}
+        <th>{{lbl.fld.engNm}}
+        <th>{{lbl.fld.majRegCd}}
+            <tr ng-repeat="i in nearBy">
+                <td class="readOnly">{{($index + 1)}}
+                <td class="readOnly">{{i.nearBy}}
+                <td class="readOnly">{{i.engNm}}
+                <td class="readOnly">{{i.chiNm}}
+                <td class="readOnly">{{i.majRegCd}}
+    </table>
+</div>

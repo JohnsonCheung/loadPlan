@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+    border: 2px;
+    border-spacing: 2px;
+}
+td.dim {
+    color: royalblue
+}
+
+.selected {
+    background-color: #80ff80;
+}
+
+span.boxWord {
+    background-color: rgb(4, 244, 253);
+}
+
+td.readOnly {
+    background-color: rgb(4, 244, 253);
+
+}
+

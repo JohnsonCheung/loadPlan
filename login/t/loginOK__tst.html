@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../../stdlib/base64.js"></script>
+    <script>
+        function go() {
+            var a = encodeURI(Base64.toBase64("johnson"));
+            var b = encodeURI(Base64.toBase64("1234"));
+
+            // redirect to this page login.php will return cookie: a,b,c and status 202
+            //
+            location.assign("../login.php?a=" + a + '&b=' + b);
+        }
+    </script>
+</head>
+<body>
+<pre>will location.assign("../login.php?a=..&b=..").  It will setcookie a,b,c and response 202.
+</pre>
+<input type="button" value="go" onclick="go()"/>
+</body>
+</html>

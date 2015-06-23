@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="cusApp">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Display Region</title>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('cusApp', []);</script>
+    <script src="dsp.js"></script>
+    <script>
+        angular.module('cusApp').controller('dsp_test', ['$scope', '$http', function ($scope, $http) {
+            $scope.lang = "zh";
+            $http.get('../phpResp/tblDc.php?t=cus&f=cusCd').success(function (data) {
+                $scope.cusCdDc = data;
+            });
+        }]);
+    </script>
+</head>
+<body ng-controller="dsp_test">
+customer code
+<select ng-model="cusCd">
+    <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
+</select>
+<br>
+mode:
+<input type="button" value="dsp" ng-click="mode='dsp'"/>
+<input type="button" value="dea" ng-click="mode='dea'"/>
+<input type="button" value="rea" ng-click="mode='rea'"/>
+<input type="button" value="dlt" ng-click="mode='dlt'"/>
+<ng-include src="'dsp.html'"/>
+</body>
+</html>

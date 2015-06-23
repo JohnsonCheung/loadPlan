@@ -1,0 +1,148 @@
+<form ng-controller="upd" name="updForm">
+    <input type="button" value="{{lbl.btn.sav}}" ng-click="do_sav()"/>
+    <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
+    <input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
+    <input type="button" value="{{lbl.btn.vdt}}" ng-click="do_vdt()"/>
+    <table border="2px">
+        <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.cusCd}}
+            <td class="readOnly">{{data.cus.cusCd}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.inpCd}}
+            <td><input name="inpCd" required ng-maxlength="30" ng-model="data.cus.inpCd" type="text">
+            <td>{{do_errMsg(updForm.inpCd)}}
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.chiShtNm}}
+            <td><input ng-model="data.cus.chiShtNm" ng-maxlength="255" type="text"/>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.engShtNm}}
+            <td><input ng-model="data.cus.engShtNm" ng-maxlength="255" type="text"/>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.chiNm}}
+            <td><input ng-model="data.cus.chiNm" ng-maxlength="255" type="text"/>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.engNm}}
+            <td><input ng-model="data.cus.engNm" ng-maxlength="255" type="text"/>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.cusTy}}
+            <td><input ng-model="data.cus.cusTy" ng-maxlength="30" type="text"/>
+        <tr>
+            <td style="font-weight:bold">{{lbl.fld.rmk}}
+            <td><input ng-model="data.cus.cusRmk" ng-maxlength="255" type="text"/>
+
+    </table>
+    <br>
+    <input type="button" value="{{lbl.btn.add}}" ng-click="do_addAdr()"/>
+    <input type="button" value="{{lbl.btn.view1}}" ng-click="do_view1()" style="background-color: {{view1Color}}"/>
+    <input type="button" value="{{lbl.btn.view2}}" ng-click="do_view2()" style="background-color: {{view2Color}}"/>
+    <br><br>
+    <div style="font-weight:bold">{{lbl.txt.adr}}</div>
+    <table border="2px">
+        <th>{{lbl.btn.dlt}}
+        <th>{{lbl.btn.rea}}
+        <th>{{lbl.btn.dea}}
+        <th>##<th>
+        {{lbl.fld.adrCd}}<th ng-if="view1">
+        {{lbl.fld.inpCd}}<th ng-if="view1">
+        {{lbl.fld.adrNm}}<th ng-if="view1">
+        {{lbl.fld.adr}}     <th ng-if="view1">
+        {{lbl.fld.contact}} <th ng-if="view1">
+        {{lbl.fld.phone}}   <th ng-if="view1">
+        {{lbl.fld.regCd}}   <th ng-if="view1">
+        {{lbl.fld.gpsX}}    <th ng-if="view1">
+        {{lbl.fld.gpsY}}    <th ng-if="view2">
+        {{lbl.fld.delvTimFm}} <th ng-if="view2">
+        {{lbl.fld.delvTimTo}} <th ng-if="view2">
+        {{lbl.fld.delvLasTim}} <th ng-if="view2">
+        {{lbl.fld.truckTones}} <th ng-if="view2">
+        {{lbl.fld.truckCold}}    <th ng-if="view2">
+        {{lbl.fld.truckFlat}}    <th ng-if="view2" style="align-content:centre">
+        {{lbl.fld.truckVan}}     <th ng-if="view2">
+        {{lbl.fld.truckClose}}   <th ng-if="view2">
+        {{lbl.fld.truckTail}}    <th ng-if="view2">
+        {{lbl.fld.truckUpstair}} <th ng-if="view2" style="align:centre">
+        {{lbl.fld.truckDispatchAtDoor}} <th ng-if="view2">
+        {{lbl.fld.truckByBox}}          <th ng-if="view2">
+        {{lbl.fld.truckByPallet}}  <th ng-if="view2">
+        {{lbl.fld.truckLock}}      <th ng-if="view2">
+        {{lbl.fld.pickAdrCd}}      <th ng-if="view2">
+        {{lbl.fld.rmk}}
+            <tr class=" i.isDea?'dim':'' " ng-repeat="i in data.adr">
+                <td><input type="button" value="{{lbl.btn.dlt}}" ng-if="i.shwDlt" ng-click="do_dltAdr()"/>
+                <td><input type="button" value="{{lbl.btn.dea}}" ng-if="i.shwDea" ng-click="do_deaAdr()"/>
+                <td><input type="button" value="{{lbl.btn.rea}}" ng-if="i.shwRea" ng-click="do_reaAdr()"/>
+                <td>{{($index + 1)}}
+                <td>              <input class="readOnly" readonly type="text" size="6" ng-model="i.adrCd"/>
+                <td ng-if="view1"><input type="text" size="10" ng-model="i.inpCd"/>
+                <td ng-if="view1"><input type="text" size="10" ng-model="i.adrNm"/>
+                <td ng-if="view1"><input type="text" size="50" ng-model="i.adr"/>
+                <td ng-if="view1"><input type="text" size="10" ng-model="i.contact" wraptext/>
+                <td ng-if="view1"><input type="text" size="10" ng-model="i.phone" wraptext/>
+                <td ng-if="view1"><input type="text" size="10" ng-model="i.regCd"/>
+                <td ng-if="view1"><input type="text" size="7" ng-model="i.gpsX"/>
+                <td ng-if="view1"><input type="text" size="7" ng-model="i.gpsY"/>
+                <td ng-if="view2"><input type="text" size="8" ng-model="i.delvTimFm"/>
+                <td ng-if="view2"><input type="text" size="8" ng-model="i.delvTimTo"/>
+                <td ng-if="view2"><input type="text" size="8" ng-model="i.delvLasTim"/>
+                <td ng-if="view2"><input type="text" size="3" ng-model="i.truckTones"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckCold"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckFlat"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckVan"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckClose"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckTail"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckUpstair"/>
+                <td ng-if="view2" ><input type="checkbox" ng-model="i.truckDispatchAtDoor"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckByBox"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckByPallet"/>
+                <td ng-if="view2"><input type="checkbox" ng-model="i.truckLock"/>
+                <td ng-if="view2"><input type="text" size="8" ng-model="i.pickAdrCd"/>
+                <td ng-if="view2"><input type="text" ng-model="i.rmk"/>
+    </table>
+</form>
+
+
+<!--
+    <div ng-controller="dsp">
+<input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"
+       ng-if="mode==='dea' || mode==='rea' || mode==='dlt' || mode==='imp' || mode ==='exp' || mode==='log' "/>
+<input type="button" value="{{lbl.btn.dea}}" ng-click="do_dea()" ng-if="mode==='dea'"/>
+<input type="button" value="{{lbl.btn.rea}}" ng-click="do_rea()" ng-if="mode==='rea'"/>
+<input type="button" value="{{lbl.btn.dlt}}" ng-click="do_dlt()" ng-if="mode==='dlt'"/>
+{{lbl.regCd}}
+<br>
+
+<div ng-If="data.isDea">
+    <br>
+    De-activate: by <span class="boxWord">{{data.deaBy}}</span>
+    on <span class="boxWord">{{data.deaOn}}</span>
+    remark <span class="boxWord">{{data.deaRmk}}</span>
+    <br>
+</div>
+<br>
+<table border="2px">
+    <caption style="font-weight:bold">{{lbl.txt.cus}}</caption>
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.cusCd}}
+        <td class="readOnly">{{cus.cusCd}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.inpCd}}
+        <td class="readOnly">{{cus.inpCd}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.chiShtNm}}
+        <td class="readOnly">{{cus.chiShtNm}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.engShtNm}}
+        <td class="readOnly">{{cus.engShtNm}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.chiNm}}
+        <td class="readOnly">{{cus.chiNm}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.engNm}}
+        <td class="readOnly">{{cus.engNm}}
+    <tr>
+</table>
+<br>
+
+</div>
+-->

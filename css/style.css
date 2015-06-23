@@ -1,0 +1,12 @@
+.button {
+	color: #ffffff;
+	font-size: 14px;
+	line-geight: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+table {border-collapse: collapse;}
+td.readOnly {background-color: lightblue}
+input.readOnly {background-color: lightblue}
+td input {border:none}
+td select {border:none}

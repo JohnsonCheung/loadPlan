@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Region</title>
+  </head>
+  <table>
+    <tr>
+<!--        <td width="10%"><img style="display:normal" ng-src="/loadPlan/images/company.png" ng-click="goMnu()"> -->
+        <td width="40%"><h1>Region</h1>
+        <td>
+        <td width="10%">
+            <div align="right" ng-If="isLogin">Wellcome1, johnson
+                <input type="button"
+                       value="logout"
+                       ng-click="logoutClicked()">
+                <span>{{loginMsg}}</span>
+            </div>
+</table>
+<hr>
+
+ <frameset cols="30%,70%" framespacing="0" scrolling="yes" frameborder="0">
+    <frame src="left.html" name="left">
+    <frame src="region.html" name="region" marginwidth="100"></frameset>
+ </frameset>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<div ng-controller="upd"">
+<input type="button" value="{{lbl.btn.sav}}" ng-click="do_sav()"/>
+<input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
+<input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
+<br><br>
+<table border="2px">
+    <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.regCd}}
+        <td class="readOnly">{{data.region.regCd}}
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.inpCd}}
+        <td><input name="inpCd" required ng-maxlength="30" ng-model="data.region.inpCd" type="text">
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.chiNm}}
+        <td><input ng-model="data.region.chiNm" ng-maxlength="255" type="text"/>
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.engNm}}
+        <td><input ng-model="data.region.engNm" ng-maxlength="255" type="text"/>
+    <tr>
+        <td style="font-weight:bold">{{lbl.fld.majRegCd}}
+        <td>
+            <select ng-model="data.region.majRegCd">
+                <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
+            </select><br>{{data.erMsg.region.majRegCd}}
+</table>
+<br>
+<input type="button" value="{{lbl.btn.add}}" ng-click="do_add_nearBy()"/>
+<table border="2px">
+    <caption style="font-weight:bold">{{lbl.txt.nearBy}}</caption>
+    <th>##
+    <th>{{lbl.fld.regCd}}
+    <th>{{lbl.fld.chiNm}}
+    <th>{{lbl.fld.engNm}}
+    <th>{{lbl.fld.majRegCd}}
+        <tr ng-repeat="i in data.nearBy">
+            <td class="readOnly">{{($index + 1)}}
+            <td>
+                <select ng-model="i.nearBy" ng-change="do_nearBy_changed()">
+                    <option ng-repeat=" j in regCdDc" value="{{j}}" ng-selected="j===i.nearBy">{{j}}</option>
+                </select>
+            <td class="readOnly">{{i.engNm}}
+            <td class="readOnly">{{i.chiNm}}
+            <td class="readOnly">{{i.majRegCd}}
+            <td><input type="button" ng-value="lbl.btn.dlt" ng-click="do_dlt_nearBy()"/>
+</table>
+</div>

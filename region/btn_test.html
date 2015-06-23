@@ -1,0 +1,25 @@
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Region</title>
+    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/obj_facFn.js"></script>
+    <script src="../ngSvc/app_facFn.js"></script>
+    <script>
+        (function (angular) {
+            angular.module('app').controller('btnContainer', a);
+            return;
+            function a($scope) {
+                $scope.lang="zh";
+            }
+        })(angular);
+    </script>
+    <script src="btn.js"></script>
+</head>
+<body ng-controller="btnContainer">
+regCd: <input type="text" ng-model="regCd"/>{{regCd}}
+<ng-include src="'btn.html'"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html ng-App="loadplanApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Load Plan System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../stdLib/angular.min.js"></script>
+    <script>angular.module('loadplanApp', []);</script>
+    <script src="base64.js"></script>
+    <script src="index.js"></script>
+</head>
+<body ng-controller="loginController">
+<table>
+    <tr>
+        <td width="60%"><h1 align="left" style="display:inline">{{lbl.txt.appNm}}</h1>
+        <td>
+        <td width="10%"><img src="../images/company.png">
+    </tr>
+</table>
+<hr>
+<br><br><br><br>
+
+<form action="post" target="login.php">
+    <table width="320" border="0" align="center" ng-init="isLoginBtnVis=true">
+        <tr>
+            <td>Login Name:
+            <td><input ng-model="usrId" type="text" size="25" maxlength="20">
+            <td>{{msg.usrId}}
+        <tr>
+            <td>Password:
+            <td><input ng-model="pwd" type="password" size="25" maxlength="12">
+            <td>{{msg.pwd}}
+        <tr>
+            <td colspan="2" align="center"><input width="250" type="button" ng-click="do_login()" value="  Login  "
+                                                  ng-If="shwLoginBtn">
+        <tr ng-If="erMsg">
+            <td colspan="2">{{erMsg}}
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+

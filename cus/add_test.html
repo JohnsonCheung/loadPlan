@@ -1,0 +1,20 @@
+<html ng-app="app">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Add Region</title>
+    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', [])</script>
+    <script src='../ngSvc/app_facFn.js'></script>
+    <script src="add.js"></script>
+    <script>
+        angular.module('app').controller('testAdd',['$rootScope',a]);
+        function a($rootScope) {
+            $rootScope.lang='zh';
+        }
+    </script>
+</head>
+<body ng-controller="testAdd">
+<ng-include src="'add.html'"/>
+</body>
+</html>

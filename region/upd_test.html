@@ -1,0 +1,38 @@
+<html ng-App="app">
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/app_facFn.js"></script>
+    <script src="../ngSvc/obj_facFn.js"></script>
+    <script>
+        angular.module('app').controller('upd_test', ['$scope', '$http', '$rootScope', a]);
+        function a($scope, $http, $rootScope) {
+            $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
+                $scope.lang = "zh";
+                $scope.regCdDc = data;
+            })
+        }
+    </script>
+    <script src="upd.js"></script>
+</head>
+<body ng-controller='upd_test'>
+<table border="2px" id="testingBox">
+    <tr>
+        <td>Region to update
+        <td><select ng-model="regCd" style="border:none"/>
+            <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
+            </select>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{mode}}
+    <tr>
+        <td>noChg
+        <td class="readOnly">{{noChg}}
+</table>
+<hr>
+<div ng-include="'upd.html'"/>
+</body>
+</html>

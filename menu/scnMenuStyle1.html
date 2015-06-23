@@ -1,0 +1,194 @@
+<table ng-controller="menuController"  align="center" cellpadding="2">
+    <tr ng-repeat="r in rows">
+        <td width="80">{{r.rowLbl}}
+        <td>
+            <input type="button" ng-click="goScn()" ng-value="scnCaption[s]"
+                   ng-repeat="s in r.scnAy"/>
+    </tr>
+</table>
+<!--
+<table align="center" width="800" border="1" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr class="headerRow">
+		<td class="headertext">
+			User Management
+		</td>
+	</tr>
+</table>
+<br>
+<table width="800" border="0" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr>
+		<td class="headertext" width="160">
+			User
+		</td>
+		<td class="headertext" width="160">
+			User Permission
+		</td>
+		<td class="headertext" width="160">
+		</td>
+		<td class="headertext" width="160">
+		</td>
+		<td class="headertext" width="160">
+		</td>
+	</tr>
+		<tr>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+	</tr>
+	<tr>
+		<td class="normaltext"><a href="user_list.php">User List</a></td>
+		<td class="normaltext"><a href="user_permission_list.php">Set Permission</a></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+	</tr>
+		<tr>
+		<td class="normaltext"><a href="user_add.php">Add User</a></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+	</tr>
+			<tr>
+		<td class="normaltext"><a href="user_list.php">Update User</a></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+	</tr>
+				<tr>
+		<td class="normaltext"><a href="user_list.php">Reset Password</a></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+	</tr>
+</table>
+<br>
+<table width="800" border="1" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr class="headerRow">
+		<td class="headertext">
+			Data Maintainance
+		</td>
+	</tr>
+</table>
+<br>
+<table width="800" border="0" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr>
+		<td class="headertext" width="160">
+			Company
+		</td>
+		<td class="headertext" width="160">
+			Supplier
+		</td>
+		<td class="headertext" width="160">
+			Category
+		</td>
+		<td class="headertext" width="160">
+			Product
+		</td>
+		<td class="headertext" width="160">
+			PO
+		</td>
+	</tr>
+		<tr>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+	</tr>
+	<tr>
+		<td class="normaltext"><a href="company_list.php">Company List</a></td>
+		<td class="normaltext"><a href="supplier_list.php">Supplier List</a></td>
+		<td class="normaltext"><a href="category_list.php">Category List</a></td>
+		<td class="normaltext"><a href="product_list.php">Product List</a></td>
+		<td class="normaltext"><a href="po_list.php">PO List</a></td>
+	</tr>
+		<tr>
+		<td class="normaltext"><a href="company_add.php">Add Company</a></td>
+		<td class="normaltext"><a href="supplier_add.php">Add Supplier</a></td>
+		<td class="normaltext"><a href="category_add.php">Add Category</a></td>
+		<td class="normaltext"><a href="product_add.php">Add Product</a></td>
+		<td class="normaltext"><a href="po_add.php">Add PO</a></td>
+	</tr>
+			<tr>
+		<td class="normaltext"><a href="company_list.php">Update Company</a></td>
+		<td class="normaltext"><a href="supplier_list.php">Update Supplier</a></td>
+		<td class="normaltext"><a href="category_list.php">Update Category</a></td>
+		<td class="normaltext"><a href="product_list.php">Update Product</a></td>
+		<td class="normaltext"><a href="po_list.php">Update PO</a></td>
+	</tr>
+				<tr>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"><a href="po_list.php">Cancel PO</a></td>
+	</tr>
+					<tr>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext"><a href="po_list.php">Search PO</a></td>
+	</tr>
+</table>
+<br>
+<table width="800" border="1" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr class="headerRow">
+		<td class="headertext">
+			Report
+		</td>
+	</tr>
+</table>
+<br>
+<table width="800" border="0" cellpadding="2" cellspacing="0" rules="rows" bordercolor="#000000" align="center">
+	<tr>
+		<td class="headertext" width="160">
+			Company
+		</td>
+		<td class="headertext" width="160">
+			Supplier
+		</td>
+		<td colspan = "2" class="headertext" width="320">
+			Category
+		</td>
+		<td class="headertext" width="160">
+			Other
+		</td>
+	</tr>
+		<tr>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+		<td class="normaltext" align="left" colspan="2"><hr width="240"></td>
+		<td class="normaltext" align="left"><hr width="120"></td>
+	</tr>
+	<tr>
+		<td class="normaltext"><a href="report_summary.php?type=company">Summary</a></td>
+		<td class="normaltext"><a href="report_summary.php?type=supplier">Summary</a></td>
+		<td class="normaltext" colspan="2"><a href="report_summary.php?type=FG">Summary (FG)</a></td>
+		<td class="normaltext"><a href="report_all.php">All PO Line</a></td>
+	</tr>
+		<tr>
+		<td class="normaltext"><a href="report_details.php?type=company">Details</a></td>
+		<td class="normaltext"><a href="report_details.php?type=supplier">Details</a></td>
+		<td class="normaltext" colspan="2"><a href="report_summary.php?type=Component">Summary (Component + Tooling)</a></td>
+		<td class="normaltext"></td>
+	</tr>
+				<tr>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext" colspan="2"><a href="report_details.php?type=FG">Details (FG)</a></td>
+		<td class="normaltext"></td>
+	</tr>
+					<tr>
+		<td class="normaltext"></td>
+		<td class="normaltext"></td>
+		<td class="normaltext" colspan="2"><a href="report_details.php?type=Component">Details (Component + Tooling)</a></td>
+		<td class="normaltext"></td>
+	</tr>
+</table>
+-->

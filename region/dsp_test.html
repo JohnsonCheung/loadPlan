@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Display Region</title>
+    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/app_facFn.js"></script>
+    <script src="dsp.js"></script>
+    <script>
+        angular.module('app').controller('dsp_test', ['$scope', '$http', a]);
+        function a($scope, $http) {
+            $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function(data) {
+                $scope.regCdDc = data;
+            })
+        };
+    </script>
+</head>
+<body ng-controller="dsp_test">
+    region code <select ng-model="regCd">
+        <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
+        </select>
+    <br>
+    mode:
+    <input type="button" value="dsp" ng-click="mode='dsp'"/>
+    <input type="button" value="dea" ng-click="mode='dea'"/>
+    <input type="button" value="rea" ng-click="mode='rea'"/>
+    <input type="button" value="dlt" ng-click="mode='dlt'"/>
+    <br>
+    mode: {{mode}}
+    <hr>
+    <ng-include src="'dsp.html'"/>
+</body>
+</html>

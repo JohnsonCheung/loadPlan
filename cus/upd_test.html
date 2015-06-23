@@ -1,0 +1,26 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/obj_FacFn.js"></script>
+    <script>
+        angular.module('app').controller('upd_test', ['$scope', '$http', a]);
+        function a($scope, $http) {
+            $scope.lang = 'zh';
+            $http.get("../phpResp/tblDc.php?t=cus&f=cusCd").success(function(data) {
+                $scope.cusCdDc = data;
+            })
+        }
+    </script>
+    <script src="upd.js"></script>
+</head>
+<body ng-controller='upd_test'>
+<lable>cus to update :
+    <select ng-model="cusCd" on>
+        <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
+    </select></lable>
+<div ng-include="'upd.html'"/>
+</body>
+</html>

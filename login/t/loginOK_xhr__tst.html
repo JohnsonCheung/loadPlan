@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-App="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../../stdlib/angular.min.js"></script>
+    <script src="../../stdlib/base64.js"></script>
+    <script>
+        angular.module('app', []).controller('body', ['$scope', '$http', a]);
+        function a($scope, $http) {
+            var a = encodeURI(Base64.toBase64("johnson"));
+            var b = encodeURI(Base64.toBase64("1234"));
+            $http.get('../login.php?a=' + a + '&b=' + b).success(function (data, status) {
+                if (status = 202) {
+                    $scope.msg = "pass.  check console for cookie";
+                    console.dir(document.cookie);
+                }
+            });
+        }
+    </script>
+</head>
+<body ng-controller="body">
+
+</body>
+</html>

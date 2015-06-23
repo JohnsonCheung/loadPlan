@@ -1,0 +1,2 @@
+the upd_test.html,
+why the {{mode}} is ok to show, but {{noChg}} cannot??

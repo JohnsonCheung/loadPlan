@@ -1,0 +1,111 @@
+<html ng-app="regionApp">
+<head>
+<style>
+.selected {background-color:#80ff80;border-color:#80ff80;}
+.boxWord {
+    background-color: rgb(4, 244, 253);
+}
+td.readOnly {
+	background-color: rgb(4, 244, 253);
+}
+</style>
+</head>
+<script src="\stdlib\angular.js"></script>
+<script src="\stdlib\lodash.js"></script>
+<script src="index.js"></script>
+<body>
+<table ng-controller="login">
+<tr>
+    <td width="50%"><h1>Region</h1>
+    <td>
+    <td width="10%">
+        <div align="right" ng-If="isLogin">Wellcome, {{user}}
+            <input type="button"
+                   value="logout"
+                   ng-click="do_logout()">
+        </div>
+<!--    <td width="10%"><img style="display:normal" ng-src="/loadPlan/images/companyMedium.png" ng-click="goMnu()"> -->
+</table>
+<hr>
+
+<table>
+<tr style="vertical-align:top">
+<td ng-controller="regionLeft">
+{{lbl.filter}}<input type="button" value="x" ng-click="filter=''"/>  <input ng-model="filter" type='text' size="10"/> <input type="button" value="..." />
+{{do_filter_changed(filter)}}
+<br>
+<input type="button" value="x" ng-click="do_go_rno(rno=1)"/> <input ng-model="rno" type="text" size=3 maxlength=4/>
+{{do_fmt_ofN_ofT(ofN)}}<br>
+{{do_go_rno(rno)}} 
+<input type="button" value="top" ng-click="rno=(selectedIdx=0)+1"/>
+<input type="button" value="up" ng-click="rno=(selectedIdx=(selectedIdx==0)?0:selectedIdx-1)+1"/>
+<input type="button" value="down" ng-click="rno=(selectedIdx=(selectedIdx==(ofN-1))?(ofN-1):selectedIdx+1)+1"/>
+<input type="button" value="buttom" ng-click="rno=(selectedIdx=ofN-1)+1"/>
+<br>
+	<input type="button" value="{{lbl.btn.inp}}" ng-class="(btn_selected.inp) ? 'selected' : ''" ng-click="do_tgl_btn('inp')"/> 
+	<input type="button" value="{{lbl.btn.eng}}" ng-class="(btn_selected.eng) ? 'selected' : ''" ng-click="do_tgl_btn('eng')"/> 
+	<input type="button" value="{{lbl.btn.chi}}" ng-class="(btn_selected.chi) ? 'selected' : ''" ng-click="do_tgl_btn('chi')"/> 
+	<input type="button" value="{{lbl.btn.code}}" ng-class="(btn_selected.code) ? 'selected' : ''" ng-click="do_tgl_btn('code')"/> <br>
+<table>
+<tr ng-repeat="tr in matrix.data" ng-class="($index==selectedIdx) ? 'selected' : ''" ng-click="do_sel_row()">
+<td ng-repeat="td in tr">{{td}}
+</table>
+<td>
+<div ng-controller="regionRec">
+<input type="button" value="{{btn.upd}}" ng-If="shw.upd"  ng-click="do_upd()"/>
+<input type="button" value="{{btn.add}}" ng-If="shw.add"  ng-click="do_add()"/>
+<input type="button" value="{{btn.dlt}}" ng-If="shw.dlt"  ng-click="do_dlt()"/>
+<input type="button" value="{{btn.dea}}" ng-If="shw.dea"  ng-click="do_dea()"/>
+<input type="button" value="{{btn.rea}}" ng-If="shw.rea"  ng-click="do_rea()"/>
+<input type="button" value="{{btn.sav}}" ng-If="shw.sav"  ng-click="do_sav()"/>
+<input type="button" value="{{btn.can}}" ng-If="shw.can"  ng-click="do_can()"/>
+<input type="button" value="{{btn.imp}}" ng-If="shw.imp"  ng-click="do_imp()"/>
+<input type="button" value="{{btn.exp}}" ng-If="shw.exp"  ng-click="do_exp()"/>
+<input type="button" value="{{btn.log}}" ng-If="shw.log"  ng-click="do_log()"/>
+<p ng-If="msg">{{msg}}</p>
+<br>
+<div ng-If="isDeact">
+	De-activate: by <span class="boxWord">{{data.deact.by}}</span>
+	on              <span class="boxWord">{{data.deact.on}}</span>
+	remark          <span class="boxWord">{{data.deact.rmk}}</span>
+	<br>
+	<br>
+</div>
+<table border="2px" border-spacing="0px" ng-If="isDsp">
+<caption display="font-weight:bold">Display</caption>
+<tr><td style="font-weight:bold">{{lbl.regCd}}<td class="readOnly">{{data.regCd}}
+<tr><td style="font-weight:bold">{{lbl.inpCd}}<td class="readOnly">{{data.inpCd}}
+<tr><td style="font-weight:bold">{{lbl.chiNm}}<td class="readOnly">{{data.chiNm}}
+<tr><td style="font-weight:bold">{{lbl.engNm}}<td class="readOnly">{{data.engNm}}
+</table>
+<table border="2px" border-spacing="0px" ng-If="isUpd">
+<caption display="font-weight:bold">Update</caption>
+<tr><td style="font-weight:bold">{{lbl.regCd}}<td class="readOnly">{{data.regCd}}
+<tr><td style="font-weight:bold">{{lbl.inpCd}}<td><input ng-model="data.inpCd" type="text"/>
+<tr><td style="font-weight:bold">{{lbl.chiNm}}<td><input ng-model="data.chiNm" type="text"/>
+<tr><td style="font-weight:bold">{{lbl.engNm}}<td><input ng-model="data.engNm" type="text"/>
+</table>
+<form ng-If="isAdd">
+<table border="2px" border-spacing="0px">
+<caption display="font-weight:bold">Add</caption>
+<tr><td style="font-weight:bold">{{lbl.regCd}}<td><input id="new_regCd" autofocus="true" ng-keydown="sav_new_regCd_keydown($event)" ng-model="data.new_regCd" ng-model-options="{updateOn:'blur'}" ng-change="sav_new_regCd(data.new_regCd)" type="text"/>
+</table>
+</form>
+<br>
+<br>
+<table border="2px">
+<caption style="font-weight:bold">{{lbl.nearBy}}</caption>
+<th>##
+<th>{{lbl.regCd}}
+<th>{{lbl.chiNm}}
+<th>{{lbl.engNm}}
+<tr ng-repeat="nearBy in data.nearBy">
+<td>{{($index + 1)}}
+<td>{{nearBy.regCd}}
+<td>{{nearBy.engNm}}
+<td>{{nearBy.chiNm}}
+</table>
+</div>
+</table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<table ng-controller="menuController" width="700" border="1" align="center" ng-report="t in mnuBlks">
+    <tr>
+        <td width="30%">
+        <td width="40%">
+            <table align="center" cellpadding="2">
+                <tr ng-repeat="r in rows">
+                    <td ng-repeat="c in r.cells" width="{{t.wdt}}">
+                        <div ng-If="c.IsTxt">{{c.caption}}</div>
+                        <input type="button" ng-click="goScn()" ng-value="c.caption" ng-If="c.IsBtn"/>
+                    </td>
+                </tr>
+            </table>
+        <td width="30%">
+    </tr>
+</table>
