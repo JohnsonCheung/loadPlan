@@ -8,16 +8,26 @@
     <script src="../ngSvc/app_facFn.js"></script>
     <script src="../ngSvc/obj_facFn.js"></script>
     <script>
-        angular.module('app').controller('upd_test', ['$scope', '$http', '$rootScope', a]);
-        function a($scope, $http, $rootScope) {
+        angular.module('app').controller('upd_test', ['$scope', '$http', '$rootScope', '$document', a]);
+        function a($scope, $http, $rootScope, $document) {
             $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
+                $scope.do_clearMajRegCd = do_clearMajRegCd;
                 $scope.lang = "zh";
                 $scope.regCdDc = data;
-                $scope.do_brk = function() {
+                $scope.do_brk = function () {
                     debugger;
                 }
             })
+            function do_clearMajRegCd() {
+               // var e = $document.find("select[ng-module='data.region.majRegCd'")[0];
+               var sel0 = 'select';
+               var sel1= "select[ng-model='data.region.majRegCd'";
+               var sel2= "select[ng-model]";
+               var e = $document.find(sel0)[1];
+                e.value = "";
+            }
         }
+
     </script>
     <script src="upd.js"></script>
 </head>
@@ -29,11 +39,14 @@
             <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
             </select>
     <tr>
+        <td>clear majCd
+        <td><input type="button" ng-click="do_clearMajRegCd()" value="clear"/>
+    <tr>
         <td>mode
         <td class="readOnly">{{mode}}
     <tr>
         <td>noChg
-        <td class="readOnly">{{noChg}}{{do_brk()}}
+        <td class="readOnly">{{noChg}}
 </table>
 <hr>
 <div ng-include="'upd.html'"/>

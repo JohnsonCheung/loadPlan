@@ -5,7 +5,7 @@
  * Date: 23/6/2015
  * Time: 8:16
  */
-include_once '/../phpFn/db.php';
+include_once '/../phpFn/cmn.php';
 addMissingNearBy();
 function addMissingNearBy()
 {

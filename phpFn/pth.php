@@ -8,15 +8,6 @@
 include_once "str.php";
 include_once "System/Launcher.php";
 const PTH_TMP_HOM = "c:\\Temp\\";
-function brw_csvPth($csvPth)
-{
-    $fm = pth_norm(__DIR__ . "\\..\\xlsm\\OpnCsvPth.xlsm");
-    $to = $csvPth . "OpnCsvPth.xlsm";
-    copy($fm, $to);
-    $a = new System_Launcher;
-    $a->Launch($to);
-    return $csvPth;
-}
 
 function pth_tmp($seg = null)
 {

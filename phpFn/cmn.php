@@ -804,6 +804,9 @@ function db_con($dbNm = "loadplan")
     mysqli_set_charset($o, 'utf8');
     return $o;
 }
+function pass($s) {
+    echo "pass: " . $s;
+}
 function ay_newByLpAp($lp, ...$ap)
 {
     $kAy = preg_split('/ / ', $lp);

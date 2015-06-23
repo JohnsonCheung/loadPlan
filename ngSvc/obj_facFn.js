@@ -14,6 +14,10 @@
         };
         return $obj;
     };
+    function fndScope($rootScope, $id) {
+        if($rootScope.$id=$id) return $rootScope;
+    }
+
     function isEq(o1, o2) {
         return _isEq(o1, o2, {lvl: 0});
         function _isEq(o1, o2, lvl) {
