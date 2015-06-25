@@ -110,7 +110,6 @@ angular.module('app').factory('$app', ['$http', function $app($http) {
         var i2 = idx[btn2Cd];
         var i3 = idx[btn3Cd];
         var o = src_data.reduce(reduce, []);
-        debugger;
         return sort_data(o);
 
         function reduce(o, rec) {

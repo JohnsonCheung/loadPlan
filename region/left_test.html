@@ -4,6 +4,7 @@
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
     <script>
         (function (angular) {
             angular.module('app').controller('left_test', ['$scope', a]);
@@ -15,9 +16,6 @@
             }
         })(angular)
     </script>
-    <script src="../ngSvc/app_FacFn.js"></script>
-    <script src="../ngSvc/ay_FacFn.js"></script>
-    <script src="../ngSvc/obj_FacFn.js"></script>
     <script src="left.js"></script>
 </head>
 <body ng-controller="left_test">

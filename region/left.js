@@ -24,7 +24,7 @@
         $scope.do_sel_row = do_sel_row;
         $scope.do_fmt_ofN_ofT = do_fmt_ofN_ofT;
         $scope.do_tgl_btn = do_tgl_btn;
-        $scope.do_filter_changed = do_filter_changed;
+        $scope.$watch('filter', watch_filter);
         $scope.do_get_regCd = do_get_regCd;
         $scope.do_clear_filter = do_clear_filter;
 
@@ -110,10 +110,10 @@
 
         function do_clear_filter() {
             $scope.filter = '';
-            do_filter_changed('');
+            watch_filter('');
         }
 
-        function do_filter_changed(filter) {
+        function watch_filter(filter) {
             $scope.tar = $scope.tar || {};
             var data;
 
@@ -203,6 +203,7 @@
         }
 
         function do_tgl_btn(btnNm) {
+            debugger;
             var a = $scope.btn_selected;
             var s0 = a.chi;	// s for switch
             var s1 = a.eng;
