@@ -14,9 +14,9 @@
             $app.getLbl("region", "left", lang, $scope);
         })
         $scope.$watch('rno', function (rno) {
-            var i = Number(rno) - 1;
-            if (0 <= i && i <= $scope.tar.data.length) {
-                $scope.selectedIdx = i;
+            var i = rno - 1;
+            if($scope.tar===undefined) return;
+            if (0 <= i && i < $scope.tar.data.length) {
                 rootRegCd();
             }
         })
@@ -30,7 +30,7 @@
         $scope.btn2Nm = "chi";
         $scope.btn3Nm = "eng";
         $scope.btn_selected = $obj.getOptObj("inp cod chi eng");
-        $scope.selectedIdx = 0;
+        $scope.rno = 1;
 
         $http.get("left.php").success(success);
 
@@ -61,7 +61,7 @@
             if ($rootScope.regCd === undefined) {
                 $rootScope.regCd = data[0].regCd;
             }
-            $scope.selectedIdx = b();
+            $scope.rno = b();
             $rootScope.regCd = c();
 
             function a(data) {
@@ -78,16 +78,16 @@
                 var tarDta = $scope.tar.data;
                 var regCd = $rootScope.regCd;
                 for (var i = 0; i < tarDta.length; i++) {
-                    if (tarDta[i].regCd === regCd) return i;
+                    if (tarDta[i].regCd === regCd) return i+1;
                 }
-                return 0;
+                return 1;
             }
 
             function c() {
                 //debugger;
-                var idx = $scope.selectedIdx;
-                var tarDta = $scope.tar.data;
-                return data[idx].regCd;
+                var i = $scope.rno-1;
+                var t = $scope.tar.data;
+                return t[i].regCd;
             }
         }
 
@@ -135,8 +135,8 @@
                 })(filter_substr_ay)
 
             $scope.tar.data = bld_data(data);
-            if ($scope.selectedIdx >= $scope.tar.data.length) {
-                $scope.selectedIdx = 0;
+            if ($scope.rno > $scope.tar.data.length) {
+                $scope.rno = 1;
             }
             return;
 
@@ -151,7 +151,7 @@
         }
 
         function rootRegCd() {
-            var rec = $scope.tar.data[$scope.selectedIdx];
+            var rec = $scope.tar.data[$scope.rno-1];
             if (rec === undefined)
                 return;
             $rootScope.regCd = rec.regCd;
@@ -169,11 +169,11 @@
         }
 
         function do_sel_row() {
-            $scope.selectedIdx = this.$index;
             $scope.rno = this.$index + 1;
         }
 
         function do_tgl_btn(btnNm) {
+            debugger;
             var a = $scope.btn_selected;
             var s0 = a.chi;	// s for switch
             var s1 = a.eng;

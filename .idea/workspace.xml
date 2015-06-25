@@ -207,11 +207,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="left.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="left.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/region/left.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="160" max-vertical-offset="4560">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.36813188" vertical-offset="1585" max-vertical-offset="4560">
+              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -227,11 +227,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="left.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="left.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/region/left.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37132353" vertical-offset="140" max-vertical-offset="1729">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.648149" vertical-offset="926" max-vertical-offset="1729">
+              <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
@@ -265,8 +265,8 @@
         <option value="$PROJECT_DIR$/ngSvc/$lib.js" />
         <option value="$PROJECT_DIR$/ngSvc/$lib_test.js" />
         <option value="$PROJECT_DIR$/region/left_test.html" />
-        <option value="$PROJECT_DIR$/region/left.js" />
         <option value="$PROJECT_DIR$/region/left.html" />
+        <option value="$PROJECT_DIR$/region/left.js" />
       </list>
     </option>
   </component>
@@ -617,24 +617,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/region/left.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="160" max-vertical-offset="4560">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/region/left.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37132353" vertical-offset="140" max-vertical-offset="1729">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state vertical-scroll-proportion="-10.648149" vertical-offset="926" max-vertical-offset="1729">
+          <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/region/left.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36813188" vertical-offset="1585" max-vertical-offset="4560">
+          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
