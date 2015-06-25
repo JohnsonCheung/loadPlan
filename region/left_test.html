@@ -6,20 +6,26 @@
     <script>angular.module('app', []);</script>
     <script src="../ngSvc/$lib.js"></script>
     <script>
-        (function (angular) {
-            angular.module('app').controller('left_test', ['$scope', a]);
-            function a($scope) {
+        (function (angular, document) {
+            angular.module('app').controller('left_test', ['$scope', '$http', a]);
+            function a($scope, $http) {
                 $scope.lang = "en";
-                $scope.$on('regCd_changed', function b(event, regCd) {
-                    console.log("parent's listener get the event: regCd(" + regCd + ")");
-                })
             }
-        })(angular)
+        })(angular, document)
     </script>
     <script src="left.js"></script>
 </head>
 <body ng-controller="left_test">
-regCd: <input type="text" ng-model="regCd"/>
+<table id="testingBox" border="2px">
+    <tr>
+        <td>lang
+        <td><label><input type="radio" name="lang" value="en" ng-model="lang">en</input></label>
+            <label><input type="radio" name="lang" value="zh" ng-model="lang">zh</input></label>
+        </td>
+    <tr>
+        <td>regCd
+        <td><input id="regCd" type="text" ng-model="regCd"/>
+</table>
 <hr>
 <ng-include src="'left.html'"/>
 </body>

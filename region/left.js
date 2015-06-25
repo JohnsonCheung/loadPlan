@@ -15,17 +15,15 @@
         })
         $scope.$watch('rno', function (rno) {
             var i = Number(rno) - 1;
-            if (0 <= i && i <= $scope.ofN) {
+            if (0 <= i && i <= $scope.tar.data.length) {
                 $scope.selectedIdx = i;
                 rootRegCd();
             }
         })
 
         $scope.do_sel_row = do_sel_row;
-        $scope.do_fmt_ofN_ofT = do_fmt_ofN_ofT;
         $scope.do_tgl_btn = do_tgl_btn;
         $scope.$watch('filter', watch_filter);
-        $scope.do_clear_filter = do_clear_filter;
 
         $scope.btn0Nm = "cod";
         $scope.btn1Nm = "inp";
@@ -49,8 +47,6 @@
             src.data = srcDta;
 
             $scope.src = src;
-            $scope.ofN = src.data.length;
-            $scope.ofT = src.data.length;
             $scope.tar = {};
 
             var b0 = "cod";
@@ -95,11 +91,6 @@
             }
         }
 
-        function do_clear_filter() {
-            $scope.filter = '';
-            watch_filter('');
-        }
-
         function watch_filter(filter) {
             $scope.tar = $scope.tar || {};
             var data;
@@ -109,7 +100,6 @@
                     
                 data = bld_data($scope.src.data);
                 $scope.tar.data = data;
-                $scope.ofN = $scope.ofT;
                 return;
             }
 
@@ -145,8 +135,7 @@
                 })(filter_substr_ay)
 
             $scope.tar.data = bld_data(data);
-            $scope.ofN = data.length;
-            if ($scope.selectedIdx >= $scope.ofN) {
+            if ($scope.selectedIdx >= $scope.tar.data.length) {
                 $scope.selectedIdx = 0;
             }
             return;
@@ -159,13 +148,6 @@
                 var btn3Nm = $scope.btn3Nm;
                 return $app.selCol(data, btn_selected, btn0Nm, btn1Nm, btn2Nm, btn3Nm);
             }
-        }
-
-        function do_fmt_ofN_ofT(ofN) {
-            var ofT = $scope.ofT
-            return (ofN === ofT)
-                ? ' of ' + ofN
-                : ' of ' + ofN + ' of ' + ofT;
         }
 
         function rootRegCd() {
@@ -192,7 +174,6 @@
         }
 
         function do_tgl_btn(btnNm) {
-            debugger;
             var a = $scope.btn_selected;
             var s0 = a.chi;	// s for switch
             var s1 = a.eng;
