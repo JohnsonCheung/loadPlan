@@ -200,7 +200,7 @@
             if (a[btn1Cd]) dr[i1] = rec.dr[i1];
             if (a[btn2Cd]) dr[i2] = rec.dr[i2];
             if (a[btn3Cd]) dr[i3] = rec.dr[i3];
-            var m = {isDea: rec.dr.isDea, regDr: dr, regCd: rec.dr.regCd};
+            var m = {isDea: rec.dr.isDea, dr: dr, regCd: rec.dr.regCd};
             o.push(m);
             return o;
         }

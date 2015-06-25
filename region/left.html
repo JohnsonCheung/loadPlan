@@ -75,12 +75,7 @@
             <th>col3
             <th>col4
         <tr ng-repeat="rec in tar.data" ng-class="($index==(rno-1)) ? 'selected' : '' " ng-click="do_sel_row()">
-            <!--
-                <td>{{rno-1}}</td>
-                <td>{{Number(rno)}}</td>
-                <td>{{($index===(Number(rno)-1))}}</td>
-                -->
             <td>{{$index+1}}
-            <td class="{{(rec.isDea==='1') ? 'dim' : ''}}" ng-repeat="td in rec.regDr">{{td}}
+            <td class="{{(rec.isDea==='1') ? 'dim' : ''}}" ng-repeat="td in rec.dr">{{td}}
     </table>
 </div>

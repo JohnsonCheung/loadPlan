@@ -91,6 +91,7 @@ describe('libray - $lib.js', function () {
     describe('SERVICE $dta', function () {
         describe("CLASS Dta", function () {
             var dta, t, act;
+
             function init() {
                 dta = [{a: 1}, {b: 1}, {c: 1}];
                 t = new $dta.Dta(dta);      // tarDta <<-- the Dta instance to be tested
@@ -104,7 +105,7 @@ describe('libray - $lib.js', function () {
                 })
             });
             describe("has function selCol", function () {
-                it('should work properly', function () {
+                it('should work properly for case#1', function () {
                     act = t.selCol("a b", "c");
                     var a0 = act[0];
                     var a1 = act[1];
@@ -117,7 +118,44 @@ describe('libray - $lib.js', function () {
                     expect(a1).toEqual(e1);
                     expect(a2).toEqual(e2);
                 })
-            });
+                it("should work properly for case#2", function () {
+                    var dta = [{
+                        "regCd": "reg3ccc",
+                        "inpCd": "",
+                        "chiNm": "",
+                        "engNm": "",
+                        "isDea": "0"
+                    }, {"regCd": "市中心", "inpCd": "c", "chiNm": "", "engNm": "", "isDea": "0"}, {
+                        "regCd": "金沙",
+                        "inpCd": "c",
+                        "chiNm": "",
+                        "engNm": "",
+                        "isDea": "0"
+                    }, {
+                        "regCd": "高士德",
+                        "inpCd": "gvbcb",
+                        "chiNm": "aa",
+                        "engNm": "",
+                        "isDea": "0"
+                    }, {"regCd": "reg1", "inpCd": "inpCd1", "chiNm": "chiNm1", "engNm": "engNm1", "isDea": "0"}]
+                    var t = new $dta.Dta(dta);
+                    var a = t.selCol("regCd inpCd engNm chiNm", "regCd isDea");
+                    var e0 = {"regCd":"reg3ccc","isDea":"0","dr":{"regCd":"reg3ccc","inpCd":"","engNm":"","chiNm":""}}
+                    var e1 = {"regCd":"市中心","isDea":"0","dr":{"regCd":"市中心","inpCd":"c","engNm":"","chiNm":""}}
+                    var e2 = {"regCd":"金沙","isDea":"0","dr":{"regCd":"金沙","inpCd":"c","engNm":"","chiNm":""}}
+                    var e3 = {"regCd":"高士德","isDea":"0","dr":{"regCd":"高士德","inpCd":"gvbcb","engNm":"","chiNm":"aa"}}
+                    var e4 = {"regCd":"reg1","isDea":"0","dr":{"regCd":"reg1","inpCd":"inpCd1","engNm":"engNm1","chiNm":"chiNm1"}}
+                    var e = [e0, e1, e2, e3, e4];
+                    expect(a[0]).toEqual(e0);
+                    expect(a[1]).toEqual(e1);
+                    expect(a[2]).toEqual(e2);
+                    expect(a[3]).toEqual(e3);
+                    expect(a[4]).toEqual(e4);
+                    expect(a).toEqual(e);
+                    debugger;
+                    
+                });
+            })
             describe("has function filter", function () {
                 it("should work properly", function () {
                     var r0, r1, r2, r3, r4;

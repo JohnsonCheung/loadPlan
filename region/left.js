@@ -6,10 +6,11 @@
         '$app',
         '$obj',
         '$ay',
+        '$dta',
         '$rootScope',
         a]);
 
-    function a($scope, $http, $app, $obj, $ay, $rootScope) {
+    function a($scope, $http, $app, $obj, $ay, $dta, $rootScope) {
         $scope.$watch("lang", function (lang) {
             $app.getLbl("region", "left", lang, $scope);
         })
@@ -31,8 +32,8 @@
         $scope.btn3Nm = "eng";
         $scope.btn_selected = $obj.getOptObj("inp cod chi eng");
         $scope.rno = 1;
-        $scope.$watch('tar.data.length', function(len) {
-            $scope.rno = len===0 ? "" : 1;
+        $scope.$watch('tar.data.length', function (len) {
+            $scope.rno = len === 0 ? "" : 1;
         });
 
         $http.get("left.php").success(success);
@@ -44,12 +45,14 @@
         return;
 
         function success(data, status, headers, config) {
+            
             var srcDta = a(data);
 
             var src = {};
             src.data = srcDta;
 
             $scope.src = src;
+            $scope.src.data1 = data;
             $scope.tar = {};
 
             var b0 = "cod";
@@ -96,6 +99,8 @@
         }
 
         function watch_filter(filter) {
+            return bld_and_set_tar_data();
+
             $scope.tar = $scope.tar || {};
             var data;
 
@@ -139,10 +144,6 @@
                 })(filter_substr_ay)
 
             $scope.tar.data = bld_data(data);
-
-            //if ($scope.rno > $scope.tar.data.length) {
-            //    $scope.rno = 1;
-            //}
             return;
 
             function bld_data(data) {
@@ -172,21 +173,43 @@
          * Class Dta should be used to build the tar.data
          */
         function bld_and_set_tar_data() {
-            var i1 = $scope.filter;
-            var i2 = $scope.btn_selected;
+            if ($scope.src === undefined)return;
+            var filter = $scope.filter;
+            var ibs = $scope.btn_selected;
             var ib0 = $scope.btn0Nm;
             var ib1 = $scope.btn1Nm;
             var ib2 = $scope.btn2Nm;
             var ib3 = $scope.btn3Nm;
-            var i = $scope.src.data;
+            var i = $scope.src.data1;
             //---
-            var filter = i1;
             var a = [];
-            if (btn_selected[ib0]) a.push(ib0);
-            if (btn_selected[ib1]) a.push(ib1);
-            if (btn_selected[ib2]) a.push(ib2);
-            if (btn_selected[ib3]) a.push(ib3);
-            var selColNmLvs = a.join(' ');
+            if (ibs[ib0]) a.push(ib0);
+            if (ibs[ib1]) a.push(ib1);
+            if (ibs[ib2]) a.push(ib2);
+            if (ibs[ib3]) a.push(ib3);
+            var b = [];
+            a.forEach(function (i) {
+                var m;
+                switch (i) {
+                    case 'cod':
+                        m = "regCd";
+                        break;
+                    case 'inp':
+                        m = "inpCd";
+                        break;
+                    case 'chi':
+                        m = "chiNm";
+                        break
+                    case 'eng':
+                        m = "engNm";
+                        break;
+                    default:
+                        throw new Error('unexpect btnNm');
+                }
+                b.push(m);
+            })
+            var selColNmLvs = b.join(' ');
+            debugger;
             //----
             var d = new $dta.Dta(i);
             var o = d.filter_and_selCol(filter, selColNmLvs, " isDea regCd")
