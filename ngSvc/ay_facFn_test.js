@@ -10,10 +10,15 @@ describe('', function () {
         $ay = _$ay_;
     }))
     describe('service $ay', function () {
-        debugger;
         it("just a dummy to see how jasime works", function () {
             expect(true).toEqual(true);
         });
+        describe("has minus", function () {
+            it('minus([0, 1, 2] , [0, 3] = [1,2]', function () {
+                var act = $ay.minus([0, 1, 2], [0, 3]);
+                expect(act).toEqual([1, 2]);
+            })
+        })
         describe("has swapEle", function () {
             it('swapEle([0, 1, 2, 3, 4, 5, 6], 3, 2) => [0, 1, 3, 2, 4, 5, 6]', function () {
                 var swapEle = $ay.swapEle;

@@ -68,7 +68,7 @@ function add_backSlash($pth)
 
 function pth_opn($pth)
 {
-    $cmd = "explorer " . '"'. $pth .'"';
+    $cmd = "explorer " . '"' . $pth . '"';
     exec($cmd);
 }
 
@@ -116,15 +116,19 @@ function pth_norm($pth, $pthBase = "")
     }
     return $o;
 }
+
 function esc_lf($s)
 {
     return str_replace("\n", '\n', $s);
 }
-function is_intStr($s) {
+
+function is_intStr($s)
+{
     $a = strval(intval($s));
     $b = ($s === $a);
     return $b;
 }
+
 function nDays($d1, $d2)
 {
     $a = date_create($d1);
@@ -689,6 +693,18 @@ function runsql_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
     return $o;
 }
 
+function runsql_dicDic(mysqli $con, $sql)
+{
+    // use first 2 fields of $sql as key and 3 fields as value to return a named-array, $o, so that,
+    // $v = $o[$k1][$k2], $v will be the 3rd-fields value and $k1, $k2 are the 1st and 2nd field value
+    $dta = runsql_dta($con, $sql, MYSQLI_NUM);
+    foreach ($dta as $dr) {
+        list($d1, $d2, $d3) = $dr;
+        $o[$d1][$d2] = $d3;
+    }
+    return $o;
+}
+
 function runsql_isAny(mysqli $con, $sql)
 {
     $res = runsql($con, $sql);
@@ -804,9 +820,17 @@ function db_con($dbNm = "loadplan")
     mysqli_set_charset($o, 'utf8');
     return $o;
 }
-function pass($s) {
+
+function pass($s)
+{
     echo "pass: " . $s;
 }
+
+function db_isPkValExist($con, $tbl, $pkVal)
+{
+
+}
+
 function ay_newByLpAp($lp, ...$ap)
 {
     $kAy = preg_split('/ / ', $lp);
@@ -1045,6 +1069,7 @@ function dtaAy_tmpPth($nm_lvs, ...$dtaAy)
 {
     return dtaAy_tmpPth_array($nm_lvs, $dtaAy);
 }
+
 function obj_newByLpAp($lp, ...$ap)
 {
     $o = new stdClass();
@@ -1055,4 +1080,12 @@ function obj_newByLpAp($lp, ...$ap)
     }
     return $o;
 }
+
+/** return a dicDic of [fldNm][msgNm] to $msg */
+function msg_fldNm_msgNm($con, $pgmNm, $secNm, $lang)
+{
+    // table-lblPgmFldMsg = pgmNm, secNm, fldNm, msgNm, lang, msg
+    return runsql_dicDic($con, "select fldNm, msgNm, msg from lblPgmFldMsg where lang='$lang' and pgmNm='$pgmNm' and $secNm='$secNm';");
+}
+
 ?>

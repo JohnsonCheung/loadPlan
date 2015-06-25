@@ -7,11 +7,18 @@
  */
 include_once '/../cmn.php';
 run();
-function run() {
-    run_str();
-    run_pth();
-    run_db();
+function run()
+{
+    if (true) {
+        run_msg();
+    } else {
+        run_msg();
+        run_str();
+        run_pth();
+        run_db();
+    }
 }
+
 function run_str()
 {
     if (true) {
@@ -23,10 +30,6 @@ function run_str()
     }
 }
 
-function pass($s)
-{
-    echo "pass : " . $s;
-}
 
 function is_intStr__tst()
 {
@@ -49,19 +52,40 @@ function tim_stmp__tst()
 {
     $act = tim_stmp();
     $act1 = tim_stmp();
-    assert($act!==$act1);
+    assert($act !== $act1);
 }
 
+function runsql_dicDic__tst()
+{
+    $con = db_con();
+    runsql_exec($con, "DROP TABLE IF EXISTS dicDic;");
+    runsql_exec($con, "CREATE TABLE dicDic (k1 VARCHAR(10), k2 VARCHAR(10), v VARCHAR(10));");
+    runsql_exec($con, "INSERT INTO dicDic (k1,k2,v) VALUES ('a','a','a.a-value')");
+    runsql_exec($con, "INSERT INTO dicDic (k1,k2,v) VALUES ('a','b','a.b-value')");
+    runsql_exec($con, "INSERT INTO dicDic (k1,k2,v) VALUES ('b','1','b.1-value')");
+    runsql_exec($con, "INSERT INTO dicDic (k1,k2,v) VALUES ('b','2','b.2-value')");
+    $act = runsql_dicDic($con, "SELECT k1,k2,v FROM dicDic;");
+    runsql_exec($con, "DROP TABLE dicDic;");
+
+    $exp['a']['a'] = 'a.a-value';
+    $exp['a']['b'] = 'a.b-value';
+    $exp['b']['1'] = 'b.1-value';
+    $exp['b']['2'] = 'b.2-value';
+    assert($act === $exp);
+    pass(__FUNCTION__);
+}
+function msg_fldNm_msgNm__tst() {
+    $con = db_con();
+    $act = msg_fldNm_msgNm($con, "region", "upd", "en");
+
+    $con->close();
+}
 function run_db()
 {
-    if(true) {
-        runsql_isAny__tst();
-        runsql_rs__tst();
-        runsql_isAny__tst();
-        runsp_dta__tst();
-        runsp_rs__tst();
-
+    if (true) {
+        runsql_dicDic__tst();
     } else {
+        runsql_dicDic__tst();
         runsql_rs__tst();
         runsql_isAny__tst();
         runsp_dta__tst();
@@ -72,17 +96,17 @@ function run_db()
 function runsql_rs__tst()
 {
     $con = db_con();
-    $rs = runsql_rs($con, "select * from ordAdr");
+    $rs = runsql_rs($con, "SELECT * FROM ordAdr");
     $a = 1;
 }
 
 function runsql_isAny__tst()
 {
     $con = db_con();
-    $sql = "select * from trip where trip=1";
+    $sql = "SELECT * FROM trip WHERE trip=1";
     assert(runsql_isAny($con, $sql));
 
-    $sql = "select * from trip where trip=1234567";
+    $sql = "SELECT * FROM trip WHERE trip=1234567";
     assert(!runsql_isAny($con, $sql));
 }
 
@@ -99,6 +123,7 @@ function runsp_rs__tst()
     $rs = runsp_rs($con, "call loadsheet_trip(1)");
     $a = 1;
 }
+
 function run_pth()
 {
     if (true) {

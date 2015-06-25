@@ -7,6 +7,8 @@
     <script>angular.module('app', []);</script>
     <script src="../ngSvc/app_facFn.js"></script>
     <script src="../ngSvc/obj_facFn.js"></script>
+    <script src="../ngSvc/ay_facFn.js"></script>
+    <script src="selReg.js"></script>
     <script>
         angular.module('app').controller('upd_test', ['$scope', '$http', '$rootScope', '$document', a]);
         function a($scope, $http, $rootScope, $document) {
@@ -19,11 +21,11 @@
                 }
             })
             function do_clearMajRegCd() {
-               // var e = $document.find("select[ng-module='data.region.majRegCd'")[0];
-               var sel0 = 'select';
-               var sel1= "select[ng-model='data.region.majRegCd'";
-               var sel2= "select[ng-model]";
-               var e = $document.find(sel0)[1];
+                // var e = $document.find("select[ng-module='data.region.majRegCd'")[0];
+                var sel0 = 'select';
+                var sel1 = "select[ng-model='data.region.majRegCd'";
+                var sel2 = "select[ng-model]";
+                var e = $document.find(sel0)[1];
                 e.value = "";
             }
         }
@@ -42,11 +44,19 @@
         <td>clear majCd
         <td><input type="button" ng-click="do_clearMajRegCd()" value="clear"/>
     <tr>
+        <td>lang
+        <td>
+            <input type="radio" name="lang" ng-model="lang" value="en">en</input>
+            <input type="radio" name="lang" ng-model="lang" value="zh">zh</input>
+    <tr>
         <td>mode
         <td class="readOnly">{{mode}}
     <tr>
         <td>noChg
         <td class="readOnly">{{noChg}}
+    <tr>
+        <td>update msg returned from php
+        <td class="readOnly">{{retMsg}}
 </table>
 <hr>
 <div ng-include="'upd.html'"/>

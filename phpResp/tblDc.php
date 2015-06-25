@@ -10,5 +10,5 @@ include_once $p . 'db.php';
 $t = $_REQUEST['t'];
 $f = $_REQUEST['f'];
 $con = db_con();
-$sql = "select $f from $t";
+$sql = "select $f from $t order by $f";
 echo json_encode(runsql_dc($con, $sql));

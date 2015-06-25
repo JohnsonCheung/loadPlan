@@ -4,8 +4,28 @@
 (function (angular) {
     angular.module('app').factory('$ay', a);
     function a() {
-        var $ay = {swapEle: swapEle};
+        var $ay = {
+            swapEle: swapEle,
+            minus: minus
+        };
         return $ay;
+    }
+
+    function minus(ay1, ay2) {
+        var o = [];
+        for (var j = 0; j < ay1.length; j++) {
+            var v = ay1[j];
+            var exist = _exist(v);
+            if (!exist)
+                o.push(v);
+        }
+        return o;
+        function _exist(v) {
+            for (var j = 0; j < ay2.length; j++) {
+                if (ay2[j] === v) return true;
+            }
+            return false;
+        }
     }
 
     function swapEle(ay, srcIdx, tarIdx) {

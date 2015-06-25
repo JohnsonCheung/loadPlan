@@ -1,4 +1,4 @@
-<div ng-controller="upd"">
+<div ng-controller="upd">
 <input type="button" value="{{lbl.btn.sav}}" ng-click="do_sav()"/>
 <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
 <input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
@@ -22,7 +22,7 @@
         <td>
             <select ng-model="data.regDro.majRegCd">
                 <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
-            </select>{{dataVdt.regDro.majRegCd}}
+            </select><span class="error">{{dataVdt.regDro.majRegCd}}</span>
 </table>
 <br>
 <input type="button" value="{{lbl.btn.add}}" ng-click="do_add_nearBy()"/>
@@ -36,12 +36,17 @@
         <tr ng-repeat="i in data.nearByDt">
             <td class="readOnly">{{($index + 1)}}
             <td>
-                <select ng-model="i.nearBy" ng-change="do_nearBy_changed()">
-                    <option ng-repeat=" j in regCdDc" value="{{j}}" ng-selected="j===i.nearBy">{{j}}</option>
-                </select>
+                <input type="text" readonly class="readOnly" ng-model="i.nearBy" ng-change="do_nearBy_changed()"
+                       ng-mouseover="do_shwSelReg()"/>
+                <!--
+                            <select ng-model="i.nearBy" ng-change="do_nearBy_changed()">
+                                    <option ng-repeat=" j in regCdDc" value="{{j}}">{{j}}</option>
+                                </select>
+                -->
             <td class="readOnly">{{i.engNm}}
             <td class="readOnly">{{i.chiNm}}
             <td class="readOnly">{{i.majRegCd}}
             <td><input type="button" ng-value="lbl.btn.dlt" ng-click="do_dlt_nearBy()"/>
 </table>
 </div>
+<ng-include src="'selReg.html'"/>

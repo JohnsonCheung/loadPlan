@@ -9,24 +9,28 @@
         '$obj',
         leftControllerFn]);
 
-    function leftControllerFn($scope, $http, $doc, $ay,$app,$obj) {
-        $app.getLbl("selReg","sel", $scope.lang, $scope);
-        var regCdFldId = $scope.regCdFldId;
-        var doc = $doc[0];
-        var tarEle = doc.getElementById(regCdFldId);
-        var tarRect = tarEle.getBoundingClientRect();
-        var tarTop = tarRect.top
-        var tarLeft = tarRect.left;
-        $scope.pos = {top: tarTop + 30, left: tarLeft};
-        $scope.do_go_rno = do_go_rno;
-        $scope.do_sel_row = do_sel_row;
-        $scope.do_fmt_ofN_ofT = do_fmt_ofN_ofT;
-        $scope.do_tgl_btn = do_tgl_btn;
-        $scope.do_filter_changed = do_filter_changed;
-        $scope.do_get_regCd = do_get_regCd;
-        $scope.do_clear_filter = do_clear_filter;
-        $scope.do_selReg = do_selReg;
+    function tarEle_to_pos(t) {
+        if (t instanceof Element) {
+            var tarRect = t.getBoundingClientRect();
+            var tarTop = tarRect.top
+            var tarLeft = tarRect.left;
+            return {top: tarTop + 30, left: tarLeft};
+        }
+        return {top: 0, left: 0}
+    }
 
+    function leftControllerFn($scope, $http, $doc, $ay, $app, $obj) {
+        $app.getLbl("selReg", "sel", $scope.lang, $scope);
+        $scope.pos = tarEle_to_pos($scope.regCdSelEle);
+        $scope.do_sel_row = do_sel_row;
+        $scope.do_tgl_btn = do_tgl_btn;
+        $scope.$watch('filter', watch_filter);
+        $scope.$watch('rno', watch_rno);
+        $scope.$watch('ofN', function (ofN) {
+            $scope.one_to_N = ofN === 0 ? '' : '1 - ' + ofN;
+        })
+
+        $scope.do_selReg = do_selReg;
         $scope.btn0Nm = "cod";
         $scope.btn1Nm = "inp";
         $scope.btn2Nm = "chi";
@@ -37,7 +41,7 @@
 
         var src = {};
         src.data = [];
-        $scope.do_can = function() {
+        $scope.do_can = function () {
             $scope.$emit("selRegCd_can");
         }
         $scope.src = src;
@@ -87,7 +91,7 @@
             var b3 = "eng";
             var btn_selected = {cod: true, inp: true, chi: true, eng: true};
             data = $app.selCol(src.data, btn_selected, b0, b1, b2, b3);
-            $scope.tar.data = data;
+            $scope.tar.data = data; // #assign tar.data
         }
 
         function do_get_regCd() {
@@ -102,12 +106,7 @@
                 : rec.regCd;
         }
 
-        function do_clear_filter() {
-            $scope.filter = '';
-            do_filter_changed('');
-        }
-
-        function do_filter_changed(filter) {
+        function watch_filter(filter) {
             $scope.tar = $scope.tar || {};
             var data;
 
@@ -166,12 +165,6 @@
             }
         }
 
-        function do_fmt_ofN_ofT(ofN) {
-            var ofT = $scope.ofT
-            return (ofN === ofT)
-                ? ' of ' + ofN
-                : ' of ' + ofN + ' of ' + ofT;
-        }
 
         function emit_rno(rno) {
             var rec = $scope.tar.data[rno - 1];
@@ -183,7 +176,7 @@
             $scope.$emit("regCd_changed", regCd);
         }
 
-        function do_go_rno(rno) {
+        function watch_rno(rno) {
             if (!rno)
                 return;
             $scope.selectedIdx = rno - 1;
