@@ -1,7 +1,7 @@
 /**
  * Created by USER on 20/6/2015.
  */
-(function (angular) {
+(function $obj(angular) {
     angular.module('app').factory('$obj', a);
     function a() {
         //debugger;

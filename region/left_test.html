@@ -1,6 +1,6 @@
 <html ng-app="app">
 <head>
-    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
@@ -22,6 +22,7 @@
 </head>
 <body ng-controller="left_test">
 regCd: <input type="text" ng-model="regCd"/>
-<ng-include src="'left.html'"></ng-include>
+<hr>
+<ng-include src="'left.html'"/>
 </body>
 </html>
