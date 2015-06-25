@@ -405,7 +405,6 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
          * @param filter {string} space separated token to select rows from {this.dta}
          */
         Dta.prototype.filter_and_selCol = function filter_and_selCol(filter, selColNmLvs, highlightColNmLvs) {
-            debugger;
             var a = this.filter(filter);
             return (new Dta(a)).selCol(selColNmLvs, highlightColNmLvs);
         }

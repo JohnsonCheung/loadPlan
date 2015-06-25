@@ -1,0 +1,4 @@
+From
+	https://raw.githubusercontent.com/codef0rmer/angular-dragdrop/v1.0.11/src/angular-dragdrop.js
+see example
+	http://codef0rmer.github.io/angular-dragdrop/#/mvc

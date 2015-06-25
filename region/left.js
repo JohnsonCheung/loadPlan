@@ -41,7 +41,7 @@
         angular.jj = angular.jj || {};
         angular.jj.ondrop = ondrop;
         angular.jj.ondragstart = ondragstart;
-        angular.jj.ondragover = ondragover;
+        $scope.ondragover = ondragover;
         return;
 
         function success(data, status, headers, config) {
@@ -64,7 +64,7 @@
 
             function a(regCd) {
                 var tarDta = $scope.tar.data;
-                var i = _.tarDta.findIndex(tarDta, function (dr) {
+                var i = _.findIndex(tarDta, function (dr) {
                     return regCd === dr.regCd
                 })
                 return i == -1 ? "" : i - 1
@@ -199,6 +199,7 @@
         }
 
         function ondragover(ev) {
+            debugger;
             ev.preventDefault();
         }
 
