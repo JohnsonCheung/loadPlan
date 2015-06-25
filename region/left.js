@@ -25,7 +25,6 @@
         $scope.do_fmt_ofN_ofT = do_fmt_ofN_ofT;
         $scope.do_tgl_btn = do_tgl_btn;
         $scope.$watch('filter', watch_filter);
-        $scope.do_get_regCd = do_get_regCd;
         $scope.do_clear_filter = do_clear_filter;
 
         $scope.btn0Nm = "cod";
@@ -96,18 +95,6 @@
             }
         }
 
-        function do_get_regCd() {
-            //from $scope.selectedIdx
-            //from $scope.data is [] of rec.  rec is obj {tr,isDea,regCd}
-            var selectedIdx = $scope.selectedIdx;
-            var data = $scope.tar.data;
-            if (!data) return null;
-            var rec = data[selectedIdx];
-            return (rec === undefined)
-                ? null
-                : rec.regCd;
-        }
-
         function do_clear_filter() {
             $scope.filter = '';
             watch_filter('');
@@ -118,6 +105,8 @@
             var data;
 
             if (filter === '' || filter === undefined) {
+                    if($scope.src===undefined) return;
+                    
                 data = bld_data($scope.src.data);
                 $scope.tar.data = data;
                 $scope.ofN = $scope.ofT;
