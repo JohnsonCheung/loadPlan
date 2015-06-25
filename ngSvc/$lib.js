@@ -105,6 +105,7 @@ angular.module('app').factory('$app', ['$http', function $app($http) {
         //              = [ { regCd inpCd chiNm engNm isDea } ]
         var idx = {cod: 'regCd', inp: 'inpCd', chi: 'chiNm', eng: 'engNm'};
         var a = btn_selected;
+        if(a===undefined) debugger;
         var i0 = idx[btn0Cd];
         var i1 = idx[btn1Cd];
         var i2 = idx[btn2Cd];
@@ -380,8 +381,10 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
 
         Dta.prototype.filter = function(filter) {
             var fAy = $str.splitLvs(filter);
-            if (fAy.length === 0) return angular.copy(this.data);
-
+            if (fAy.length === 0) {
+                var o = angular.copy(this.dta);
+                return o;
+            }
             function isSel(dr) { // according to fAy, if {dr} should be selected.
                 function isSubStrInSomeFld(substr) {
                     function isContain(fld) {
@@ -402,6 +405,7 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
          * @param filter {string} space separated token to select rows from {this.dta}
          */
         Dta.prototype.filter_and_selCol = function filter_and_selCol(filter, selColNmLvs, highlightColNmLvs) {
+            debugger;
             var a = this.filter(filter);
             return (new Dta(a)).selCol(selColNmLvs, highlightColNmLvs);
         }

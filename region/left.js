@@ -18,13 +18,13 @@
             var i = rno - 1;
             if ($scope.tar === undefined) return;
             if (0 <= i && i < $scope.tar.data.length) {
-                rootRegCd();
+                set_rootRegCd_byRno();
             }
         })
 
         $scope.do_sel_row = do_sel_row;
         $scope.do_tgl_btn = do_tgl_btn;
-        $scope.$watch('filter', watch_filter);
+        $scope.$watch('filter', bld_and_set_tar_data);
 
         $scope.btn0Nm = "cod";
         $scope.btn1Nm = "inp";
@@ -45,118 +45,33 @@
         return;
 
         function success(data, status, headers, config) {
-            
-            var srcDta = a(data);
-
-            var src = {};
-            src.data = srcDta;
-
-            $scope.src = src;
-            $scope.src.data1 = data;
+            $scope.src = {data: data};
             $scope.tar = {};
 
             var b0 = "cod";
             var b1 = "inp";
             var b2 = "chi";
             var b3 = "eng";
-            var btn_selected = {cod: true, inp: true, chi: true, eng: true};
-            data = $app.selCol(src.data, btn_selected, b0, b1, b2, b3);
-            $scope.tar.data = data;
+            $scope.btn_selected = {cod: true, inp: true, chi: true, eng: true};
+            bld_and_set_tar_data();
 
             //-- set $rootScope.regCd
             if ($rootScope.regCd === undefined) {
                 $rootScope.regCd = data[0].regCd;
             }
-            $scope.rno = b();
-            $rootScope.regCd = c();
+            $scope.rno = a($rootScope.regCd);
+            $rootScope.regCd = $scope.tar.data[$scope.rno - 1];
 
-            function a(data) {
-                'use strict';
-                function reduce(o, dr) {
-                    var isDea = dr.isDea
-                    o.push({dr: dr, isDea: isDea, regCd: dr.regCd})
-                    return o;
-                }
-
-                return data.reduce(reduce, []);
-            }
-
-            function b() {
+            function a(regCd) {
                 var tarDta = $scope.tar.data;
-                var regCd = $rootScope.regCd;
-                for (var i = 0; i < tarDta.length; i++) {
-                    if (tarDta[i].regCd === regCd) return i + 1;
-                }
-                return 1;
-            }
-
-            function c() {
-                //debugger;
-                var i = $scope.rno - 1;
-                var t = $scope.tar.data;
-                return t[i].regCd;
+                var i = _.tarDta.findIndex(tarDta, function (dr) {
+                    return regCd === dr.regCd
+                })
+                return i == -1 ? "" : i - 1
             }
         }
 
-        function watch_filter(filter) {
-            return bld_and_set_tar_data();
-
-            $scope.tar = $scope.tar || {};
-            var data;
-
-            if (filter === '' || filter === undefined) {
-                if ($scope.src === undefined) return;
-
-                data = bld_data($scope.src.data);
-                $scope.tar.data = data;
-                return;
-            }
-
-            var filter_substr_ay = (function (filter) {
-                'use strict';
-                function nospace(ay, i) {
-                    if (i !== '')
-                        ay.push(i)
-                    return ay;
-                }
-
-                return filter.split(' ').reduce(nospace, []);
-            })(filter)
-
-            var data =
-                (function (filter_substr_ay) {
-                    'use strict';
-                    function isSel(rec) {
-                        function isSubStrInSomeFld(substr) {
-                            function isContain(fld) {
-                                return fld.search(substr) !== -1;
-                            }
-
-                            return _.some(rec.dr, isContain)
-                        }
-
-                        var isSel = _.every(filter_substr_ay, isSubStrInSomeFld);
-                        return isSel
-                    }
-
-                    var data = $scope.src.data;
-                    return _.filter(data, isSel);
-                })(filter_substr_ay)
-
-            $scope.tar.data = bld_data(data);
-            return;
-
-            function bld_data(data) {
-                var btn_selected = $scope.btn_selected;
-                var btn0Nm = $scope.btn0Nm;
-                var btn1Nm = $scope.btn1Nm;
-                var btn2Nm = $scope.btn2Nm;
-                var btn3Nm = $scope.btn3Nm;
-                return $app.selCol(data, btn_selected, btn0Nm, btn1Nm, btn2Nm, btn3Nm);
-            }
-        }
-
-        function rootRegCd() {
+        function set_rootRegCd_byRno() {
             var rec = $scope.tar.data[$scope.rno - 1];
             if (rec === undefined)
                 return;
@@ -174,13 +89,14 @@
          */
         function bld_and_set_tar_data() {
             if ($scope.src === undefined)return;
+            if($scope.src.data===undefined) return;
             var filter = $scope.filter;
             var ibs = $scope.btn_selected;
             var ib0 = $scope.btn0Nm;
             var ib1 = $scope.btn1Nm;
             var ib2 = $scope.btn2Nm;
             var ib3 = $scope.btn3Nm;
-            var i = $scope.src.data1;
+            var i = $scope.src.data;
             //---
             var a = [];
             if (ibs[ib0]) a.push(ib0);
@@ -209,7 +125,6 @@
                 b.push(m);
             })
             var selColNmLvs = b.join(' ');
-            debugger;
             //----
             var d = new $dta.Dta(i);
             var o = d.filter_and_selCol(filter, selColNmLvs, " isDea regCd")
