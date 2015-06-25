@@ -15,7 +15,7 @@
         })
         $scope.$watch('rno', function (rno) {
             var i = rno - 1;
-            if($scope.tar===undefined) return;
+            if ($scope.tar === undefined) return;
             if (0 <= i && i < $scope.tar.data.length) {
                 rootRegCd();
             }
@@ -31,6 +31,9 @@
         $scope.btn3Nm = "eng";
         $scope.btn_selected = $obj.getOptObj("inp cod chi eng");
         $scope.rno = 1;
+        $scope.$watch('tar.data.length', function(len) {
+            $scope.rno = len===0 ? "" : 1;
+        });
 
         $http.get("left.php").success(success);
 
@@ -71,6 +74,7 @@
                     o.push({dr: dr, isDea: isDea, regCd: dr.regCd})
                     return o;
                 }
+
                 return data.reduce(reduce, []);
             }
 
@@ -78,14 +82,14 @@
                 var tarDta = $scope.tar.data;
                 var regCd = $rootScope.regCd;
                 for (var i = 0; i < tarDta.length; i++) {
-                    if (tarDta[i].regCd === regCd) return i+1;
+                    if (tarDta[i].regCd === regCd) return i + 1;
                 }
                 return 1;
             }
 
             function c() {
                 //debugger;
-                var i = $scope.rno-1;
+                var i = $scope.rno - 1;
                 var t = $scope.tar.data;
                 return t[i].regCd;
             }
@@ -96,8 +100,8 @@
             var data;
 
             if (filter === '' || filter === undefined) {
-                    if($scope.src===undefined) return;
-                    
+                if ($scope.src === undefined) return;
+
                 data = bld_data($scope.src.data);
                 $scope.tar.data = data;
                 return;
@@ -135,9 +139,10 @@
                 })(filter_substr_ay)
 
             $scope.tar.data = bld_data(data);
-            if ($scope.rno > $scope.tar.data.length) {
-                $scope.rno = 1;
-            }
+
+            //if ($scope.rno > $scope.tar.data.length) {
+            //    $scope.rno = 1;
+            //}
             return;
 
             function bld_data(data) {
@@ -151,10 +156,42 @@
         }
 
         function rootRegCd() {
-            var rec = $scope.tar.data[$scope.rno-1];
+            var rec = $scope.tar.data[$scope.rno - 1];
             if (rec === undefined)
                 return;
             $rootScope.regCd = rec.regCd;
+        }
+
+        /**
+         * The change of $scope.tar.data are trigger @ 3 points: #1 filter, #2 toggle-btn, #3 swap-button
+         * They should all call this function to set $scope.tar.data.
+         * To build $scope.tar.data, these are the input:
+         *      filter
+         *      btn_selected        : {inp cod eng chi} where each prp in the obj-btn_selected is boolean
+         *      btn1Nm, 2, 3, 4
+         * Class Dta should be used to build the tar.data
+         */
+        function bld_and_set_tar_data() {
+            var i1 = $scope.filter;
+            var i2 = $scope.btn_selected;
+            var ib0 = $scope.btn0Nm;
+            var ib1 = $scope.btn1Nm;
+            var ib2 = $scope.btn2Nm;
+            var ib3 = $scope.btn3Nm;
+            var i = $scope.src.data;
+            //---
+            var filter = i1;
+            var a = [];
+            if (btn_selected[ib0]) a.push(ib0);
+            if (btn_selected[ib1]) a.push(ib1);
+            if (btn_selected[ib2]) a.push(ib2);
+            if (btn_selected[ib3]) a.push(ib3);
+            var selColNmLvs = a.join(' ');
+            //----
+            var d = new $dta.Dta(i);
+            var o = d.filter_and_selCol(filter, selColNmLvs, " isDea regCd")
+            $scope.tar = {};
+            $scope.tar.data = o;
         }
 
         function do_bld_data() {

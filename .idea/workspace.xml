@@ -210,9 +210,27 @@
       <file leaf-file-name="left.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/region/left.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36813188" vertical-offset="1585" max-vertical-offset="4560">
-              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
-              <folding />
+            <state vertical-scroll-proportion="0.3986014" vertical-offset="0" max-vertical-offset="3990">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+              <folding>
+                <element signature="e#91#207#0" expanded="false" />
+                <element signature="e#318#386#0" expanded="false" />
+                <element signature="e#432#621#0" expanded="false" />
+                <element signature="e#567#611#0" expanded="false" />
+                <element signature="e#2066#2358#0" expanded="false" />
+                <element signature="e#2137#2295#0" expanded="false" />
+                <element signature="e#2385#2659#0" expanded="false" />
+                <element signature="e#2535#2619#0" expanded="false" />
+                <element signature="e#2686#2845#0" expanded="false" />
+                <element signature="e#3258#3526#0" expanded="false" />
+                <element signature="e#3330#3449#0" expanded="false" />
+                <element signature="e#3605#4240#0" expanded="false" />
+                <element signature="e#3681#4123#0" expanded="false" />
+                <element signature="e#3742#3981#0" expanded="false" />
+                <element signature="e#3796#3893#0" expanded="false" />
+                <element signature="e#4848#5015#0" expanded="false" />
+                <element signature="e#5025#5493#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -632,9 +650,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/region/left.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36813188" vertical-offset="1585" max-vertical-offset="4560">
-          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
-          <folding />
+        <state vertical-scroll-proportion="0.3986014" vertical-offset="0" max-vertical-offset="3990">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#91#207#0" expanded="false" />
+            <element signature="e#318#386#0" expanded="false" />
+            <element signature="e#432#621#0" expanded="false" />
+            <element signature="e#567#611#0" expanded="false" />
+            <element signature="e#2066#2358#0" expanded="false" />
+            <element signature="e#2137#2295#0" expanded="false" />
+            <element signature="e#2385#2659#0" expanded="false" />
+            <element signature="e#2535#2619#0" expanded="false" />
+            <element signature="e#2686#2845#0" expanded="false" />
+            <element signature="e#3258#3526#0" expanded="false" />
+            <element signature="e#3330#3449#0" expanded="false" />
+            <element signature="e#3605#4240#0" expanded="false" />
+            <element signature="e#3681#4123#0" expanded="false" />
+            <element signature="e#3742#3981#0" expanded="false" />
+            <element signature="e#3796#3893#0" expanded="false" />
+            <element signature="e#4848#5015#0" expanded="false" />
+            <element signature="e#5025#5493#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
