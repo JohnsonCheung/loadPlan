@@ -22,6 +22,7 @@
             }
         })
 
+        $scope.do_keypress = do_keypress;
         $scope.do_sel_row = do_sel_row;
         $scope.do_tgl_btn = do_tgl_btn;
         $scope.$watch('filter', bld_and_set_tar_data);
@@ -41,7 +42,7 @@
         angular.jj = angular.jj || {};
         angular.jj.ondrop = ondrop;
         angular.jj.ondragstart = ondragstart;
-        $scope.ondragover = ondragover;
+        angular.jj.ondragover = ondragover;
         return;
 
         function success(data, status, headers, config) {
@@ -89,7 +90,7 @@
          */
         function bld_and_set_tar_data() {
             if ($scope.src === undefined)return;
-            if($scope.src.data===undefined) return;
+            if ($scope.src.data === undefined) return;
             var filter = $scope.filter;
             var ibs = $scope.btn_selected;
             var ib0 = $scope.btn0Nm;
@@ -132,15 +133,8 @@
             $scope.tar.data = o;
         }
 
-        function do_bld_data() {
-            var src_data = $scope.src.data;
-            var filter = $scope.filter;
-            var btn_selected = $scope.btn_selected;
-            var b0 = $scope.btn0Nm;
-            var b1 = $scope.btn1Nm;
-            var b2 = $scope.btn2Nm;
-            var b3 = $scope.btn3Nm;
-            $scope.tar.data = $app.selCol(src_data, btn_selected, b0, b1, b2, b3)
+        function do_keypress(ev) {
+            debugger;
         }
 
         function do_sel_row() {
@@ -169,7 +163,7 @@
                     break
             }
             $scope.btn_selected[btnNm] = !$scope.btn_selected[btnNm];
-            do_bld_data();
+            bld_and_set_tar_data();
         }
 
         function ondrop(ev) {

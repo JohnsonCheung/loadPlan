@@ -28,184 +28,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="$lib_test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/$lib_test.html">
+      <file leaf-file-name="index1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/region/index1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.464286" vertical-offset="0" max-vertical-offset="475">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="893">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="$lib_test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/$lib_test.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/region/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.576923" vertical-offset="290" max-vertical-offset="836">
-              <caret line="101" column="28" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="28" />
-              <folding>
-                <element signature="e#323#443#0" expanded="false" />
-                <element signature="e#507#550#0" expanded="false" />
-                <element signature="e#594#1943#0" expanded="false" />
-                <element signature="e#648#1046#0" expanded="false" />
-                <element signature="e#711#1035#0" expanded="false" />
-                <element signature="e#1107#1484#0" expanded="false" />
-                <element signature="e#1160#1473#0" expanded="false" />
-                <element signature="e#1538#1936#0" expanded="false" />
-                <element signature="e#1601#1925#0" expanded="false" />
-                <element signature="e#1986#2161#0" expanded="false" />
-                <element signature="e#2036#2154#0" expanded="false" />
-                <element signature="e#2089#2142#0" expanded="false" />
-                <element signature="e#2203#2348#0" expanded="false" />
-                <element signature="e#2302#2340#0" expanded="false" />
-                <element signature="e#2391#3002#0" expanded="false" />
-                <element signature="e#2464#2995#0" expanded="false" />
-                <element signature="e#2528#2627#0" expanded="false" />
-                <element signature="e#2696#2800#0" expanded="false" />
-                <element signature="e#2874#2984#0" expanded="false" />
-                <element signature="e#3476#3599#0" expanded="false" />
-                <element signature="e#3741#4315#0" expanded="false" />
-                <element signature="e#4383#6335#0" expanded="false" />
-                <element signature="e#4415#5227#0" expanded="false" />
-                <element signature="e#4416#4631#0" expanded="false" />
-                <element signature="e#4705#4916#0" expanded="false" />
-                <element signature="e#4918#5136#0" expanded="false" />
-                <element signature="e#6409#7390#0" expanded="false" />
-                <element signature="e#6466#7375#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="$lib.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/$lib.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="559" max-vertical-offset="1387">
-              <caret line="270" column="6" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="11" />
-              <folding>
-                <element signature="e#41#57#0" expanded="false" />
-                <element signature="e#374#893#0" expanded="false" />
-                <element signature="e#431#467#0" expanded="false" />
-                <element signature="e#556#622#0" expanded="false" />
-                <element signature="e#810#885#0" expanded="false" />
-                <element signature="e#924#1353#0" expanded="false" />
-                <element signature="e#1005#1035#0" expanded="false" />
-                <element signature="e#1077#1346#0" expanded="false" />
-                <element signature="e#1391#1753#0" expanded="false" />
-                <element signature="e#1571#1727#0" expanded="false" />
-                <element signature="e#1640#1693#0" expanded="false" />
-                <element signature="e#1787#2199#0" expanded="false" />
-                <element signature="e#1842#2175#0" expanded="false" />
-                <element signature="e#2975#4295#0" expanded="false" />
-                <element signature="e#2985#3034#0" expanded="false" />
-                <element signature="e#3944#4289#0" expanded="false" />
-                <element signature="e#4340#4921#0" expanded="false" />
-                <element signature="e#4413#4531#0" expanded="false" />
-                <element signature="e#4551#4723#0" expanded="false" />
-                <element signature="e#4579#4626#0" expanded="false" />
-                <element signature="e#4729#4895#0" expanded="false" />
-                <element signature="e#4783#4831#0" expanded="false" />
-                <element signature="e#4837#4885#0" expanded="false" />
-                <element signature="e#4928#4944#0" expanded="false" />
-                <element signature="e#5033#7832#0" expanded="false" />
-                <element signature="e#5046#5174#0" expanded="false" />
-                <element signature="e#5216#5276#0" expanded="false" />
-                <element signature="e#5304#6520#0" expanded="false" />
-                <element signature="e#5382#6514#0" expanded="false" />
-                <element signature="e#5548#5766#0" expanded="false" />
-                <element signature="e#6132#6196#0" expanded="false" />
-                <element signature="e#6283#6504#0" expanded="false" />
-                <element signature="e#6392#6460#0" expanded="false" />
-                <element signature="e#6641#7319#0" expanded="false" />
-                <element signature="e#7037#7313#0" expanded="false" />
-                <element signature="e#7225#7303#0" expanded="false" />
-                <element signature="e#7428#7608#0" expanded="false" />
-                <element signature="e#7524#7582#0" expanded="false" />
-                <element signature="e#7679#7830#0" expanded="false" />
-                <element signature="e#7769#7805#0" expanded="false" />
-                <element signature="e#7836#7852#0" expanded="false" />
-                <element signature="e#7941#8222#0" expanded="false" />
-                <element signature="e#7954#7988#0" expanded="false" />
-                <element signature="e#8018#8220#0" expanded="false" />
-                <element signature="e#8226#8242#0" expanded="false" />
-                <element signature="e#8428#8821#0" expanded="false" />
-                <element signature="e#8495#8620#0" expanded="false" />
-                <element signature="e#8666#8815#0" expanded="false" />
-                <element signature="e#8717#8779#0" expanded="false" />
-                <element signature="e#8864#10406#0" expanded="false" />
-                <element signature="e#8964#9161#0" expanded="false" />
-                <element signature="e#9077#9151#0" expanded="false" />
-                <element signature="e#9206#9949#0" expanded="false" />
-                <element signature="e#9252#9880#0" expanded="false" />
-                <element signature="e#9315#9839#0" expanded="false" />
-                <element signature="e#9373#9755#0" expanded="false" />
-                <element signature="e#9486#9733#0" expanded="false" />
-                <element signature="e#9591#9669#0" expanded="false" />
-                <element signature="e#9990#10345#0" expanded="false" />
-                <element signature="e#10045#10312#0" expanded="false" />
-                <element signature="e#10126#10272#0" expanded="false" />
-                <element signature="e#10197#10254#0" expanded="false" />
-                <element signature="e#10412#10428#0" expanded="false" />
-                <element signature="e#10532#10547#0" expanded="false" />
-                <element signature="e#10715#10754#0" expanded="false" />
-                <element signature="e#11123#11695#0" expanded="false" />
-                <element signature="e#11336#11662#0" expanded="false" />
-                <element signature="e#11409#11465#0" expanded="false" />
-                <element signature="e#11537#11591#0" expanded="false" />
-                <element signature="e#11745#12547#0" expanded="false" />
-                <element signature="e#11947#12490#0" expanded="false" />
-                <element signature="e#12049#12345#0" expanded="false" />
-                <element signature="e#12095#12278#0" expanded="false" />
-                <element signature="e#12779#12903#0" expanded="false" />
-                <element signature="e#12921#12945#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/region/left.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3475" max-vertical-offset="4066">
-              <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
-              <folding>
-                <element signature="e#340#408#0" expanded="false" />
-                <element signature="e#2455#2923#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_facFn_test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/app_facFn_test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.178572" vertical-offset="0" max-vertical-offset="456">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="left_test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/region/left_test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.178571" vertical-offset="159" max-vertical-offset="703">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="left.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/region/left.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26640928" vertical-offset="584" max-vertical-offset="1634">
-              <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+            <state vertical-scroll-proportion="-1.3571428" vertical-offset="0" max-vertical-offset="1634">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="left.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/region/left.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="2345" max-vertical-offset="3952">
+              <caret line="135" column="17" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+              <folding>
+                <element signature="e#340#408#0" expanded="false" />
+                <element signature="e#2501#2969#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -234,8 +99,10 @@
         <option value="$PROJECT_DIR$/ngSvc/$lib_test.js" />
         <option value="$PROJECT_DIR$/ngSvc/app_facFn.js" />
         <option value="$PROJECT_DIR$/ngSvc/$lib.js" />
-        <option value="$PROJECT_DIR$/region/left.js" />
+        <option value="$PROJECT_DIR$/region/index.js" />
+        <option value="$PROJECT_DIR$/region/index1.html" />
         <option value="$PROJECT_DIR$/region/left.html" />
+        <option value="$PROJECT_DIR$/region/left.js" />
       </list>
     </option>
   </component>
@@ -300,20 +167,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="region" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pgm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pgm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ngSvc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -612,26 +465,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/region/left.js">
+    <entry file="file://$PROJECT_DIR$/stdLib/angular-dragdrop.js.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3475" max-vertical-offset="4066">
-          <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
-          <folding>
-            <element signature="e#340#408#0" expanded="false" />
-            <element signature="e#2455#2923#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.033216782" vertical-offset="0" max-vertical-offset="572">
+          <caret line="1" column="97" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/region/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/region/index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="893">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/region/left.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26640928" vertical-offset="584" max-vertical-offset="1634">
-          <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+        <state vertical-scroll-proportion="-1.3571428" vertical-offset="0" max-vertical-offset="1634">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/region/left.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2345" max-vertical-offset="3952">
+          <caret line="135" column="17" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+          <folding>
+            <element signature="e#340#408#0" expanded="false" />
+            <element signature="e#2501#2969#0" expanded="true" />
           </folding>
         </state>
       </provider>
