@@ -6,22 +6,22 @@
  * Time: 16:12
  */
 include_once '/../cmn.php';
-run();
-function run()
+A_run();
+function A_run()
 {
     if (true) {
-        run_ay();
-        run_BldSql();
+        A_run_ay();
+        A_run_BldSql();
     } else {
-        run_BldSql();
-        run_ay();
-        run_str();
-        run_pth();
-        run_db();
+        A_run_BldSql();
+        A_run_ay();
+        A_run_str();
+        A_run_pth();
+        A_run_db();
     }
 }
 
-function run_BldSql()
+function A_run_BldSql()
 {
     if (true) {
         BldSql_updStmt__tst();
@@ -30,7 +30,7 @@ function run_BldSql()
     }
 }
 
-function run_ay()
+function A_run_ay()
 {
     if (true) {
         ay_join_kv__tst();
@@ -41,6 +41,39 @@ function run_ay()
         ay_key_idx__tst();
         ay_join_kv__tst();
         ay_zip__tst();
+    }
+}
+
+function A_run_db()
+{
+    if (true) {
+        runsql_dicDic__tst();
+    } else {
+        runsql_dicDic__tst();
+        runsql_rs__tst();
+        runsql_isAny__tst();
+        runsp_dta__tst();
+        runsp_rs__tst();
+    }
+}
+
+function A_run_pth()
+{
+    if (true) {
+        pth_fnAy__tst();
+    } else {
+        pth_norm__tst();
+    }
+}
+
+function A_run_str()
+{
+    if (true) {
+        is_intstr__tst();
+    } else {
+        is_intstr__tst();
+        strbrk__tst();
+        tim_stmp__tst();
     }
 }
 
@@ -70,43 +103,6 @@ function ay_join_kv__tst()
     pass(__FUNCTION__);
 }
 
-function ay_splice_assoc__tst()
-{
-    $a = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
-    $act = ay_splice_assoc($a, 'b', 1);
-    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 'b', 2);
-    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 'b', 'b');
-    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 'b', 'c');
-    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 1, 1);
-    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 1, 2);
-    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 1, 'b');
-    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-    $act = ay_splice_assoc($a, 1, 'c');
-    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
-    assert($act === $exp);
-
-}
-
 function ay_key_idx__tst()
 {
     $a = ['a' => 1, 'b' => 2];
@@ -124,6 +120,67 @@ function ay_key_idx__tst()
 
     pass(__FUNCTION__);
 
+}
+
+function ay_splice_assoc__tst()
+{
+    $a = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 'b', 1);
+    $exp = ['b' => 2];
+    $exp1 = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 'b', 2);
+    $exp = ['b' => 2, 'c' => 3];
+    $exp1 = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 'b', 'b');
+    $exp = ['b' => 2];
+    $exp1 = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 'b', 'c');
+    $exp = ['b' => 2, 'c' => 3];
+    $exp1 = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 1, 1);
+    $exp = ['b' => 2];
+    $exp1 = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 1, 2);
+    $exp = ['b' => 2, 'c' => 3];
+    $exp1 = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 1, 'b');
+    $exp = ['b' => 2];
+    $exp1 = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
+
+    $m = $a;
+    $act = ay_splice_assoc($m, 1, 'c');
+    $exp = ['b' => 2, 'c' => 3];
+    $exp1 = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+    assert($m === $exp1);
 }
 
 function ay_zip__tst()
@@ -146,18 +203,6 @@ function ay_zip__tst()
 
 }
 
-function run_str()
-{
-    if (true) {
-        is_intstr__tst();
-    } else {
-        is_intstr__tst();
-        strbrk__tst();
-        tim_stmp__tst();
-    }
-}
-
-
 function is_intStr__tst()
 {
     assert(is_intStr("1"));
@@ -167,19 +212,54 @@ function is_intStr__tst()
     pass(__FUNCTION__);
 }
 
-function strbrk__tst()
+function msg_fldNm_msgNm__tst()
 {
-    $a = "aa_bb";
-    $exp = ["aa", "bb"];
-    $act = strbrk($a, "_");
+    $con = db_con();
+    $act = msg_fldNm_msgNm($con, "region", "upd", "en");
+
+    $con->close();
+}
+
+function pth_fnAy__tst()
+{
+    $pth = "c:\\CBETA\\";
+    $a1 = pth_fnAy($pth);
+
+    $pth = "c:\\CBETA";
+    $a2 = pth_fnAy($pth);
+
+    assert($a1 === $a2);
+}
+
+function pth_norm__tst()
+{
+    $a = "c:\\aa\\bb\\ ..\\a . txt";
+    $act = pth_norm($a);
+    $exp = "c:\\aa\\a . txt";
     assert($act === $exp);
 }
 
-function tim_stmp__tst()
+function pth_tmp__tst()
 {
-    $act = tim_stmp();
-    $act1 = tim_stmp();
-    assert($act !== $act1);
+    $seg = "aa";
+    $act = pth_tmp("aa");
+    $exp = "c:\\temp\\aa\\2015 - ";
+    assert(is_pfx($act, $exp));
+    assert(is_pth($act));
+}
+
+function runsp_dta__tst()
+{
+    $con = db_con();
+    $dta = runsp_dta($con, "call loadsheet_trip(1)");
+    $a = 1;
+}
+
+function runsp_rs__tst()
+{
+    $con = db_con();
+    $rs = runsp_rs($con, "call loadsheet_trip(1)");
+    $a = 1;
 }
 
 function runsql_dicDic__tst()
@@ -202,34 +282,6 @@ function runsql_dicDic__tst()
     pass(__FUNCTION__);
 }
 
-function msg_fldNm_msgNm__tst()
-{
-    $con = db_con();
-    $act = msg_fldNm_msgNm($con, "region", "upd", "en");
-
-    $con->close();
-}
-
-function run_db()
-{
-    if (true) {
-        runsql_dicDic__tst();
-    } else {
-        runsql_dicDic__tst();
-        runsql_rs__tst();
-        runsql_isAny__tst();
-        runsp_dta__tst();
-        runsp_rs__tst();
-    }
-}
-
-function runsql_rs__tst()
-{
-    $con = db_con();
-    $rs = runsql_rs($con, "SELECT * FROM ordAdr");
-    $a = 1;
-}
-
 function runsql_isAny__tst()
 {
     $con = db_con();
@@ -240,56 +292,24 @@ function runsql_isAny__tst()
     assert(!runsql_isAny($con, $sql));
 }
 
-function runsp_dta__tst()
+function runsql_rs__tst()
 {
     $con = db_con();
-    $dta = runsp_dta($con, "call loadsheet_trip(1)");
+    $rs = runsql_rs($con, "SELECT * FROM ordAdr");
     $a = 1;
 }
 
-function runsp_rs__tst()
+function strbrk__tst()
 {
-    $con = db_con();
-    $rs = runsp_rs($con, "call loadsheet_trip(1)");
-    $a = 1;
-}
-
-function run_pth()
-{
-    if (true) {
-        pth_fnAy__tst();
-    } else {
-        pth_norm__tst();
-    }
-}
-
-function pth_fnAy__tst()
-{
-    $pth = "c:\\CBETA\\";
-    $a1 = pth_fnAy($pth);
-
-    $pth = "c:\\CBETA";
-    $a2 = pth_fnAy($pth);
-
-    assert($a1 === $a2);
-}
-
-
-function pth_norm__tst()
-{
-    $a = "c:\\aa\\bb\\ ..\\a . txt";
-    $act = pth_norm($a);
-    $exp = "c:\\aa\\a . txt";
+    $a = "aa_bb";
+    $exp = ["aa", "bb"];
+    $act = strbrk($a, "_");
     assert($act === $exp);
 }
 
-function pth_tmp__tst()
+function tim_stmp__tst()
 {
-    $seg = "aa";
-    $act = pth_tmp("aa");
-    $exp = "c:\\temp\\aa\\2015 - ";
-    assert(is_pfx($act, $exp));
-    assert(is_pth($act));
+    $act = tim_stmp();
+    $act1 = tim_stmp();
+    assert($act !== $act1);
 }
-
-

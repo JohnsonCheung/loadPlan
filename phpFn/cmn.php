@@ -81,8 +81,8 @@ class BldSql
         $this->chkMissing();
         $a = $this->tblNm;
         $pk = $this->pk;
-        $fldNm2valStr = $this->fldNm2valStr;
-        $b = ay_splice_assoc($fldNm2valStr, $pk, 1);
+        $b = $this->fldNm2valStr;
+        ay_splice_assoc($b, $pk, 1);
         $c = join(", ", ay_join_kv("=", $b));
         $pkVal = $this->dro->$pk;
         return "update $a set $c where $pk='$pkVal';";
@@ -242,20 +242,27 @@ function ay_quote($ay, $q = "'")
 }
 
 /** $offset can be key or long, $length can be $key or length */
-function ay_splice_assoc($ay, $offset, $length, $replacement = null)
+function ay_splice_assoc(&$ay, $offset, $length = null, $replacement = null)
 {
-    $replacement = (array)$replacement;
-    $key_indices = array_flip(array_keys($ay));
-    if (isset($ay[$offset]) && is_string($offset)) {
-        $offset = $key_indices[$offset];
-    }
-    if (isset($ay[$length]) && is_string($length)) {
-        $length = $key_indices[$length] - $offset;
+    if (is_string($offset) || is_string($length)) {
+        $key_indices = array_flip(array_keys($ay));
+        if (is_string($offset)) {
+            if (!isset($ay[$offset])) throw new Exception('[offset] is a string, but not found [ay]');
+            $offset = $key_indices[$offset];
+        }
+        if (is_string($length)) {
+            if (!isset($ay[$length])) throw new Exception('[length] is a string, but not found in [ay]');
+            $length = $key_indices[$length] - $offset + 1;
+        }
     }
 
+    $o = array_slice($ay, $offset, $length, true);
+
     $ay = array_slice($ay, 0, $offset, TRUE)
-        + $replacement
+        + (array)$replacement
         + array_slice($ay, $offset + $length, NULL, TRUE);
+
+    return $o;
 }
 
 function ay_to_dta(array $ay)
@@ -533,7 +540,7 @@ function is_pth($pth)
 
 function is_server()
 {
-    return isset($sERVER['HTTP_HOST']);
+    return isset($_SERVER['HTTP_HOST']);
 }
 
 function is_sfx($s, $sfx)
@@ -1244,4 +1251,5 @@ function tim_stmp($fmt = 0)
     }
     return date_create()->format($fmt);
 }
+
 ?>

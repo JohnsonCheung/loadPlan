@@ -11,15 +11,17 @@ include_once '/../dbTools/addMissingNearBy.php';
 
 class Upd
 {
+    const adrReqLvs = "cusAdr cusCd adrCd inpCd adrNm adr contact phone regCd gpsX gpsY delvTimFm delvTimTo delvLasTim" .
+    " truckTones truckCode truckFlat truckVan truckClose truckTail truckUpstair truckDispatchAtDoor truckByBox truckByPallet truckLock" .
+    " pckAdrCd rmk";
+    const adrFldLvs = 1;
+    const adrBoolLvs = 1;
+    const adrTimLvs = 1;
     private
         $con,
         $adrDt,
         $lang,
         $cusDro;
-    static $adrFldLvs = "";
-    static $adrReqLvs = "";
-    static $adrBoolLvs = "";
-    static $adrTimLvs = "";
 
     function __construct($cusDs)
     {
@@ -51,6 +53,19 @@ class Upd
         if ($s === '') return $this->lblMsg['req'];
     }
 
+    function m2Ay()
+    {
+        $adrDt = $this->adrDt;
+        $m2Ay = [];
+        $isEr = false;
+        foreach ($adrDt as $adrDro) {
+            $m2 = $this->m2($adrDro);
+            array_push($m2Ay, $m2);
+            if ($m2) $isEr = true;
+        }
+        if ($isEr) return $m2Ay;
+    }
+
     function m2($adrDro)
     {
         $i = $adrDro;
@@ -63,19 +78,6 @@ class Upd
         elseif (!runsql_isAny($this->con, "select regCd from region where regCd='$regCd';")) {
             $o['regCd'] = $this->lblMsg['notFound'];
         }
-    }
-
-    function m2Ay()
-    {
-        $adrDt = $this->adrDt;
-        $m2Ay = [];
-        $isEr = false;
-        foreach ($adrDt as $adrDro) {
-            $m2 = $this->m2($adrDro);
-            array_push($m2Ay, $m2);
-            if ($m2) $isEr = true;
-        }
-        if ($isEr) return $m2Ay;
     }
 
     function updCusDro()
@@ -92,18 +94,19 @@ class Upd
         $this->updAdrDt_upd();
     }
 
-    private function updAdrDt_upd()
+    private function updAdrDt_rmv()
     {
-        $a = Upd::$adrFldLvs;
-        $b = Upd::$adrReqLvs;
-        $c = Upd::$adrBoolLvs;
-        $d = Upd::$adrTimLvs;
-        foreach ($this->adrDt as $i) {
-            if (!$i->newRec) {
-                $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
-                runsql_exec($this->con, $m->updStmt());
-            }
-        } // for
+        $cusCd = $this->cusDro->cusCd;
+        $old = runsql_dc($this->con, "select adrCd from cusAdr where cusCd = '$cusCd'; ");
+        $new = [];
+        foreach ($this->adrDt as $adrDro) {
+            array_push($new, $adrDro->adrCd);
+        }
+        $rmv = ay_minus($new, $old);
+        foreach ($rmv as $adrCd) {
+            $sql = "delete from cusAdr where cusCd='$cusCd' and adrCd='$adrCd' limit 1";
+            runsql_exec($this->con, $sql);
+        }
     }
 
     function updAdrDt_ins()
@@ -120,19 +123,18 @@ class Upd
         } // for
     }
 
-    private function updAdrDt_rmv()
+    private function updAdrDt_upd()
     {
-        $cusCd = $this->cusDro->cusCd;
-        $old = runsql_dc($this->con, "select adrCd from cusAdr where cusCd = '$cusCd'; ");
-        $new = [];
-        foreach ($this->adrDt as $adrDro) {
-            array_push($new, $adrDro->adrCd);
-        }
-        $rmv = ay_minus($new, $old);
-        foreach ($rmv as $adrCd) {
-            $sql = "delete from cusAdr where cusCd='$cusCd' and adrCd='$adrCd' limit 1";
-            runsql_exec($this->con, $sql);
-        }
+        $a = Upd::$adrFldLvs;
+        $b = Upd::$adrReqLvs;
+        $c = Upd::$adrBoolLvs;
+        $d = Upd::$adrTimLvs;
+        foreach ($this->adrDt as $i) {
+            if (!$i->newRec) {
+                $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
+                runsql_exec($this->con, $m->updStmt());
+            }
+        } // for
     }
 }
 
