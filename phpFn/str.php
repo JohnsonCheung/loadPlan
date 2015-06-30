@@ -5,6 +5,7 @@
  * Date: 20/5/2015
  * Time: 9:42
  */
+include_once 'ay.php';
 const eUniq = 0;
 const eYYYY = "Y";
 const eYYYYMM = "Y-m";
@@ -12,18 +13,46 @@ const eYYYYMMDD = "Y-m-d";
 const eYYYYMMDDHH = "Y-m-d H";
 const eYYYYMMDDHHMM = "Y-m-d Hi";
 const eYYYYMMDDHHMMSS = "Y-m-d His";
-function pass($s) {
-    echo 'pass: ' . $s;
+
+function fmt($s, ...$ay)
+{
+    return fmtAy($s, $ay);
+
 }
+
+function fmtAy($s, array $ay)
+{
+    $mAy = str2macroAy($s);
+    $j = 0;
+    foreach ($mAy as $m) {
+        $s = str_replace($m, $ay[$j++], $s);
+    }
+    return $s;
+}
+
+function str2macroAy($s)
+{
+    $ay = preg_match_all('/\$[0-9a-zA-Z_]+/', $s, $matches);
+    return ay_rmvDup_rev($matches[0]);
+}
+
+function pass($s)
+{
+    echo 'pass: ' . $s . "\n";
+}
+
 function esc_lf($s)
 {
     return str_replace("\n", '\n', $s);
 }
-function is_intStr($s) {
+
+function is_intStr($s)
+{
     $a = strval(intval($s));
     $b = ($s === $a);
     return $b;
 }
+
 function nDays($d1, $d2)
 {
     $a = date_create($d1);
@@ -44,34 +73,14 @@ function push_noNull(&$_ay, $_i)
     array_push($_ay, $_i);
 }
 
-function split_lvs($lvs)
+function split_lvs($lvs_or_array)
 {
-    if (is_array($lvs)) return $lvs;
-    if (!is_string($lvs)) {
-        $ty = gettype($lvs);
-        throw new Exception("\$lvs should be string or array, but now[$ty]");
-    }
-    $a = rmv_dbl_spc($lvs);
-    if ($a === "")
-        return [];
-    return explode(" ", $a);
-}
-
-
-function split_lvc($lvc)
-{
-    if (is_null($lvc)) return [];
-    if (is_array($lvc)) return $lvc;
-    if (!is_string($lvc)) {
-        $ty = gettype($lvc);
-        throw new Exception("\$lvs should be string or array, but now[$ty]");
-    }
-    if ($lvc === "")
-        return [];
-    $o = explode(",", $lvc);
-    foreach ($o as $i => $k)
-        $o[$i] = trim($k);
-    return $o;
+    $s = $lvs_or_array;
+    if (is_null($s)) return [];
+    if (is_array($s)) return $s;
+    if (is_string($s)) return preg_split("/\\s+/", trim($s));
+    $ty = gettype($s);
+    throw new Exception("given \$lvs_or_array  should be string or array, but now[$ty]");
 }
 
 function norm_nm($nm)

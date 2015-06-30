@@ -19,10 +19,11 @@
         return $app;
     }
 
-    function getLbl(pgmNm, secNm, lang, $scope) {
-        if ((lang === 'undefined') || (lang === null)) {
+    function getLbl(pgmNm, secNm, lang, $scope, cb) {
+        if ((lang === undefined) || (lang === null)) {
             lang = 'en';
         }
+        debugger;
         var key = pgmNm + ':' + secNm + ':' + lang;
         if (buf[key] !== undefined) {
             $scope.lbl = buf[key];
@@ -31,9 +32,10 @@
         var a = '?pgmNm=' + pgmNm;
         var b = '&secNm=' + secNm;
         var c = '&lang=' + lang;
-        $http.get("../phpResp/lbl.php" + a + b + c).success(function (data, status) {
+        $http.get("../phpResp/lbl.php" + a + b + c).success(function (data) {
             buf[key] = data;
             $scope.lbl = buf[key];
+            if (typeof cb === 'function') cb();
         });
     }
 

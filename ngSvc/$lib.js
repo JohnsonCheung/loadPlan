@@ -14,22 +14,23 @@ angular.module('app').factory('$app', ['$http', function $app($http) {
         toAy: toAy
     };
 
-
-    function getLbl(pgmNm, secNm, lang, $scope) {
-        if ((lang === 'undefined') || (lang === null)) {
+    function getLbl(pgmNm, secNm, lang, $scope, cb) {
+        if ((lang === undefined) || (lang === null)) {
             lang = 'en';
         }
         var key = pgmNm + ':' + secNm + ':' + lang;
         if (buf[key] !== undefined) {
             $scope.lbl = buf[key];
+            if (typeof cb === 'function') cb();
             return;
         }
         var a = '?pgmNm=' + pgmNm;
         var b = '&secNm=' + secNm;
         var c = '&lang=' + lang;
-        $http.get("../phpResp/lbl.php" + a + b + c).success(function (data, status) {
+        $http.get("../phpResp/lbl.php" + a + b + c).success(function (data) {
             buf[key] = data;
             $scope.lbl = buf[key];
+            if (typeof cb === 'function') cb();
         });
     }
 
@@ -105,7 +106,7 @@ angular.module('app').factory('$app', ['$http', function $app($http) {
         //              = [ { regCd inpCd chiNm engNm isDea } ]
         var idx = {cod: 'regCd', inp: 'inpCd', chi: 'chiNm', eng: 'engNm'};
         var a = btn_selected;
-        if(a===undefined) debugger;
+        if (a === undefined) debugger;
         var i0 = idx[btn0Cd];
         var i1 = idx[btn1Cd];
         var i2 = idx[btn2Cd];
@@ -376,10 +377,27 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
                 m.dr = oDr;
                 o.push(m);
             })
-            return o;
+            return _sort(o);
+            function _sort(d) { // d-stru = [{{h1 h2 .. dr{f1 f2 ..}}], it is required to sort by f1
+                if (d.length === 0) return [];
+                // let k be the key of first field of the first record of {d}
+                for (var k in d[0].dr) {
+                    break;
+                }
+                return d.sort(function (a, b) {
+                    var aa = a.dr[k]
+                    var bb = b.dr[k]
+                    if (aa === "" && bb !== "") return 1;
+                    if (aa !== "" && bb === "") return -1;
+                    if (aa < bb) return -1;
+                    if (aa > bb) return 1;
+                    return 0;
+                })
+
+            }
         }
 
-        Dta.prototype.filter = function(filter) {
+        Dta.prototype.filter = function (filter) {
             var fAy = $str.splitLvs(filter);
             if (fAy.length === 0) {
                 var o = angular.copy(this.dta);
@@ -391,6 +409,7 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
                         fld = String(fld); // convert {fld} to string, just in case fld is not string
                         return fld.search(substr) !== -1;
                     }
+
                     return _.some(dr, isContain)
                 }
 
@@ -413,3 +432,28 @@ angular.module('app').factory('$dta', ['$str', function ($str) {
         Dta: Dta
     };
 }]);
+
+angular.module('app').factory('$appRegion', function $appRegion() {
+    // data to be shared between different section of pgm-region
+    return {
+        lang: '',
+        regCd: '',
+        regCdNxt: ''  // the region to be displaed if regCd is deleted.
+    }
+});
+
+angular.module('app').factory('$sess', function $sess() {
+    // data to be shared between different section of pgm-region
+    return {
+        lang: '',
+        usrId: '',
+        usrNm: ''
+    }
+});
+
+angular.module('app').factory('$win', function $win() {
+    return window;
+})
+
+angular.module('app').factory('$vdt', ['$http', function $vdt() {
+}])

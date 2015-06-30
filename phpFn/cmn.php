@@ -12,11 +12,128 @@ const eYYYYMMDD = "Y-m-d";
 const eYYYYMMDDHH = "Y-m-d H";
 const eYYYYMMDDHHMM = "Y-m-d Hi";
 const eYYYYMMDDHHMMSS = "Y-m-d His";
-const PTH_TMP_HOM = "c:\\Temp\\";
-require_once "System\Launcher.php";
+const PTH_TMP_HOM = "c:/Temp/";
+require_once "System/Launcher.php";
+function is_main()
+{
+    if ($_SERVER['argv'][0] !== $_SERVER['SCRIPT_FILENAME']) exit();
+}
+
+class BldSql
+{
+    private
+        $dro,           // data row object.
+        $pk,            // fld first in $fld
+        $fld = [],      // all field support in $dro.  In $dro may have more or less field in $fld.
+        $req = [],      // fld name ay wich is required.  If not given in $dro, throw exception
+        $tim = [],      // fld name ay which is time-format so that to build a fldStrVal good put into sql as time
+        $dte = [],      // fld name ay which is date-format so that to build a fldStrVal good put into sql as time
+        $bool = [],     // fld name ay  which is boolean-format so that to build a fldStrVal good put into sql as time
+        $o = [];
+
+    function __construct($dro, $tblNm, $fldLvs, $reqLvs = null, $boolLvs = null, $timLvs = null, $dteLvs = null)
+    {
+        $this->dro = $dro;
+        $this->fld = split_lvs($fldLvs);
+        $this->req = split_lvs($reqLvs);
+        $this->bool = split_lvs($boolLvs);
+        $this->tim = split_lvs($timLvs);
+        $this->dte = split_lvs($dteLvs);
+        $this->pk = $this->fld[0];
+        $this->tblNm = $tblNm;
+        $this->o = [];
+    }
+
+    function insStmt()
+    {
+        $a = $this->tblNm;
+        list($fldAy, $valStrAy) = $this->fldAy_valStrAy();
+        $b = join(",", $fldAy);
+        $c = join(",", $valStrAy);
+        return "insert into $a ($b) values($c)";
+    }
+
+    private function fldAy_valStrAy()
+    {
+        $ay = get_object_vars($this->dro);
+        $fldAy = array_keys($ay);
+        $valStrAy = [];
+        $j = 0;
+        foreach ($ay as $v) {
+            $fldNm = $fldAy[$j];
+            $valStr = $this->fldValStr($fldNm, $v);
+            array_push($valStrAy, $valStr);
+            $j++;
+        }
+        return [$fldAy, $valStrAy];
+    }
+
+    function updStmt()
+    {
+        $this->chkMissing();
+        $a = $this->tblNm;
+        list($fldAy, $valStrAy) = $this->fldAy_valStrAy();
+        $b = join(", ", ay_zip("=", $fldAy, $valStrAy));
+        $pk = $this->pk;
+        $pkVal = $this->dro->$pk;
+        return "update $a set $b where $pk='$pkVal';";
+    }
+
+    /** each field in $this->req should have value in $this->dro */
+    private function chkMissing()
+    {
+        $reqAy = $this->req;
+        $givenAy = array_keys(get_object_vars($this->dro));
+        $ay = ay_minus($reqAy, $givenAy);
+        if (sizeof($ay) > 0) {
+            $a = join(" ", $ay);
+            $b = join(' ', $this->req);
+            $c = join(' ', $givenAy);
+            echo "There are required field not found in given [dro]\n";
+            echo "They are = [$a]\n";
+            echo "All required fields = [$b]\n";
+            echo "Given fields in [dro] = [$c]\n";
+            die();
+        }
+    }
+
+    private function fldValStr($fldNm, $v)
+    {
+        if (in_array($fldNm, $this->bool)) {
+            return $v ? "b'1'" : "b'0'";
+        } elseif (in_array($fldNm, $this->tim)) {
+            return "$v'";
+        } elseif (in_array($fldNm, $this->dte)) {
+            return "'$v'";
+        }
+        return "'$v'";
+    }
+}
+
+function is_server()
+{
+    return isset($_SERVER['HTTP_HOST']);
+}
+
+/** each element in $ayAp is an array of same size.  Return an array by adding each corresponding element in $ayAp using $sep */
+function ay_zip($sep, ...$ayAp)
+{
+    $o = [];
+    $nRec = sizeof($ayAp[0]);
+    $nAy = sizeof($ayAp);
+    for ($j = 0; $j < $nRec; $j++) {
+        $m = [];
+        for ($i = 0; $i < $nAy; $i++) {
+            array_push($m, $ayAp[$i][$j]);
+        }
+        array_push($o, join($sep, $m));
+    }
+    return $o;
+}
+
 function brw_csvPth($csvPth)
 {
-    $fm = pth_norm(__DIR__ . "\\..\\xlsm\\OpnCsvPth.xlsm");
+    $fm = pth_norm(__DIR__ . "/../xlsm/OpnCsvPth.xlsm");
     $to = $csvPth . "OpnCsvPth.xlsm";
     copy($fm, $to);
     $a = new System_Launcher;
@@ -151,10 +268,11 @@ function push_noNull(&$_ay, $_i)
 
 function split_lvs($lvs)
 {
+    if (is_null($lvs)) return [];
     if (is_array($lvs)) return $lvs;
     if (!is_string($lvs)) {
         $ty = gettype($lvs);
-        throw new Exception("\$lvs should be string or array, but now[$ty]");
+        throw new Exception("\$lvs should be string or array or null, but now[$ty]");
     }
     $a = rmv_dbl_spc($lvs);
     if ($a === "")
@@ -1081,11 +1199,11 @@ function obj_newByLpAp($lp, ...$ap)
     return $o;
 }
 
-/** return a dicDic of [fldNm][msgNm] to $msg */
-function msg_fldNm_msgNm($con, $pgmNm, $secNm, $lang)
+/** return a msgDic of msgNm2Lbl from lblPgm->msgNmLvs ==> lblMsg */
+function msgDic($con, $pgmNm, $secNm, $lang)
 {
-    // table-lblPgmFldMsg = pgmNm, secNm, fldNm, msgNm, lang, msg
-    return runsql_dicDic($con, "select fldNm, msgNm, msg from lblPgmFldMsg where lang='$lang' and pgmNm='$pgmNm' and $secNm='$secNm';");
+    $msgNmLvs = runsql_val($con, "select msgNmLvs from lblPgm where pgmNm='$pgmNm' and $secNm='$secNm';");
+    return lblDic("msg", $msgNmLvs, $lang, $con);
 }
 
 ?>

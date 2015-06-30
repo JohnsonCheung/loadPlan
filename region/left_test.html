@@ -6,12 +6,13 @@
     <script>angular.module('app', []);</script>
     <script src="../ngSvc/$lib.js"></script>
     <script>
-        (function (angular, document) {
-            angular.module('app').controller('left_test', ['$scope', '$http', a]);
-            function a($scope, $http) {
-                $scope.lang = "en";
+        angular.module('app').controller('left_test', ['$scope', '$http', function a($scope, $http) {
+            $scope.sess = {lang: 'en'}
+            $scope.appRegion = {regCd: ''}
+            $scope.brk = function () {
+                debugger;
             }
-        })(angular, document)
+        }]);
     </script>
     <script src="left.js"></script>
 </head>
@@ -19,12 +20,15 @@
 <table id="testingBox" border="2px">
     <tr>
         <td>lang
-        <td><label><input type="radio" name="lang" value="en" ng-model="lang">en</input></label>
-            <label><input type="radio" name="lang" value="zh" ng-model="lang">zh</input></label>
+        <td><label><input type="radio" name="lang" value="en" ng-model="sess.lang"/>en</input></label>
+            <label><input type="radio" name="lang" value="zh" ng-model="sess.lang">zh</input></label>
         </td>
     <tr>
         <td>regCd
-        <td><input id="regCd" type="text" ng-model="regCd"/>
+        <td><input id="regCd" class="readOnly" type="text" ng-model="appRegion.regCd"/>
+    <tr>
+        <td>break
+        <td><input type="button" ng-click="brk();" value="break"/>
 </table>
 <hr>
 <ng-include src="'left.html'"/>

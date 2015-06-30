@@ -7,6 +7,45 @@
  */
 require_once "pth.php";
 require_once "System\Launcher.php";
+require_once 'str.php';
+function ay_rmvDup(array $ay)
+{
+    $o = [];
+    $j = 0;
+    $i = 0;
+    foreach ($ay as $v) {
+        $in_ay = in_ay($v, $ay, ++$j);
+        if (!$in_ay)
+            $o[$i++] = $v;
+    }
+    return $o;
+}
+
+function in_ay($needle, array $haystack, $fmIdx = null, $toIdx = null)
+{
+    $fmIdx = is_null($fmIdx) ? 0 : $fmIdx;
+    $toIdx = is_null($toIdx) ? sizeof($haystack)-1 : $toIdx;
+    for ($j = $fmIdx; $j <= $toIdx; $j++) {
+        if ($haystack[$j] === $needle)
+            return true;
+    }
+    return false;
+}
+
+function ay_rmvDup_rev(array $ay)
+{
+    $o = [];
+    $j = 0;
+    $i = 0;
+    for($j=sizeof($ay)-1;$j>=0;$j--) {
+        $v = $ay[$j];
+        $in_ay = in_ay($v, $ay, 0, $j-1);
+        if (!$in_ay)
+            $o[$i++] = $v;
+    }
+    return array_reverse($o);
+}
+
 function ay_newByLpAp($lp, ...$ap)
 {
     $kAy = preg_split('/ / ', $lp);
@@ -43,17 +82,18 @@ function ay_quote($ay, $q = "'")
     return $o;
 }
 
-function ay_to_dta(array $ay)
+/** return an new by the key of $ay become value and value of $ay become key */
+function ay_swapKV(array $ay)
 {
     $o = [];
-    foreach ($ay as $k => $i) {
-        array_push($o, ["idx" => $k, "val" => $i]);
+    foreach ($ay as $k => $v) {
+        $o[$v] = $k;
     }
     return $o;
 }
 
 /** return a dic by using first column as key and 2nd column as val */
-function dta_dic($twoColDta)
+function dta2dic($twoColDta)
 {
     $o = [];
     if (count($twoColDta) === 0) return $o;
@@ -87,11 +127,11 @@ function assert_key_exists($key, array $ay)
     }
 }
 
-function dta_extract($_dta, $_nm_lvs)
+function dta_extract($dta, $lvs)
 {
-    $nm_ay = split_lvs($_nm_lvs);
+    $nm_ay = split_lvs($lvs);
     $o = [];
-    foreach ($_dta as $dr) {
+    foreach ($dta as $dr) {
         $m = [];
         foreach ($nm_ay as $nm) {
             assert_key_exists($nm, $dr);
@@ -102,10 +142,10 @@ function dta_extract($_dta, $_nm_lvs)
     return $o;
 }
 
-function ay_trim($Ay)
+function ay_trim(array $ay)
 {
     $o = [];
-    foreach ($Ay as $i)
+    foreach ($ay as $i)
         array_push($o, trim($i));
     return $o;
 }

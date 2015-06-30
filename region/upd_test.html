@@ -5,21 +5,36 @@
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
-    <script src="../ngSvc/app_facFn.js"></script>
-    <script src="../ngSvc/obj_facFn.js"></script>
-    <script src="../ngSvc/ay_facFn.js"></script>
+    <script src="../ngSvc/$lib.js"></script>
     <script src="selReg.js"></script>
     <script>
         angular.module('app').controller('upd_test', ['$scope', '$http', '$rootScope', '$document', a]);
         function a($scope, $http, $rootScope, $document) {
+            $scope.sess = {lang: "zh"};
+            $scope.appRegion = {regCd: ''};
+            $scope.testVdtMsg = {idx:0, nearByMsg:"a"};
+            $scope.do_clearMajRegCd = do_clearMajRegCd;
+            $scope.$watch('testVdtMsg.idx', updVdtMsg);
+            $scope.$watch('testVdtMsg.nearByMsg', updVdtMsg);
+            $scope.do_brk = function () {
+                debugger;
+            }
             $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
-                $scope.do_clearMajRegCd = do_clearMajRegCd;
-                $scope.lang = "zh";
-                $scope.regCdDc = data;
-                $scope.do_brk = function () {
-                    debugger;
+                        $scope.regCdDc = data;
+                    }
+            )
+            function updVdtMsg() {
+                var idx = $scope.testVdtMsg.idx;
+                var msg = $scope.testVdtMsg.nearByMsg;
+                try {
+                    var ay = [];
+                    ay[idx] = {nearBy: msg};
+                    $scope.appRegion.updMsg = { nearByDt : ay}
+                    console.dir($scope.appRegion.updMsg);
+                } catch(e) {
+
                 }
-            })
+            }
             function do_clearMajRegCd() {
                 // var e = $document.find("select[ng-module='data.region.majRegCd'")[0];
                 var sel0 = 'select';
@@ -29,7 +44,6 @@
                 e.value = "";
             }
         }
-
     </script>
     <script src="upd.js"></script>
 </head>
@@ -37,26 +51,35 @@
 <table border="2px" id="testingBox">
     <tr>
         <td>Region to update
-        <td><select ng-model="regCd" style="border:none"/>
+        <td><select ng-model="appRegion.regCd"/>
             <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
             </select>
+        </td>
+    <tr>
+        <td>lang
+        <td>
+            <input type="radio" name="lang" ng-model="sess.lang" value="en">en</input>
+            <input type="radio" name="lang" ng-model="sess.lang" value="zh">zh</input>
+
+        </td>
     <tr>
         <td>clear majCd
         <td><input type="button" ng-click="do_clearMajRegCd()" value="clear"/>
     <tr>
-        <td>lang
-        <td>
-            <input type="radio" name="lang" ng-model="lang" value="en">en</input>
-            <input type="radio" name="lang" ng-model="lang" value="zh">zh</input>
+        <td>break
+        <td><input type="button" ng-click="do_brk()" value="brk"/>
     <tr>
         <td>mode
-        <td class="readOnly">{{mode}}
+        <td class="readOnly">{{appRegion.mode}}
     <tr>
         <td>noChg
-        <td class="readOnly">{{noChg}}
+        <td class="readOnly">{{appRegion.noChg}}
     <tr>
-        <td>update msg returned from php
-        <td class="readOnly">{{retMsg}}
+        <td>update msg returned from php (appRegion.updMsg)
+        <td class="readOnly">{{appRegion.updMsg | json}}
+    <tr>
+        <td>index / nearByMsg
+        <td><input type="text" size=3 ng-model="testVdtMsg.idx"/> / <input type="text" ng-model="testVdtMsg.nearByMsg"/>
 </table>
 <hr>
 <div ng-include="'upd.html'"/>

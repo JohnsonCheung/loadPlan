@@ -20,7 +20,7 @@ function oneCus($cusCd)
     $cus = runsql_dro($con, $sql);
     $adr = oneCus_adr($con, $cusCd);
     $con->close();
-    return ['cus' => $cus, 'adr' => $adr];
+    return ['cusDro' => $cus, 'adrDt' => $adr];
 }
 
 

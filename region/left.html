@@ -1,4 +1,4 @@
-<div ng-controller="regLeft" ng-keypress="do_keypress($event)">
+<div ng-controller="regLeft" ng-keypress="do_keypress()">
     <table>
         <tr>
             <td>
@@ -70,10 +70,7 @@
     <table border="2px">
         <tr>
             <th>##
-            <th>col1
-            <th>col2
-            <th>col3
-            <th>col4
+            <th ng-repeat="hdr in tar.hdrAy">{{hdr}}</th>
         <tr ng-repeat="rec in tar.data" ng-class="($index==(rno-1)) ? 'selected' : '' " ng-click="do_sel_row()">
             <td>{{$index+1}}
             <td class="{{(rec.isDea==='1') ? 'dim' : ''}}" ng-repeat="td in rec.dr">{{td}}

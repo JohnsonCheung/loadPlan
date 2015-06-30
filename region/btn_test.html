@@ -2,24 +2,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Display Region</title>
-    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
     <script>angular.module('app', []);</script>
-    <script src="../ngSvc/obj_facFn.js"></script>
-    <script src="../ngSvc/app_facFn.js"></script>
+    <script src="../ngSvc/$lib.js"></script>
     <script>
-        (function (angular) {
-            angular.module('app').controller('btnContainer', a);
-            return;
-            function a($scope) {
-                $scope.lang="zh";
-            }
-        })(angular);
+        angular.module('app').controller('btnContainer', ['$scope', '$http', function ($scope, $http) {
+            $scope.sess = {lang: "zh"};
+            $scope.appRegion = {mode: "x"};
+            $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
+                $scope.regCdDc = data;
+            });
+        }]);
     </script>
     <script src="btn.js"></script>
 </head>
 <body ng-controller="btnContainer">
-regCd: <input type="text" ng-model="regCd"/>{{regCd}}
+<table border="2px">
+    <tr>
+        <td>regCd
+        <td><select ng-model="appRegion.regCd"/>
+            <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
+            </select>
+    <tr>
+        <td>lang
+        <td><input type="radio" name="lang" ng-model="sess.lang" value="zh">zh</input>
+            <input type="radio" name="lang" ng-model="sess.lang" value="en">en</input>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{appRegion.mode}}
+</table>
+<hr>
 <ng-include src="'btn.html'"/>
 </body>
 </html>

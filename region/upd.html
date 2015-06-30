@@ -1,52 +1,57 @@
 <div ng-controller="upd">
-<input type="button" value="{{lbl.btn.sav}}" ng-click="do_sav()"/>
-<input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
-<input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
-<br><br>
-<table border="2px">
-    <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
-    <tr>
-        <td style="font-weight:bold">{{lbl.fld.regCd}}
-        <td class="readOnly">{{data.regDro.regCd}}
-    <tr>
-        <td style="font-weight:bold">{{lbl.fld.inpCd}}
-        <td><input name="inpCd" required ng-maxlength="30" ng-model="data.regDro.inpCd" type="text">
-    <tr>
-        <td style="font-weight:bold">{{lbl.fld.chiNm}}
-        <td><input ng-model="data.regDro.chiNm" ng-maxlength="255" type="text"/>
-    <tr>
-        <td style="font-weight:bold">{{lbl.fld.engNm}}
-        <td><input ng-model="data.regDro.engNm" ng-maxlength="255" type="text"/>
-    <tr>
-        <td style="font-weight:bold">{{lbl.fld.majRegCd}}
-        <td>
-            <select ng-model="data.regDro.majRegCd">
-                <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
-            </select><span class="error">{{dataVdt.regDro.majRegCd}}</span>
-</table>
-<br>
-<input type="button" value="{{lbl.btn.add}}" ng-click="do_add_nearBy()"/>
-<table border="2px">
-    <caption style="font-weight:bold">{{lbl.txt.nearBy}}</caption>
-    <th>##
-    <th>{{lbl.fld.regCd}}
-    <th>{{lbl.fld.chiNm}}
-    <th>{{lbl.fld.engNm}}
-    <th>{{lbl.fld.majRegCd}}
-        <tr ng-repeat="i in data.nearByDt">
-            <td class="readOnly">{{($index + 1)}}
-            <td>
-                <input type="text" readonly class="readOnly" ng-model="i.nearBy" ng-change="do_nearBy_changed()"
-                       ng-mouseover="do_shwSelReg()"/>
-                <!--
-                            <select ng-model="i.nearBy" ng-change="do_nearBy_changed()">
-                                    <option ng-repeat=" j in regCdDc" value="{{j}}">{{j}}</option>
-                                </select>
-                -->
-            <td class="readOnly">{{i.engNm}}
-            <td class="readOnly">{{i.chiNm}}
-            <td class="readOnly">{{i.majRegCd}}
-            <td><input type="button" ng-value="lbl.btn.dlt" ng-click="do_dlt_nearBy()"/>
-</table>
+    <form name="regFrm">
+        <input type="button" value="{{lbl.btn.sav}}"  ng-click="do_sav()" ng-disabled="regFrm.$invalid"/>
+        <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
+        <input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
+        <br><br>
+        <table border="2px">
+            <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.regCd}}
+                <td class="readOnly">{{data.regDro.regCd}}
+                <td>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.inpCd}}
+                <td><input id="inpCd" name="inpCd" required ng-maxlength="30" ng-model="data.regDro.inpCd" type="text" autofocus/>
+                <td><span class="error" ng-show="regFrm.inpCd.$error.required">{{lbl.txt.req}}</span>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.chiNm}}
+                <td><input ng-model="data.regDro.chiNm" ng-maxlength="255" type="text"/>
+                <td>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.engNm}}
+                <td><input ng-model="data.regDro.engNm" ng-maxlength="255" type="text"/>
+                <td>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.majRegCd}}
+                <td>
+                    <select ng-model="data.regDro.majRegCd" required name="majRegCd">
+                        <option ng-repeat="i in majRegCdDc" value="{{i}}">{{i}}</option>
+                    </select>
+                <td><span class="error" ng-show="regFrm.majRegCd.$error.required">{{lbl.txt.req}}</span>
+        </table>
+        <br>
+        <table border="2px">
+            <caption style="font-weight:bold">{{lbl.txt.nearBy}}</caption>
+            <th>##
+            <th colspan="3">{{lbl.fld.regCd}}
+            <th>{{lbl.fld.chiNm}}
+            <th>{{lbl.fld.engNm}}
+            <th>{{lbl.fld.majRegCd}}
+            <th><input type="button" value="{{lbl.btn.add}}" ng-click="do_add_nearBy()"/>
+
+                <tr ng-repeat="i in data.nearByDt">
+                    <td class="readOnly">{{($index + 1)}}
+                    <td><input type="text" readonly class="readOnly" ng-model="i.nearBy" required name="{{'nearBy' + $index}}"/>
+                    <td><input type="button" ng-mouseenter="do_shwSelReg($event,$index)" ng-value="lbl.btn.sel"/>
+                    <td><span ng-if="regFrm['nearBy'+$index].$error.required" class="error">{{lbl.txt.req}}</span>
+                    <span class="error">{{appRegion.updMsg.nearByDt[$index].nearBy}}</span>
+                    <td class="readOnly">{{i.engNm}}
+                    <td class="readOnly">{{i.chiNm}}
+                    <td class="readOnly">{{i.majRegCd}}
+                    <td><input type="button" ng-value="lbl.btn.dlt" ng-click="do_dlt_nearBy()"/></td>
+                </tr>
+        </table>
+    </form>
+    <ng-include src="'selReg.html'"/>
 </div>
-<ng-include src="'selReg.html'"/>

@@ -30,6 +30,7 @@ describe('libray - $lib.js', function () {
                 $app.getLbl(pgmNm, secNm, lang, $scope);
                 // by ajax async, $scope will be changed but how to test it???
                 expect(1).toEqual(1);
+                debugger;
             })
         })
         describe("has function toAy function", function () {

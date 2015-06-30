@@ -6,13 +6,14 @@
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
     <script src="../ngSvc/$lib.js"></script>
-    <script src="index.js"></script>
     <script src="btn.js"></script>
     <script src="left.js"></script>
     <script src="dsp.js"></script>
     <script src="add.js"></script>
     <script src="upd.js"></script>
+    <script src="selReg.js"></script>
     <script src="logout.js"></script>
+    <script src="index.js"></script>
 </head>
 <body ng-controller="index">
 <table ng-controller="logout">
@@ -27,16 +28,16 @@
             <!--    <td width="10%"><img style="display:normal" ng-src="/loadPlan/images/companyMedium.png" ng-click="goMnu()"> -->
 </table>
 <hr>
-<table ng-controller="index">
+<table>
     <tr style="vertical-align:top">
         <td>
-            <div ng-include="'left.html'" ng-if="mode==='dsp'"></div>
+            <div ng-include="'left.html'" ng-if="appRegion.mode==='dsp'"></div>
         <td> &nbsp; &nbsp; &nbsp;
         <td>
-            <div ng-include="'btn.html'" ng-if="mode==='dsp'"></div>
-            <div ng-include="'add.html'" ng-if="mode==='add'"></div>
-            <div ng-include="'upd.html'" ng-if="mode==='upd'"></div>
-            <div ng-include="'dsp.html'" ng-if="mode==='dsp' || mode==='rea' || mode==='dlt' || mode ==='dea' || mode ==='imp' || mode ==='exp' || mode ==='log' "></div>
+            <div ng-include="'btn.html'" ng-if="appRegion.mode==='dsp'"></div>
+            <div ng-include="'add.html'" ng-if="appRegion.mode==='add'"></div>
+            <div ng-include="'upd.html'" ng-if="appRegion.mode==='upd'"></div>
+            <div ng-include="'dsp.html'" ng-if="appRegion.mode==='dsp' || appRegion.mode==='rea' || appRegion.mode==='dlt' || appRegion.mode ==='dea' || appRegion.mode ==='imp' || appRegion.mode ==='exp' || appRegion.mode ==='log' "></div>
 </table>
 </body>
 </html>

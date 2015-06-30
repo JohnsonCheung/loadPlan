@@ -4,21 +4,12 @@
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
-    <script src="../ngSvc/obj_facFn.js"></script>
-    <script src="../ngSvc/app_facFn.js"></script>
-    <script src="../ngSvc/ay_facFn.js"></script>
+    <script src="../ngSvc/$lib.js"></script>
     <script>
         (function (angular, doc) {
             angular.module('app').controller('selReg_test', ['$scope', a]);
             function a($scope) {
-                $scope.regCdSelEle = doc.getElementById("inpRegCd");
-                $scope.$on("selRegCd_sel", function ($ev, regCd) {
-                    $scope.shwSelReg = false;
-                    $scope.regCd = regCd;
-                })
-                $scope.$on("selRegCd_can", function ($ev, regCd) {
-                    $scope.shwSelReg = false;
-                })
+                $scope.lang="zh";
             }
         })(angular, document)
     </script>
@@ -29,7 +20,7 @@
     <input id="inpRegCd"
            readonly class="readOnly"
            type="text" ng-model="regCd"
-           ng-mouseover="shwSelReg=true"/>
+           ng-mouseenter="$broadcast('shwSelReg', $event, $scope,'regCd')"/>
     sjlkdf
     klsdjflskdjf slkjf slkdjf sklajdf lksadf
     slkfj klsdf

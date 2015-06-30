@@ -12,4 +12,5 @@ td > input {border:none}
 td > select {border:none}
 .selected  {background-color: #80ff80 }
 .error     {color:red}
-input[type="button"]:focus {border:2px}
+.dim      {color:blue}
+/* input[type="button"]:focus {border:2px}

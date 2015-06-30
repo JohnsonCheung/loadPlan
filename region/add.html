@@ -7,9 +7,8 @@
             <caption display="font-weight:bold">{{lbl.txt.add}}</caption>
             <tr>
                 <td style="font-weight:bold">{{lbl.fld.regCd}}
-                <td><input type="text" autofocus="true" ng-model="regCd"/>
-                <td>{{msg}}
+                <td><input type="text" autofocus="true" ng-model="appRegion.regCd"/>
+                <td style="color:red">{{appRegion.addMsg.erMsg}}
         </table>
-        <div ng-repeat="i in addAy">{{i}}</div>
     </form>
 </div>

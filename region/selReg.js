@@ -1,201 +1,171 @@
-(function (angular, _) {
-    'use strict';
-    angular.module('app').controller('selReg', [
-        '$scope',
-        '$http',
-        '$document',
-        '$ay',
-        '$app',
-        '$obj',
-        leftControllerFn]);
-
-    function tarEle_to_pos(t) {
-        if (t instanceof Element) {
-            var tarRect = t.getBoundingClientRect();
-            var tarTop = tarRect.top
-            var tarLeft = tarRect.left;
-            return {top: tarTop + 30, left: tarLeft};
-        }
-        return {top: 0, left: 0}
-    }
-
-    function leftControllerFn($scope, $http, $doc, $ay, $app, $obj) {
-        $app.getLbl("selReg", "sel", $scope.lang, $scope);
-        $scope.pos = tarEle_to_pos($scope.regCdSelEle);
+/**
+ * touch point:
+ *      $scope.$on('shwSelReg, tarEle_ev, regCdPar, regCdFldNm)
+ */
+angular.module('app').controller('selReg', [
+    '$scope',
+    '$http',
+    '$document',
+    '$ay',
+    '$app',
+    '$obj',
+    '$dta',
+    function selRegControllerFn($scope, $http, $doc, $ay, $app, $obj, $dta) {
+        var $tar;
+        var $cb;
+        $scope.$on("shwSelReg", function ($ev, tarEle_ev, tarObj, tarPrpNm, cb) {
+            $tar = {scope: tarObj, model: tarPrpNm};
+            $cb = cb;
+            var tarEle = tarEle_ev.currentTarget;
+            $scope.pos = tarEle_to_pos(tarEle);
+            $scope.shwSelReg = true;
+        })
+        $app.getLbl("selReg", "sel", $scope.lang, $scope, function () {
+            $http.get("/loadplan/pgm/region/selReg.php").success(success);
+        });
+        $scope.$watch("lang", function (lang) {
+            $app.getLbl("selReg", "sel", lang, $scope)
+        })
+        $scope.$watch('filter', bld_and_set_tar_data);
         $scope.do_sel_row = do_sel_row;
         $scope.do_tgl_btn = do_tgl_btn;
-        $scope.$watch('filter', watch_filter);
-        $scope.$watch('rno', watch_rno);
-        $scope.$watch('ofN', function (ofN) {
-            $scope.one_to_N = ofN === 0 ? '' : '1 - ' + ofN;
-        })
-
+        $scope.do_can = do_can;
         $scope.do_selReg = do_selReg;
-        $scope.btn0Nm = "cod";
+        $scope.btn0Nm = "reg";
         $scope.btn1Nm = "inp";
         $scope.btn2Nm = "chi";
         $scope.btn3Nm = "eng";
-        $scope.btn_selected = $obj.getOptObj("inp cod chi eng");
-//        $scope.lbl = lbl;
-        $scope.selectedIdx = 0;
-
-        var src = {};
-        src.data = [];
-        $scope.do_can = function () {
-            $scope.$emit("selRegCd_can");
-        }
-        $scope.src = src;
-        $scope.ofN = src.data.length;
-        $scope.ofT = src.data.length;
-        $http.get("selReg.php").success(success);
-        $scope.$watch("rno", rno_changed);
+        $scope.btn_selected = $obj.getOptObj("inp reg chi eng");
+        $scope.rno = 1;
 
         angular.jj = angular.jj || {};
         angular.jj.ondrop = ondrop;
         angular.jj.ondragstart = ondragstart;
         angular.jj.ondragover = ondragover;
         return;
-        function do_selReg() {
-            var regCd = this.rec.regCd;
-            $scope.$emit("selRegCd_sel", regCd)
-        }
-
-        function rno_changed(new_rno, old_rno) {
-            if ((new_rno === undefined) || (new_rno === ""))
-                return;
-            emit_rno(new_rno);
-        }
 
         function success(data, status, headers, config) {
-            var src = {};
-            var new_data = (function (data) {
-                'use strict';
-                function reduce(o, dr) {
-                    var isDea = dr.isDea
-                    o.push({dr: dr, isDea: isDea, regCd: dr.regCd})
-                    return o;
-                }
-
-                return data.reduce(reduce, []);
-            })(data);
-            src.data = new_data;
-
-            $scope.src = src;
-            $scope.ofN = src.data.length;
-            $scope.ofT = src.data.length;
+            $scope.src = {data: data};
             $scope.tar = {};
-
-            var b0 = "cod";
-            var b1 = "inp";
-            var b2 = "chi";
-            var b3 = "eng";
-            var btn_selected = {cod: true, inp: true, chi: true, eng: true};
-            data = $app.selCol(src.data, btn_selected, b0, b1, b2, b3);
-            $scope.tar.data = data; // #assign tar.data
+            $scope.btn_selected = {reg: true, inp: true, chi: true, eng: true};
+            bld_and_set_tar_data();
+            bld_and_set_tar_hdrAy();
+            $scope.rno = 1;
         }
 
-        function do_get_regCd() {
-            //from $scope.selectedIdx
-            //from $scope.data is [] of rec.  rec is obj {tr,isDea,regCd}
-            var selectedIdx = $scope.selectedIdx;
-            var data = $scope.tar.data;
-            if (!data) return null;
-            var rec = data[selectedIdx];
-            return (rec === undefined)
-                ? null
-                : rec.regCd;
-        }
-
-        function watch_filter(filter) {
-            $scope.tar = $scope.tar || {};
-            var data;
-
-            if (filter === '' || filter === undefined) {
-                data = bld_data($scope.src.data);
-                $scope.tar.data = data;
-                $scope.ofN = $scope.ofT;
-                return;
-            }
-
-            var filter_substr_ay = (function (filter) {
-                'use strict';
-                function nospace(ay, i) {
-                    if (i !== '')
-                        ay.push(i)
-                    return ay;
-                }
-
-                return filter.split(' ').reduce(nospace, []);
-            })(filter)
-
-            var data =
-                (function (filter_substr_ay) {
-                    'use strict';
-                    function isSel(rec) {
-                        function isSubStrInSomeFld(substr) {
-                            function isContain(fld) {
-                                return fld.search(substr) !== -1;
-                            }
-
-                            return _.some(rec.dr, isContain)
-                        }
-
-                        var isSel = _.every(filter_substr_ay, isSubStrInSomeFld);
-                        return isSel
-                    }
-
-                    var data = $scope.src.data;
-                    return _.filter(data, isSel);
-                })(filter_substr_ay)
-
-            $scope.tar.data = bld_data(data);
-            $scope.ofN = data.length;
-            if ($scope.selectedIdx >= $scope.ofN) {
-                $scope.selectedIdx = 0;
-            }
-            return;
-
-            function bld_data(data) {
-                var btn_selected = $scope.btn_selected;
-                var btn0Nm = $scope.btn0Nm;
-                var btn1Nm = $scope.btn1Nm;
-                var btn2Nm = $scope.btn2Nm;
-                var btn3Nm = $scope.btn3Nm;
-                return $app.selCol(data, btn_selected, btn0Nm, btn1Nm, btn2Nm, btn3Nm);
-            }
-        }
-
-
-        function emit_rno(rno) {
-            var rec = $scope.tar.data[rno - 1];
-            if (rec === undefined)
-                return;
-            var regCd = rec.regCd;
-            $scope.regCd = regCd;
-            //console.log("emit_rno(" + regCd + ")");
-            $scope.$emit("regCd_changed", regCd);
-        }
-
-        function watch_rno(rno) {
-            if (!rno)
-                return;
-            $scope.selectedIdx = rno - 1;
-            emit_rno(rno);
-        }
-
-        function do_bld_data() {
-            var src_data = $scope.src.data;
+        /**
+         * The change of $scope.tar.data are trigger @ 3 points: #1 filter, #2 toggle-btn, #3 swap-button
+         * They should all call this function to set $scope.tar.data.
+         * To build $scope.tar.data, these are the input:
+         *      filter
+         *      btn_selected        : {inp reg eng chi} where each prp in the obj-btn_selected is boolean
+         *      btn1Nm, 2, 3, 4
+         * Class Dta should be used to build the tar.data
+         */
+        function bld_and_set_tar_data() {
+            if ($scope.src === undefined) return;
+            if ($scope.src.data === undefined) return;
             var filter = $scope.filter;
-            var btn_selected = $scope.btn_selected;
+            var dta = $scope.src.data;
+            var bs = $scope.btn_selected;
             var b0 = $scope.btn0Nm;
             var b1 = $scope.btn1Nm;
             var b2 = $scope.btn2Nm;
             var b3 = $scope.btn3Nm;
-            $scope.tar.data = $app.selCol(src_data, btn_selected, b0, b1, b2, b3)
+
+            var selColNmLvs = _selColNmLvs(bs, b0, b1, b2, b3);
+            var d = new $dta.Dta(dta);
+            var o = d.filter_and_selCol(filter, selColNmLvs, " isDea regCd")
+            $scope.tar = $scope.tar || {};
+            $scope.tar.data = o;
+            function _selColNmLvs(bs, b0, b1, b2, b3) {
+                // input:
+                //      bs-stru = {chi eng inp reg} where all prp are boolean
+                //      b0      = btn0Nm        which is string of value one of these 4: (chi eng inp reg)
+                //      b1 2 3  = btn1Nm 2 3    ^-- similar
+                // output:
+                //      selColNmLvs = Lvs-string: "inp reg eng chi" with each element as optional.
+                var a = [];
+                if (bs[b0]) a.push(_btnNm_to_fldNm(b0));
+                if (bs[b1]) a.push(_btnNm_to_fldNm(b1));
+                if (bs[b2]) a.push(_btnNm_to_fldNm(b2));
+                if (bs[b3]) a.push(_btnNm_to_fldNm(b3));
+                var selColNmLvs = a.join(' ');
+                return selColNmLvs;
+                function _btnNm_to_fldNm(btnNm) {
+                    switch (btnNm) {
+                        case 'reg' :
+                            return "regCd";
+                        case 'inp':
+                            return "inpCd";
+                        case 'chi':
+                            return "chiNm";
+                        case 'eng':
+                            return "engNm";
+                        default:
+                            throw new Error('unexpect btnNm');
+                    }
+                }
+            }
+        }
+
+        function bld_and_set_tar_hdrAy() {
+            var bs = $scope.btn_selected;
+            var b0 = $scope.btn0Nm;
+            var b1 = $scope.btn1Nm;
+            var b2 = $scope.btn2Nm;
+            var b3 = $scope.btn3Nm;
+            if ($scope.lbl === undefined)return;
+            var lblDic = $scope.lbl.btn;
+
+            var a = [];
+            if (bs[b0]) a.push(lblDic[b0]);
+            if (bs[b1]) a.push(lblDic[b1]);
+            if (bs[b2]) a.push(lblDic[b2]);
+            if (bs[b3]) a.push(lblDic[b3]);
+            $scope.tar = $scope.tar || {};
+            $scope.tar.hdrAy = a;
+        }
+
+        function ondrop(ev) {
+            ev.preventDefault();
+            var src = ev.dataTransfer.getData("text");
+            var tar = ev.target.name;
+            var b0 = $scope.btn0Nm;
+            var b1 = $scope.btn1Nm;
+            var b2 = $scope.btn2Nm;
+            var b3 = $scope.btn3Nm;
+            var ay = [b0, b1, b2, b3];
+            var a = $ay.swapEle(ay, src, tar);
+            $scope.btn0Nm = a[0];
+            $scope.btn1Nm = a[1];
+            $scope.btn2Nm = a[2];
+            $scope.btn3Nm = a[3];
+            bld_and_set_tar_data();
+            bld_and_set_tar_hdrAy();
+            $scope.$digest();
+        }
+
+        function ondragover(ev) {
+            ev.preventDefault();
+        }
+
+        function ondragstart(ev) {
+            var name = ev.target.name;
+            ev.dataTransfer.setData("text", name) // id = btn_chi btn_eng btn_code btn_inp
+        }
+
+        function tarEle_to_pos(t) {
+            if (t instanceof Element) {
+                var tarRect = t.getBoundingClientRect();
+                var tarTop = tarRect.top
+                var tarLeft = tarRect.left;
+                return {top: tarTop + 15, left: tarLeft + 15};
+            }
+            return {top: 0, left: 0}
         }
 
         function do_sel_row() {
-            $scope.selectedIdx = this.$index;
             $scope.rno = this.$index + 1;
         }
 
@@ -203,7 +173,7 @@
             var a = $scope.btn_selected;
             var s0 = a.chi;	// s for switch
             var s1 = a.eng;
-            var s2 = a.cod;
+            var s2 = a.reg;
             var s3 = a.inp;
             switch (btnNm) {
                 case 'chi':
@@ -220,42 +190,19 @@
                     break
             }
             $scope.btn_selected[btnNm] = !$scope.btn_selected[btnNm];
-            do_bld_data();
+            bld_and_set_tar_data();
+            bld_and_set_tar_hdrAy();
         }
 
-        function ondrop(ev) {
-            ev.preventDefault();
-            var src = ev.dataTransfer.getData("text");
-            var tar = ev.target.name;
-            var b0 = $scope.btn0Nm;
-            var b1 = $scope.btn1Nm;
-            var b2 = $scope.btn2Nm;
-            var b3 = $scope.btn3Nm;
-            var ay = [b0, b1, b2, b3];
-            var new_ay = swapAyEle(ay, src, tar);
-            b0 = new_ay[0];
-            b1 = new_ay[1];
-            b2 = new_ay[2];
-            b3 = new_ay[3];
-            $scope.btn0Nm = b0;
-            $scope.btn1Nm = b1;
-            $scope.btn2Nm = b2;
-            $scope.btn3Nm = b3;
-
-            var src_data = $scope.src.data;
-            var btn_selected = $scope.btn_selected;
-            var new_data = $app.selCol(src_data, btn_selected, b0, b1, b2, b3);
-            $scope.tar.data = new_data;
-            $scope.rno = 1;
+        function do_selReg() {
+            var regCd = this.rec.regCd;
+            $scope.shwSelReg = false;
+            $tar.scope[$tar.model] = regCd; //<=====
+            if (typeof $cb === 'function') $cb($tar.scope); //<==== call back if cb is given.
         }
 
-        function ondragover(ev) {
-            ev.preventDefault();
-        }
-
-        function ondragstart(ev) {
-            var name = ev.target.name;
-            ev.dataTransfer.setData("text", name) // id = btn_chi btn_eng btn_code btn_inp
+        function do_can() {
+            $scope.shwSelReg = false;
         }
     }
-})(angular, _);
+]);

@@ -1,6 +1,22 @@
 <?php
 require_once 'ay.php';
+require_once 'str.php';
 const Q = "'";
+function is_server() {
+    return isset($_SERVER['HTTP_HOST']);
+}
+function pgmMsg($con, $lang, $msgNm, ...$ay)
+{
+    $sql = "select lbl from lblMsg where msgNm='$msgNm' and lang='$lang'; ";
+    $isAny = runsql_isAny($con, $sql);
+    if(!$isAny) {
+        runsql_exec($con, "insert into lblMsg (lang, msgNm, lbl) values ('$lang', '$msgNm', '$msgNm');");
+        return $msgNm + ": " + print_r($ay, true);
+    }
+    $msgTxt = runsql_val($con, $sql);
+    return fmtAy($msgTxt,$ay);
+}
+
 function db_cvStr(mysqli $con, $s)
 {
     if (is_null($s))

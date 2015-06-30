@@ -2,19 +2,39 @@
 <head lang="zh">
     <meta charset="UTF-8">
     <title>Add Region</title>
-    <link href="style.ccs" rel="stylesheet" title="Default Style">
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
     <script>angular.module('app', [])</script>
-    <script src='../ngSvc/app_facFn.js'></script>
+    <script src='../ngSvc/$lib.js'></script>
     <script src="add.js"></script>
     <script>
-        angular.module('app').controller('testAdd',['$rootScope',a]);
-        function a($rootScope) {
-            $rootScope.lang='zh';
-        }
+        angular.module('app').controller('testAdd',function($scope) {
+            $scope.sess = {lang: "zh"};
+            $scope.appCus = {cusCd: ""};
+        });
     </script>
 </head>
 <body ng-controller="testAdd">
+<table border='2px'>
+    <tr>
+        <td>lang
+        <td>
+            <field><input type="radio" name='lang' ng-model='sess.lang' value="en">en</input></field>
+            <field><input type="radio" name='lang' ng-model='sess.lang' value="zh">zh</input></field>
+    <tr>
+        <td>clear
+        <td><input type="button" value="clear" ng-click="appCus.mode = appCus.cusCd = addMsg = ''"/>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{appCus.mode}}
+    <tr>
+        <td>cusCd
+        <td class="readOnly">{{appCus.cusCd}}
+    <tr>
+        <td>message from php
+        <td class="readOnly">{{addMsg}}
+</table>
+<hr>
 <ng-include src="'add.html'"/>
 </body>
 </html>

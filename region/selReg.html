@@ -4,73 +4,87 @@
         position: absolute;
     }
 </style>
-<div ng-show="shwSelReg" ng-controller="selReg" class="selReg" ng-mouseleave="do_can()"
-     style="top:{{pos.top}}px; left:{{pos.left}}px;">
-    <table>
-        <tr>
-            <td>{{lbl.txt.total}}
-            <td>
-            <td>{{ofT}}
-        <tr>
-            <td>{{lbl.txt.filter}}
-            <td><input type="button" tabindex="-1" value="x" ng-click="rno=filter='' "/>
-            <td><input id="selRegFilter" ng-model="filter" type='text' size="10"/>
-        <tr>
-            <td>{{one_to_N}}
-            <td>
-            <td><input ng-model="rno" type="text" size=3 maxlength=4/>
-    </table>
-    <input type="button" ng-value="lbl.btn.top" ng-click="rno=(selectedIdx=0)+1"/>
-    <input type="button" ng-value="lbl.btn.up"
-           ng-click="rno=(selectedIdx=(selectedIdx==0)?0:selectedIdx-1)+1"/>
-    <input type="button" ng-value="lbl.btn.down"
-           ng-click="rno=(selectedIdx=(selectedIdx==(ofN-1))?(ofN-1):selectedIdx+1)+1"/>
-    <input type="button" ng-value="lbl.btn.buttom" ng-click="rno=(selectedIdx=ofN-1)+1"/>
-    <br>
+<div ng-controller="selReg" class="selReg" ng-mouseleave="do_can()" style="top:{{pos.top}}px; left:{{pos.left}}px;">
+    <div ng-show="shwSelReg">
+        <table>
+            <tr>
+                <td>
+                    <table border="1px">
+                        <tr>
+                            <td colspan="2">{{lbl.txt.total}}
+                            <td class="readOnly">{{src.data.length}}
+                        <tr>
+                            <td>{{lbl.txt.filter}}
+                            <td><input type="button" value="x" ng-click="rno=filter=''"/>
+                            <td><input ng-model="filter" type='text' size="10" autofocus/>
+                                <!--    <input type="button" value="..." ng-click="do_shw_filterHistory()"/> -->
+                        <tr>
+                            <td colspan="2">{{tar.data.length===0?"":"1-"+tar.data.length}}
+                            <td><input ng-model="rno" type="text" size="10" maxlength=4/>
+                    </table>
+                <td>
+                    <table border="2px">
+                        <tr>
+                            <td><input tabindex="-10" style="width:55px" type="button" ng-value="lbl.btn.top"
+                                       ng-click="rno=1"/>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.up"
+                                       ng-click="rno = (rno>1 ? rno-1 : 1)"/>
+                        <tr>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.buttom"
+                                       ng-click="rno=tar.data.length"/>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.down"
+                                       ng-click="rno=(rno < tar.data.length ? rno+1 : tar.data.length)"/>
+                        <tr>
+                    </table>
+                <td>
+        </table>
 
-    <div id="tglBtn">
-        <input name="{{btn0Nm}}" type="button" ng-class="(btn_selected[btn0Nm]) ? 'selected' : ''"
-               draggable="true"
-               ondragstart="angular.jj.ondragstart(event)"
-               ondrop="angular.jj.ondrop(event)"
-               ondragover="angular.jj.ondragover(event)"
-               value="{{lbl.btn[btn0Nm]}}"
-               ng-click="do_tgl_btn(btn0Nm)"/>
-        <input name="{{btn1Nm}}" type="button" ng-class="(btn_selected[btn1Nm]) ? 'selected' : ''"
-               draggable="true"
-               ondragstart="angular.jj.ondragstart(event)"
-               ondrop="angular.jj.ondrop(event)"
-               ondragover="angular.jj.ondragover(event)"
-               value="{{lbl.btn[btn1Nm]}}"
-               ng-click="do_tgl_btn(btn1Nm)"/>
-        <input name="{{btn2Nm}}" type="button" ng-class="(btn_selected[btn2Nm]) ? 'selected' : ''"
-               draggable="true"
-               ondragstart="angular.jj.ondragstart(event)"
-               ondrop="angular.jj.ondrop(event)"
-               ondragover="angular.jj.ondragover(event)"
-               value="{{lbl.btn[btn2Nm]}}"
-               ng-click="do_tgl_btn(btn2Nm)"/>
-        <input name="{{btn3Nm}}" type="button" ng-class="(btn_selected[btn3Nm]) ? 'selected' : ''"
-               draggable="true"
-               ondragstart="angular.jj.ondragstart(event)"
-               ondrop="angular.jj.ondrop(event)"
-               ondragover="angular.jj.ondragover(event)"
-               value="{{lbl.btn[btn3Nm]}}"
-               ng-click="do_tgl_btn(btn3Nm)"/>
+        <div id="tglBtn">
+            <input name="{{btn0Nm}}" type="button" ng-class="(btn_selected[btn0Nm]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btn0Nm]}}"
+                   ng-click="do_tgl_btn(btn0Nm)"/>
+            <input name="{{btn1Nm}}" type="button" ng-class="(btn_selected[btn1Nm]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btn1Nm]}}"
+                   ng-click="do_tgl_btn(btn1Nm)"/>
+            <input name="{{btn2Nm}}" type="button" ng-class="(btn_selected[btn2Nm]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btn2Nm]}}"
+                   ng-click="do_tgl_btn(btn2Nm)"/>
+            <input name="{{btn3Nm}}" type="button" ng-class="(btn_selected[btn3Nm]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btn3Nm]}}"
+                   ng-click="do_tgl_btn(btn3Nm)"/>
+        </div>
+        <br>
+        <table border="2px">
+            <tr>
+                <th>##
+                <th>{{lbl.btn.sel}}
+                <th ng-repeat="hdr in tar.hdrAy">{{hdr}}</th>
+
+                <!--
+                tar.data structure = ?,
+                where it is assinged? (A: #assign tar.data @ *.js)
+                -->
+            <tr ng-repeat="rec in tar.data" ng-class="($index==(rno-1)) ? 'selected' : ''" ng-click="do_sel_row()">
+                <td>{{$index<9?$index+1:""}}
+                <td>
+                    <input type="button" ng-click="do_selReg()" ng-value="lbl.btn.sel"/>
+                <td ng-repeat="td in rec.dr">{{td}}
+        </table>
     </div>
-    <br>
-    <table border="2px">
-        <tr><th ng-repeat=""
-
-<!--
-tar.data structure = ?,
-where it is assinged? (A: #assign tar.data @ *.js)
--->
-        <tr ng-repeat="rec in tar.data" ng-class="($index==selectedIdx) ? 'selected' : ''"
-            ng-click="do_sel_row()">
-            <td>{{$index<9?$index+1:""}}
-            <td>
-                <input type="button" value="{{lbl.btn.sel}}" ng-click="do_selReg()"/>
-            <td ng-repeat="td in rec.regDr">{{td}}
-    </table>
 </div>

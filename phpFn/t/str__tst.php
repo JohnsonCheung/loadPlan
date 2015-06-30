@@ -8,17 +8,28 @@
 function run()
 {
     if (true) {
-        is_intstr__tst();
+        fmtAy__tst();
+        fmt__tst();
     } else {
+        fmt__tst();
         is_intstr__tst();
         strbrk__tst();
         tim_stmp__tst();
     }
 }
 
-function pass($s)
+function fmtAy__tst()
 {
-    echo "pass : " . $s;
+    $act = fmtAy('a=[$a] b=[$b] a=[$a]', [1, 2]);
+    assert($act === 'a=[1] b=[2] a=[1]');
+    pass(__FUNCTION__);
+}
+
+function fmt__tst()
+{
+    $act = fmt('a=[$a] b=[$b] a=[$a]', 1, 2);
+    assert($act === 'a=[1] b=[2] a=[1]');
+    pass(__FUNCTION__);
 }
 
 function is_intStr__tst()
@@ -42,7 +53,7 @@ function tim_stmp__tst()
 {
     $act = tim_stmp();
     $act1 = tim_stmp();
-    assert($act!==$act1);
+    assert($act !== $act1);
 }
 
 require_once '..\str.php';

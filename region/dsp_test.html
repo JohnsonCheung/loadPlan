@@ -6,34 +6,38 @@
     <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
     <script>angular.module('app', []);</script>
-    <script src="../ngSvc/app_facFn.js"></script>
+    <script src="../ngSvc/$lib.js"></script>
     <script src="dsp.js"></script>
     <script>
-        angular.module('app').controller('dsp_test', ['$scope', '$http', a]);
-        function a($scope, $http) {
+        angular.module('app').controller('dsp_test', ['$scope', '$http', function ($scope, $http) {
+            $scope.appRegion = {mode:'dsp', regCd:'reg1'};
+            $scope.sess = {lang: 'zh'}
             $http.get("../phpResp/tblDc.php?t=region&f=regCd").success(function (data) {
                 $scope.regCdDc = data;
             })
-        }
-        ;
+        }]);
     </script>
 </head>
 <body ng-controller="dsp_test">
 <table border="2px" name="testingBox">
     <tr>
         <td>region code
-        <td><select ng-model="regCd">
+        <td><select ng-model="appRegion.regCd">
             <option ng-repeat="i in regCdDc" value="{{i}}">{{i}}</option>
         </select>
     <tr>
+        <td>lang
+        <td><input type="radio" name="lang" value="zh" ng-model="sess.lang">zh</input>
+            <input type="radio" name="lang" value="en" ng-model="sess.lang">en</input>
+    <tr>
         <td> mode:
         <td>
-            <input type="button" value="dsp" ng-click="mode='dsp'"/>
-            <input type="button" value="dea" ng-click="mode='dea'"/>
-            <input type="button" value="rea" ng-click="mode='rea'"/>
-            <input type="button" value="dlt" ng-click="mode='dlt'"/>
+            <input type="button" value="dsp" ng-click="appRegion.mode='dsp'"/>
+            <input type="button" value="dea" ng-click="appRegion.mode='dea'"/>
+            <input type="button" value="rea" ng-click="appRegion.mode='rea'"/>
+            <input type="button" value="dlt" ng-click="appRegion.mode='dlt'"/>
             <tr>
-    <td>mode<td classname="readOnly">{{mode}}
+    <td>mode<td classname="readOnly">{{appRegion.mode}}
 </table>
 <hr>
 <ng-include src="'dsp.html'"/>

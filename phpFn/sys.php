@@ -9,5 +9,6 @@
 function launch($cmd) {
     exec("start $cmd");
 }
-file_put_contents("c:/temp/a.csv","lskdflsdf");
-launch("c:/temp/a.csv");
+function nz($a, $nz) {
+    return $a ? $a : $nz;
+}

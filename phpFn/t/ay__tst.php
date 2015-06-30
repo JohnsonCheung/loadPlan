@@ -11,10 +11,11 @@ require_once '..\str.php';
 function run()
 {
     if (true) {
-        test_ay_newByLpAp();
-
-
+        test_ay_rmvDup();
+        test_ay_rmvDup_rev();
     } else {
+        test_ay_rmvDup();
+        test_ay_rmvDup_rev();
         test_ay_newByLpAp();
         test_brw_ft();
         test_dtaAy_tmpPth1();
@@ -26,6 +27,20 @@ function run()
         test_ay_pk();
         test_ay_firstKey();
     }
+}
+
+function test_ay_rmvDup()
+{
+    $act = ay_rmvDup([1, 2, 3, 2, 1]);
+    assert($act === [3, 2, 1]);
+    pass(__FUNCTION__);
+}
+
+function test_ay_rmvDup_rev()
+{
+    $act = ay_rmvDup_rev([1, 2, 3, 2, 1]);
+    assert($act === [1, 2, 3]);
+    pass(__FUNCTION__);
 }
 
 function test_ay_newByLpAp()

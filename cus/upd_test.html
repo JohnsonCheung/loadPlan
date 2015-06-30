@@ -4,12 +4,14 @@
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
-    <script src="../ngSvc/obj_FacFn.js"></script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="../region/selReg.js"></script>
     <script>
         angular.module('app').controller('upd_test', ['$scope', '$http', a]);
         function a($scope, $http) {
-            $scope.lang = 'zh';
-            $http.get("../phpResp/tblDc.php?t=cus&f=cusCd").success(function(data) {
+            $scope.sess = {lang: 'zh'};
+            $scope.appCus = {cusCd: ''};
+            $http.get("../phpResp/tblDc.php?t=cus&f=cusCd").success(function (data) {
                 $scope.cusCdDc = data;
             })
         }
@@ -17,10 +19,37 @@
     <script src="upd.js"></script>
 </head>
 <body ng-controller='upd_test'>
-<lable>cus to update :
-    <select ng-model="cusCd" on>
-        <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
-    </select></lable>
+<table border="2px" id="testingBox">
+    <tr>
+        <td>Customer to update
+        <td><select ng-model="appCus.cusCd"/>
+            <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
+            </select>
+        </td>
+    <tr>
+        <td>lang
+        <td>
+            <input type="radio" name="lang" ng-model="sess.lang" value="en">en</input>
+            <input type="radio" name="lang" ng-model="sess.lang" value="zh">zh</input>
+
+        </td>
+    <tr>
+        <td>break
+        <td><input type="button" ng-click="do_brk()" value="brk"/>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{appCus.mode}}
+    <tr>
+        <td>noChg
+        <td class="readOnly">{{appCus.noChg}}
+    <tr>
+        <td>update msg returned from php (appCus.updMsg)
+        <td class="readOnly">{{appCus.updMsg | json}}
+    <tr>
+        <td>index / nearByMsg
+        <td><input type="text" size=3 ng-model="testVdtMsg.idx"/> / <input type="text" ng-model="testVdtMsg.nearByMsg"/>
+</table>
+<hr>
 <div ng-include="'upd.html'"/>
 </body>
 </html>
