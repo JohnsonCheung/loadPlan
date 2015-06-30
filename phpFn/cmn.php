@@ -13,7 +13,9 @@ const eYYYYMMDDHH = "Y-m-d H";
 const eYYYYMMDDHHMM = "Y-m-d Hi";
 const eYYYYMMDDHHMMSS = "Y-m-d His";
 const PTH_TMP_HOM = "c:/Temp/";
+const Q = "'";
 require_once "System/Launcher.php";
+
 function is_main()
 {
     if ($_SERVER['argv'][0] !== $_SERVER['SCRIPT_FILENAME']) exit();
@@ -29,6 +31,7 @@ class BldSql
         $tim = [],      // fld name ay which is time-format so that to build a fldStrVal good put into sql as time
         $dte = [],      // fld name ay which is date-format so that to build a fldStrVal good put into sql as time
         $bool = [],     // fld name ay  which is boolean-format so that to build a fldStrVal good put into sql as time
+        $fldNm2valStr,  // it is array build from $this->dro. Each field in $this->dro will be the key and valStr() its value as the value
         $o = [];
 
     function __construct($dro, $tblNm, $fldLvs, $reqLvs = null, $boolLvs = null, $timLvs = null, $dteLvs = null)
@@ -41,6 +44,7 @@ class BldSql
         $this->dte = split_lvs($dteLvs);
         $this->pk = $this->fld[0];
         $this->tblNm = $tblNm;
+        $this->fldNm2valStr = $this->fldNm2valStr();
         $this->o = [];
     }
 
@@ -53,34 +57,32 @@ class BldSql
         return "insert into $a ($b) values($c)";
     }
 
-    private function fldAy_valStrAy()
+    private function fldNm2valStr()
     {
         $ay = get_object_vars($this->dro);
-        $fldAy = array_keys($ay);
-        $valStrAy = [];
+        $o = [];
         $j = 0;
-        foreach ($ay as $v) {
-            $fldNm = $fldAy[$j];
-            $valStr = $this->fldValStr($fldNm, $v);
-            array_push($valStrAy, $valStr);
-            $j++;
+        foreach ($ay as $k => $v) {
+            $o[$k] = $this->fldValStr($k, $v);
         }
-        return [$fldAy, $valStrAy];
+        return $o;
     }
 
     function updStmt()
     {
         $this->chkMissing();
         $a = $this->tblNm;
-        list($fldAy, $valStrAy) = $this->fldAy_valStrAy();
-        $b = join(", ", ay_zip("=", $fldAy, $valStrAy));
         $pk = $this->pk;
+        $fldNm2valStr = $this->fldNm2valStr;
+        $b = ay_splice_assoc($fldNm2valStr, $pk, 1);
+        $c = join(", ", ay_join_kv("=", $b));
         $pkVal = $this->dro->$pk;
-        return "update $a set $b where $pk='$pkVal';";
+        return "update $a set $c where $pk='$pkVal';";
     }
 
     /** each field in $this->req should have value in $this->dro */
-    private function chkMissing()
+    private
+    function chkMissing()
     {
         $reqAy = $this->req;
         $givenAy = array_keys(get_object_vars($this->dro));
@@ -97,7 +99,8 @@ class BldSql
         }
     }
 
-    private function fldValStr($fldNm, $v)
+    private
+    function fldValStr($fldNm, $v)
     {
         if (in_array($fldNm, $this->bool)) {
             return $v ? "b'1'" : "b'0'";
@@ -108,6 +111,26 @@ class BldSql
         }
         return "'$v'";
     }
+}
+
+/** return the idx of the key in $ay */
+function ay_key_idx($ay, $key)
+{
+    $j = 0;
+    foreach ($ay as $k => $v) {
+        if ($key === $k) return $j;
+        $j++;
+    }
+}
+
+/** return an array by joining the $k and $v by $sep of given $ay */
+function ay_join_kv($sep, $ay)
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        array_push($o, $k . $sep . $v);
+    }
+    return $o;
 }
 
 function is_server()
@@ -162,6 +185,11 @@ function rmv_end_backSlash($pth)
     return $pth;
 }
 
+function add_backSlash($pth)
+{
+    return right($pth, 1) === '\\' ? $pth : $pth . '\\';
+}
+
 function pth_create_if_not_exist($pth)
 {
     $a = rmv_end_backSlash($pth);
@@ -176,11 +204,6 @@ function pth_clear_files($pth)
     foreach ($fn_ay as $fn) {
         unlink($pth . $fn);
     }
-}
-
-function add_backSlash($pth)
-{
-    return right($pth, 1) === '\\' ? $pth : $pth . '\\';
 }
 
 function pth_opn($pth)
@@ -279,7 +302,6 @@ function split_lvs($lvs)
         return [];
     return explode(" ", $a);
 }
-
 
 function split_lvc($lvc)
 {
@@ -389,7 +411,6 @@ function brk_quote($_q)
         ];
     return ['', ''];
 }
-
 
 function quote($_s, $_q)
 {
@@ -652,7 +673,6 @@ function strbrk($_s, $_brkchr, $_notrim = false)
     return [$o1, $o2];
 }
 
-const Q = "'";
 function db_cvStr(mysqli $con, $s)
 {
     if (is_null($s))
@@ -941,7 +961,7 @@ function db_con($dbNm = "loadplan")
 
 function pass($s)
 {
-    echo "pass: " . $s;
+    echo "pass: " . $s . "\n";
 }
 
 function db_isPkValExist($con, $tbl, $pkVal)
@@ -983,6 +1003,23 @@ function ay_quote($ay, $q = "'")
         $o[$k] = quote($v, $q);
     }
     return $o;
+}
+
+/** $offset can be key or long, $length can be $key or length */
+function ay_splice_assoc($ay, $offset, $length, $replacement = null)
+{
+    $replacement = (array)$replacement;
+    $key_indices = array_flip(array_keys($ay));
+    if (isset($ay[$offset]) && is_string($offset)) {
+        $offset = $key_indices[$offset];
+    }
+    if (isset($ay[$length]) && is_string($length)) {
+        $length = $key_indices[$length] - $offset;
+    }
+
+    $ay = array_slice($ay, 0, $offset, TRUE)
+        + $replacement
+        + array_slice($ay, $offset + $length, NULL, TRUE);
 }
 
 function ay_to_dta(array $ay)

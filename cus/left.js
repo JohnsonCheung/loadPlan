@@ -48,7 +48,7 @@
             emit_rno(new_rno);
         }
 
-        function success(data, status, headers, config) {
+        function success(data) {
             var srcDta = a(data)
             var src = {};
             src.data = srcDta;
@@ -79,7 +79,6 @@
                     o.push({dr: dr, isDea: isDea, cusCd: dr.cusCd})
                     return o;
                 }
-
                 return data.reduce(reduce, []);
             };
 

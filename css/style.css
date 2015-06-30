@@ -13,4 +13,5 @@ td > select {border:none}
 .selected  {background-color: #80ff80 }
 .error     {color:red}
 .dim      {color:blue}
+.box      {border: 1px solid black;}
 /* input[type="button"]:focus {border:2px}

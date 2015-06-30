@@ -1,6 +1,7 @@
 angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', function a($scope, $http, $obj, $app) {
     $scope.$watch('sess.lang', watch_lang);
     $scope.$watch('appCus.cusCd', watch_cusCd);
+    $scope.do_cpyFmAbove = do_cpyFmAbove;
     $scope.do_can = do_can;
     $scope.do_sav = do_sav;
     $scope.do_vdt = do_vdt;
@@ -11,9 +12,7 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
     $scope.do_shwSelReg = do_shwSelReg;
     $scope.do_reset = do_reset;
     $scope.view1 = true;
-    $scope.view1Color = "lightblue";
-    $scope.do_view1 = do_view1;
-    $scope.do_view2 = do_view2;
+    $scope.do_view = do_view;
     $http.get('../phpResp/tblDc.php?t=region&f=regCd').success(function (data) {
         $scope.regCdDc = data;
     });
@@ -29,11 +28,21 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
         $app.getLbl("cus", "upd", lang, $scope);
     }
 
-    function do_view1() {
-        $scope.view1 = true;
-        $scope.view1Color = "lightblue";
+    function do_view(viewNo) {
+        $scope.view1 = false;
         $scope.view2 = false;
-        $scope.view2Color = "buttonface";
+        $scope.view3 = false;
+        $scope.view4 = false;
+        switch(viewNo) {
+            case 1: $scope.view1=true; break;
+            case 2: $scope.view2=true; break;
+            case 3: $scope.view3=true; break;
+            case 4: $scope.view4=true; break;
+        }
+    }
+
+    function do_cpyFmAbove(fldNm, idx) {
+        $scope.data.adrDt[idx][fldNm] = $scope.data.adrDt[idx - 1][fldNm];
     }
 
     function do_view2() {
@@ -132,7 +141,6 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
             if (idx !== j) {
                 if (adrCdAy[j] === adrCd)
                     return $scope.lbl.msg.dup.replace("$rno", j + 1);
-                ;
             }
         }
         return null;

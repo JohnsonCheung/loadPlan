@@ -10,6 +10,7 @@ run();
 function run()
 {
     if (true) {
+        run_ay();
         run_BldSql();
     } else {
         run_BldSql();
@@ -32,8 +33,13 @@ function run_BldSql()
 function run_ay()
 {
     if (true) {
-        ay_zip__tst();
+        ay_join_kv__tst();
+        ay_key_idx__tst();
+        ay_splice_assoc__tst();
     } else {
+        ay_splice_assoc__tst();
+        ay_key_idx__tst();
+        ay_join_kv__tst();
         ay_zip__tst();
     }
 }
@@ -50,9 +56,74 @@ function BldSql_updStmt__tst()
 
     $m = new BldSql($dro, "cus", "cusCd chiNm engNm chiShtNm engShtNm cusTy rmk", "cusTy");
     $act = $m->updStmt();
-    $exp = "update cus set cusCd='aa', chiNm='aa', engNm='aa', chiShtNm='aa', engShtNm='aa', cusTy='aa' where cusCd='aa';";
+    $exp = "update cus set chiNm='aa', engNm='aa', chiShtNm='aa', engShtNm='aa', cusTy='aa' where cusCd='aa';";
     assert($act === $exp);
     pass(__FUNCTION__);
+}
+
+function ay_join_kv__tst()
+{
+    $a = ['a' => 1, 'b' => 2];
+    $act = ay_join_kv("=", $a);
+    $exp = ["a=1", "b=2"];
+    assert($act === $exp);
+    pass(__FUNCTION__);
+}
+
+function ay_splice_assoc__tst()
+{
+    $a = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+    $act = ay_splice_assoc($a, 'b', 1);
+    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 'b', 2);
+    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 'b', 'b');
+    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 'b', 'c');
+    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 1, 1);
+    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 1, 2);
+    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 1, 'b');
+    $exp = ['a' => 1, 'c' => 3, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+    $act = ay_splice_assoc($a, 1, 'c');
+    $exp = ['a' => 1, 'd' => 4, 'e' => 5];
+    assert($act === $exp);
+
+}
+
+function ay_key_idx__tst()
+{
+    $a = ['a' => 1, 'b' => 2];
+    $act = ay_key_idx($a, "a");
+    $exp = 0;
+    assert($act === $exp);
+
+    $act = ay_key_idx($a, "b");
+    $exp = 1;
+    assert($act === $exp);
+
+    $act = ay_key_idx($a, "c");
+    $exp = null;
+    assert($act === $exp);
+
+    pass(__FUNCTION__);
+
 }
 
 function ay_zip__tst()

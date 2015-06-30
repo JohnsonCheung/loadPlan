@@ -7,7 +7,6 @@
  */
 include_once "/../phpFn/cmn.php";
 include_once "/../phpFn/lbl.php";
-include_once "/../phpFn/bldSql.php";
 include_once '/../dbTools/addMissingNearBy.php';
 
 class Upd
@@ -17,6 +16,10 @@ class Upd
         $adrDt,
         $lang,
         $cusDro;
+    static $adrFldLvs = "";
+    static $adrReqLvs = "";
+    static $adrBoolLvs = "";
+    static $adrTimLvs = "";
 
     function __construct($cusDs)
     {
@@ -79,7 +82,7 @@ class Upd
     {
         $a = new BldSql($this->cusDro, "cus", "cusCd inpCd chiNm engNm chiShtNm engShtNm cusTy cusRmk");
         $b = $a->updStmt();
-        if ($b) runsql_exec($this->con, $b);
+        runsql_exec($this->con, $b);
     }
 
     private function updAdrDt()
@@ -91,75 +94,31 @@ class Upd
 
     private function updAdrDt_upd()
     {
+        $a = Upd::$adrFldLvs;
+        $b = Upd::$adrReqLvs;
+        $c = Upd::$adrBoolLvs;
+        $d = Upd::$adrTimLvs;
         foreach ($this->adrDt as $i) {
-            if ($i->newRec) goto nxt;
-            $cusCd = $i->cusCd;
-            $adrCd = $i->adrCd;
-            $inpCd = $i->inpCd;
-            $adrNm = $i->adrNm;
-            $adr = $i->adr;
-            $contact = $i->contact;
-            $phone = $i->phone;
-            $regCd = $i->regCd;
-            $gpsX = $i->gpsX;
-            $gpsY = $i->gpsY;
-            $delvTimFm = $i->delvTimFm;
-            $delvTimTo = $i->delvTimTo;
-            $delvLasTim = $i->delvLasTim;
-            $truckTones = $i->truckTones;
-            $truckCold = $i->truckCold;
-            $truckFlat = $i->truckFlat;
-            $truckVan = $i->truckVan;
-            $truckClose = $i->truckClose;
-            $truckTail = $i->truckTail;
-            $truckUpstair = $i->truckUpstair;
-            $truckDispatchAtDoor = $i->truckDispatchAtDoor;
-            $truckByBox = $i->truckByBox;
-            $truckByPallet = $i->truckByPallet;
-            $truckLock = $i->truckLock;
-            $pickAdrCd = $i->pickAdrCd;
-            $rmk = $i->rmk;
-
-            $sql = "update cusadr set
-cusCd = '$cusCd',
-adrCd = '$adrCd',
-inpCd = '$inpCd',
-adrNm = '$adrNm',
-adr = '$adr',
-contact = '$contact',
-phone = '$phone',
-regCd = '$regCd',
-gpsX = '$gpsX',
-gpsY = '$gpsY',
-delvTimFm = '$delvTimFm',
-delvTimTo = '$delvTimTo',
-delvLasTim = '$delvLasTim',
-truckTones = '$truckTones',
-truckCold = '$truckCold',
-truckFlat = '$truckFlat',
-truckVan = '$truckVan',
-truckClose = '$truckClose',
-truckTail = '$truckTail',
-truckUpstair = '$truckUpstair',
-truckDispatchAtDoor = '$truckDispatchAtDoor',
-truckByBox = $truckByBox',
-truckByPallet = $truckByPallet',
-truckLock = $truckLock',
-pickAdrCd = $pickAdrCd',
-rmk = $rmk'
-where cusCd='$cusCd' and adrCd='$adrCd';";
-            runsql_exec($this->con, $sql);
-            nxt:
+            if (!$i->newRec) {
+                $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
+                runsql_exec($this->con, $m->updStmt());
+            }
         } // for
     }
 
     function updAdrDt_ins()
     {
-        $bld = new BldSql("truckTail", "", "");
-        $sql = $bld->updStmt();
-        runsql_exec($this->con, $sql);
-        nxt:
-    } // for
+        $a = Upd::$adrFldLvs;
+        $b = Upd::$adrReqLvs;
+        $c = Upd::$adrBoolLvs;
+        $d = Upd::$adrTimLvs;
+        foreach ($this->adrDt as $i) {
+            if (!$i->newRec) {
+                $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
+                runsql_exec($this->con, $m->insStmt());
+            }
+        } // for
+    }
 
     private function updAdrDt_rmv()
     {
