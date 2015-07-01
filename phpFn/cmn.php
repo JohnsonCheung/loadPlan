@@ -20,6 +20,7 @@ class BldSql
 {
     private
         $dro,           // data row object.
+        $dra,           // data row associated array.  Becomes from $dro
         $pk,            // fld first in $fld
         $fld = [],      // all field support in $dro.  In $dro may have more or less field in $fld.
         $req = [],      // fld name ay wich is required.  If not given in $dro, throw exception
@@ -33,6 +34,8 @@ class BldSql
     function __construct($dro, $tblNm, $fldLvs, $reqLvs = null, $boolLvs = null, $timLvs = null, $dteLvs = null)
     {
         $this->dro = $dro;
+        $this->dra = get_object_vars($dro);
+        $this->drFld = array_keys($this->dra);
         $this->fld = split_lvs($fldLvs);
         $this->req = split_lvs($reqLvs);
         $this->bool = split_lvs($boolLvs);
@@ -46,11 +49,13 @@ class BldSql
 
     private function fldNm2valStr()
     {
-        $ay = get_object_vars($this->dro);
+        $dra = $this->dra;
+        $ay = $this->drFld;
+        $ay1 = array_intersect($ay, $this->fld);
         $o = [];
         $j = 0;
-        foreach ($ay as $k => $v) {
-            $o[$k] = $this->fldValStr($k, $v);
+        foreach ($ay1 as $fld) {
+            $o[$fld] = $this->fldValStr($fld, $dra[$fld]);
         }
         return $o;
     }
@@ -60,7 +65,7 @@ class BldSql
         if (in_array($fldNm, $this->bool)) {
             return $v ? "b'1'" : "b'0'";
         } elseif (in_array($fldNm, $this->tim)) {
-            return "$v'";
+            return "'$v'";
         } elseif (in_array($fldNm, $this->dte)) {
             return "'$v'";
         }
@@ -70,10 +75,14 @@ class BldSql
     function insStmt()
     {
         $a = $this->tblNm;
-        list($fldAy, $valStrAy) = $this->fldAy_valStrAy();
-        $b = join(",", $fldAy);
-        $c = join(",", $valStrAy);
-        return "insert into $a ($b) values($c)";
+        $b = $this->fldNm2valStr();
+        $pk = $this->pk;
+        ay_splice_assoc($b, $pk, 1);
+        $c = array_keys($b);
+        $c1 = join(",", $c);
+        $d = array_values($b);
+        $d1 = join(",", $d);
+        return "insert into $a ($c1) values($d1)";
     }
 
     function updStmt()
@@ -89,16 +98,15 @@ class BldSql
     }
 
     /** each field in $this->req should have value in $this->dro */
-    private
-    function chkMissing()
+    private function chkMissing()
     {
         $reqAy = $this->req;
-        $givenAy = array_keys(get_object_vars($this->dro));
-        $ay = ay_minus($reqAy, $givenAy);
+        $drFld = $this->drFld;
+        $ay = ay_minus($reqAy, $drFld);
         if (sizeof($ay) > 0) {
             $a = join(" ", $ay);
             $b = join(' ', $this->req);
-            $c = join(' ', $givenAy);
+            $c = join(' ', $drFld);
             echo "There are required field not found in given [dro]\n";
             echo "They are = [$a]\n";
             echo "All required fields = [$b]\n";
@@ -136,6 +144,37 @@ function assert_key_exists($key, array $ay)
         $keys = join(' ', array_keys($ay));
         throw new Exception("key[$key] not found\nin array_keys=[$keys]");
     }
+}
+
+/** return an array from assoc-$ay with fields as specified in [$boolLvs] converted from '0-1' to true-false  */
+function ay_convert_bool(array $ay, $boolLvs)
+{
+    $a = split_lvs($boolLvs);
+    $o = $ay;
+    foreach ($a as $fld) {
+        if (!array_key_exists($fld, $ay)) {
+            $o[$fld] = false;
+        } else {
+            switch ($o[$fld]) {
+                case null:
+                case '1':
+                    $o[$fld] = true;
+                    break;
+                case '0':
+                    $o[$fld] = false;
+                    break;
+                default:
+                    echo "bool-Fld[$fld] has value <>1 or 0 or null\n";
+                    echo "boolLvs=[$boolLvs]\n";
+                    echo "the value=\n";
+                    var_dump($o[$fld]);
+                    echo "ay=\n";
+                    var_dump($ay);
+                    throw new Exception('see above');
+            }
+        }
+    }
+    return $o;
 }
 
 function ay_convert_decoding(array $ay, $encoding = "BIG-5")
@@ -247,7 +286,7 @@ function ay_splice_assoc(&$ay, $offset, $length = null, $replacement = null)
     if (is_string($offset) || is_string($length)) {
         $key_indices = array_flip(array_keys($ay));
         if (is_string($offset)) {
-            if (!isset($ay[$offset])) throw new Exception('[offset] is a string, but not found [ay]');
+            if (!isset($ay[$offset])) return [];    //<-- just return []; if $offset is a string and not found $ay;
             $offset = $key_indices[$offset];
         }
         if (is_string($length)) {
@@ -833,7 +872,7 @@ function runsp_rs(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
 function runsql(mysqli $con, $sql)
 {
     $res = $con->query($sql);
-    if ($res === false) throw new Exception("\nMsg: [{$con->error}]\nSql: [$sql]\n\n");
+    if ($res === false) throw new Exception("\nMsg: [{$con->error}]<br>\nSql: [$sql]\n\n");
     return $res;
 }
 
@@ -954,6 +993,7 @@ function runsql_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
 function runsql_exec(mysqli $con, $sql)
 {
     runsql($con, $sql);
+    if ($con->error) throw new Exception($con->error);
     $o = $con->affected_rows;
     $con->next_result();
     return $o;
@@ -1047,10 +1087,7 @@ function split_lvs($lvs)
         $ty = gettype($lvs);
         throw new Exception("\$lvs should be string or array or null, but now[$ty]");
     }
-    $a = rmv_dbl_spc($lvs);
-    if ($a === "")
-        return [];
-    return explode(" ", $a);
+    return preg_split("/\s+/", trim($lvs));
 }
 
 function strSplitIntoChrAy($s)

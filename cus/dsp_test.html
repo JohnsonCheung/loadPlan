@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="cusApp">
+<html ng-app="app">
 <head lang="zh">
     <meta charset="UTF-8">
     <title>Display Customer</title>
     <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
-    <script>angular.module('cusApp', []);</script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
     <script src="dsp.js"></script>
     <script>
-        angular.module('cusApp').controller('dsp_test', ['$scope', '$http', function ($scope, $http) {
-            $scope.lang = "zh";
+        angular.module('app').controller('dsp_test', ['$scope', '$http', function ($scope, $http) {
+            $scope.sess = {lang: "zh"};
             $http.get('../phpResp/tblDc.php?t=cus&f=cusCd').success(function (data) {
                 $scope.cusCdDc = data;
             });
@@ -17,16 +18,27 @@
     </script>
 </head>
 <body ng-controller="dsp_test">
-customer code
-<select ng-model="cusCd">
-    <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
-</select>
-<br>
-mode:
-<input type="button" value="dsp" ng-click="mode='dsp'"/>
-<input type="button" value="dea" ng-click="mode='dea'"/>
-<input type="button" value="rea" ng-click="mode='rea'"/>
-<input type="button" value="dlt" ng-click="mode='dlt'"/>
+<table border="2px">
+    <tr>
+        <td>customer code
+        <td><select ng-model="appCus.cusCd">
+            <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
+        </select>
+    <tr>
+        <td>mode
+        <td><input type="button" value="dsp" ng-click="appCus.mode='dsp'"/>
+            <input type="button" value="dea" ng-click="appCus.mode='dea'"/>
+            <input type="button" value="rea" ng-click="appCus.mode='rea'"/>
+            <input type="button" value="dlt" ng-click="appCus.mode='dlt'"/>
+    <tr>
+        <td>lang
+        <td><input type="radio" value="zh" name="lang" ng-model="sess.lang">zh</input>
+            <input type="radio" value="en" name="lang" ng-model="sess.lang">en</input>
+
+</table>
+
+
+<hr>
 <ng-include src="'dsp.html'"/>
 </body>
 </html>

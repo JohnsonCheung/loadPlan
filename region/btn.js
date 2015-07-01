@@ -2,7 +2,6 @@
  * Created by USER on 7/6/2015.
  */
 angular.module('app').controller('btn', ['$scope', '$http', '$app', '$obj', function a($scope, $http, $app, $obj) {
-    'use strict';
     $scope.do_mode = function (mode) {
         $scope.appRegion.mode = mode;
     }
@@ -11,12 +10,11 @@ angular.module('app').controller('btn', ['$scope', '$http', '$app', '$obj', func
     });
 
     if (!$scope.auth)
-        $http.get("../phpResp/auth.php?pgmNm=region").success(function success_auth(data) {
+        $http.get("../phpResp/auth.php?pgmNm=region").success(function(data) {
             if (typeof data !== 'string') throw new Exception('auth.php does not return a string');
             $scope.auth = $obj.getOptObj(data);
         });
-
-    $scope.$watch("appRegion.regCd", watch_regCd)
+    $scope.$watch("appRegion.regCd", watch_regCd);
     if (!$scope.appRegion.regCd)
         watch_regCd($scope.appRegion.regCd);
     function watch_regCd(regCd) {
@@ -25,11 +23,10 @@ angular.module('app').controller('btn', ['$scope', '$http', '$app', '$obj', func
             var isDea = data.isDea;
             var isRef = data.isRef;
             var auth = $scope.auth;
-            var shw = fnd_scope_shw(isDea, isRef, auth);
+            var shw = $app.getShwBtn(isDea, isRef, auth); // fnd_scope_shw(isDea, isRef, auth);
             $scope.shw = shw;
         });
-        return;
-
+/*
         function fnd_scope_shw(isDea, isRef, auth) {
             var shw = angular.copy(auth);
             if (isDea === undefined) {
@@ -55,5 +52,6 @@ angular.module('app').controller('btn', ['$scope', '$http', '$app', '$obj', func
             }
             return shw;
         }
+ */
     }
 }]);

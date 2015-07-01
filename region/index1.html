@@ -21,11 +21,10 @@
         <td width="50%"><h1>{{lbl.txt.region}}</h1>
         <td>
         <td width="10%">
-            <div align="right" ng-If="isLogin">{{lbl.txt.welcome}}, {{user}}
+            <div align="right" ng-If="isLogin">{{lbl.txt.welcome}}, {{sess.usrShtNm}}
                 <input type="button" value="{{lbl.btn.logout}}" ng-click="do_logout()">
                 <input type="button" value="{{lbl.btn.toLang}}" ng-click="do_toLang()">
             </div>
-            <!--    <td width="10%"><img style="display:normal" ng-src="/loadPlan/images/companyMedium.png" ng-click="goMnu()"> -->
 </table>
 <hr>
 <table>

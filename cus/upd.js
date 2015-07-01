@@ -33,11 +33,19 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
         $scope.view2 = false;
         $scope.view3 = false;
         $scope.view4 = false;
-        switch(viewNo) {
-            case 1: $scope.view1=true; break;
-            case 2: $scope.view2=true; break;
-            case 3: $scope.view3=true; break;
-            case 4: $scope.view4=true; break;
+        switch (viewNo) {
+            case 1:
+                $scope.view1 = true;
+                break;
+            case 2:
+                $scope.view2 = true;
+                break;
+            case 3:
+                $scope.view3 = true;
+                break;
+            case 4:
+                $scope.view4 = true;
+                break;
         }
     }
 
@@ -67,7 +75,7 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
     }
 
     function do_addAdr() {
-        $scope.data.adrDt.push({shwDlt: true, newRec: true});
+        $scope.data.adrDt.push({shwDlt: true, newRec: true, cusCd: $scope.appCus.cusCd});
     }
 
     function do_deaAdr() {

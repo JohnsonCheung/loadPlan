@@ -17,7 +17,7 @@ function test_oneCus()
     $cusCd = 'cus1';
     $act = oneCus($cusCd);
     $exp = array(
-        'cus' =>
+        'cusDro' =>
             array(
                 'cusCd' => 'cus1',
                 'chiNm' => 'chiNm',
@@ -30,12 +30,11 @@ function test_oneCus()
                 'cusRmk' => NULL,
                 'isRef' => true,
             ),
-        'adr' =>
+        'adrDt' =>
             array(
                 0 =>
                     array(
                         'cusAdr' => '1',
-                        'cusAdrCd' => '1',
                         'cusCd' => 'cus1',
                         'adrCd' => '11',
                         'inpCd' => NULL,
@@ -63,8 +62,10 @@ function test_oneCus()
                         'pickAdrCd' => NULL,
                         'rmk' => NULL,
                         'isRef' => true,
+                        'shwDlt' => false
                     ),
             ),
     );
+    var_dump($act);
     assert($act === $exp);
 }

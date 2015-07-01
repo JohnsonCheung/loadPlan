@@ -1,12 +1,13 @@
 <form ng-controller="upd" name="cusFrm">
+    <span style="font-weight: bold">{{lbl.txt.update}} {{lbl.txt.cus}}</span>
     <input type="button" value="{{lbl.btn.sav}}" ng-click="do_sav()" ng-disabled="cusFrm.$invalid"/>
     <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"/>
     <input type="button" value="{{lbl.btn.reset}}" ng-click="do_reset()"/>
     <input type="button" value="{{lbl.btn.vdt}}" ng-click="do_vdt()"/>
-    <span ng-if="updMsg.isOk===true||updMsg.isOk===false"><input type="button" value=" X " ng-click="updMsg.isOk=null"
-                                                                 style="border: 1px solid black"/> {{updMsg.isOk?lbl.txt.chkOk:lbl.txt.chkFail}}</span>
+    <span ng-if="updMsg.isOk===true||updMsg.isOk===false">
+        <input type="button" value=" X " ng-click="updMsg.isOk=null"
+               style="border: 1px solid black"/> {{updMsg.isOk?lbl.txt.chkOk:lbl.txt.chkFail}}</span>
     <table border="2px">
-        <caption display="font-weight:bold">{{lbl.txt.update}}</caption>
         <tr>
             <td style="font-weight:bold">{{lbl.fld.cusCd}}
             <td class="readOnly">{{data.cusDro.cusCd}}
@@ -45,14 +46,10 @@
     <br><br>
     <!------------------------------------------------------------------------------------>
     <span style="font-weight:bold">{{lbl.txt.delv}}</span>
-    <input type="button" value="{{lbl.btn.v1Adr}}" ng-click="do_view(1)"
-           style="background-color: {{view1?'lightblue':'buttonface'}}"/>
-    <input type="button" value="{{lbl.btn.v2XY}}" ng-click="do_view(2)"
-           style="background-color: {{view2?'lightblue':'buttonface'}}"/>
-    <input type="button" value="{{lbl.btn.v3Car}}" ng-click="do_view(3)"
-           style="background-color: {{view3?'lightblue':'buttonface'}}"/>
-    <input type="button" value="{{lbl.btn.v4Tim}}" ng-click="do_view(4)"
-           style="background-color: {{view4?'lightblue':'buttonface'}}"/>
+    <input type="button" value="{{lbl.btn.v1Adr}}" ng-click="do_view(1)" class="{{view1?'selected':''}}"/>
+    <input type="button" value="{{lbl.btn.v2XY}}" ng-click="do_view(2)" class="{{view2?'selected':''}}"/>
+    <input type="button" value="{{lbl.btn.v3Car}}" ng-click="do_view(3)" class="{{view3?'selected':''}}"/>
+    <input type="button" value="{{lbl.btn.v4Tim}}" ng-click="do_view(4)" class="{{view4?'selected':''}}"/>
     <table border="2px">
         <tr>
             <th>{{lbl.btn.dlt}}
@@ -65,12 +62,15 @@
             <th ng-if="view1" colspan="2"> {{lbl.fld.adr}}
             <th ng-if="view1"> {{lbl.fld.contact}}
             <th ng-if="view1"> {{lbl.fld.phone}}
-            <th ng-if="view1" colspan="4"> {{lbl.fld.regCd}} <div>{{lbl.txt.cpyFmAbove}}</div>
+            <th ng-if="view1" colspan="4"> {{lbl.fld.regCd}}
+                <div>{{lbl.txt.cpyFmAbove}}</div>
             <th ng-if="view2"> {{lbl.fld.inpCd}}
             <th ng-if="view2"> {{lbl.fld.adrNm}}
             <th ng-if="view2"> {{lbl.fld.adr}}
             <th ng-if="view2"> {{lbl.fld.gpsX}}
             <th ng-if="view2"> {{lbl.fld.gpsY}}
+            <th ng-if="view3"> {{lbl.fld.adrNm}}
+            <th ng-if="view3"> {{lbl.fld.adr}}
             <th ng-if="view3"> {{lbl.fld.truckTones}}
             <th ng-if="view3"> {{lbl.fld.truckCold}}
             <th ng-if="view3"> {{lbl.fld.truckFlat}}
@@ -82,10 +82,13 @@
             <th ng-if="view3"> {{lbl.fld.truckByBox}}
             <th ng-if="view3"> {{lbl.fld.truckByPallet}}
             <th ng-if="view3"> {{lbl.fld.truckLock}}
+            <th ng-if="view4"> {{lbl.fld.adrNm}}
+            <th ng-if="view4"> {{lbl.fld.adr}}
             <th ng-if="view4"> {{lbl.fld.delvTimFm}}
             <th ng-if="view4"> {{lbl.fld.delvTimTo}}
             <th ng-if="view4"> {{lbl.fld.delvLasTim}}
-            <th ng-if="view4" colspan="2"> {{lbl.fld.pickAdrCd}} <div>{{lbl.txt.cpyFmAbove}}</div>
+            <th ng-if="view4" colspan="2"> {{lbl.fld.pickAdrCd}}
+                <div>{{lbl.txt.cpyFmAbove}}</div>
             <th ng-if="view4"> {{lbl.fld.rmk}}
         <tr class=" i.isDea?'dim':'' " ng-repeat="i in data.adrDt">
             <td><input type="button" value="{{lbl.btn.dlt}}" ng-if="i.shwDlt" ng-click="do_dltAdr()"/>
@@ -98,12 +101,13 @@
                 <span class="error">{{updMsg.erMsg.adrDt[$index].adrCd}}</span>
             <td ng-if="view1"><input type="text" size="6" ng-model="i.inpCd"/>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.adrNm"/>
-            <td ng-if="view1"><input type="text" size="40" ng-model="i.adr" name="{{'adr'+$index}}" required/>
+            <td ng-if="view1"><textarea ng-model="i.adr" name="{{'adr'+$index}}" required></textarea>
             <td ng-if="view1"><span ng-if="cusFrm['adr'+$index].$error.required" class="error">{{lbl.msg.req}}</span>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.contact" wraptext/>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.phone" wraptext/>
 
-            <td ng-if="view1"><input type="button" value="!==>" ng-if="$index!=0" ng-click="do_cpyFmAbove('regCd',$index)"/>
+            <td ng-if="view1"><input type="button" value="!==>" ng-if="$index!=0"
+                                     ng-click="do_cpyFmAbove('regCd',$index)"/>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.regCd" readonly class="readOnly"
                                      name="{{'regCd'+$index}}" required/>
             <td ng-if="view1"><input type="button" ng-mouseenter="do_shwSelReg($event,$index)" ng-value="lbl.btn.sel"/>
@@ -114,6 +118,8 @@
             <td ng-if="view2" class="readOnly">{{i.adr}}
             <td ng-if="view2"><input type="text" size="5" ng-model="i.gpsX"/>
             <td ng-if="view2"><input type="text" size="5" ng-model="i.gpsY"/>
+            <td ng-if="view3" class="readOnly">{{i.adrNm}}
+            <td ng-if="view3" class="readOnly">{{i.adr}}
             <td ng-if="view3"><input type="text" size="3" ng-model="i.truckTones"/>
             <td ng-if="view3"><input type="checkbox" ng-model="i.truckCold"/>
             <td ng-if="view3"><input type="checkbox" ng-model="i.truckFlat"/>
@@ -125,6 +131,8 @@
             <td ng-if="view3"><input type="checkbox" ng-model="i.truckByBox"/>
             <td ng-if="view3"><input type="checkbox" ng-model="i.truckByPallet"/>
             <td ng-if="view3"><input type="checkbox" ng-model="i.truckLock"/>
+            <td ng-if="view4" class="readOnly">{{i.adrNm}}
+            <td ng-if="view4" class="readOnly">{{i.adr}}
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvTimFm"/>
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvTimTo"/>
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvLasTim"/>

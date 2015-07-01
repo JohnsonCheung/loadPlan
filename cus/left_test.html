@@ -1,37 +1,36 @@
 <html ng-app="app">
 <head>
-    <meta charset="UTF-8"/>
     <link href="../css/style.css" rel="stylesheet" title="Default Style">
     <script src="../stdlib/angular.js"></script>
     <script src="../stdlib/lodash.js"></script>
     <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
     <script>
-        (function (angular) {
-            var last_cusCd;
-            angular.module('app').controller('left_test', ['$scope', a]);
-            function a($scope) {
-                $scope.lang='zh';
-                $scope.$on('cusCd_changed', b);
-
-                function b(event, cusCd) {
-                    if (last_cusCd !== cusCd) {
-                        last_cusCd = cusCd;
-                        console.log("parent's listener get the event: cusCd(" + cusCd + ")");
-                    }
-                }
+        angular.module('app').controller('left_test', ['$scope', '$http', function a($scope, $http) {
+            $scope.sess = {lang: 'en'}
+            $scope.appCus = {cusCd: ''}
+            $scope.brk = function () {
+                debugger;
             }
-        })(angular)
+        }]);
     </script>
-    <script src="../ngSvc/ay_facFn.js"></script>
-    <script src="../ngSvc/obj_facFn.js"></script>
-    <script src="../ngSvc/app_facFn.js"></script>
-    <!--
-    <script src="left_factory.js"></script>
-    -->
     <script src="left.js"></script>
 </head>
 <body ng-controller="left_test">
-cusCd: <input type="text" ng-model="cusCd"/>
-<ng-include src="'left.html'"></ng-include>
+<table id="testingBox" border="2px">
+    <tr>
+        <td>lang
+        <td><label><input type="radio" name="lang" value="en" ng-model="sess.lang"/>en</input></label>
+            <label><input type="radio" name="lang" value="zh" ng-model="sess.lang">zh</input></label>
+        </td>
+    <tr>
+        <td>cusCd
+        <td><input id="cusCd" class="readOnly" type="text" ng-model="appCus.cusCd"/>
+    <tr>
+        <td>break
+        <td><input type="button" ng-click="brk();" value="break"/>
+</table>
+<hr>
+<ng-include src="'left.html'"/>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <div ng-controller="dsp">
     <input type="button" value="{{lbl.btn.can}}" ng-click="do_can()"
-           ng-if="mode==='dea' || mode==='rea' || mode==='dlt' || mode==='imp' || mode ==='exp' || mode==='log' "/>
-    <input type="button" value="{{lbl.btn.dea}}" ng-click="do_dea()" ng-if="mode==='dea'"/>
-    <input type="button" value="{{lbl.btn.rea}}" ng-click="do_rea()" ng-if="mode==='rea'"/>
-    <input type="button" value="{{lbl.btn.dlt}}" ng-click="do_dlt()" ng-if="mode==='dlt'"/>
+           ng-if="appCus.mode==='dea' || appCus.mode==='rea' || appCus.mode==='dlt' || appCus.mode==='imp' || appCus.mode ==='exp' || appCus.mode==='log' "/>
+    <input type="button" value="{{lbl.btn.dea}}" ng-click="do_dea()" ng-if="appCus.mode==='dea'"/>
+    <input type="button" value="{{lbl.btn.rea}}" ng-click="do_rea()" ng-if="appCus.mode==='rea'"/>
+    <input type="button" value="{{lbl.btn.dlt}}" ng-click="do_dlt()" ng-if="appCus.mode==='dlt'"/>
     {{lbl.regCd}}
     <br>
 
@@ -40,12 +40,12 @@
             <td class="readOnly">{{cus.cusTy}}
         <tr>
             <td style="font-weight:bold">{{lbl.fld.cusRmk}}
-            <td class="readOnly">{{cus.cusRmk}}
+            <td><textarea readonly class="readOnly">{{cus.cusRmk}}</textarea>
         <tr>
     </table>
     <br>
-    <input type="button" value="{{lbl.btn.view1}}" ng-click="do_view1()" style="background-color: {{view1Color}}"/>
-    <input type="button" value="{{lbl.btn.view2}}" ng-click="do_view2()" style="background-color: {{view2Color}}"/>
+    <input type="button" value="{{lbl.btn.view1}}" ng-click="do_view1()" class="{{view1?'selected':''}}"/>
+    <input type="button" value="{{lbl.btn.view2}}" ng-click="do_view2()" class="{{view2?'selected':''}}"/>
     <table border="2px">
         <caption style="font-weight:bold">{{lbl.txt.adr}}</caption>
         <th>##

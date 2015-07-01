@@ -11,7 +11,6 @@ function A_run()
 {
     if (true) {
         A_run_ay();
-        A_run_BldSql();
     } else {
         A_run_BldSql();
         A_run_ay();
@@ -33,9 +32,8 @@ function A_run_BldSql()
 function A_run_ay()
 {
     if (true) {
-        ay_join_kv__tst();
-        ay_key_idx__tst();
-        ay_splice_assoc__tst();
+        ay_convert_bool__tst();
+
     } else {
         ay_splice_assoc__tst();
         ay_key_idx__tst();
@@ -103,6 +101,26 @@ function ay_join_kv__tst()
     pass(__FUNCTION__);
 }
 
+function ay_convert_bool__tst()
+{
+    $a = [
+        'a' => 1,
+        'b' => 0,
+        'c' => '1',
+        'd' => '0',
+        'e' => 'aa',
+        'f' => 'aa'];
+    $act = ay_convert_bool($a, "a b c d");
+    $exp = ['a' => true,
+        'b' => false,
+        'c' => true,
+        'd' => false,
+        'e' => 'aa',
+        'f' => 'aa'];
+    assert($act === $exp);
+    pass(__FUNCTION__);
+}
+
 function ay_key_idx__tst()
 {
     $a = ['a' => 1, 'b' => 2];
@@ -119,7 +137,6 @@ function ay_key_idx__tst()
     assert($act === $exp);
 
     pass(__FUNCTION__);
-
 }
 
 function ay_splice_assoc__tst()

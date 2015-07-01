@@ -7,16 +7,15 @@
  */
 include_once "/../phpFn/cmn.php";
 include_once "/../phpFn/lbl.php";
-include_once '/../dbTools/addMissingNearBy.php';
 
 class Upd
 {
-    const adrReqLvs = "cusAdr cusCd adrCd inpCd adrNm adr contact phone regCd gpsX gpsY delvTimFm delvTimTo delvLasTim" .
+    const adrFldLvs = "cusAdr cusCd adrCd inpCd adrNm adr contact phone regCd gpsX gpsY delvTimFm delvTimTo delvLasTim" .
     " truckTones truckCode truckFlat truckVan truckClose truckTail truckUpstair truckDispatchAtDoor truckByBox truckByPallet truckLock" .
     " pckAdrCd rmk";
-    const adrFldLvs = 1;
-    const adrBoolLvs = 1;
-    const adrTimLvs = 1;
+    const adrReqLvs = "adr regCd";
+    const adrBoolLvs = "truckCold truckFlat truckVan truckClose truckTail truckUpstair truckDispatchAtDoor truckByBox truckByPallet truckLock";
+    const adrTimLvs = "delvTimFm delvTimTo delvTimLast";
     private
         $con,
         $adrDt,
@@ -97,26 +96,27 @@ class Upd
     private function updAdrDt_rmv()
     {
         $cusCd = $this->cusDro->cusCd;
-        $old = runsql_dc($this->con, "select adrCd from cusAdr where cusCd = '$cusCd'; ");
+        $old = runsql_dc($this->con, "select adrCd from cusadr where cusCd = '$cusCd'; ");
         $new = [];
         foreach ($this->adrDt as $adrDro) {
             array_push($new, $adrDro->adrCd);
         }
-        $rmv = ay_minus($new, $old);
+        $rmv = ay_minus($old, $new);
         foreach ($rmv as $adrCd) {
-            $sql = "delete from cusAdr where cusCd='$cusCd' and adrCd='$adrCd' limit 1";
+            $sql = "delete from cusadr where cusCd='$cusCd' and adrCd='$adrCd' limit 1";
             runsql_exec($this->con, $sql);
         }
     }
 
     function updAdrDt_ins()
     {
-        $a = Upd::$adrFldLvs;
-        $b = Upd::$adrReqLvs;
-        $c = Upd::$adrBoolLvs;
-        $d = Upd::$adrTimLvs;
+        $a = Upd::adrFldLvs;
+        $b = Upd::adrReqLvs;
+        $c = Upd::adrBoolLvs;
+        $d = Upd::adrTimLvs;
         foreach ($this->adrDt as $i) {
-            if (!$i->newRec) {
+            $newRec = @$i->newRec;
+            if ($newRec === true) {
                 $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
                 runsql_exec($this->con, $m->insStmt());
             }
@@ -125,12 +125,13 @@ class Upd
 
     private function updAdrDt_upd()
     {
-        $a = Upd::$adrFldLvs;
-        $b = Upd::$adrReqLvs;
-        $c = Upd::$adrBoolLvs;
-        $d = Upd::$adrTimLvs;
+        $a = Upd::adrFldLvs;
+        $b = Upd::adrReqLvs;
+        $c = Upd::adrBoolLvs;
+        $d = Upd::adrTimLvs;
         foreach ($this->adrDt as $i) {
-            if (!$i->newRec) {
+            $newRec = @$i->newRec;
+            if ($newRec === null) {
                 $m = new BldSql($i, 'cusadr', $a, $b, $c, $d);
                 runsql_exec($this->con, $m->updStmt());
             }
@@ -150,7 +151,59 @@ if (is_server()) {
     (new Upd($cusDs))->updCusDs();
     exit();
 }
-(new Upd(cusDs1()))->updCusDs();
+(new Upd(cusDs4()))->updCusDs();
+function cusDs4()
+{
+    $a = '{
+    "cusDro": {
+        "cusCd": "AMWAY",
+        "chiNm": "",
+        "engNm": "",
+        "inpCd": "am",
+        "cusTy": "",
+        "chiShtNm": "AMWAY",
+        "engShtNm": "",
+        "isDea": "1",
+        "cusRmk": "sdfsfs\nsdfsdf\nsdfsdfsdf\n jsdf ksldf \nsdlfkj s",
+        "isRef": false,
+        "shwDlt": true
+    },
+    "adrDt": [{
+        "cusAdr": "4",
+        "cusCd": "AMWAY",
+        "adrCd": "001",
+        "inpCd": "",
+        "adrNm": "澳門中心",
+        "adr": "澳門高地烏街52號地下",
+        "contact": "ERIC",
+        "phone": "28527888",
+        "regCd": "新馬路",
+        "gpsX": "0.000000",
+        "gpsY": "0.000000",
+        "delvTimFm": "11:30:00",
+        "delvTimTo": "12:30:00",
+        "delvLasTim": "12:30:01",
+        "truckTones": "1.0",
+        "truckCold": true,
+        "truckFlat": "0",
+        "truckVan": "0",
+        "truckClose": "0",
+        "truckTail": "0",
+        "truckUpstair": "0",
+        "truckDispatchAtDoor": "0",
+        "truckByBox": "0",
+        "truckByPallet": "0",
+        "truckLock": "0",
+        "pickAdrCd": null,
+        "rmk": "",
+        "isRef": false,
+        "shwDlt": true
+    }],
+    "lang": "zh"
+}';
+    return json_decode($a);
+}
+
 function cusDs3()
 {
     $a = '{
@@ -267,5 +320,3 @@ function cusDs1()
 }
 
 ?>
-
-*/

@@ -5,10 +5,9 @@
  * Date: 19/6/2015
  * Time: 20:34
  */
-include_once "/../phpFn/db.php";
+include_once "/../phpFn/cmn.php";
 if (isset($_SERVER['HTTP_HOST'])) {
     $cusCd = @$_REQUEST['cusCd'];
-//logg($cusCd);
     $o = oneCus($cusCd);
     echo json_encode($o);
 }
@@ -16,31 +15,27 @@ if (isset($_SERVER['HTTP_HOST'])) {
 function oneCus($cusCd)
 {
     $con = db_con();
-    $sql = "SELECT * FROM cus where cusCd='$cusCd';";
-    $cus = runsql_dro($con, $sql);
-    $adr = oneCus_adr($con, $cusCd);
+    $sql = "SELECT * FROM cus WHERE cusCd='$cusCd';";
+    $cusDr = runsql_dr($con, $sql);
+    $isRef = runsql_isAny($con, "select cusCd from ord where cusCd='$cusCd' limit 1; ");
+    $cusDr['isRef'] = $isRef;
+    $cusDr['shwDlt'] = !$isRef;
+    $adrDt = oneCus_adr($con, $cusCd);
     $con->close();
-    return ['cusDro' => $cus, 'adrDt' => $adr];
+    return ['cusDro' => $cusDr, 'adrDt' => $adrDt];
 }
-
 
 function oneCus_adr($con, $cusCd)
 {
-    $sql = "SELECT * from cusadr WHERE cusCd='$cusCd';";
+    $sql = "SELECT * FROM cusadr WHERE cusCd='$cusCd';";
     $dta = runsql_dta($con, $sql);
-    return oneCus_adr_isRef($con, $dta);
-}
-
-function oneCus_adr_isRef($con, $dta)
-{
+    $boolLvs = "truckCold truckFlat truckVan truckClose truckTail truckUpstair truckDispatchAtDoor truckByBox truckByPallet truckLoc";
     foreach ($dta as $idx => $dr) {
         $cusAdr = $dr['cusAdr'];
-        $dta[$idx]['isRef'] = isRef($con, $cusAdr);
+        $dta[$idx] = ay_convert_bool($dta[$idx], $boolLvs);
+        $isRef = runsql_isAny($con, "select cusAdr from ordadr where cusAdr=$cusAdr limit 1");
+        $dta[$idx]['isRef'] = $isRef;
+        $dta[$idx]['shwDlt'] = !$isRef;
     }
     return $dta;
-}
-
-function isRef($con, $cusAdr)
-{
-    return runsql_isAny($con, "select cusAdr from ordAdr where cusAdr=$cusAdr limit 1");
 }
