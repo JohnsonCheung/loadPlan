@@ -1,0 +1,23 @@
+<hr id="secHdr"/>
+<div ng-controller="dsp">
+    <input type="button" value="{{lbl.btn.back}}" ng-click="do_back()"/>
+    <input type="button" value="{{lbl.btn.prt}}" ng-click="do_prt()" ng-if="shw.prt"/>
+    <input type="button" value="{{lbl.btn.upd}}" ng-click="do_upd()" ng-if="shw.upd"/>
+    <input type="button" value="{{lbl.btn.can}}" ng-click="do_prt()" ng-if="shw.can"/>
+
+    <div ng-controller="dspHHdr">
+        <div ng-include="'dspHHdr.html'"/>
+    </div>
+    <div ng-controller="dspHInst">
+        <div ng-include="'dspHInst.html'"/>
+    </div>
+    <div ng-controller="dspHAdr">
+        <div ng-include="'dspHAdr.html'"/>
+    </div>
+    <div ng-controller="dspHContent">
+        <div ng-include="'dspHContent.html'"/>
+    </div>
+    <div ng-controller="dspHContentNN">
+        <div ng-include="'dspHContentNN.html'"/>
+    </div>
+</div>

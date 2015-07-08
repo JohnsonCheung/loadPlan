@@ -4,15 +4,19 @@
 //************//
 //*** $app ***//
 //************//
-angular.module('app').factory('$app', ['$http', function $app($http) {
+angular.module('app').factory('$app', ['$http', '$document', function $app($http, $doc) {
     var buf = {};
     return {
         getLbl: getLbl,
         selCol: selCol,
         getShwBtn: getShwBtn,
         selCol1: selCol1,
-        toAy: toAy
+        toAy: toAy,
+        go_id: go_id
     };
+    function go_id(id) {
+        $doc[0].location.href = '#' + id;
+    }
 
     function getLbl(pgmNm, secNm, lang, $scope, cb) {
         if ((lang === undefined) || (lang === null)) {

@@ -105,13 +105,11 @@
             <td ng-if="view1"><span ng-if="cusFrm['adr'+$index].$error.required" class="error">{{lbl.msg.req}}</span>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.contact" wraptext/>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.phone" wraptext/>
-
-            <td ng-if="view1"><input type="button" value="!==>" ng-if="$index!=0"
+            <td ng-if="view1"><input type="button" value="!=>" ng-if="$index!=0"
                                      ng-click="do_cpyFmAbove('regCd',$index)"/>
             <td ng-if="view1"><input type="text" size="10" ng-model="i.regCd" readonly class="readOnly"
                                      name="{{'regCd'+$index}}" required/>
             <td ng-if="view1"><input type="button" ng-mouseenter="do_shwSelReg($event,$index)" ng-value="lbl.btn.sel"/>
-
             <td ng-if="view1"><span ng-if="cusFrm['regCd'+$index].$error.required" class="error">{{lbl.msg.req}}</span>
             <td ng-if="view2" class="readOnly">{{i.inpCd}}
             <td ng-if="view2" class="readOnly">{{i.adrNm}}
@@ -136,7 +134,7 @@
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvTimFm"/>
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvTimTo"/>
             <td ng-if="view4"><input type="text" size="5" ng-model="i.delvLasTim"/>
-            <td ng-if="view4"><input type="button" value="!==>" ng-click="do_cpyFmAbove('pickAdrCd', $index)"
+            <td ng-if="view4"><input type="button" value="!=>" ng-click="do_cpyFmAbove('pickAdrCd', $index)"
                                      ng-if="$index!=0"/>
             <td ng-if="view4"><input type="text" size="9" ng-model="i.pickAdrCd"/>
             <td ng-if="view4"><input type="text" ng-model="i.rmk"/>

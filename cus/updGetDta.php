@@ -30,9 +30,11 @@ function oneCus_adr($con, $cusCd)
     $sql = "SELECT * FROM cusadr WHERE cusCd='$cusCd';";
     $dta = runsql_dta($con, $sql);
     $boolLvs = "truckCold truckFlat truckVan truckClose truckTail truckUpstair truckDispatchAtDoor truckByBox truckByPallet truckLoc";
+    $timLvs = "delvTimFm delvTimTo delvLasTim";
     foreach ($dta as $idx => $dr) {
         $cusAdr = $dr['cusAdr'];
         $dta[$idx] = ay_convert_bool($dta[$idx], $boolLvs);
+        $dta[$idx] = ay_convert_tim($dta[$idx], $timLvs);
         $isRef = runsql_isAny($con, "select cusAdr from ordadr where cusAdr=$cusAdr limit 1");
         $dta[$idx]['isRef'] = $isRef;
         $dta[$idx]['shwDlt'] = !$isRef;

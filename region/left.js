@@ -5,7 +5,6 @@
  */
 angular.module('app').controller('left', ['$scope', '$http', '$app', '$obj', '$ay', '$dta', function regLeft($scope, $http, $app, $obj, $ay, $dta) {
     $scope.$watch("sess.lang", function (lang) {
-        debugger;
         $app.getLbl("region", "left", lang, $scope, bld_and_set_tar_hdrAy);
     })
     $scope.$watch('rno', function (rno) {
@@ -36,7 +35,7 @@ angular.module('app').controller('left', ['$scope', '$http', '$app', '$obj', '$a
     angular.jj.ondragover = ondragover;
     return;
 
-    function success(data, status, headers, config) {
+    function success(data) {
         $scope.src = {data: data};
         $scope.tar = $scope.tar || {};
         $scope.btn_selected = {reg: true, inp: true, chi: true, eng: true};

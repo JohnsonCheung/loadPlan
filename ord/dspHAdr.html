@@ -1,0 +1,43 @@
+<!------------ secAdr ---------------------------------------->
+<hr id="secAdr">
+<div>
+    <input type="button" value="{{lbl.btn.hdr}}" ng-click="go_id('secHdr')"/>
+    <input type="button" value="{{lbl.btn.inst}}" ng-click="go_id('secInst')"/>
+    <input type="button" value="{{lbl.btn.adr}}" ng-click="go_id('secAdr')" class="selected"/>
+    <input type="button" value="{{lbl.btn.content}}" ng-click="go_id('secContent')"/>
+</div>
+<table border="2px">
+    <tr>
+        <th>##
+        <th>{{lbl.fld.isOneTim}}
+        <th>{{lbl.fld.adrCd}}
+        <th>{{lbl.fld.regCd}}
+        <th>{{lbl.fld.adrNm}}
+        <th>{{lbl.fld.adr}}
+        <th>{{lbl.fld.contact}}
+        <th>{{lbl.fld.delvTim}}
+        <th>{{lbl.fld.nPallet}}
+        <th>{{lbl.fld.nBox}}
+        <th>{{lbl.fld.nCBM}}
+        <th>{{lbl.fld.nCage}}
+        <th>{{lbl.fld.delvContNoAy}}
+        <th>{{lbl.fld.rmk}}
+    <tr ng-repeat="i in data.adr">
+        <td class="readOnly">{{($index + 1)}}
+        <td class="readOnly c">{{i.isOneTim}}
+        <td class="readOnly">{{i.adrCd}}
+        <td class="readOnly">{{i.regCd}}
+        <td class="readOnly">{{i.adrNm}}
+        <td class="readOnly">{{i.adr}}
+        <td class="readOnly">{{i.contact}}
+        <td class="readOnly c">{{i.delvTim}}
+        <td class="readOnly c">{{i.nPallet}}
+        <td class="readOnly c">{{i.nBox}}
+        <td class="readOnly c">{{i.nCBM}}
+        <td class="readOnly c">{{i.nCage}}
+        <td class="readOnly"><span ng-repeat="j in i.delvContNoAy"><input type="button" ng-click="go_id('secCont' + j)"
+                                                                          value="{{j+1}}"/>
+        <td class="readOnly">{{i.rmk}}
+</table>
+<br>
+<div ng-include="'dspHContent.html'"/>

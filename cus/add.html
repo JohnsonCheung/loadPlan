@@ -4,13 +4,12 @@
 
     <form name="frmAddCus">
         <table border="2px" border-spacing="0px">
-            <caption display="font-weight:bold">{{lbl.txt.add}}</caption>
+            <caption display="font-weight:bold">{{lbl.txt.newOrd}}</caption>
             <tr>
                 <td style="font-weight:bold">{{lbl.fld.cusCd}}
                 <td><input type="text" autofocus="true" ng-model="appCus.cusCd" required name="cusCd"/>
                 <td style="color:red">{{appCus.addMsg.erMsg}}<span ng-if="frmAddCus.cusCd.$error.required">{{lbl.msg.req}}</span>
         </table>
         <br>
-        <div ng-repeat="i in addAy">{{i}}</div>
     </form>
 </div>

@@ -8,6 +8,17 @@
 require_once "pth.php";
 require_once "System\Launcher.php";
 require_once 'str.php';
+function ay_dltEle_assoc(array $ay, $key)
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        if ($k !== $key) {
+            $o[$k] = $v;
+        }
+    }
+    return $o;
+}
+
 function ay_rmvDup(array $ay)
 {
     $o = [];
@@ -24,7 +35,7 @@ function ay_rmvDup(array $ay)
 function in_ay($needle, array $haystack, $fmIdx = null, $toIdx = null)
 {
     $fmIdx = is_null($fmIdx) ? 0 : $fmIdx;
-    $toIdx = is_null($toIdx) ? sizeof($haystack)-1 : $toIdx;
+    $toIdx = is_null($toIdx) ? sizeof($haystack) - 1 : $toIdx;
     for ($j = $fmIdx; $j <= $toIdx; $j++) {
         if ($haystack[$j] === $needle)
             return true;
@@ -37,9 +48,9 @@ function ay_rmvDup_rev(array $ay)
     $o = [];
     $j = 0;
     $i = 0;
-    for($j=sizeof($ay)-1;$j>=0;$j--) {
+    for ($j = sizeof($ay) - 1; $j >= 0; $j--) {
         $v = $ay[$j];
-        $in_ay = in_ay($v, $ay, 0, $j-1);
+        $in_ay = in_ay($v, $ay, 0, $j - 1);
         if (!$in_ay)
             $o[$i++] = $v;
     }

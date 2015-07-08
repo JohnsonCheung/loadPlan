@@ -23,35 +23,8 @@ angular.module('app').controller('btn', ['$scope', '$http', '$app', '$obj', func
             var isDea = data.isDea;
             var isRef = data.isRef;
             var auth = $scope.auth;
-            var shw = $app.getShwBtn(isDea, isRef, auth); // fnd_scope_shw(isDea, isRef, auth);
+            var shw = $app.getShwBtn(isDea, isRef, auth);
             $scope.shw = shw;
         });
-/*
-        function fnd_scope_shw(isDea, isRef, auth) {
-            var shw = angular.copy(auth);
-            if (isDea === undefined) {
-                shw.dlt = false;
-                shw.dea = false;
-                shw.upd = false;
-                return;
-            }
-            if (isDea) {
-                if (auth.rea) {
-                    shw.rea = true;
-                }
-                shw.dlt = false;
-                shw.dea = false;
-                shw.upd = false;
-            } else {
-                shw.rea = false;
-                if (isRef) {
-                    shw.dlt = false;
-                } else {
-                    shw.dea = false;
-                }
-            }
-            return shw;
-        }
- */
     }
 }]);

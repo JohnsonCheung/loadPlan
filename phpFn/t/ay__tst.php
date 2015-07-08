@@ -11,9 +11,9 @@ require_once '..\str.php';
 function run()
 {
     if (true) {
-        test_ay_rmvDup();
-        test_ay_rmvDup_rev();
+        test_ay_dltEle_assoc();
     } else {
+        test_ay_dltEle_assoc();
         test_ay_rmvDup();
         test_ay_rmvDup_rev();
         test_ay_newByLpAp();
@@ -27,6 +27,37 @@ function run()
         test_ay_pk();
         test_ay_firstKey();
     }
+}
+
+function test_ay_dltEle_assoc()
+{
+    $ay = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4];
+    $act = ay_dltEle_assoc($ay, 'b');
+    $exp = ['a' => 1, 'c' => 3, 'd' => 4];
+    assert($act === $exp);
+
+    $act = ay_dltEle_assoc($ay, 'a');
+    $exp = ['b' => 2, 'c' => 3, 'd' => 4];
+    assert($act === $exp);
+
+    $act = ay_dltEle_assoc($ay, 'd');
+    $exp = ['a' => 1, 'b' => 2, 'c' => 3];
+    assert($act === $exp);
+
+    $ay = ['a', 'b', 'c', 'd'];
+    $act = ay_dltEle_assoc($ay, 1);
+    $exp = ['a', 2 => 'c', 'd'];
+    assert($act === $exp);
+
+    $ay = ['a', 'b', 'c', 'd'];
+    $act = ay_dltEle_assoc($ay, 0);
+    $exp = [1 => 'b', 2 => 'c', 3 => 'd'];
+    assert($act === $exp);
+
+    $ay = ['a', 'b', 'c', 'd'];
+    $act = ay_dltEle_assoc($ay, 3);
+    $exp = ['a', 'b', 'c'];
+    assert($act === $exp);
 }
 
 function test_ay_rmvDup()

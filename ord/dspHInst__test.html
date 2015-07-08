@@ -1,0 +1,20 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="dspH_hlp.js"></script>
+    <script>
+        angular.module('app').controller('dspHInst__test', ['$scope', '$app', 'dspH_hlp', function ($scope, $app, $hlp) {
+            $scope.go_id = $app.go_id;
+            $hlp.assign_lblBtn($scope);
+            $hlp.assign_inst_dta($scope);
+            $hlp.assign_inst_lbl($scope);
+        }]);
+    </script>
+</head>
+<body ng-controller="dspHInst__test">
+<ng-include src="'dspHInst.html'"/>
+</body>
+</html>

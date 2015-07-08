@@ -1,0 +1,95 @@
+<hr>
+<div>
+    <input type="button" value="{{lbl.btn.hdr}}" ng-click="go_id('secHdr')" class="selected"/>
+    <input type="button" value="{{lbl.btn.inst}}" ng-click="go_id('secInst')"/>
+    <input type="button" value="{{lbl.btn.adr}}" ng-click="go_id('secAdr')"/>
+    <input type="button" value="{{lbl.btn.content}}" ng-click="go_id('secContent')"/>
+</div>
+<br>
+<table border="2px">
+    <tr>
+        <td class="label">{{lbl.fld.ordNo}}
+        <td class="readOnly">{{data.ord.ordNo}}
+    <tr>
+        <td class="label">{{lbl.fld.ordDelvDte}}
+        <td class="readOnly">{{data.ord.ordDelvDte}}
+    <tr>
+        <td class="label">{{lbl.fld.cusCd}}
+        <td class="readOnly">{{data.ord.cusCd}}
+    <tr>
+        <td class="label">{{lbl.fld.cusShtNm}}
+        <td class="readOnly">{{data.ord.cusShtNm}}
+    <tr>
+        <td class="label">{{lbl.fld.ordBy}}
+        <td class="readOnly">{{data.ord.ordBy}}
+    <tr>
+        <td class="label">{{lbl.fld.ordByPhone}}
+        <td class="readOnly">{{data.ord.ordByPhone}}
+    <tr>
+        <td class="label">{{lbl.fld.ordTy}}
+        <td class="readOnly">{{data.ord.ordTy}}
+    <tr>
+        <td class="selected">
+        <td class="selected">
+    <tr>
+        <td class="label">{{lbl.fld.crtBy}}
+        <td class="readOnly">{{data.ord.crtBy}}
+    <tr>
+        <td class="label">{{lbl.fld.crtOn}}
+        <td class="readOnly">{{data.ord.crtOn}}
+    <tr>
+        <td class="label">{{lbl.fld.isComplete}}
+        <td class="readOnly">{{data.ord.isComplete}}
+    <tr ng-if="data.ord.canBy">
+        <td class="label">{{lbl.fld.canBy}}
+        <td class="readOnly">{{data.ord.canBy}}
+    <tr ng-if="data.ord.canBy">
+        <td class="label">{{lbl.fld.canOn}}
+        <td class="readOnly">{{data.ord.canOn}}
+    <tr ng-if="data.ord.canBy">
+        <td class="label">{{lbl.fld.canRmk}}
+        <td class="readOnly">{{data.ord.canRmk}}
+    <tr ng-if="data.ord.cpyFmOrd">
+        <td class="label">{{lbl.fld.cpyFmOrd}}
+        <td class="readOnly">{{data.ord.cpyFmOrd}}
+    <tr>
+        <td class="selected">
+        <td class="selected">
+    <tr ng-if="data.ord.nCntr">
+        <td class="label">{{lbl.fld.nCntr}}
+        <td class="readOnly">{{data.ord.nCntr}}
+    <tr ng-if="data.ord.nPallet">
+        <td class="label">{{lbl.fld.nPallet}}
+        <td class="readOnly">{{data.ord.nPallet}}
+    <tr ng-if="data.ord.nBox">
+        <td class="label">{{lbl.fld.nBox}}
+        <td class="readOnly">{{data.ord.nBox}}
+    <tr ng-if="data.ord.nCBM">
+        <td class="label">{{lbl.fld.nCBM}}
+        <td class="readOnly">{{data.ord.nCBM}}
+    <tr>
+        <td class="selected">
+        <td class="selected">
+    <tr ng-if="data.ord.pickAdrCd">
+        <td class="label">{{lbl.fld.pickAdrCd}}
+        <td class="readOnly">{{data.ord.pickAdrCd}}
+    <tr ng-if="data.ord.pickTim">
+        <td class="label">{{lbl.fld.pickTim}}
+        <td class="readOnly">{{data.ord.pickTim}}
+    <tr ng-if="data.ord.isRetWhs">
+        <td class="label">{{lbl.fld.isRetWhs}}
+        <td class="readOnly">{{data.ord.isRetWhs}}
+    <tr ng-if="data.ord.isCold">
+        <td class="label">{{lbl.fld.isCold}}
+        <td class="readOnly">{{data.ord.isCold}}
+    <tr>
+        <td class="selected">
+        <td class="selected">
+    <tr>
+        <td class="label">{{lbl.fld.nAdr}}
+        <td class="readOnly">{{data.ord.nAdr}}
+    <tr>
+        <td class="label">{{lbl.fld.nContent}}
+        <td class="readOnly">{{data.ord.nContent}}
+</table>
+<br>

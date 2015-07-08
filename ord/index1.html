@@ -1,0 +1,28 @@
+<html ng-app="app" ng-cloak>
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <meta charset="utf-8"/>
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="cur.js"></script>
+    <script src="dspH.js"></script>
+    <script src="logout.js"></script>
+    <script src="index.js"></script>
+</head>
+<body ng-controller="index">
+<table ng-controller="logout">
+    <tr>
+        <td width="50%"><h1>{{lbl.txt.ord}}</h1>
+        <td>
+        <td width="10%">
+            <div align="right" ng-If="isLogin">{{lbl.txt.welcome}}, {{sess.usrShtNm}}
+                <input type="button" value="{{lbl.btn.logout}}" ng-click="do_logout()">
+                <input type="button" value="{{lbl.btn.toLang}}" ng-click="do_toLang()">
+            </div>
+</table>
+<hr>
+<div ng-include="'cur.html'"/>
+</body>
+</html>

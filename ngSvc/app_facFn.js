@@ -23,7 +23,6 @@
         if ((lang === undefined) || (lang === null)) {
             lang = 'en';
         }
-        debugger;
         var key = pgmNm + ':' + secNm + ':' + lang;
         if (buf[key] !== undefined) {
             $scope.lbl = buf[key];

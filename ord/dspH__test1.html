@@ -1,0 +1,39 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <!--
+    <script src="dspH.js"></script>
+    -->
+    <script src="dspH_hlp.js"></script>
+    <script>
+        //angular.module('app').controller('dsp', ['$scope', function ($scope) {}]);
+        angular.module('app').controller('dspH__test', ['$scope', '$app', 'dspH_hlp', function ($scope, $app, $hlp) {
+            $scope.go_id = $app.go_id;
+            $scope.shw = {}
+            $scope.shw.prt = true;
+            $scope.shw.upd = true;
+            $scope.shw.can = true;
+
+            $hlp.assign_hdr_dta($scope);
+            $hlp.assign_inst_dta($scope);
+            $hlp.assign_adr_dta($scope);
+            $hlp.assign_content_dta($scope);
+
+            $app.getLbl('ord', 'dsp', 'en', $scope);
+        }]);
+        angular.module('app').controller('dsp', function() {})
+        angular.module('app').controller('dspHHdr', function() {})
+        angular.module('app').controller('dspHInst', function() {})
+        angular.module('app').controller('dspHAdr', function() {})
+        angular.module('app').controller('dspHContent', function() {})
+        angular.module('app').controller('dspHContentNN', function() {})
+
+    </script>
+</head>
+<body ng-controller="dspH__test">
+<div ng-include="'dspH.html'"/>
+</body>
+</html>

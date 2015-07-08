@@ -1,0 +1,29 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="dspH.js"></script>
+    <script>
+        //angular.module('app').controller('dsp', ['$scope', function ($scope) {}]);
+        angular.module('app').controller('dspH__test', ['$scope', '$app', function ($scope, $app) {
+            $scope.sess = {lang:'zh'}
+            $scope.appOrd = {mode:'dsp', ord:1};
+            $scope.shw = {}
+            $scope.shw.prt = true;
+            $scope.shw.upd = true;
+            $scope.shw.can = true;
+        }]);
+        angular.module('app').controller('dspHHdr', function() {});
+        angular.module('app').controller('dspHInst', function() {});
+        angular.module('app').controller('dspHAdr', function() {});
+        angular.module('app').controller('dspHContent', function() {});
+        angular.module('app').controller('dspHContentNN', function() {});
+
+    </script>
+</head>
+<body ng-controller="dspH__test">
+<div ng-include="'dspH.html'"/>
+</body>
+</html>

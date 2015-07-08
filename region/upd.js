@@ -31,7 +31,6 @@ angular.module('app').controller('upd', ['$scope', '$http', '$app', '$obj', func
         $scope.regCdDc = data;
     })
 
-    return;
     function watch_lang(lang) {
         $app.getLbl("region", "upd", lang, $scope);
     };
@@ -44,7 +43,6 @@ angular.module('app').controller('upd', ['$scope', '$http', '$app', '$obj', func
     }
 
     function do_shwSelReg(ev, index) {
-        //$broadcast('shwSelReg', $event, $scope.data.nearByDt[$index],'nearBy'
         $scope.$broadcast('shwSelReg', ev, $scope.data.nearByDt[index], 'nearBy', do_nearBy_changed);
     }
 
@@ -95,7 +93,6 @@ angular.module('app').controller('upd', ['$scope', '$http', '$app', '$obj', func
 
         var data = {regDro: $scope.data.regDro, nearByAy: nearByAy, lang: $scope.sess.lang};
         $http.post("upd.php", data).success(function (updMsg) { // a PHP update always return: retMsg = {isEr erMsg okMsg}
-                debugger;
                 $scope.appRegion.updMsg = updMsg;
                 if (updMsg.isOk) $scope.appRegion.mode = "dsp";
             }

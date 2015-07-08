@@ -110,14 +110,17 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
     }
 
     function do_vdt() {
-        var o = _vdt_dupAdrCd($scope.data.adrDt);
-        var isEr = o[0];
-        var adrDt = o[1];
+        var o1 = _vdt_dupAdrCd($scope.data.adrDt);
+        var isEr1 = o1[0];
+        var adrDt = o1[1];
+
+        var o2 = _vdt_dupAdr($scope.data.adrDt);
+        var isEr2 = o2[0];
+        var adrDt = o2[1];
         $scope.updMsg = {};
-        if (isEr) {
-            $scope.updMsg.erMsg = {adrDt: adrDt};
-            return;
-        }
+        $scope.updMsg.erMsg = {};
+        $scope.updMsg.erMsg.adrDt = adrDt;
+
         $scope.updMsg.isOk = true;
 
     }
@@ -137,7 +140,6 @@ angular.module('app').controller('upd', ['$scope', '$http', '$obj', '$app', func
                 isEr = true;
             }
             o.push({adrCd: msg});
-            ;
         })
         return [isEr, o];
     }

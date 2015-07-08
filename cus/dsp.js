@@ -33,7 +33,8 @@ angular.module('app').controller('dsp', ['$scope', '$http', '$app', function dsp
 
     function do_dlt() {
         $http.post("dspDlt.php", $scope.appCus.cusCd);
-        $scope.appCus.mode = "dlt"
+        $scope.appCus.cusCd = null; // set to null so that [left] will set rno to 1.
+        $scope.appCus.mode = "dsp"
     }
 
     function do_rea() {
@@ -42,7 +43,7 @@ angular.module('app').controller('dsp', ['$scope', '$http', '$app', function dsp
     }
 
     function do_dea() {
-        $http.post("dspDea.php" + $scope.appCus.cusCd);
+        $http.post("dspDea.php", $scope.appCus.cusCd);
         $scope.appCus.mode = "dsp"
     }
 }]);

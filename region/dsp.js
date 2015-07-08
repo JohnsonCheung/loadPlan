@@ -19,6 +19,7 @@ angular.module('app').controller('dsp', ['$scope', '$http', '$app', function ($s
 
     function do_dlt() {
         $http.post("dspDlt.php", $scope.appRegion.regCd);
+        $scope.appRegion.regCd = null; // set to null so that [left] will set rno to 1.
         $scope.appRegion.mode = "dsp";
     }
 

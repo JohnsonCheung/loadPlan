@@ -77,7 +77,7 @@
         <th ng-if="view2">{{lbl.fld.rmk}}
             <tr ng-repeat="i in adr">
                 <td class="readOnly">{{($index + 1)}}
-                <td class="readOnly">{{i.adrCd}}
+                <td class="readOnly c">{{i.adrCd}}
                 <td class="readOnly" ng-if="view1">{{i.inpCd}}
                 <td class="readOnly" ng-if="view1">{{i.chiShtNm}}
                 <td class="readOnly" ng-if="view1">{{i.engShtNm}}
@@ -87,21 +87,21 @@
                 <td class="readOnly" ng-if="view1">{{i.regCd}}
                 <td class="readOnly" ng-if="view1">{{i.gpsX}}
                 <td class="readOnly" ng-if="view1">{{i.gpsY}}
-                <td class="readOnly" ng-if="view2">{{i.delvTimFm}}
-                <td class="readOnly" ng-if="view2">{{i.delvTimTo}}
-                <td class="readOnly" ng-if="view2">{{i.delvLasTim}}
-                <td class="readOnly" ng-if="view2">{{i.truckTones}}
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckCold"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckFlat"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckVan"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckClose"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckTail"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckUpstair"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox"  disabled="disabled" ng-checked="i.truckDispatchAtDoor"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckByBox"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckByPallet"/>
-                <td class="readOnly" ng-if="view2"><input type="checkbox" disabled="disabled" ng-checked="i.truckLock"/>
-                <td class="readOnly" ng-if="view2">{{i.pickAdrCd}}
+                <td class="readOnly c" ng-if="view2">{{i.delvTimFm.substring(0,8)}}
+                <td class="readOnly c" ng-if="view2">{{i.delvTimTo.substring(0,8)}}
+                <td class="readOnly c" ng-if="view2">{{i.delvLasTim.substring(0,8)}}
+                <td class="readOnly c" ng-if="view2">{{i.truckTones}}
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckCold"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckFlat"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckVan"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckClose"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckTail"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckUpstair"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox"  disabled ng-checked="i.truckDispatchAtDoor"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckByBox"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckByPallet"/>
+                <td class="readOnly c" ng-if="view2"><input type="checkbox" disabled ng-checked="i.truckLock"/>
+                <td class="readOnly c" ng-if="view2">{{i.pickAdrCd}}
                 <td class="readOnly" ng-if="view2">{{i.rmk}}
     </table>
 </div>

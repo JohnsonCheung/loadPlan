@@ -6,8 +6,6 @@
  * Time: 18:47
  */
 include_once "/../phpFn/cmn.php";
-include_once "/../phpFn/lbl.php";
-
 class Upd
 {
     const adrFldLvs = "cusAdr cusCd adrCd inpCd adrNm adr contact phone regCd gpsX gpsY delvTimFm delvTimTo delvLasTim" .

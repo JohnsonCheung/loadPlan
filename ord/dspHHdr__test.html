@@ -1,0 +1,81 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script>
+        angular.module('app').controller('dspHHdr__test', ['$scope', '$app', function ($scope, $app) {
+            $scope.go_id = $app.go_id;
+            $scope.data = {};
+            $scope.data.ord = {};
+            $scope.data.ordX = {};
+            $scope.data.ord.ordNo = 'aa';
+            $scope.data.ord.ordDelvDte = 'aa';
+            $scope.data.ord.ordBy = 'aa';
+            $scope.data.ord.ordByPhone = 'aa';
+            $scope.data.ord.ordTy = 'aa';
+
+            $scope.data.ord.crtBy = 'aa';
+            $scope.data.ord.crtOn = 'aa';
+            $scope.data.ord.isComplete = 'aa';
+
+            $scope.data.ord.canBy = '';     // if no canBy, all can-* will not displayed
+            $scope.data.ord.canOn = 'aa';
+            $scope.data.ord.canRmk = 'aa';
+            $scope.data.ord.cpyFmOrd = 'aa';
+
+            $scope.data.ord.nCntr = 4;
+            $scope.data.ord.nPallet = 10;
+            $scope.data.ord.nBox = 4;
+            $scope.data.ord.nCBM = 10;
+            $scope.data.ord.pickAdrCd = 4;
+            $scope.data.ord.nContent = 10;
+            $scope.data.ord.pickTim = 4;
+            $scope.data.ord.isRetWhs = 10;
+            $scope.data.ord.isCold = 4;
+
+            $scope.data.ord.nAdr = 10;
+            $scope.data.ord.nContent = null;
+            if (false) {
+                $scope.lbl = {};
+                $scope.lbl.fld = {};
+                $scope.lbl.fld.ordNo = "Order#";
+                $scope.lbl.fld.ordDelvDte = "Delivery Date";
+                $scope.lbl.fld.ordBy = "Ordered By";
+                $scope.lbl.fld.ordByPhone = "Phone#";
+                $scope.lbl.fld.ordTy = "Order Type";
+                $scope.lbl.fld.crtBy = "Created By";
+                $scope.lbl.fld.crtOn = "Created on";
+                $scope.lbl.fld.isComplete = "Completed";
+                $scope.lbl.fld.canBy = "canBy";
+                $scope.lbl.fld.canOn = "canOn";
+                $scope.lbl.fld.canRmk = "canRmk";
+                $scope.lbl.fld.cpyFmOrd = "cpyFmOrd";
+                $scope.lbl.fld.nCntr = "nCntr";
+                $scope.lbl.fld.nPallet = "nPallet";
+                $scope.lbl.fld.nBox = "By";
+                $scope.lbl.fld.nCBM = "On";
+                $scope.lbl.fld.pickAdrCd = "pickAdrCd";
+                $scope.lbl.fld.pickTim = "pickTim";
+                $scope.lbl.fld.isRetWhs = "Remark";
+                $scope.lbl.fld.isCold = "isCold";
+                $scope.lbl.fld.nAdr = "nAdr";
+                $scope.lbl.fld.nContent = "nContent";
+
+                $scope.lbl.txt = {};
+                $scope.lbl.txt.inst = "instruction";
+                $scope.lbl.txt.hdr = "header";
+                $scope.lbl.txt.adr = "address";
+                $scope.lbl.txt.content = "content";
+            } else {
+                $app.getLbl('ord', 'dsp', 'en', $scope);
+            }
+        }]);
+    </script>
+    <script src="cur.js"></script>
+</head>
+<body ng-controller="dspHHdr__test">
+<ng-include src="'dspHHdr.html'"/>
+</body>
+</html>
