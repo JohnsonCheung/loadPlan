@@ -232,8 +232,12 @@ function brw_ft($ft)
 
 function brw_dtaAy($nm_lvs, ...$dtaAy)
 {
-    $p = dtaAy_tmpPth_array($nm_lvs, $dtaAy);
-    return brw_csvPth($p);
+    $csvPth = dtaAy_tmpPth_array($nm_lvs, $dtaAy);
+    $fm = pth_norm(__DIR__ . "/../xlsm/OpnCsvPth.xlsm");
+    $to = $csvPth . "OpnCsvPth.xlsm";
+    copy($fm, $to);
+    $a = new System_Launcher;
+    $a->Launch($to);
 }
 
 /** return the tmpPth which has each $dtaAy written as a csv file */
@@ -247,7 +251,6 @@ function dtaAy_tmpPth_array($nm_lvs, array $dtaAy)
         $f = fopen($file, "c");
 
         if (count($dta) === 0) {
-            $f = fopen($file, "c");
             fclose($f);
             continue;
         };

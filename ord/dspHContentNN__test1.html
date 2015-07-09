@@ -1,0 +1,19 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="dspH_hlp.js"></script>
+    <script>
+        angular.module('app').controller('dspHContentNN__test', ['$scope', '$http', 'dspH_hlp', '$app', function ($scope, $http, $hlp, $app) {
+            $scope.go_id = $app.go_id;
+            $hlp.assign_content_dta($scope);
+            $app.getLbl('ord','dsp','zh',$scope);
+        }]);
+    </script>
+</head>
+<body ng-controller="dspHContentNN__test">
+<ng-include src="'dspHContentNN.html'"/>
+</body>
+</html>

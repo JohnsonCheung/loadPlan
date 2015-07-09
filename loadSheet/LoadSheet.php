@@ -224,6 +224,7 @@ namespace LoadSheet {
             $inpDrop = z_runsp_dta("drop", $trip, $con); // ordDrop | ord ordAdr cusCd shtNm ordBy adr adrContact contentNoLvc box pallet cbm
             $inpContent = z_runsp_dta("content", $trip, $con); // ord contentNo contentRmk withImg
             $inpTrip = z_runsp_dro("trip", $trip, $con);
+
             $tripDelvDte = $inpTrip->dte;
             $tripNo = $inpTrip->tripNo;
             $tripNm = tripNm($tripDelvDte, $tripNo);
@@ -412,7 +413,7 @@ namespace LoadSheet\Att {
             list($ordDrop, $contentNoLvc, $ord) = ay_extract($i, ["ordDrop", "contentNoLvc", "ord"]);
             if (!is_null($contentNoLvc)) {
                 $linAy = [];
-                $noAy = split_lvc($contentNoLvc);
+                $noAy = preg_split('/,/', $contentNoLvc);
                 foreach ($noAy as $contentNo) {
                     $key = "$ord+$contentNo";
                     if (array_key_exists($key, $dic))
@@ -467,7 +468,7 @@ namespace LoadSheet\Att {
         $pagNo = 0;
         foreach ($inpDrop as $i) {
             list($ord, $contentNoLvc) = ay_extract($i, ["ord", "contentNoLvc"]);
-            $ay = split_lvc($contentNoLvc);
+            $ay = preg_split('/,/', $contentNoLvc);
             foreach ($ay as $contentNo) {
                 $key = "$ord+$contentNo";
                 if (array_key_exists($key, $dic)) {  // $dic = ord+contentNo => 1 for those ord+contentNo withImg.
@@ -485,7 +486,7 @@ namespace LoadSheet\Att {
         $inpContent) // ord contentNo |  contentRmk withImg
         // return $ord+contentNo => attNo ordNo ordDelvDte contentNo || for only those withImg
     {
-        //brw_dtaAy("inpDrop inpContent", $inpDrop, $inpContent);
+        // brw_dtaAy("inpDrop inpContent", $inpDrop, $inpContent);
         $withImgDic = [];        // $ord+$contentNo => 'withImg'
         foreach ($inpContent as $i) {
             list($ord, $contentNo, $withImg) = ay_extract($i, "ord contentNo withImg");
@@ -500,7 +501,7 @@ namespace LoadSheet\Att {
             list($ord, $contentNoLvc, $ordDelvDte, $ordNo) = ay_extract($dr, "ord contentNoLvc ordDelvDte ordNo");
             if (trim($contentNoLvc) === '') continue;
 
-            $contentNo_ay = split_lvc($contentNoLvc);
+            $contentNo_ay = preg_split("/,/", $contentNoLvc);
             foreach ($contentNo_ay as $contentNo) {
                 $key = "$ord+$contentNo";
                 if (array_key_exists($key, $withImgDic)) {
@@ -544,7 +545,7 @@ namespace LoadSheet\Att {
         $o = [];  // ordDrop pagNo |
         foreach ($inpDrop as $i) {
             list($ordDrop, $ord, $contentNoLvc) = ay_extract($i, ["ordDrop", "ord", "contentNoLvc"]);
-            $contentNo_ay = split_lvc($contentNoLvc);
+            $contentNo_ay = preg_split('/,/', $contentNoLvc);
             foreach ($contentNo_ay as $contentNo) {
                 $key = "$ord+$contentNo";
                 $pagNo = @$ord_n_contentNo__pagNo__dic[$key];
@@ -804,19 +805,23 @@ namespace LoadSheet\Drop {
         return $o;
     }
 
-    function z_bld_qty($box, $pallet, $cbm)
+    function z_bld_qty($nBox, $nPallet, $nCBM, $nCage)
     {
         $o = [];
-        if (trim($box) !== '') array_push($o, $box . ' 箱');
-        if (trim($pallet) !== '') array_push($o, $pallet . '板');
-        if (trim($cbm) !== '') array_push($o, $cbm . ' CBM');
+        if (trim($nBox) !== '') array_push($o, $nBox . ' 箱');
+        if (trim($nPallet) !== '') array_push($o, $nPallet . '板');
+        if (trim($nCBM) !== '') array_push($o, $nCBM . ' CBM');
+        if (trim($nCage) !== '') array_push($o, $nCage . ' 籠');
+
         return join(' ', $o);
     }
 
-    function z_bld_cus($cusCd, $shtNm)
+    function z_bld_cus($cusCd, $chiShtNm, $engShtNm)
     {
-        if ($shtNm !== '')
-            return $shtNm;
+        if (trim($chiShtNm) !== '')
+            return $chiShtNm;
+        if (trim($engShtNm) !== '')
+            return $engShtNm;
         return $cusCd;
     }
 
@@ -828,23 +833,23 @@ namespace LoadSheet\Drop {
     {
         list($ordDrop,
             $adrNo, $ordNo,
-            $cusCd, $shtNm,
+            $cusCd, $engShtNm, $chiShtNm,
             $adr, $adrContact,
-            $box, $pallet, $cbm,
+            $nBox, $nPallet, $nCBM, $nCage,
             $ordBy, $ordDelvDte) = ay_extract($drop_dr,
             "ordDrop"
-            . "  adrNo ordNo"
-            . " cusCd shtNm"
+            . " adrNo ordNo"
+            . " cusCd engShtNm chiShtNm"
             . " adr adrContact"
-            . " box pallet cbm"
+            . " nBox nPallet nCBM nCage"
             . " ordBy ordDelvDte");
         $o = [];
         // the order must follow!!!
         $o['ord'] = Fmt\fmt_dropKey($ordNo, $ordDelvDte, $tripDelvDte, $adrNo, $dropNo);
-        $o['cus'] = z_bld_cus($cusCd, $shtNm);
+        $o['cus'] = z_bld_cus($cusCd, $engShtNm, $chiShtNm);
         $o['adr'] = esc_lf($adr);
         $o['contentLines'] = @$ordDrop_contentLines_dic[$ordDrop];
-        $o['qty'] = z_bld_qty($box, $pallet, $cbm);
+        $o['qty'] = z_bld_qty($nBox, $nPallet, $nCBM, $nCage);
         $o['pagNoList'] = @$ordDrop_pagNoList_dic[$ordDrop];
         $o['ordBy'] = esc_lf($ordBy);
         $o['adrContact'] = esc_lf($adrContact);
@@ -852,4 +857,3 @@ namespace LoadSheet\Drop {
         return $o;
     }
 }
-

@@ -1,0 +1,20 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script>
+        angular.module('app').controller('dspHContent', ['$scope', '$http', '$app',function ($scope, $http, $app) {
+            $scope.go_id = $app.go_id;
+            $app.getLbl('ord', 'dsp', 'zh', $scope);
+            $http.post('dspH.php', 1).success(function(data) {
+                $scope.data = data;
+            })
+        }])
+    </script>
+</head>
+<body ng-controller="dspHContent">
+<ng-include src="'dspHContent.html'"/>
+</body>
+</html>

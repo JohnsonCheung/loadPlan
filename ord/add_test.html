@@ -1,0 +1,54 @@
+<html ng-app="app">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Add Region</title>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', [])</script>
+    <script src='../ngSvc/$lib.js'></script>
+    <script src="add.js"></script>
+    <script src="../cus/selCus.js"></script>
+    <script>
+        angular.module('app').controller('testAdd', function ($scope) {
+            $scope.sess = {lang: "zh"};
+            $scope.appOrd = {cusCd: ""};
+            $scope.do_clear = function () {
+                $scope.appOrd.cusCd = "";
+                $scope.appOrd.addMsg = {};
+            }
+        });
+    </script>
+</head>
+<body ng-controller="testAdd">
+<table border='2px'>
+    <tr><input type="text" ng-model="appOrd.cusCd"/>
+    {{a}}
+    <tr>
+        <td>lang
+        <td>
+            <field><input type="radio" name='lang' ng-model='sess.lang' value="en">en</input></field>
+            <field><input type="radio" name='lang' ng-model='sess.lang' value="zh">zh</input></field>
+    <tr>
+        <td>clear
+        <td><input type="button" value="clear" ng-click="do_clear()"/>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{appOrd.mode}}
+    <tr>
+        <td>cusCd
+        <td class="readOnly">{{appOrd.cusCd}}
+    <tr>
+        <td>ordDelvDte
+        <td class="readOnly">{{appOrd.ordDelvDte}}
+    <tr>
+        <td>ord
+        <td class="readOnly">{{appOrd.svrMsg.ord}}
+    <tr>
+        <td>message from php
+        <td class="readOnly">{{appOrd.svrMsg | json}}
+</table>
+<hr>
+<ng-include src="'add.html'"/>
+</body>
+</html>

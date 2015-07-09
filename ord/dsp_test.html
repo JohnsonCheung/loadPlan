@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Display Customer Order</title>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="dsp.js"></script>
+    <script>
+        angular.module('app').controller('dsp_test', ['$scope', '$http', function ($scope, $http) {
+            $scope.sess = {lang: "zh"};
+            $http.get('../phpResp/tblDc.php?t=ord&f=ord').success(function (data) {
+                $scope.ordDc = data;
+            });
+        }]);
+    </script>
+</head>
+<body ng-controller="dsp_test">
+<table border="2px">
+    <tr>
+        <td>ord Id
+        <td><select ng-model="appOrd.ord">
+            <option ng-repeat="i in ordDc" value="{{i}}">{{i}}</option>
+        </select>
+    <tr>
+        <td>mode
+        <td><input type="button" value="dsp" ng-click="appCus.mode='dsp'"/>
+            <input type="button" value="dea" ng-click="appCus.mode='dea'"/>
+            <input type="button" value="rea" ng-click="appCus.mode='rea'"/>
+            <input type="button" value="dlt" ng-click="appCus.mode='dlt'"/>
+    <tr>
+        <td>lang
+        <td><input type="radio" value="zh" name="lang" ng-model="sess.lang">zh</input>
+            <input type="radio" value="en" name="lang" ng-model="sess.lang">en</input>
+
+</table>
+
+
+<hr>
+<ng-include src="'dsp.html'"/>
+</body>
+</html>

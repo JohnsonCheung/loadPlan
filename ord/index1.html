@@ -23,6 +23,11 @@
             </div>
 </table>
 <hr>
-<div ng-include="'cur.html'"/>
+<div ng-controller="cur" ng-if="appOrd.mode=='list'">
+    <ng-include src="'cur.html'"/>
+</div>
+<div ng-controller="dsp" ng-if="appOrd.mode==='dsp'">
+    <ng-include src="'dspH.html'"/>
+</div>
 </body>
 </html>

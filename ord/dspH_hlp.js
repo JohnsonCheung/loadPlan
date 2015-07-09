@@ -35,6 +35,9 @@ angular.module('app').factory('dspH_hlp', function () {
         $scope.data.ord = $scope.data.ord || {};
         $scope.data.ord.ordNo = 'aa';
         $scope.data.ord.ordDelvDte = 'aa';
+        $scope.data.ord.cusCd = 'aa';
+        $scope.data.ord.engShtNm = 'aa';
+        $scope.data.ord.chiShtNm = 'aa';
         $scope.data.ord.ordBy = 'aa';
         $scope.data.ord.ordByPhone = 'aa';
         $scope.data.ord.ordTy = 'aa';
@@ -68,6 +71,9 @@ angular.module('app').factory('dspH_hlp', function () {
         $scope.lbl.fld = $scope.lbl.fld || {};
         $scope.lbl.fld.ordNo = "ordNo#";
         $scope.lbl.fld.ordDelvDte = "ordDelvDtee";
+        $scope.lbl.fld.cusCd = 'aa';
+        $scope.lbl.fld.engShtNm = 'aa';
+        $scope.lbl.fld.chiShtNm = 'aa';
         $scope.lbl.fld.ordBy = "ordBy";
         $scope.lbl.fld.ordByPhone = "ordByPhone";
         $scope.lbl.fld.ordTy = "ordTye";
@@ -85,7 +91,7 @@ angular.module('app').factory('dspH_hlp', function () {
         $scope.lbl.fld.nCage = 'nCage';
         $scope.lbl.fld.pickAdrCd = "pickAdrCd";
         $scope.lbl.fld.pickTim = "pickTim";
-        $scope.lbl.fld.isRetWhs = "Remark";
+        $scope.lbl.fld.isRetWhs = "isRetWhs";
         $scope.lbl.fld.isCold = "isCold";
         $scope.lbl.fld.nAdr = "nAdr";
         $scope.lbl.fld.nContent = "nContent";
@@ -170,17 +176,17 @@ angular.module('app').factory('dspH_hlp', function () {
         $scope.data.content = $scope.data.content || [];
         $scope.data.content[0] = {
             idx: 0,
-            des: 'aaaaa0',
+            contentRmk: 'aaaaa0',
             url: 'http://www.jetft.com/sites/default/files/slideshow/Photo.jpg'
         };
         $scope.data.content[1] = {
             idx: 1,
-            des: 'aaaaa1',
+            contentRmk: 'aaaaa1',
             url: 'http://www.jetft.com/sites/default/files/styles/large/public/images/20121103141058.png'
         };
         $scope.data.content[2] = {
             idx: 2,
-            des: 'aaaaa2',
+            contentRmk: 'aaaaa2',
             url: 'http://www.jetft.com/sites/default/files/styles/sidebar_image/public/page/20091029820402-org_2.jpg'
         };
     }

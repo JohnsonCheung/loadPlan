@@ -21,216 +21,18 @@ class LoadSheet__tst extends PHPUnit_TestCase
         $this->tar = new LoadSheet\Gen(1);
     }
 
-    function test_getTrip()
-    {
-        $_SERVER['argv'] = ['--trip', '1'];
-        $act = getTrip();
-        assert($act === '1');
-
-        $_SERVER['HTTP_HOST'] = 'localhost';
-        $_REQUEST['trip'] = '2';
-        $act = getTrip();
-        assert($act === '2');
-    }
-
-    function test_genHdr()
-    {
-        $t = $this->tar;
-        $f = $t->hdrFile;
-
-        $this->tar->genPth();
-        assert(!is_file($f));
-
-        $this->tar->genHdr();
-        assert(is_file($f));
-    }
-
-    function test_genRmk()
-    {
-        $t = $this->tar;
-        $t->genPth();
-        $f = $t->rmkFile;
-
-        $this->assertFalse(is_file($f));
-        $t->genRmk();
-        $this->assertTrue(is_file($f));
-
-        $s = file_get_contents($f);
-        $act = mb_convert_encoding($s, "UTF-8", "BIG-5");
-        $exp = "2013-12-25 柯打#1,Line 1 - sdf\\nLine 2 - sdf\\nLine 3 -sdfsdfsdf
-2013-12-25 柯打#1 地址#1,ordAdr->delvRmk....1
-2013-12-25 柯打#1 地址#2,ordAdr->delvRmk....2
-2013-12-25 柯打#1 地址#3,ordAdr->delvRmk....3
-2013-12-25 柯打#1 地址#4,ordAdr->delvRmk....3
-2013-12-25 柯打#1 地址#5,ordAdr->delvRmk....4
-2013-12-25 柯打#1 地址#6,ordAdr->delvRmk....5
-2013-12-25 柯打#1 地址#7,ordAdr->delvRmk....6
-";
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_genAtt()
-    {
-        $t = $this->tar;
-        $t->genPth();
-        $t->genAtt();
-
-        //      $this->assertEquals($exp, $act);
-    }
-
     function test_attDta()
     {
         $t = $this->tar;
         $act = $t->attDta();
-        $exp = array(
-            '1+1' =>
-                array(
-                    'ordNo' => '0001',
-                    'contentNo' => '1',
-                    'attNo' => 1,
-                    'ordDelvDte' => '2013-12-25',
-                ),
-            '1+2' =>
-                array(
-                    'ordNo' => '0001',
-                    'contentNo' => '2',
-                    'attNo' => 2,
-                    'ordDelvDte' => '2013-12-25',
-                ),
-            '1+3' =>
-                array(
-                    'ordNo' => '0001',
-                    'contentNo' => '3',
-                    'attNo' => 3,
-                    'ordDelvDte' => '2013-12-25',
-                ),
-            '1+4' =>
-                array(
-                    'ordNo' => '0001',
-                    'contentNo' => '4',
-                    'attNo' => 4,
-                    'ordDelvDte' => '2013-12-25',
-                ),
-            '1+5' =>
-                array(
-                    'ordNo' => '0001',
-                    'contentNo' => '5',
-                    'attNo' => 5,
-                    'ordDelvDte' => '2013-12-25',
-                ),
-        );
-
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_genBarCd()
-    {
-        $t = $this->tar;
-        $t->genPth();
-        $f = $t->barCdFile;
-
-        $this->assertFalse(is_file($f));
-        $t->genBarCd();
-        $this->assertTrue(is_file($f));
-    }
-
-    function test_hdrAy()
-    {
-        $act = $this->tar->hdrAy();
-        $exp = array(
-            'tripDelvDte' => '2015-01-01 行程#1',
-            'driverTy' => '司機',
-            'driver' => 'aa',
-            'leader' => 'leader-trip1',
-            'member' => 'member-trip1',
-        );
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_hdrFile()
-    {
-        $act = $this->tar->hdrFile;
-        $exp = "c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\hdr.txt";
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_inpContent()
-    {
-        $act = $this->tar->inpContent;
-        $exp = [
-            0 => [
-                'ord' => '1',
-                'contentNo' => '1',
-                'contentRmk' => 'sdf content Rmk 1',
-                'withImg' => '1',
-            ],
-            1 => [
-                'ord' => '1',
-                'contentNo' => '2',
-                'contentRmk' => 'sdf content Rmk 2',
-                'withImg' => '1',
-            ],
-            2 => [
-                'ord' => '1',
-                'contentNo' => '3',
-                'contentRmk' => 'sdf content Rmk 3',
-                'withImg' => '1',
-            ],
-            3 => [
-                'ord' => '1',
-                'contentNo' => '4',
-                'contentRmk' => 'sdf content Rmk 4',
-                'withImg' => '1',
-            ],
-            4 => [
-                'ord' => '1',
-                'contentNo' => '5',
-                'contentRmk' => 'sdf content Rmk 5',
-                'withImg' => '1',
-            ],
-            5 => [
-                'ord' => '1',
-                'contentNo' => '7',
-                'contentRmk' => 'sdf content Rmk 6',
-                'withImg' => '0',
-            ]
+        $exp = ['1+1' => ['ordNo' => '0001', 'contentNo' => '1', 'attNo' => 1, 'ordDelvDte' => '2013-12-25'],
+            '1+2' => ['ordNo' => '0001', 'contentNo' => '2', 'attNo' => 2, 'ordDelvDte' => '2013-12-25'],
+            '1+3' => ['ordNo' => '0001', 'contentNo' => '3', 'attNo' => 3, 'ordDelvDte' => '2013-12-25'],
+            '1+4' => ['ordNo' => '0001', 'contentNo' => '4', 'attNo' => 4, 'ordDelvDte' => '2013-12-25'],
+            '1+5' => ['ordNo' => '0001', 'contentNo' => '5', 'attNo' => 5, 'ordDelvDte' => '2013-12-25'],
         ];
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_ord_n_contentNo__pagNo__dic()
-    {
-        $act = $this->tar->ord_n_contentNo__pagNo__dic();
-        $exp = [
-            '1+1' => 1,
-            '1+2' => 2,
-            '1+3' => 3,
-            '1+4' => 4,
-            '1+5' => 5];
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_genPth()
-    {
-        /** @var LoadSheet\Gen $tar */
-        $t = $this->tar;
-        $pth = $t->tripPth;
-        pth_clear_files($pth);
-        if (is_dir($pth))
-            rmdir($pth);
-        $this->assertFalse(is_dir($pth));
-
-        $t->genPth();
-        $this->assertTrue(is_dir($pth));
-    }
-
-    function test_z_drop_file()
-    {
-        $dropIdx = 0;
-        $tripPth = "c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\";
-        $act = LoadSheet\Drop\z_drop_file($dropIdx, $tripPth);
-        $exp = 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\drop-01.txt';
-        $this->assertEquals($exp, $act);
+        $this->assertEquals($exp['1+1'], $act['1+1']);
+       // $this->assertEquals($exp, $act);
     }
 
     function test_dropDta()
@@ -326,49 +128,182 @@ class LoadSheet__tst extends PHPUnit_TestCase
         $this->assertEquals($exp, $act);
     }
 
+    function test_fmtoDta()
+    {
+        $act = $this->tar->fmtoDta();
+        //echo "fmToDat\n";
+        //var_export($act);
+        $exp = array(
+            0 =>
+                array(
+                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-01.png',
+                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-01 (ord-2013-12-25#0001 content-01).png',
+                ),
+            1 =>
+                array(
+                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-02.png',
+                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-02 (ord-2013-12-25#0001 content-02).png',
+                ),
+            2 =>
+                array(
+                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-03.png',
+                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-03 (ord-2013-12-25#0001 content-03).png',
+                ),
+            3 =>
+                array(
+                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-04.png',
+                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-04 (ord-2013-12-25#0001 content-04).png',
+                ),
+            4 =>
+                array(
+                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-05.png',
+                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-05 (ord-2013-12-25#0001 content-05).png',
+                ),
+        );
+        $this->assertEquals($exp, $act);
+    }
+
+    function test_gen()
+    {
+        $this->tar->gen();
+    }
+
+    function test_genAtt()
+    {
+        $t = $this->tar;
+        $t->genPth();
+        $t->genAtt();
+
+        //      $this->assertEquals($exp, $act);
+    }
+
+    function test_genBarCd()
+    {
+        $t = $this->tar;
+        $t->genPth();
+        $f = $t->barCdFile;
+
+        $this->assertFalse(is_file($f));
+        $t->genBarCd();
+        $this->assertTrue(is_file($f));
+    }
+
+    function test_genHdr()
+    {
+        $t = $this->tar;
+        $f = $t->hdrFile;
+
+        $this->tar->genPth();
+        assert(!is_file($f));
+
+        $this->tar->genHdr();
+        assert(is_file($f));
+    }
+
+    function test_genPth()
+    {
+        /** @var LoadSheet\Gen $tar */
+        $t = $this->tar;
+        $pth = $t->tripPth;
+        pth_clear_files($pth);
+        if (is_dir($pth))
+            rmdir($pth);
+        $this->assertFalse(is_dir($pth));
+
+        $t->genPth();
+        $this->assertTrue(is_dir($pth));
+    }
+
+    function test_genRmk()
+    {
+        $t = $this->tar;
+        $t->genPth();
+        $f = $t->rmkFile;
+
+        $this->assertFalse(is_file($f));
+        $t->genRmk();
+        $this->assertTrue(is_file($f));
+
+        $s = file_get_contents($f);
+        $act = mb_convert_encoding($s, "UTF-8", "BIG-5");
+        $exp = "2013-12-25 柯打#1,1\\n2\\n3
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....1
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....2
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....3
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....3
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....4
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....5
+2013-12-25 柯打#1 地址#0,ordAdr->delvRmk....6
+";
+        $this->assertEquals($exp, $act);
+    }
+
+    function test_getTrip()
+    {
+        $_SERVER['argv'] = ['--trip', '1'];
+        $act = getTrip();
+        assert($act === '1');
+
+        $_SERVER['HTTP_HOST'] = 'localhost';
+        $_REQUEST['trip'] = '2';
+        $act = getTrip();
+        assert($act === '2');
+    }
+
+    function test_hdrAy()
+    {
+        $act = $this->tar->hdrAy();
+        $exp = array(
+            'tripDelvDte' => '2015-01-01 行程#1',
+            'driverTy' => '司機',
+            'driver' => 'aa',
+            'leader' => 'leader-trip1',
+            'member' => 'member-trip1',
+        );
+        $this->assertEquals($exp, $act);
+    }
+
+    function test_hdrFile()
+    {
+        $act = $this->tar->hdrFile;
+        $exp = "c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\hdr.txt";
+        $this->assertEquals($exp, $act);
+    }
+
+    function test_inpContent()
+    {
+        $act = $this->tar->inpContent;
+        $exp = [0 => ['ord' => '1', 'contentNo' => '1', 'contentRmk' => 'sdf content Rmk 1', 'withImg' => '1'],
+            1 => ['ord' => '1', 'contentNo' => '2', 'contentRmk' => 'sdf content Rmk 2', 'withImg' => '1'],
+            2 => ['ord' => '1', 'contentNo' => '3', 'contentRmk' => 'sdf content Rmk 3', 'withImg' => '1'],
+            3 => ['ord' => '1', 'contentNo' => '4', 'contentRmk' => 'sdf content Rmk 4', 'withImg' => '1'],
+            4 => ['ord' => '1', 'contentNo' => '5', 'contentRmk' => 'sdf content Rmk 5', 'withImg' => '1'],
+            5 => ['ord' => '1', 'contentNo' => '7', 'contentRmk' => 'sdf content Rmk 6', 'withImg' => '0']
+        ];
+        $this->assertEquals($exp, $act);
+    }
+
     function test_inpDrop()
     {
         $act = $this->tar->inpDrop;
         //echo "inpDrop\n";
-        $exp = array(
-            0 =>
-                array(
-                    'ordDrop' => '1',
-                    'ordAdr' => '1',
-                    'ord' => '1',
-                    'ordDelvDte' => '2013-12-25',
-                    'ordNo' => '0001',
-                    'adrNo' => '1',
-                    'cusCd' => 'cus1',
-                    'shtNm' => 'shtNm-cus1',
-                    'ordBy' => 'ordBy - ABC',
-                    'adr' => '載貨計劃系統地址1',
-                    'adrContact' => 'adr 1Contact',
-                    'contentNoLvc' => '1,2,3',
-                    'box' => '1',
-                    'pallet' => '2',
-                    'cbm' => '1.0',
-                    'trip' => '1',
-                ),
-            1 =>
-                array(
-                    'ordDrop' => '2',
-                    'ordAdr' => '2',
-                    'ord' => '1',
-                    'ordDelvDte' => '2013-12-25',
-                    'ordNo' => '0001',
-                    'adrNo' => '2',
-                    'cusCd' => 'cus1',
-                    'shtNm' => 'shtNm-cus1',
-                    'ordBy' => 'ordBy - ABC',
-                    'adr' => '載貨計劃系統地址2',
-                    'adrContact' => 'adr 2 Contact',
-                    'contentNoLvc' => '2,3,4',
-                    'box' => '2',
-                    'pallet' => NULL,
-                    'cbm' => '3.0',
-                    'trip' => '1',
-                ),
+        $exp = [0 => ['ordDrop' => '1', 'ordAdr' => '1', 'ord' => '1', 'ordDelvDte' => '2013-12-25', 'ordNo' => '0001', 'adrNo' => '1',
+            'cusCd' => 'cus1', 'shtNm' => 'shtNm-cus1', 'ordBy' => 'ordBy - ABC', 'adr' => '載貨計劃系統地址1', 'adrContact' => 'adr 1Contact',
+            'contentNoLvc' => '1,2,3', 'box' => '1', 'pallet' => '2', 'cbm' => '1.0', 'trip' => '1',],
+            1 => ['ordDrop' => '2', 'ordAdr' => '2', 'ord' => '1', 'ordDelvDte' => '2013-12-25',
+                'ordNo' => '0001',
+                'adrNo' => '2',
+                'cusCd' => 'cus1',
+                'shtNm' => 'shtNm-cus1',
+                'ordBy' => 'ordBy - ABC',
+                'adr' => '載貨計劃系統地址2',
+                'adrContact' => 'adr 2 Contact',
+                'contentNoLvc' => '2,3,4',
+                'box' => '2',
+                'pallet' => NULL,
+                'cbm' => '3.0',
+                'trip' => '1',
+            ],
             2 =>
                 array(
                     'ordDrop' => '3',
@@ -464,59 +399,19 @@ class LoadSheet__tst extends PHPUnit_TestCase
                     'cbm' => NULL,
                     'trip' => '1',
                 ),
-        );
+        ];
         $this->assertEquals($exp, $act);
     }
 
-    function test_z_fm_to()
+    function test_ord_n_contentNo__pagNo__dic()
     {
-        $attNo = 2;
-        $ordNo = 1;
-        $ordDelvDte = "2015/12/31";
-        $contentNo = 3;
-        $tripPth = "c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\";
-        $tripNm = "Trip-2015-01-01#001";
-        $act = \LoadSheet\Att\z_fm_to($attNo, $ordNo, $ordDelvDte, $contentNo, $tripPth, $tripNm);
-        //var_export($act);
-        $exp = array(
-            0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\Ord-2015-12-31#0001 content-03.png',
-            1 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\Trip-2015-01-01#001 att-02 (ord-2015-12-31#0001 content-03).png',
-        );
-        $this->assertEquals($exp, $act);
-    }
-
-    function test_fmtoDta()
-    {
-        $act = $this->tar->fmtoDta();
-        //echo "fmToDat\n";
-        //var_export($act);
-        $exp = array(
-            0 =>
-                array(
-                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-01.png',
-                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-01 (ord-2013-12-25#0001 content-01).png',
-                ),
-            1 =>
-                array(
-                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-02.png',
-                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-02 (ord-2013-12-25#0001 content-02).png',
-                ),
-            2 =>
-                array(
-                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-03.png',
-                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-03 (ord-2013-12-25#0001 content-03).png',
-                ),
-            3 =>
-                array(
-                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-04.png',
-                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-04 (ord-2013-12-25#0001 content-04).png',
-                ),
-            4 =>
-                array(
-                    0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2013\\12\\25\\Ord-2013-12-25#0001 content-05.png',
-                    1 => 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\Trip-2015-01-01#001 att-05 (ord-2013-12-25#0001 content-05).png',
-                ),
-        );
+        $act = $this->tar->ord_n_contentNo__pagNo__dic();
+        $exp = [
+            '1+1' => 1,
+            '1+2' => 2,
+            '1+3' => 3,
+            '1+4' => 4,
+            '1+5' => 5];
         $this->assertEquals($exp, $act);
     }
 
@@ -536,9 +431,30 @@ class LoadSheet__tst extends PHPUnit_TestCase
         $this->assertEquals($exp, $act);
     }
 
-    function test_gen()
+    function test_z_drop_file()
     {
-        $this->tar->gen();
+        $dropIdx = 0;
+        $tripPth = "c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\";
+        $act = LoadSheet\Drop\z_drop_file($dropIdx, $tripPth);
+        $exp = 'c:\\xampp\\htdocs\\loadplan\\pgm\\loadsheet\\queue\\Trip-2015-01-01#001\\drop-01.txt';
+        $this->assertEquals($exp, $act);
+    }
+
+    function test_z_fm_to()
+    {
+        $attNo = 2;
+        $ordNo = 1;
+        $ordDelvDte = "2015/12/31";
+        $contentNo = 3;
+        $tripPth = "c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\";
+        $tripNm = "Trip-2015-01-01#001";
+        $act = \LoadSheet\Att\z_fm_to($attNo, $ordNo, $ordDelvDte, $contentNo, $tripPth, $tripNm);
+        //var_export($act);
+        $exp = array(
+            0 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\Ord-2015-12-31#0001 content-03.png',
+            1 => 'c:\\xampp\\htdocs\\loadplan\\ordContent\\2015\\12\\31\\Trip-2015-01-01#001 att-02 (ord-2015-12-31#0001 content-03).png',
+        );
+        $this->assertEquals($exp, $act);
     }
 
 }

@@ -1,0 +1,37 @@
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script>
+        angular.module('app').controller('btnContainer', ['$scope', '$http', function ($scope, $http) {
+            $scope.sess = {lang: "zh"};
+            $scope.appCus = {mode: 'x'};
+            $http.get("../phpResp/tblDc.php?t=cus&f=cusCd").success(function (data) {
+                debugger;
+                $scope.cusCdDc = data;
+            });
+        }]);
+    </script>
+    <script src="btn.js"></script>
+</head>
+<body ng-controller="btnContainer">
+<table border="2px">
+    <tr>
+        <td>regCd
+        <td><select ng-model="appCus.cusCd"/>
+            <option ng-repeat="i in cusCdDc" value="{{i}}">{{i}}</option>
+            </select></td>
+    <tr>
+        <td>lang
+        <td><input type="radio" name="lang" ng-model="sess.lang" value="zh">zh</input>
+            <input type="radio" name="lang" ng-model="sess.lang" value="en">en</input></td>
+    <tr>
+        <td>mode
+        <td class="readOnly">{{appCus.mode}}
+</table>
+<ng-include src="'btn.html'"/>
+</body>
+</html>

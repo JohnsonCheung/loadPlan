@@ -1,0 +1,47 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script src="selCus.js"></script>
+    <script>
+        angular.module('app').controller('xx', ['$scope', function ($scope) {
+            $scope.sess = {lang: "zh"};
+            $scope.app = {cusCd: "xxx"};
+            $scope.do_shwSelCus = function (ev) {
+                $scope.$broadcast('shwSelCus', ev, $scope.app, 'cusCd');
+            };
+        }]);
+    </script>
+</head>
+<body ng-controller="xx">
+<div style="position: absolute; top:100px; left:200px;">cusCd:
+    <input type="text" ng-model="app.cusCd"/>
+    <input type="button" value="select" ng-mouseenter="do_shwSelCus($event)"/>
+    <br>
+    sjlkdf
+    klsdjflskdjf slkjf slkdjf sklajdf lksadf
+    slkfj klsdf
+    sd fjlksdf<br>
+    slkdfj
+    sf
+    sjlkdf
+    klsdjflskdjf slkjf slkdjf sklajdf lksadf
+    slkfj klsdf
+    sd fjlksdf<br>
+    slkdfj
+    sf
+    sjlkdf
+    klsdjflskdjf slkjf slkdjf sklajdf lksadf
+    slkfj klsdf
+    sd fjlksdf<br>
+    slkdfj
+    sf
+</div>
+<ng-include src="'selCus.html'"/>
+-->
+    </div>
+</body>
+</html>

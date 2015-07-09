@@ -31,7 +31,10 @@ function getOrd_json($ordId)
 
 function _ord($con, $ordId)
 {
-    $o = runsql_dr($con, "Select * from ord where ord=$ordId;");
+    $o = runsql_dr($con, "Select *, b.chiShtNm, b.engShtNm
+from ord a
+left join cus b on a.cusCd=b.cusCd
+where ord=$ordId;");
     list($a, $b, $c, $d) = runsql_dr($con,
         "select sum(nPallet), sum(nBox), sum(nCage), sum(nCBM) from ordadr where ord = $ordId; ",
         MYSQLI_NUM);
@@ -49,11 +52,26 @@ function _inst($con, $ordId)
 
 function _adr($con, $ordId)
 {
-    return runsql_rs($con, "select * from ordadr where ord=$ordId order by sno, ordadr;");
+    $rs = runsql_rs($con, "select a.*, b.adrCd, b.adrNm from ordadr a left join cusadr b on a.cusAdr=b.cusAdr where ord=$ordId order by sno, ordadr;");
+    $o = [];
+    foreach ($rs as $dr) {
+        $a = $dr['isOneTim'];
+        $dr['isOneTim'] = $a === '1' ? 'Y' : null;
+        array_push($o, $dr);
+    }
+    return $o;
 }
 
 function _content($con, $ordId)
 {
     $sql = "SELECT * FROM ordcontent where ord=$ordId;";
-    return runsql_rs($con, $sql);
+    $rs = runsql_rs($con, $sql);
+    $o = [];
+    $j = 0;
+    foreach ($rs as $dr) {
+        $dr['url'] = 'http://www.jetft.com/sites/default/files/styles/sidebar_image/public/page/20091029820402-org_2.jpg';
+        $dr['idx'] = $j++;
+        array_push($o, $dr);
+    }
+    return $o;
 }

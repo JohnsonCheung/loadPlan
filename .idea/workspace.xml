@@ -5,55 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/db_new.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHAdr.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHAdr__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContent.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContentNN.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContentNN__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContent__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHHdr.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHHdr__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHInst.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHInst__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH__test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH__test1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH__test2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspH_hlp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/dte.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/t/dte__tst.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/index1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/t/lbl__tst.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/pass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngSvc/$lib.js" afterPath="$PROJECT_DIR$/ngSvc/$lib.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/add.html" afterPath="$PROJECT_DIR$/cus/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/add_test.html" afterPath="$PROJECT_DIR$/region/add_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngSvc/app_facFn.js" afterPath="$PROJECT_DIR$/ngSvc/app_facFn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContentNN__test1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContentNN__test2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContent__test1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ord/dspHContent__test2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/LoadSheet.php" afterPath="$PROJECT_DIR$/loadSheet/LoadSheet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" afterPath="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/ay.php" afterPath="$PROJECT_DIR$/phpFn/ay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/t/ay__tst.php" afterPath="$PROJECT_DIR$/phpFn/t/ay__tst.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/btn.js" afterPath="$PROJECT_DIR$/cus/btn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/btn.js" afterPath="$PROJECT_DIR$/region/btn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/cmn.php" afterPath="$PROJECT_DIR$/phpFn/cmn.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/dsp.html" afterPath="$PROJECT_DIR$/cus/dsp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/dsp.js" afterPath="$PROJECT_DIR$/cus/dsp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/dsp.js" afterPath="$PROJECT_DIR$/region/dsp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/dspDea.php" afterPath="$PROJECT_DIR$/cus/dspDea.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/dspDlt.php" afterPath="$PROJECT_DIR$/cus/dspDlt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/dspRea.php" afterPath="$PROJECT_DIR$/cus/dspRea.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/left.js" afterPath="$PROJECT_DIR$/region/left.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/left_test.html" afterPath="$PROJECT_DIR$/cus/left_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/selReg.js" afterPath="$PROJECT_DIR$/region/selReg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/selReg_test.html" afterPath="$PROJECT_DIR$/region/selReg_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/upd.html" afterPath="$PROJECT_DIR$/cus/upd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/upd.js" afterPath="$PROJECT_DIR$/cus/upd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/upd.js" afterPath="$PROJECT_DIR$/region/upd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/upd.php" afterPath="$PROJECT_DIR$/cus/upd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cus/updGetDta.php" afterPath="$PROJECT_DIR$/cus/updGetDta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspH.html" afterPath="$PROJECT_DIR$/ord/dspH.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspH.js" afterPath="$PROJECT_DIR$/ord/dspH.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspH.php" afterPath="$PROJECT_DIR$/ord/dspH.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspHAdr.html" afterPath="$PROJECT_DIR$/ord/dspHAdr.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspHContent.html" afterPath="$PROJECT_DIR$/ord/dspHContent.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspHContentNN.html" afterPath="$PROJECT_DIR$/ord/dspHContentNN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspHContentNN__test.html" afterPath="$PROJECT_DIR$/ord/dspHContentNN__test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspHHdr.html" afterPath="$PROJECT_DIR$/ord/dspHHdr.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspH__test2.html" afterPath="$PROJECT_DIR$/ord/dspH__test2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/dspH_hlp.js" afterPath="$PROJECT_DIR$/ord/dspH_hlp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/index1.html" afterPath="$PROJECT_DIR$/ord/index1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/str.php" afterPath="$PROJECT_DIR$/phpFn/str.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pgm.iws" />
@@ -104,103 +74,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dspH__test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspH__test.html">
+      <file leaf-file-name="LoadSheet__tst.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="589">
-              <caret line="36" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7241379" vertical-offset="341" max-vertical-offset="3534">
+              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
-                <element signature="e#550#1113#0" expanded="false" />
+                <element signature="e#6#84#0#PHP" expanded="false" />
+                <element signature="e#1814#2312#1#PHP" expanded="false" />
+                <element signature="e#2347#2841#1#PHP" expanded="false" />
+                <element signature="e#2876#3322#1#PHP" expanded="false" />
+                <element signature="e#3357#3787#1#PHP" expanded="false" />
+                <element signature="e#3822#4251#1#PHP" expanded="false" />
+                <element signature="e#4286#4719#1#PHP" expanded="false" />
+                <element signature="e#4963#5270#1#PHP" expanded="false" />
+                <element signature="e#5305#5612#1#PHP" expanded="false" />
+                <element signature="e#5647#5954#1#PHP" expanded="false" />
+                <element signature="e#5989#6296#1#PHP" expanded="false" />
+                <element signature="e#6331#6638#1#PHP" expanded="false" />
+                <element signature="n#test_genBarCd#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_genHdr#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_genPth#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_genRmk#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_getTrip#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_hdrAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#8728#8934#0#PHP" expanded="false" />
+                <element signature="n#test_hdrFile#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#11047#11720#1#PHP" expanded="false" />
+                <element signature="e#11755#12432#1#PHP" expanded="false" />
+                <element signature="e#12467#13136#1#PHP" expanded="false" />
+                <element signature="e#13171#13840#1#PHP" expanded="false" />
+                <element signature="e#13875#14543#1#PHP" expanded="false" />
+                <element signature="n#test_ord_n_contentNo__pagNo__dic#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#14731#14852#0#PHP" expanded="false" />
+                <element signature="n#test_rmkAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#14985#15519#0#PHP" expanded="false" />
+                <element signature="n#test_z_fm_to#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#16334#16599#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dspH__test1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspH__test1.html">
+      <file leaf-file-name="LoadSheet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.892857" vertical-offset="135" max-vertical-offset="836">
-              <caret line="32" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.75" vertical-offset="6119" max-vertical-offset="16321">
+              <caret line="337" column="17" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="17" />
+              <folding>
+                <marker date="1436411297882" expanded="true" signature="1215:1248" placeholder="select trip ..trip..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pth.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1881">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dspH.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspH.html">
+      <file leaf-file-name="cmn.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="532">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
+              <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
+              <folding>
+                <marker date="1436353637869" expanded="true" signature="2767:2799" placeholder="insert into ..." />
+                <marker date="1436353637869" expanded="true" signature="3086:3121" placeholder="update :_a s..." />
+                <marker date="1436353637869" expanded="true" signature="14264:14361" placeholder="select btnNm..lblpgm..." />
+                <marker date="1436353637869" expanded="true" signature="15349:15422" placeholder="select :_XXX..lbl..." />
+                <marker date="1436353637869" expanded="true" signature="16091:16158" placeholder="select msgNm..lblpgm..." />
+                <marker date="1436353637869" expanded="true" signature="16685:16753" placeholder="select msgNm..lblPgm..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dspHInst.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspHInst.html">
+      <file leaf-file-name="Assert.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.571428" vertical-offset="0" max-vertical-offset="494">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspHContent.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspHContent.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.25" vertical-offset="0" max-vertical-offset="513">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspH__test2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspH__test2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="646">
-              <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspHContent__test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspHContent__test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="494">
-              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspHContentNN__test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspHContentNN__test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.142858" vertical-offset="0" max-vertical-offset="494">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspHContentNN.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspHContentNN.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3571428" vertical-offset="0" max-vertical-offset="570">
-              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index1.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ord/index1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28884825" vertical-offset="51" max-vertical-offset="627">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
+              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -219,26 +178,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ord/add_test.html" />
-        <option value="$PROJECT_DIR$/ord/add.js" />
-        <option value="$PROJECT_DIR$/ord/future_test.html" />
-        <option value="$PROJECT_DIR$/ord/futrue.php" />
-        <option value="$PROJECT_DIR$/ord/future.js" />
-        <option value="$PROJECT_DIR$/ord/future.php" />
-        <option value="$PROJECT_DIR$/cus/upd.html" />
-        <option value="$PROJECT_DIR$/cus/upd.php" />
         <option value="$PROJECT_DIR$/cus/upd.js" />
         <option value="$PROJECT_DIR$/cus/updGetDta.php" />
         <option value="$PROJECT_DIR$/ord/dsp_test.html" />
         <option value="$PROJECT_DIR$/ord/dsp.html" />
         <option value="$PROJECT_DIR$/ord/dspHdr.html" />
         <option value="$PROJECT_DIR$/ord/future.html" />
-        <option value="$PROJECT_DIR$/phpFn/ay.php" />
         <option value="$PROJECT_DIR$/phpFn/t/ay__tst.php" />
         <option value="$PROJECT_DIR$/phpFn/lbl.php" />
         <option value="$PROJECT_DIR$/phpFn/t/lbl__tst.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/ord/cur.php" />
         <option value="$PROJECT_DIR$/ngSvc/$lib.js" />
         <option value="$PROJECT_DIR$/ord/dspHHdr__test.html" />
         <option value="$PROJECT_DIR$/ngSvc/app_facFn.js" />
@@ -247,29 +196,39 @@
         <option value="$PROJECT_DIR$/phpFn/db_new.php" />
         <option value="$PROJECT_DIR$/phpFn/db_new1.php" />
         <option value="$PROJECT_DIR$/cus/dsp.html" />
-        <option value="$PROJECT_DIR$/ord/dspHContentNN.html" />
         <option value="$PROJECT_DIR$/ord/index.js" />
-        <option value="$PROJECT_DIR$/ord/cur.js" />
-        <option value="$PROJECT_DIR$/ord/index1.html" />
         <option value="$PROJECT_DIR$/ord/cur.html" />
         <option value="$PROJECT_DIR$/ord/dsp.js" />
         <option value="$PROJECT_DIR$/ord/dsp.php" />
         <option value="$PROJECT_DIR$/phpFn/cmn.php" />
         <option value="$PROJECT_DIR$/ord/dspHAdr__test.html" />
-        <option value="$PROJECT_DIR$/ord/dspHAdr.html" />
-        <option value="$PROJECT_DIR$/ord/dspH.js" />
-        <option value="$PROJECT_DIR$/ord/dspH.php" />
         <option value="$PROJECT_DIR$/ord/dspHInst__test.html" />
-        <option value="$PROJECT_DIR$/ord/dspHHdr.html" />
         <option value="$PROJECT_DIR$/ord/dspHInst.html" />
-        <option value="$PROJECT_DIR$/ord/dspHContent.html" />
-        <option value="$PROJECT_DIR$/ord/dspH.html" />
         <option value="$PROJECT_DIR$/ord/dspH__test.html" />
         <option value="$PROJECT_DIR$/ord/dspH__test1.html" />
-        <option value="$PROJECT_DIR$/ord/dspH__test2.html" />
         <option value="$PROJECT_DIR$/ord/dspHContent__test.html" />
+        <option value="$PROJECT_DIR$/ord/dspH__test2.html" />
+        <option value="$PROJECT_DIR$/ord/index1.html" />
+        <option value="$PROJECT_DIR$/ord/dspH.html" />
         <option value="$PROJECT_DIR$/ord/dspHContentNN__test.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContent__test1.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContent.js" />
+        <option value="$PROJECT_DIR$/ord/dspHContent__test2.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContent.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContentNN__test1.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContentNN__test2.html" />
+        <option value="$PROJECT_DIR$/ord/dspHContentNN.html" />
+        <option value="$PROJECT_DIR$/ord/cur.php" />
+        <option value="$PROJECT_DIR$/ord/dspHHdr.html" />
         <option value="$PROJECT_DIR$/ord/dspH_hlp.js" />
+        <option value="$PROJECT_DIR$/ord/cur.js" />
+        <option value="$PROJECT_DIR$/ord/dspH.js" />
+        <option value="$PROJECT_DIR$/ord/dspH.php" />
+        <option value="$PROJECT_DIR$/ord/dspHAdr.html" />
+        <option value="$PROJECT_DIR$/phpFn/ay.php" />
+        <option value="$PROJECT_DIR$/phpFn/str.php" />
+        <option value="$PROJECT_DIR$/loadSheet/LoadSheet.php" />
+        <option value="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" />
       </list>
     </option>
   </component>
@@ -304,7 +263,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,20 +291,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="region" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pgm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pgm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="phpFn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -361,12 +305,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ord" />
+              <option name="myItemId" value="loadSheet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pgm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pgm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loadSheet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,7 +337,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../try" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="true" />
     <property name="recentsLimit" value="5" />
@@ -407,10 +370,12 @@
       <recent name="C:\xampp\htdocs\loadPlan\pgm\ngSvc" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.expand-lbl.php">
+  <component name="RunManager" selected="PHP Script.LoadSheet__tst.php">
     <configuration default="false" name="cur.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/ord/cur.php">
       <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
     <configuration default="false" name="expand-lbl.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dbTools/expand-lbl.php">
@@ -418,23 +383,23 @@
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="lbl__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/lbl__tst.php">
-      <RunnerSettings RunnerId="PhpRunner" />
-      <ConfigurationWrapper RunnerId="PhpRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ay__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/ay__tst.php">
-      <RunnerSettings RunnerId="PhpRunner" />
-      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
-      <ConfigurationWrapper RunnerId="PhpRunner" />
-      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="dspH.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/ord/dspH.php">
       <RunnerSettings RunnerId="PhpRunner" />
       <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="LoadSheet__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="str.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/str.php">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
@@ -510,17 +475,17 @@
       <item index="1" class="java.lang.String" itemvalue="PHP Script.lbl.php" />
       <item index="2" class="java.lang.String" itemvalue="PHP Script.cur.php" />
       <item index="3" class="java.lang.String" itemvalue="PHP Script.expand-lbl.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.lbl__tst.php" />
-      <item index="5" class="java.lang.String" itemvalue="PHP Script.ay__tst.php" />
-      <item index="6" class="java.lang.String" itemvalue="PHP Script.dspH.php" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.dspH.php" />
+      <item index="5" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst.php" />
+      <item index="6" class="java.lang.String" itemvalue="PHP Script.str.php" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.expand-lbl.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.dspH.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.cur.php" />
-        <item index="3" class="java.lang.String" itemvalue="PHP Script.lbl__tst.php" />
-        <item index="4" class="java.lang.String" itemvalue="PHP Script.ay__tst.php" />
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.str.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.expand-lbl.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.cur.php" />
+        <item index="4" class="java.lang.String" itemvalue="PHP Script.dspH.php" />
       </list>
     </recent_temporary>
   </component>
@@ -568,35 +533,41 @@
       <option name="project" value="LOCAL" />
       <updated>1435740407875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit">
+      <created>1436362510346</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1436362510346</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="740" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="740" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17553191" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43333334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2674772" sideWeight="0.77257526" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24848025" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17553191" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25151977" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19148937" sideWeight="0.22742476" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45659164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4726688" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4051447" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2674772" sideWeight="0.77257526" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1174" height="524" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66831684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -721,709 +692,205 @@
           <line>8</line>
           <option name="timeStamp" value="147" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/loadSheet/LoadSheet.php</url>
+          <line>66</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/phpFn/cmn.php</url>
+          <line>385</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="148" />
+      <option name="time" value="165" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/phpFn/t/lbl__tst.php">
+    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.107143" vertical-offset="247" max-vertical-offset="589">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="973" max-vertical-offset="2109">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#84#0#PHP" expanded="false" />
+            <element signature="e#1814#2312#1#PHP" expanded="false" />
+            <element signature="e#2347#2841#1#PHP" expanded="false" />
+            <element signature="e#2876#3322#1#PHP" expanded="false" />
+            <element signature="e#3357#3787#1#PHP" expanded="false" />
+            <element signature="e#3822#4251#1#PHP" expanded="false" />
+            <element signature="e#4286#4719#1#PHP" expanded="false" />
+            <element signature="e#4963#5270#1#PHP" expanded="false" />
+            <element signature="e#5305#5612#1#PHP" expanded="false" />
+            <element signature="e#5647#5954#1#PHP" expanded="false" />
+            <element signature="e#5989#6296#1#PHP" expanded="false" />
+            <element signature="e#6331#6638#1#PHP" expanded="false" />
+            <element signature="n#test_genBarCd#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genHdr#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genPth#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genRmk#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_getTrip#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_hdrAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#8728#8934#0#PHP" expanded="false" />
+            <element signature="n#test_hdrFile#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#11047#11720#1#PHP" expanded="false" />
+            <element signature="e#11755#12432#1#PHP" expanded="false" />
+            <element signature="e#12467#13136#1#PHP" expanded="false" />
+            <element signature="e#13171#13840#1#PHP" expanded="false" />
+            <element signature="e#13875#14543#1#PHP" expanded="false" />
+            <element signature="n#test_ord_n_contentNo__pagNo__dic#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#14731#14852#0#PHP" expanded="false" />
+            <element signature="n#test_rmkAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#14985#15519#0#PHP" expanded="false" />
+            <element signature="n#test_z_fm_to#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#16334#16599#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/btn_test.html">
+    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="798">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9086" max-vertical-offset="16321">
+          <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+          <folding>
+            <marker date="1436411297882" expanded="true" signature="1215:1248" placeholder="select trip ..trip..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5928">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="532">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngSvc/app_facFn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3952">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngSvc/$lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5814">
-          <caret line="158" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#180#5129#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/dsp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.857142" vertical-offset="0" max-vertical-offset="418">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <marker date="1435711076099" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cus..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/dsp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.307693" vertical-offset="252" max-vertical-offset="1064">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/left.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1558">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/updGetDta.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="931">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <marker date="1436222084327" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cus..." />
-            <marker date="1436222084327" expanded="true" signature="-1:-1" placeholder="select cusCd..ord..." />
-            <marker date="1436222084327" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cusadr..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/selCus_test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.607143" vertical-offset="384" max-vertical-offset="988">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665" vertical-offset="5093" max-vertical-offset="5643">
-          <caret line="289" column="35" selection-start-line="289" selection-start-column="35" selection-end-line="289" selection-end-column="35" />
-          <folding>
-            <marker date="1435551089188" expanded="true" signature="-1:-1" placeholder="select lbl f..lblMsg..." />
-            <marker date="1435551089188" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/db_new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.5" vertical-offset="5257" max-vertical-offset="5833">
-          <caret line="301" column="2" selection-start-line="301" selection-start-column="2" selection-end-line="301" selection-end-column="2" />
-          <folding>
-            <element signature="e#6#86#0#PHP" expanded="true" />
-            <element signature="e#3621#3678#0#PHP" expanded="true" />
-            <marker date="1436341163733" expanded="true" signature="-1:-1" placeholder="select lbl f..lblMsg..." />
-            <marker date="1436341163733" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/lbl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.464286" vertical-offset="849" max-vertical-offset="1425">
-          <caret line="76" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="false" />
-            <marker date="1436266719023" expanded="true" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
-            <marker date="1436266719023" expanded="true" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
-            <marker date="1436266719023" expanded="true" signature="-1:-1" placeholder="select :_XXX..lbl..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/selCus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1691">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cus/dsp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5714285" vertical-offset="1477" max-vertical-offset="2128">
-          <caret line="83" column="60" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/add_test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1121">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHHdr__test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1634">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbTools/expand-lbl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857" vertical-offset="589" max-vertical-offset="1824">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <marker date="1434844181564" expanded="true" signature="-1:-1" placeholder="SELECT lang ..lang..." />
-            <marker date="1434844181564" expanded="true" signature="-1:-1" placeholder="select :_wha..." />
-            <marker date="1434844181564" expanded="true" signature="-1:-1" placeholder="select :_wha..." />
-            <marker date="1434844181564" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1434844181564" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region/dsp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90222985" vertical-offset="139" max-vertical-offset="817">
-          <caret line="35" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/upd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6232">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1435708026229" expanded="true" signature="-1:-1" placeholder="select regCd..region..." />
-            <marker date="1435708026229" expanded="true" signature="-1:-1" placeholder="select adrCd..cusadr..." />
-            <marker date="1435708026229" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/future.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.142857" vertical-offset="778" max-vertical-offset="1710">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/future.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2166">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#89#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/cur_test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5" vertical-offset="175" max-vertical-offset="779">
-          <caret line="35" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/cur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.464286" vertical-offset="574" max-vertical-offset="1178">
-          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-          <folding>
-            <marker date="1436327847039" expanded="true" signature="-1:-1" placeholder="SELECT ord, ..ord..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/cur.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="2166">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#89#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/cur.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="36.642857" vertical-offset="1083" max-vertical-offset="1919">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspDlt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1435741349019" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region/dspDea.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44504505" vertical-offset="0" max-vertical-offset="555">
-          <caret line="13" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <marker date="1435389476506" expanded="true" signature="-1:-1" placeholder="update regio..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/t/ay__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3630363" vertical-offset="783" max-vertical-offset="4351">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1881">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.821429" vertical-offset="2222" max-vertical-offset="5776">
-          <caret line="579" column="18" selection-start-line="579" selection-start-column="18" selection-end-line="579" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
+          <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding>
-            <element signature="e#6#85#0#PHP" expanded="false" />
-            <element signature="n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="n#__construct#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="n#fldNm2valStr#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="e#2030#2123#0#PHP" expanded="false" />
-            <element signature="n#fldValStr#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="e#2207#2448#0#PHP" expanded="false" />
-            <element signature="e#2295#2371#0#PHP" expanded="false" />
-            <element signature="e#2372#2448#0#PHP" expanded="false" />
-            <element signature="n#insStmt#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="n#updStmt#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="n#chkMissing#0;n#BldSql#0;n#!!top" expanded="false" />
-            <element signature="e#3348#3718#0#PHP" expanded="false" />
-            <element signature="n#AyGluer#0;n#!!top" expanded="false" />
-            <element signature="n#__construct#0;n#AyGluer#0;n#!!top" expanded="false" />
-            <element signature="n#ayGluer#0;n#AyGluer#0;n#!!top" expanded="false" />
-            <element signature="n#add_backSlash#0;n#!!top" expanded="false" />
-            <element signature="n#assert_key_exists#0;n#!!top" expanded="false" />
-            <element signature="e#4071#4231#0#PHP" expanded="false" />
-            <element signature="n#ay_convert_bool#0;n#!!top" expanded="false" />
-            <element signature="e#4458#5191#0#PHP" expanded="false" />
-            <element signature="e#4489#5185#0#PHP" expanded="false" />
-            <element signature="e#4565#5185#0#PHP" expanded="false" />
-            <element signature="e#4584#5175#0#PHP" expanded="false" />
-            <element signature="e#4647#4720#0#PHP" expanded="false" />
-            <element signature="e#4737#4811#0#PHP" expanded="false" />
-            <element signature="e#4828#5161#0#PHP" expanded="false" />
-            <element signature="n#ay_convert_decoding#0;n#!!top" expanded="false" />
-            <element signature="e#5290#5385#0#PHP" expanded="false" />
-            <element signature="n#ay_convert_encoding#0;n#!!top" expanded="false" />
-            <element signature="e#5484#5570#0#PHP" expanded="false" />
-            <element signature="e#5836#5980#0#PHP" expanded="false" />
-            <element signature="e#5917#5980#0#PHP" expanded="false" />
-            <element signature="n#ay_extract#0;n#!!top" expanded="false" />
-            <element signature="e#6089#6191#0#PHP" expanded="false" />
-            <element signature="n#ay_firstKey#0;n#!!top" expanded="false" />
-            <element signature="n#ay_join_kv#0;n#!!top" expanded="false" />
-            <element signature="e#6405#6478#0#PHP" expanded="false" />
-            <element signature="n#ay_key_idx#0;n#!!top" expanded="false" />
-            <element signature="e#6586#6669#0#PHP" expanded="false" />
-            <element signature="n#ay_minus#0;n#!!top" expanded="false" />
-            <element signature="e#6722#6815#0#PHP" expanded="false" />
-            <element signature="n#ay_newByLpAp#0;n#!!top" expanded="false" />
-            <element signature="e#6940#7018#0#PHP" expanded="false" />
-            <element signature="n#ay_pk#0;n#!!top" expanded="false" />
-            <element signature="e#7087#7177#0#PHP" expanded="false" />
-            <element signature="n#ay_push_noDup#0;n#!!top" expanded="false" />
-            <element signature="e#7243#7309#0#PHP" expanded="false" />
-            <element signature="n#ay_quote#0;n#!!top" expanded="false" />
-            <element signature="e#7365#7430#0#PHP" expanded="false" />
-            <element signature="e#7597#8116#0#PHP" expanded="false" />
-            <element signature="e#7705#7901#0#PHP" expanded="false" />
-            <element signature="e#7910#8110#0#PHP" expanded="false" />
-            <element signature="n#ay_to_dta#0;n#!!top" expanded="false" />
-            <element signature="e#8372#8457#0#PHP" expanded="false" />
-            <element signature="n#ay_trim#0;n#!!top" expanded="false" />
-            <element signature="n#ay_write_file#0;n#!!top" expanded="false" />
-            <element signature="e#8694#8761#0#PHP" expanded="false" />
-            <element signature="n#ay_zip#0;n#!!top" expanded="false" />
-            <element signature="e#9018#9206#0#PHP" expanded="false" />
-            <element signature="e#9076#9160#0#PHP" expanded="false" />
-            <element signature="n#brk_quote#0;n#!!top" expanded="false" />
-            <element signature="e#9309#9383#0#PHP" expanded="false" />
-            <element signature="e#9482#9545#0#PHP" expanded="false" />
-            <element signature="n#brw_csvPth#0;n#!!top" expanded="false" />
-            <element signature="n#brw_dtaAy#0;n#!!top" expanded="false" />
-            <element signature="n#brw_ft#0;n#!!top" expanded="false" />
-            <element signature="n#cut_chr_and_aft#0;n#!!top" expanded="false" />
-            <element signature="e#10122#10176#0#PHP" expanded="false" />
-            <element signature="n#cut_lastchr#0;n#!!top" expanded="false" />
-            <element signature="n#db_con#0;n#!!top" expanded="false" />
-            <element signature="n#db_cvStr#0;n#!!top" expanded="false" />
-            <element signature="n#db_isPkValExist#0;n#!!top" expanded="false" />
-            <element signature="n#dtaAy_tmpPth#0;n#!!top" expanded="false" />
-            <element signature="n#dtaAy_tmpPth_array#0;n#!!top" expanded="false" />
-            <element signature="e#11099#11686#0#PHP" expanded="false" />
-            <element signature="e#11210#11326#0#PHP" expanded="false" />
-            <element signature="e#11480#11660#0#PHP" expanded="false" />
-            <element signature="n#dta_convert_encoding#0;n#!!top" expanded="false" />
-            <element signature="e#11781#11870#0#PHP" expanded="false" />
-            <element signature="n#dta_dic#0;n#!!top" expanded="false" />
-            <element signature="e#12122#12229#0#PHP" expanded="false" />
-            <element signature="n#dta_extract#0;n#!!top" expanded="false" />
-            <element signature="e#12339#12531#0#PHP" expanded="false" />
-            <element signature="e#12389#12497#0#PHP" expanded="false" />
-            <element signature="n#dta_join#0;n#!!top" expanded="false" />
-            <element signature="n#dta_rs#0;n#!!top" expanded="false" />
-            <element signature="e#12806#12970#0#PHP" expanded="false" />
-            <element signature="n#esc_lf#0;n#!!top" expanded="false" />
-            <element signature="n#esc_tab#0;n#!!top" expanded="false" />
-            <element signature="n#glueFn#0;n#!!top" expanded="false" />
-            <element signature="e#13152#13265#1#PHP" expanded="false" />
-            <element signature="n#is_intStr#0;n#!!top" expanded="false" />
-            <element signature="n#is_lik_ay#0;n#!!top" expanded="false" />
-            <element signature="e#13403#13458#0#PHP" expanded="false" />
-            <element signature="e#13463#13565#0#PHP" expanded="false" />
-            <element signature="e#13500#13559#0#PHP" expanded="false" />
-            <element signature="n#is_pfx#0;n#!!top" expanded="false" />
-            <element signature="n#is_pth#0;n#!!top" expanded="false" />
-            <element signature="n#is_sfx#0;n#!!top" expanded="false" />
-            <element signature="n#lbl#0;n#!!top" expanded="false" />
-            <element signature="n#lblDic#0;n#!!top" expanded="false" />
-            <element signature="e#14928#14960#0#PHP" expanded="false" />
-            <element signature="e#15466#15642#0#PHP" expanded="false" />
-            <element signature="e#15500#15636#0#PHP" expanded="false" />
-            <element signature="e#15587#15636#0#PHP" expanded="false" />
-            <element signature="e#15647#15979#0#PHP" expanded="false" />
-            <element signature="e#15798#15973#0#PHP" expanded="false" />
-            <element signature="e#15880#15963#0#PHP" expanded="false" />
-            <element signature="n#lblMsg#0;n#!!top" expanded="false" />
-            <element signature="n#left#0;n#!!top" expanded="false" />
-            <element signature="n#logFt#0;n#!!top" expanded="false" />
-            <element signature="n#msgDic#0;n#!!top" expanded="false" />
-            <element signature="n#nDays#0;n#!!top" expanded="false" />
-            <element signature="e#16982#17068#0#PHP" expanded="false" />
-            <element signature="e#17030#17068#0#PHP" expanded="false" />
-            <element signature="n#norm_nm#0;n#!!top" expanded="false" />
-            <element signature="e#17140#17230#0#PHP" expanded="false" />
-            <element signature="n#obj_newByLpAp#0;n#!!top" expanded="false" />
-            <element signature="e#17353#17431#0#PHP" expanded="false" />
-            <element signature="n#padR#0;n#!!top" expanded="false" />
-            <element signature="e#17504#17548#0#PHP" expanded="false" />
-            <element signature="n#pass#0;n#!!top" expanded="false" />
-            <element signature="n#pth_clear_files#0;n#!!top" expanded="false" />
-            <element signature="e#17709#17768#0#PHP" expanded="false" />
-            <element signature="n#pth_create_if_not_exist#0;n#!!top" expanded="false" />
-            <element signature="e#17851#17906#0#PHP" expanded="false" />
-            <element signature="n#pth_fnAy#0;n#!!top" expanded="false" />
-            <element signature="e#18080#18174#0#PHP" expanded="false" />
-            <element signature="n#pth_norm#0;n#!!top" expanded="false" />
-            <element signature="e#18520#18704#0#PHP" expanded="false" />
-            <element signature="e#18595#18657#0#PHP" expanded="false" />
-            <element signature="e#18664#18704#0#PHP" expanded="false" />
-            <element signature="e#18781#18986#0#PHP" expanded="false" />
-            <element signature="n#pth_opn#0;n#!!top" expanded="false" />
-            <element signature="n#pth_tmp#0;n#!!top" expanded="false" />
-            <element signature="n#push_noDup#0;n#!!top" expanded="false" />
-            <element signature="n#push_noNull#0;n#!!top" expanded="false" />
-            <element signature="n#quote#0;n#!!top" expanded="false" />
-            <element signature="n#quote_lvs#0;n#!!top" expanded="false" />
-            <element signature="n#repl_sfx#0;n#!!top" expanded="false" />
-            <element signature="e#19674#19750#0#PHP" expanded="false" />
-            <element signature="n#repl_vbar_tab#0;n#!!top" expanded="false" />
-            <element signature="n#right#0;n#!!top" expanded="false" />
-            <element signature="n#rmv_dbl_spc#0;n#!!top" expanded="false" />
-            <element signature="e#19996#20097#0#PHP" expanded="false" />
-            <element signature="n#rmv_end_backSlash#0;n#!!top" expanded="false" />
-            <element signature="n#rmv_ffx#0;n#!!top" expanded="false" />
-            <element signature="e#20266#20340#0#PHP" expanded="false" />
-            <element signature="n#rmv_lastChr#0;n#!!top" expanded="false" />
-            <element signature="n#rmv_sfx#0;n#!!top" expanded="false" />
-            <element signature="e#20459#20540#0#PHP" expanded="false" />
-            <element signature="n#runsp#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dic#0;n#!!top" expanded="false" />
-            <element signature="e#20945#21022#0#PHP" expanded="false" />
-            <element signature="n#runsp_dro#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dta#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_rs#0;n#!!top" expanded="false" />
-            <element signature="n#runsql#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_bool#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_dataObj#0;n#!!top" expanded="false" />
-            <element signature="e#22194#22337#0#PHP" expanded="false" />
-            <element signature="n#runsql_datetime#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_dc#0;n#!!top" expanded="false" />
-            <element signature="e#22716#22777#0#PHP" expanded="false" />
-            <element signature="n#runsql_dic#0;n#!!top" expanded="false" />
-            <element signature="e#22998#23075#0#PHP" expanded="false" />
-            <element signature="n#runsql_dicDic#0;n#!!top" expanded="false" />
-            <element signature="e#23393#23485#0#PHP" expanded="false" />
-            <element signature="n#runsql_dr#0;n#!!top" expanded="false" />
-            <element signature="e#23692#23937#0#PHP" expanded="false" />
-            <element signature="e#23775#23843#0#PHP" expanded="false" />
-            <element signature="e#23852#23931#0#PHP" expanded="false" />
-            <element signature="n#runsql_drObj#0;n#!!top" expanded="false" />
-            <element signature="e#24019#24070#0#PHP" expanded="false" />
-            <element signature="n#runsql_dro#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_dta#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_exec#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_int#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_isAny#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_keyVal#0;n#!!top" expanded="false" />
-            <element signature="e#25250#25403#0#PHP" expanded="false" />
-            <element signature="n#runsql_list#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_pk#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_rs#0;n#!!top" expanded="false" />
-            <element signature="n#runsql_val#0;n#!!top" expanded="false" />
-            <element signature="e#25952#26083#0#PHP" expanded="false" />
-            <element signature="n#space#0;n#!!top" expanded="false" />
-            <element signature="n#split_lvc#0;n#!!top" expanded="false" />
-            <element signature="e#26338#26474#0#PHP" expanded="false" />
-            <element signature="n#split_lvs#0;n#!!top" expanded="false" />
-            <element signature="e#26720#26864#0#PHP" expanded="false" />
-            <element signature="n#strSplitIntoChrAy#0;n#!!top" expanded="false" />
-            <element signature="e#26945#26977#0#PHP" expanded="false" />
-            <element signature="n#str_brw#0;n#!!top" expanded="false" />
-            <element signature="n#str_is_blank#0;n#!!top" expanded="false" />
-            <element signature="n#str_nz#0;n#!!top" expanded="false" />
-            <element signature="e#27220#27277#0#PHP" expanded="false" />
-            <element signature="n#str_wrap_star#0;n#!!top" expanded="false" />
-            <element signature="n#str_wrt#0;n#!!top" expanded="false" />
-            <element signature="e#27504#27577#0#PHP" expanded="false" />
-            <element signature="e#27547#27577#0#PHP" expanded="false" />
-            <element signature="n#strbrk#0;n#!!top" expanded="false" />
-            <element signature="e#27727#27857#0#PHP" expanded="false" />
-            <element signature="e#27948#28020#0#PHP" expanded="false" />
-            <element signature="n#strbrk1#0;n#!!top" expanded="false" />
-            <element signature="e#28168#28224#0#PHP" expanded="false" />
-            <element signature="n#strbrk1_rev#0;n#!!top" expanded="false" />
-            <element signature="e#28481#28537#0#PHP" expanded="false" />
-            <element signature="n#strbrk2#0;n#!!top" expanded="false" />
-            <element signature="e#28787#28839#0#PHP" expanded="false" />
-            <element signature="n#strbrk2_rev#0;n#!!top" expanded="false" />
-            <element signature="e#29101#29153#0#PHP" expanded="false" />
-            <element signature="n#strbrk_both#0;n#!!top" expanded="false" />
-            <element signature="e#29331#29377#0#PHP" expanded="false" />
-            <element signature="n#strrbrk#0;n#!!top" expanded="false" />
-            <element signature="e#29501#29631#0#PHP" expanded="false" />
-            <element signature="e#29722#29794#0#PHP" expanded="false" />
-            <element signature="n#tak_aftchr#0;n#!!top" expanded="false" />
-            <element signature="e#29905#29949#0#PHP" expanded="false" />
-            <element signature="e#29954#30007#0#PHP" expanded="false" />
-            <element signature="n#tak_aftchr_rev#0;n#!!top" expanded="false" />
-            <element signature="n#tak_befchr#0;n#!!top" expanded="false" />
-            <element signature="e#30362#30406#0#PHP" expanded="false" />
-            <element signature="e#30411#30482#0#PHP" expanded="false" />
-            <element signature="n#tak_befchr_rev#0;n#!!top" expanded="false" />
-            <element signature="n#tim_stmp#0;n#!!top" expanded="false" />
-            <element signature="e#30790#30925#0#PHP" expanded="false" />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="update :_a s..." />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="select :_XXX..lbl..." />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
-            <marker date="1436353637869" expanded="true" signature="-1:-1" placeholder="select msgNm..lblPgm..." />
+            <marker date="1436353637869" expanded="true" signature="2767:2799" placeholder="insert into ..." />
+            <marker date="1436353637869" expanded="true" signature="3086:3121" placeholder="update :_a s..." />
+            <marker date="1436353637869" expanded="true" signature="14264:14361" placeholder="select btnNm..lblpgm..." />
+            <marker date="1436353637869" expanded="true" signature="15349:15422" placeholder="select :_XXX..lbl..." />
+            <marker date="1436353637869" expanded="true" signature="16091:16158" placeholder="select msgNm..lblpgm..." />
+            <marker date="1436353637869" expanded="true" signature="16685:16753" placeholder="select msgNm..lblPgm..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHAdr__test.html">
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="513">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHAdr.html">
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.75" vertical-offset="228" max-vertical-offset="931">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH.php">
+    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.821428" vertical-offset="285" max-vertical-offset="1235">
-          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1881">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
+          <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding>
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="Select * fro..ord..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="Select * fro..ord..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select sum(n..ordadr..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select sum()..ordadr..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select * fro..ordInst..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select * fro..ordInst..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select a.*, ..ordInst..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="select * fro..ordadr..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ordcontent..." />
-            <marker date="1436355363593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ordcontent..." />
+            <marker date="1436353637869" expanded="true" signature="2767:2799" placeholder="insert into ..." />
+            <marker date="1436353637869" expanded="true" signature="3086:3121" placeholder="update :_a s..." />
+            <marker date="1436353637869" expanded="true" signature="14264:14361" placeholder="select btnNm..lblpgm..." />
+            <marker date="1436353637869" expanded="true" signature="15349:15422" placeholder="select :_XXX..lbl..." />
+            <marker date="1436353637869" expanded="true" signature="16091:16158" placeholder="select msgNm..lblpgm..." />
+            <marker date="1436353637869" expanded="true" signature="16685:16753" placeholder="select msgNm..lblPgm..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHInst__test.html">
+    <entry file="file://$PROJECT_DIR$/phpFn/str.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.535714" vertical-offset="0" max-vertical-offset="475">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.100352116" vertical-offset="1083" max-vertical-offset="8360">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/region/dsp.html">
+    <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.392857" vertical-offset="399" max-vertical-offset="969">
-          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.30105633" vertical-offset="0" max-vertical-offset="5814">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/region/index1.html">
+    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.214286" vertical-offset="359" max-vertical-offset="893">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region/dsp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.75" vertical-offset="6119" max-vertical-offset="16321">
+          <caret line="337" column="17" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="17" />
           <folding>
-            <marker date="1435062557103" expanded="true" signature="-1:-1" placeholder="SELECT regCd..region..." />
+            <marker date="1436411297882" expanded="true" signature="1215:1248" placeholder="select trip ..trip..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH.js">
+    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHHdr.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.785714" vertical-offset="1372" max-vertical-offset="1919">
-          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHInst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.571428" vertical-offset="0" max-vertical-offset="494">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHContent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.25" vertical-offset="0" max-vertical-offset="513">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="532">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH__test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="589">
-          <caret line="36" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7241379" vertical-offset="341" max-vertical-offset="3534">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding>
-            <element signature="e#550#1113#0" expanded="false" />
+            <element signature="e#6#84#0#PHP" expanded="false" />
+            <element signature="e#1814#2312#1#PHP" expanded="false" />
+            <element signature="e#2347#2841#1#PHP" expanded="false" />
+            <element signature="e#2876#3322#1#PHP" expanded="false" />
+            <element signature="e#3357#3787#1#PHP" expanded="false" />
+            <element signature="e#3822#4251#1#PHP" expanded="false" />
+            <element signature="e#4286#4719#1#PHP" expanded="false" />
+            <element signature="e#4963#5270#1#PHP" expanded="false" />
+            <element signature="e#5305#5612#1#PHP" expanded="false" />
+            <element signature="e#5647#5954#1#PHP" expanded="false" />
+            <element signature="e#5989#6296#1#PHP" expanded="false" />
+            <element signature="e#6331#6638#1#PHP" expanded="false" />
+            <element signature="n#test_genBarCd#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genHdr#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genPth#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_genRmk#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_getTrip#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_hdrAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#8728#8934#0#PHP" expanded="false" />
+            <element signature="n#test_hdrFile#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#11047#11720#1#PHP" expanded="false" />
+            <element signature="e#11755#12432#1#PHP" expanded="false" />
+            <element signature="e#12467#13136#1#PHP" expanded="false" />
+            <element signature="e#13171#13840#1#PHP" expanded="false" />
+            <element signature="e#13875#14543#1#PHP" expanded="false" />
+            <element signature="n#test_ord_n_contentNo__pagNo__dic#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#14731#14852#0#PHP" expanded="false" />
+            <element signature="n#test_rmkAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#14985#15519#0#PHP" expanded="false" />
+            <element signature="n#test_z_fm_to#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#16334#16599#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH__test1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.892857" vertical-offset="135" max-vertical-offset="836">
-          <caret line="32" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH__test2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="646">
-          <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHContent__test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="494">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHContentNN__test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.142858" vertical-offset="0" max-vertical-offset="494">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspH_hlp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0991304" vertical-offset="2940" max-vertical-offset="3743">
-          <caret line="190" column="43" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/dspHContentNN.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3571428" vertical-offset="0" max-vertical-offset="570">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ord/index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28884825" vertical-offset="51" max-vertical-offset="627">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>

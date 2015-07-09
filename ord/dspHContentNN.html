@@ -1,25 +1,25 @@
 <!------------ secContent nn ---------------------------------------->
 <div ng-repeat="i in data.content">
-    <hr id="secCont{{$index}}">
-    <div>
+    <div ng-if="i.withImg==='1'">
+        <hr id="secCont{{$index}}">
         <input type="button" ng-click="go_id('secHdr')" value="{{lbl.btn.hdr}}"/>
         <input type="button" ng-click="go_id('secInst')" value="{{lbl.btn.inst}}"/>
         <input type="button" ng-click="go_id('secAdr')" value="{{lbl.btn.adr}}"/>
         <input type="button" ng-click="go_id('secContent')" value="{{lbl.btn.content}}"/>
         <span ng-repeat="j in data.content">
-            <input type="button" disabled ng-if="i.idx==$index" class="selected"
-                   value="{{$index+1}}"/>
-            <input type="button" ng-if="i.idx!=$index" ng-click="go_id('secCont' + $index)" value="{{$index+1}}"/>
+            <span ng-if="j.withImg==='1'">
+                <input type="button" disabled ng-if="i.idx==$index" class="selected"
+                       value="{{$index+1}}"/>
+                <input type="button" ng-if="i.idx!=$index" ng-click="go_id('secCont' + $index)" value="{{$index+1}}"/>
+            </span>
         </span>
 
+        <table border="2px">
+            <tr>
+                <td>{{lbl.fld.des}}
+                <td>{{i.contentRmk}}
+        </table>
+        <img src="{{i.url}}"/>
+        <br>
     </div>
-    <table border="2px">
-        <tr>
-            <td>{{lbl.fld.des}}
-            <td>{{i.des}}
-    </table>
-    <img src="{{i.url}}"/><br>
-    <img src="{{i.url}}"/><br>
-    <img src="{{i.url}}"/>
-    <br>
 </div>

@@ -1,0 +1,56 @@
+<!-- touch points:
+*dteAy[0..7] yyyy-MM-dd format from today.  0..6 is choice
+                                           dteAy[7] is min
+*dteTo       yyyy-MM-dd format 30 days from today.  It is max
+
+*lbl.txt: add cusCd
+*lbl.btn: newOrd can
+*lbl.fld: cusCd ordDelvDte
+
+return:
+*appOrd: cusCd ordDelvDte mode
+    Note: ordDelvDte is set by watching {{delvDte}} {{othDelvDte}}
+
+validate:
+
+post: add.php(cusCd ordDelvDte mode)
+-->
+<div ng-controller="add">
+    <input type="button" ng-value="lbl.btn.newOrd" ng-disabled="addOrdForm.$invalid" ng-click="do_add()"/>
+    <input type="button" ng-value="lbl.btn.can" ng-click="do_can()"/>
+
+    <form name="addOrdForm">
+        <table border="2px" border-spacing="0px">
+            <caption display="font-weight:bold">{{lbl.txt.add}}</caption>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.cusCd}}
+                <td><input type="text" autofocus="true" ng-model="appOrd.cusCd" required class="ucase" name="cusCd"/>
+                <td><input type="button" value="{{lbl.btn.sel}}" ng-mouseenter="do_selCus($event)"/>
+                <td style="color:red">{{appOrd.svrMsg.cusCd}}<span ng-if="addOrdForm.cusCd.$error.required"> {{lbl.msg.req}}</span>
+            <tr>
+                <td style="font-weight:bold">{{lbl.fld.ordDelvDte}}
+                <td colspan="2">
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[0]}}"
+                                  ng-checked="true">{{dteAy[0]}}</input><br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[1]}}">{{dteAy[1]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[2]}}">{{dteAy[2]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[3]}}">{{dteAy[3]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[4]}}">{{dteAy[4]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[5]}}">{{dteAy[5]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="{{dteAy[6]}}">{{dteAy[6]}}</input>
+                        <br></label>
+                    <label><input type="radio" ng-model="delvDte" required name="delvNDays" value="other">{{lbl.txt.other}}</input>
+                        <br></label>
+                    <input type="date" ng-show="delvDte=='other'" ng-model="othDelvDte" min="{{dteAy[7]}}"
+                           max="{{dteTo}}"/>
+                <td><span class="error">{{appOrd.svrMsg.ordDelvDte}}</span>
+        </table>
+    </form>
+    <br>
+    <ng-include src="'../cus/selCus.html'"/>
+</div>

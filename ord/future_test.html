@@ -1,0 +1,36 @@
+<html ng-app="app">
+<head>
+    <link href="../css/style.css" rel="stylesheet" title="Default Style">
+    <script src="../stdlib/angular.js"></script>
+    <script src="../stdlib/lodash.js"></script>
+    <script>angular.module('app', []);</script>
+    <script src="../ngSvc/$lib.js"></script>
+    <script>
+        angular.module('app').controller('futureOrd_test', ['$scope', '$http', function a($scope, $http) {
+            $scope.sess = {lang: 'en'}
+            $scope.appOrd = {ord: ''}
+            $scope.brk = function () {
+                debugger;
+            }
+        }]);
+    </script>
+    <script src="future.js"></script>
+</head>
+<body ng-controller="futureOrd_test">
+<table id="testingBox" border="2px">
+    <tr>
+        <td>lang
+        <td><label><input type="radio" name="lang" value="en" ng-model="sess.lang"/>en</input></label>
+            <label><input type="radio" name="lang" value="zh" ng-model="sess.lang">zh</input></label>
+        </td>
+    <tr>
+        <td>cusCd
+        <td><input id="ord" class="readOnly" type="text" ng-model="appOrd.ord"/>
+    <tr>
+        <td>break
+        <td><input type="button" ng-click="brk();" value="break"/>
+</table>
+<hr>
+<ng-include src="'future.html'"/>
+</body>
+</html>

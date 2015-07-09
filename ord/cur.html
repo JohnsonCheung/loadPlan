@@ -1,0 +1,95 @@
+<div ng-controller="cur" ng-show="appOrd.mode==='list'">
+    <table>
+        <tr>
+            <td>
+                <table border="1px">
+                    <tr>
+                        <td colspan="2">{{lbl.txt.total}}
+                        <td class="readOnly">{{src.data.length}}
+                    <tr>
+                        <td>{{lbl.txt.filter}}
+                        <td><input type="button" value="x" ng-click="rno=filter=''"/>
+                        <td><input ng-model="filter" type='text' size="4" autofocus/>
+                    <tr>
+                        <td colspan="2">{{tar.data.length===0?"":"1-"+tar.data.length}}
+                        <td><input ng-model="rno" type="text" size="4" maxlength=4/>
+                </table>
+            <td>
+                <table border="2px">
+                    <tr>
+                        <td><input tabindex="-10" style="width:55px" type="button" ng-value="lbl.btn.top"
+                                   ng-click="rno=1"/>
+                        <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.up"
+                                   ng-click="rno = (rno>1 ? rno-1 : 1)"/>
+                    <tr>
+                        <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.buttom"
+                                   ng-click="rno=tar.data.length"/>
+                        <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.down"
+                                   ng-click="rno=(rno < tar.data.length ? rno+1 : tar.data.length)"/>
+                    <tr>
+                </table>
+            <td>
+    </table>
+    <br>
+    <table border="2px">
+        <tr>
+            <th colspan="11">{{lbl.txt.ord}}
+            <th colspan="4">{{lbl.txt.cnt}}
+            <th colspan="2">{{lbl.txt.pick}}
+            <th colspan="5">{{lbl.txt.qty}}
+        <tr>
+            <th>
+            <th>##
+            <th><button ng-click="do_sort('ordDelvDte ordNo')">{{lbl.fld.ordDelvDte1}}<br>{{lbl.fld.ordDelvDte2}}</button>
+            <th>{{lbl.fld.ordNo}}
+            <th>{{lbl.fld.pastDays1}}<br>{{lbl.fld.pastDays2}}
+            <th>{{lbl.fld.msg}}
+            <th><input type="button" value="{{lbl.fld.cusShtNm}}" ng-click="do_sort('cusCd')"/>
+            <th>
+                <button ng-click="do_sort('instru')">{{lbl.fld.instru}}</button>
+            <th>
+                <button ng-click="do_sort('isRetWhs')">{{lbl.fld.isRetWhs1}}<br>{{lbl.fld.isRetWhs2}}</button>
+            <th>
+                <button ng-click="do_sort('isCold')">{{lbl.fld.isCold}}</button>
+            <th>
+                <button ng-click="do_sort('ordTy')">{{lbl.fld.ordTy1}}<br>{{lbl.fld.ordTy2}}</button>
+            <th>
+                <button ng-click="do_sort('nCntr')"/>
+                {{lbl.fld.nCntr1}}<br>{{lbl.fld.nCntr2}}</button>
+            <th><input type="button" value="{{lbl.fld.nAdr}}" ng-click="do_sort('nAdr')"/>
+            <th><input type="button" value="{{lbl.fld.nDrop}}" ng-click="do_sort('nDrop')"/>
+            <th><input type="button" value="{{lbl.fld.nContent}}" ng-click="do_sort('nContent')"/>
+            <th><input type="button" value="{{lbl.fld.pickAdrCd2}}" ng-click="do_sort('pickAdrCd')"/>
+            <th><input type="button" value="{{lbl.fld.pickTim2}}" ng-click="do_sort('pickTim')"/>
+            <th><input type="button" value="{{lbl.fld.qOrd}}" ng-click="do_sort('qOrd')"/>
+            <th><input type="button" value="{{lbl.fld.qPln}}" ng-click="do_sort('qPln')"/>
+            <th><input type="button" value="{{lbl.fld.qFrm}}" ng-click="do_sort('qFrm')"/>
+            <th><input type="button" value="{{lbl.fld.qLoad}}" ng-click="do_sort('qLoad')"/>
+            <th><input type="button" value="{{lbl.fld.qRet}}" ng-click="do_sort('qRet')"/>
+        <tr ng-repeat="i in tar.data track by i.ord " ng-class="($index==(rno-1)) ? 'selected' : '' "
+            ng-click="do_sel_row()">
+            <td><input type="button" value="{{lbl.btn.dsp}}" ng-click="do_dspOrd(i.ord)"/>
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{$index+1}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.ordDelvDte}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.ordNo}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.pastDays}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.msg}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.cusCd}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.instru}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.isRetWhs}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.isCold}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.ordTy}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.nCntr!=0?i.nCntr:null}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.nAdr}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.nDrop}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.nContent?i.nContent:null}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.pickAdrCd}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.pickTim}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.qOrd}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.qPln}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.qFrm}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.qLoad}}
+            <td class="{{rno==$index+1?'selected':'readOnly'}} c">{{i.qRet}}
+    </table>
+</div>
+<div ng-include="'dspH.html'" ng-show="appOrd.mode==='dsp' "/>

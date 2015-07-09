@@ -1,6 +1,16 @@
 /**
  * Created by USER on 2015-07-08.
  */
+angular.module('app').controller('dspHHdr', function () {
+});
+angular.module('app').controller('dspHInst', function () {
+});
+angular.module('app').controller('dspHAdr', function () {
+});
+angular.module('app').controller('dspHContent', function () {
+});
+angular.module('app').controller('dspHContentNN', function () {
+});
 angular.module('app').controller('dsp', ['$scope', '$http', '$app', function ($scope, $http, $app) {
     $scope.go_id = $app.go_id;
     $scope.$watch("sess.lang", function (lang) {
@@ -25,7 +35,8 @@ angular.module('app').controller('dsp', ['$scope', '$http', '$app', function ($s
     }
 
     function do_back() {
-        appOrd.mode = "list";
+        $scope.appOrd.mode = "list";
+        loc.href="#";
     }
 
     function do_can() {

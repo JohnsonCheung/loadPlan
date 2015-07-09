@@ -6,16 +6,15 @@
     <input type="button" value="{{lbl.btn.adr}}" ng-click="go_id('secAdr')"/>
     <input type="button" value="{{lbl.btn.content}}" ng-click="go_id('secContent')" class="selected"/>
         <span ng-repeat="j in data.content">
-            <input type="button" ng-click="go_id('secCont' + $index)" value="{{$index+1}}"/>
+            <input ng-if="j.withImg==='1'" type="button" ng-click="go_id('secCont' + $index)" value="{{$index+1}}"/>
         </span>
 </div>
 <table border="2px">
     <tr>
         <th>##
         <th>{{lbl.fld.des}}
-
     <tr ng-repeat="i in data.content">
-        <td class="readOnly"><input type="button" value="{{$index+1}}" ng-click="go_id('secCont' + $index)"/>
-        <td class="readOnly">{{i.des}}
+        <td class="readOnly"><input ng-if="i.withImg==='1'" type="button" value="{{$index+1}}" ng-click="go_id('secCont' + $index)"/>
+        <td class="readOnly">{{i.contentRmk}}
 </table>
 <br>

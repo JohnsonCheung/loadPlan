@@ -1,9 +1,8 @@
-<hr id="secHdr"/>
-<div ng-controller="dsp">
+<div ng-controller="dsp" id="secHdr" ng-if="appOrd.mode==='dsp'">
     <input type="button" value="{{lbl.btn.back}}" ng-click="do_back()"/>
-    <input type="button" value="{{lbl.btn.prt}}" ng-click="do_prt()" ng-if="shw.prt"/>
-    <input type="button" value="{{lbl.btn.upd}}" ng-click="do_upd()" ng-if="shw.upd"/>
-    <input type="button" value="{{lbl.btn.can}}" ng-click="do_prt()" ng-if="shw.can"/>
+    <input type="button" value="{{lbl.btn.prt}}" ng-click="do_prt()" ng-if="data.shw.prt"/>
+    <input type="button" value="{{lbl.btn.upd}}" ng-click="do_upd()" ng-if="data.shw.upd"/>
+    <input type="button" value="{{lbl.btn.can}}" ng-click="do_prt()" ng-if="data.shw.can"/>
 
     <div ng-controller="dspHHdr">
         <div ng-include="'dspHHdr.html'"/>
@@ -20,4 +19,7 @@
     <div ng-controller="dspHContentNN">
         <div ng-include="'dspHContentNN.html'"/>
     </div>
+    <script>
+        alert('aa');
+    </script>
 </div>

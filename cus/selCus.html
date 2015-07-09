@@ -1,0 +1,84 @@
+<style>
+    .selCus {
+        background-color: lightblue;
+        position: absolute;
+    }
+</style>
+<div ng-controller="selCus" class="selCus" ng-mouseleave="do_can()" style="top:{{pos.top}}px; left:{{pos.left}}px;">
+    <div ng-show="shwSelCus">
+        <table>
+            <tr>
+                <td>
+                    <table border="1px">
+                        <tr>
+                            <td colspan="2">{{lbl.txt.total}}
+                            <td class="readOnly">{{src.data.length}}
+                        <tr>
+                            <td>{{lbl.txt.filter}}
+                            <td><input type="button" value="x" ng-click="rno=filter=''"/>
+                            <td><input ng-model="filter" type='text' size="10" autofocus/>
+                        <tr>
+                            <td colspan="2">{{tar.data.length===0?"":"1-"+tar.data.length}}
+                            <td><input ng-model="rno" type="text" size="10" maxlength=4/>
+                    </table>
+                <td>
+                    <table border="2px">
+                        <tr>
+                            <td><input tabindex="-10" style="width:55px" type="button" ng-value="lbl.btn.top"
+                                       ng-click="rno=1"/>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.up"
+                                       ng-click="rno = (rno>1 ? rno-1 : 1)"/>
+                        <tr>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.buttom"
+                                       ng-click="rno=tar.data.length"/>
+                            <td><input tabindex="-1" style="width:55px" type="button" ng-value="lbl.btn.down"
+                                       ng-click="rno=(rno < tar.data.length ? rno+1 : tar.data.length)"/>
+                        <tr>
+                    </table>
+                <td>
+        </table>
+
+        <div id="tglBtn">
+            <input name="{{btnAn[0]}}" type="button" ng-class="(btn_selected[btnAn[0]]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btnAn[0]]}}"
+                   ng-click="do_tgl_btn(btnAn[0])"/>
+            <input name="{{btnAn[1]}}" type="button" ng-class="(btn_selected[btnAn[1]]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btnAn[1]]}}"
+                   ng-click="do_tgl_btn(btnAn[1])"/>
+            <input name="{{btnAn[2]}}" type="button" ng-class="(btn_selected[btnAn[2]]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btnAn[2]]}}"
+                   ng-click="do_tgl_btn(btnAn[2])"/>
+            <input name="{{btnAn[3]}}" type="button" ng-class="(btn_selected[btnAn[3]]) ? 'selected' : ''"
+                   draggable="true"
+                   ondragstart="angular.jj.ondragstart(event)"
+                   ondrop="angular.jj.ondrop(event)"
+                   ondragover="angular.jj.ondragover(event)"
+                   value="{{lbl.btn[btnAn[3]]}}"
+                   ng-click="do_tgl_btn(btnAn[3])"/>
+        </div>
+        <br>
+        <table border="2px">
+            <tr>
+                <th>##
+                <th>{{lbl.btn.sel}}
+                <th ng-repeat="hdr in tar.hdrAy">{{hdr}}</th>
+            <tr ng-repeat="rec in tar.data" ng-class="($index==(rno-1)) ? 'selected' : ''" ng-click="do_sel_row()">
+                <td>{{$index<9?$index+1:""}}
+                <td>
+                    <input type="button" ng-click="do_selCus()" ng-value="lbl.btn.sel"/>
+                <td ng-repeat="td in rec.dr">{{td}}
+        </table>
+    </div>
+</div>
