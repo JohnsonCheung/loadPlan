@@ -2,17 +2,16 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "BarCd"
+Attribute VB_Name = "FillBarCd"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 Public BarCdFfn$
-Function Init(Fdr$) As BarCd
+Sub Init(Fdr$)
 BarCdFfn = PthQue & Fdr & "\BarCd.png"
-Set Init = Me
-End Function
+End Sub
 
 Function PutBarCd(Ws As Worksheet) As Boolean
 Dim Shp As Shape

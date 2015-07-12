@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Hdr"
+Attribute VB_Name = "FillHdr"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
@@ -16,7 +16,7 @@ Public Member As String
 Public NoEr As Boolean
 Public Ft$
 
-Function Init(Fdr$) As Hdr
+Sub Init(Fdr$)
 Dim S As TextStream
 On Error GoTo Er
 Ft = PthQue & Fdr & "\hdr.txt"
@@ -28,7 +28,7 @@ Leader = S.ReadLine         ' 4
 Member = S.ReadLine        ' 5
 NoEr = True
 S.Close
-Exit Function
+Exit Sub
 Er:
     Dim ErMsg$
     ErMsg = Err.Description
@@ -38,7 +38,7 @@ Er:
     Push M, vbTab & "   ErMsg=[" & ErMsg & "]"
     WrtLogAy M
     ClsTextStream S
-End Function
+End Sub
 
 Function Fillin(Ws As Worksheet) As Boolean
 Const H_TripChiNm = "TripChiNm"

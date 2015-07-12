@@ -11,6 +11,8 @@ require_once "pth.php";
 require_once "db.php";
 require_once "/../LoadSheet.php";
 
+$a = LoadSheet\gen(1);
+var_dump($a);
 class LoadSheet__tst extends PHPUnit_TestCase
 {
     /** @var  LoadSheet\Gen */
@@ -32,7 +34,7 @@ class LoadSheet__tst extends PHPUnit_TestCase
             '1+5' => ['ordNo' => '0001', 'contentNo' => '5', 'attNo' => 5, 'ordDelvDte' => '2013-12-25'],
         ];
         $this->assertEquals($exp['1+1'], $act['1+1']);
-       // $this->assertEquals($exp, $act);
+        // $this->assertEquals($exp, $act);
     }
 
     function test_dropDta()
@@ -40,90 +42,53 @@ class LoadSheet__tst extends PHPUnit_TestCase
         $act = $this->tar->dropDta();
         //echo "dropDta\n";
         $exp = array(
-            0 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#1',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址1',
-                    'contentLines' => 'sdf content Rmk 1\\nsdf content Rmk 2\\nsdf content Rmk 3',
-                    'qty' => '1 箱 2板 1.0 CBM',
-                    'pagNoList' => '1, 2, 3',
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 1Contact',
-                    'rmkNoList' => '1, 2',
-                ),
-            1 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#2 交貨#2',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址2',
-                    'contentLines' => 'sdf content Rmk 2\\nsdf content Rmk 3\\nsdf content Rmk 4',
-                    'qty' => '2 箱 3.0 CBM',
-                    'pagNoList' => '2, 3, 4',
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 2 Contact',
-                    'rmkNoList' => '1, 3',
-                ),
-            2 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#3 交貨#3',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址3',
-                    'contentLines' => 'sdf content Rmk 4\\nsdf content Rmk 5\\nsdf content Rmk 6',
-                    'qty' => '3板 4.0 CBM',
-                    'pagNoList' => '4, 5',
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 3 Contact',
-                    'rmkNoList' => '1, 4',
-                ),
-            3 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#4 交貨#4',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址4',
-                    'contentLines' => 'sdf content Rmk 1',
-                    'qty' => '4.0 CBM',
-                    'pagNoList' => 1,
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 4 Contact',
-                    'rmkNoList' => '1, 5',
-                ),
-            4 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#5 交貨#5',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址5',
-                    'contentLines' => NULL,
-                    'qty' => '6 箱',
-                    'pagNoList' => NULL,
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 5 Contact',
-                    'rmkNoList' => '1, 6',
-                ),
-            5 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#6 交貨#6',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址6',
-                    'contentLines' => NULL,
-                    'qty' => '7板',
-                    'pagNoList' => NULL,
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 6 Contact',
-                    'rmkNoList' => '1, 7',
-                ),
-            6 =>
-                array(
-                    'ord' => '2013-12-25 柯打#1 地址#7 交貨#7',
-                    'cus' => 'shtNm-cus1',
-                    'adr' => '載貨計劃系統地址7',
-                    'contentLines' => NULL,
-                    'qty' => '4 箱 5板',
-                    'pagNoList' => NULL,
-                    'ordBy' => 'ordBy - ABC',
-                    'adrContact' => 'adr 7 Contact',
-                    'rmkNoList' => '1, 8',
-                ),
+            0 => ['ord' => '2013-12-25 柯打#1 地址#1', 'cus' => 'shtNm-cus1', 'adr' => '載貨計劃系統地址1', 'contentLines' => 'sdf content Rmk 1\\nsdf content Rmk 2\\nsdf content Rmk 3', 'qty' => '1 箱 2板 1.0 CBM', 'pagNoList' => '1, 2, 3', 'ordBy' => 'ordBy - ABC', 'adrContact' => 'adr 1Contact', 'rmkNoList' => '1, 2',],
+            1 => ['ord' => '2013-12-25 柯打#1 地址#2 交貨#2', 'cus' => 'shtNm-cus1', 'adr' => '載貨計劃系統地址2', 'contentLines' => 'sdf content Rmk 2\\nsdf content Rmk 3\\nsdf content Rmk 4', 'qty' => '2 箱 3.0 CBM', 'pagNoList' => '2, 3, 4', 'ordBy' => 'ordBy - ABC', 'adrContact' => 'adr 2 Contact', 'rmkNoList' => '1, 3',],
+            2 => ['ord' => '2013-12-25 柯打#1 地址#3 交貨#3', 'cus' => 'shtNm-cus1', 'adr' => '載貨計劃系統地址3', 'contentLines' => 'sdf content Rmk 4\\nsdf content Rmk 5\\nsdf content Rmk 6', 'qty' => '3板 4.0 CBM', 'pagNoList' => '4, 5', 'ordBy' => 'ordBy - ABC', 'adrContact' => 'adr 3 Contact', 'rmkNoList' => '1, 4',],
+            3 => array(
+                'ord' => '2013-12-25 柯打#1 地址#4 交貨#4',
+                'cus' => 'shtNm-cus1',
+                'adr' => '載貨計劃系統地址4',
+                'contentLines' => 'sdf content Rmk 1',
+                'qty' => '4.0 CBM',
+                'pagNoList' => 1,
+                'ordBy' => 'ordBy - ABC',
+                'adrContact' => 'adr 4 Contact',
+                'rmkNoList' => '1, 5',
+            ),
+            4 => array(
+                'ord' => '2013-12-25 柯打#1 地址#5 交貨#5',
+                'cus' => 'shtNm-cus1',
+                'adr' => '載貨計劃系統地址5',
+                'contentLines' => NULL,
+                'qty' => '6 箱',
+                'pagNoList' => NULL,
+                'ordBy' => 'ordBy - ABC',
+                'adrContact' => 'adr 5 Contact',
+                'rmkNoList' => '1, 6',
+            ),
+            5 => array(
+                'ord' => '2013-12-25 柯打#1 地址#6 交貨#6',
+                'cus' => 'shtNm-cus1',
+                'adr' => '載貨計劃系統地址6',
+                'contentLines' => NULL,
+                'qty' => '7板',
+                'pagNoList' => NULL,
+                'ordBy' => 'ordBy - ABC',
+                'adrContact' => 'adr 6 Contact',
+                'rmkNoList' => '1, 7',
+            ),
+            6 => array(
+                'ord' => '2013-12-25 柯打#1 地址#7 交貨#7',
+                'cus' => 'shtNm-cus1',
+                'adr' => '載貨計劃系統地址7',
+                'contentLines' => NULL,
+                'qty' => '4 箱 5板',
+                'pagNoList' => NULL,
+                'ordBy' => 'ordBy - ABC',
+                'adrContact' => 'adr 7 Contact',
+                'rmkNoList' => '1, 8',
+            ),
         );
         $this->assertEquals($exp, $act);
     }

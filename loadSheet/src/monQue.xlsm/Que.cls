@@ -31,26 +31,28 @@ Sub SchNxtTick()
 If IsStopSchedule Then Exit Sub
 Application.OnTime Now() + TimeValue("0:0:3"), "SchNxtTick_TmrChkQue", Now() + TimeValue("0:0:10")
 End Sub
-
+Property Get IsSomFdr() As Boolean
+IsSomFdr = Sz(Me.FdrAy) > 0
+End Property
 Sub SchNxtTick_TmrChkQue()
 'On Error GoTo Er
 SchNxtTick_TmrChkQue_UpdTick
-Dim Ay$()
-Ay = FdrAy
-If Sz(Ay) > 0 Then
-    Dim NEr%, NOk%, Fdr As Fdr, J%
-    SchNxtTick_TmrChkQue_LogBeg Ay
-    For J = 0 To UB(Ay)
-        SchNxtTick_TmrChkQue_UpdFdr Ay(J)
-        Set FdrObj = New Fdr
-        If FdrObj.Init(Ay(J)).Gen Then '<==== Generate the loading Sheet Fx by FdrObj
-            NEr = NEr + 1
-        Else
-            NOk = NOk + 1
-        End If
-    Next
+
+SchNxtTick_TmrChkQue_LogBeg Me.FdrAy
+
+Dim NEr%, NOk%
+While Me.IsSomFdr
+    Dim F As Fdr
+        Set F = Me.FdrObj
+
+    SchNxtTick_TmrChkQue_UpdFdr F.A_Fdr
+    If F.Gen Then '<==== Generate the loading Sheet Fx by FdrObj
+        NEr = NEr + 1
+    Else
+        NOk = NOk + 1
+    End If
     WrtLog vbTab & NEr & " errors and " & NOk & " ok. " & Format(Now(), "YYYY-MM-DD HH:MM:SS")
-End If
+Wend
 SchNxtTick
 Exit Sub
 Er:
@@ -62,10 +64,14 @@ Er:
 End Sub
 
 Private Sub SchNxtTick_TmrChkQue_LogBeg(FdrAy$())
-Dim M$(), N%, J%
-Push M, Format(Now(), "YYYY-MM-DD HH:MM:SS")
-N = Sz(FdrAy)
-Push M, vbTab & N & " folder is in [" & PthQue & "]"
+Dim N%
+    N = Sz(FdrAy)
+    If Sz(FdrAy) = 0 Then Exit Sub
+Dim M$()
+    Push M, Format(Now(), "YYYY-MM-DD HH:MM:SS")
+    Push M, vbTab & N & " folder is in [" & PthQue & "]"
+
+Dim J%
 For J = 0 To UB(FdrAy)
     Push M, vbTab & " : " & FdrAy(J)
 Next
@@ -87,13 +93,13 @@ Sub Start_UpdStartTime()
 ThisWorkbook.Names("Started").RefersToRange.Value = NowStr
 End Sub
 
-Function LoadSheet() As LoadSheet
+Function FillLoadSheet() As FillLoadSheet
 Dim A$()
 A = FdrAy
 If Sz(A) = 0 Then Exit Function
-Dim O As LoadSheet
-Set O = New LoadSheet
-Set LoadSheet = O.Init(FdrObj)
+Dim O As New FillLoadSheet
+O.Init FdrObj
+Set FillLoadSheet = O
 End Function
 
 Property Get FdrObj() As Fdr

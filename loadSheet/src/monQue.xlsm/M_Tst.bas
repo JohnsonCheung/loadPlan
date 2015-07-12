@@ -5,20 +5,20 @@ Private Act$
 Private Exp$
 Private Act_Bool As Boolean
 Private Exp_Bool As Boolean
-Dim LoadSheet As New LoadSheet
-Dim Rmk As New Rmk
-Dim Drop As New Drop
-Dim Drops As New Drops
+Dim FillLoadSheet As New FillLoadSheet
+Dim FillRmk As New FillRmk
+Dim FillDrop As New FillDrop
+Dim FillDrops As New FillDrops
+Dim FillHdr As New FillHdr
+Dim FillWs1 As New FillWs1
+Dim FillWs2 As New FillWs2
+Dim FillBarCd As New FillBarCd
 Dim Fdr As New Fdr
-Dim Hdr As New Hdr
-Dim Ws1 As New Ws1
-Dim Ws2 As New Ws2
-Dim BarCd As New BarCd
 Private F%
 Const C_Fdr = "Trip-2015-01-01#001"
 Const C_FdrQ2 = "Trip-2015-01-01#002"
 Const C_FdrQ1 = "Trip-2015-01-01#001"
-Sub TstAll()
+Private Sub TstAll()
 Setup
 If True Then
 Else
@@ -28,55 +28,56 @@ Else
     Tst_Log_WrtLogAy
 End If
 If True Then
-    Tst_Ws2_FillIn
+    Tst_FillWs2_FillIn
 Else
-    Tst_BarCd_Init
-    Tst_BarCd_PutBarCd
-    Tst_Ws1_Init
-    Tst_Ws1_FillIn
-    Tst_Ws2_Init
-    Tst_Hdr_Init
-    Tst_Hdr_Fill
+    Tst_FillBarCd_Init
+    Tst_FillBarCd_PutBarCd
+    Tst_FillWs1_Init
+    Tst_FillWs1_FillIn
+    Tst_FillWs2_Init
+    Tst_FillWs2_rPutOneAtt
+    Tst_FillWs2_FillIn
+    Tst_FillHdr_Init
+    Tst_FillHdr_Fill
+    Tst_FillLoadSheet_Fx
+    Tst_FillLoadSheet_Gen
+    Tst_FillRmk_Fill
     Tst_Fdr_Init
     Tst_Fdr_Gen
     Tst_Fdr_MovToEr
     Tst_FfnContent
-    Tst_LoadSheet_Init
-    Tst_LoadSheet_Fx
-    Tst_LoadSheet_Gen
     Tst_PthQueErr
     Tst_Que_SchNxtTick_TmrChkQue
-    Tst_Rmk_Fill
-    Tst_Ws2_PutOneAtt
 End If
 End Sub
 
-Sub Tst_BarCd_Init()
-BarCd.Init C_Fdr
-Debug.Assert BarCd.BarCdFfn = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\Trip-2015-01-01#001\BarCd.png"
+Private Sub Tst_FillBarCd_Init()
+FillBarCd.Init C_Fdr
+Debug.Assert FillBarCd.BarCdFfn = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\Trip-2015-01-01#001\BarCd.png"
 End Sub
 
-Sub Tst_BarCd_PubBarCd()
+Private Sub Tst_FillBarCd_PubBarCd()
 Dim Wb As Workbook, Ws As Worksheet
 Set Wb = WbNew
 WsLoadSheet.Copy Wb.Sheets(1)
 Set Ws = Wb.Sheets(1)
-BarCd.Init(C_Fdr).PutBarCd Ws
+FillBarCd.Init C_Fdr
+FillBarCd.PutBarCd Ws
 Stop ' The BarCd should be put.
 Wb.Close False
 End Sub
 
-Sub Tst_Log_FtLog()
+Private Sub Tst_Log_FtLog()
 Dim D$
 D = Format(Date, "YYYY-MM-DD")
 Debug.Assert FtLog = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Log\2015\06\LoadSheetProcess-" & D & ".log"
 End Sub
 
-Sub Tst_Log_BrwLog()
+Private Sub Tst_Log_BrwLog()
 BrwLog
 End Sub
 
-Sub Tst_Log_WrtLog()
+Private Sub Tst_Log_WrtLog()
 Dim A$, Ay$()
 A = "AAA " & Now
 WrtLog A
@@ -84,7 +85,7 @@ Ay = FtAy(FtLog)
 Debug.Assert Ay(Sz(Ay) - 2) = A ' note:-2 instead of -1, becuase the last line is empty.
 End Sub
 
-Sub Tst_Log_WrtLogAy()
+Private Sub Tst_Log_WrtLogAy()
 Dim A$(2)
 A(0) = 1 & " " & Now
 A(1) = 2 & " " & Now
@@ -101,7 +102,7 @@ Sub Setup()
 CpyQue
 End Sub
 
-Sub Tst_Fdr_Init()
+Private Sub Tst_Fdr_Init()
 Fdr.Init C_FdrQ1
 Debug.Assert Fdr.PthInp = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\" & C_FdrQ1 & "\"
 Fdr.Init C_FdrQ2
@@ -109,7 +110,7 @@ Debug.Assert Fdr.PthInp = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\" & C_FdrQ
 Pass "Tst_Fdr_Init"
 End Sub
 
-Sub Tst_Fdr_Gen()
+Private Sub Tst_Fdr_Gen()
 Que.ClrQue
 CpyQue
 
@@ -141,134 +142,141 @@ CpyQue
 Pass "Tst_Fdr_Gen"
 End Sub
 
-Sub Tst_Ws1_Init()
+Private Sub Tst_FillWs1_Init()
 Dim Wb As Workbook
 Application.ScreenUpdating = False
 Set Wb = WbNew
-Ws1.Init C_Fdr
-Debug.Assert Ws1.A_Ws.Name = "更砯"
+FillWs1.Init C_Fdr
+Debug.Assert FillWs1.A_Ws.Name = "更砯"
 Wb.Close False
-Pass "Tst_Ws1_init"
+Pass "Tst_FillWs1_init"
 End Sub
 
-Sub Tst_Ws1_FillIn()
+Private Sub Tst_FillWs1_FillIn()
 Dim Wb As Workbook
 Application.ScreenUpdating = False
 Set Wb = WbNew
-Ws1.Init C_Fdr
-Act_Bool = Ws1.Fillin(Wb)
+FillWs1.Init C_Fdr
+Act_Bool = FillWs1.Fillin(Wb)
 Stop
 Wb.Close False
-Pass "Tst_Ws1_FillIn"
+Pass "Tst_FillWs1_FillIn"
 End Sub
 
-Sub Tst_Hdr_Init()
+Private Sub Tst_FillHdr_Init()
 'Setup
-Hdr.Init C_Fdr
-Debug.Assert Hdr.Driver = "Driver1"
-Debug.Assert Hdr.DriverTy = "DriverTy"
-Debug.Assert Hdr.Ft = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\Trip-2015-01-01#001\hdr.txt"
-Debug.Assert Hdr.Member = "Member1"
-Debug.Assert Hdr.NoEr = True
-Debug.Assert Hdr.Leader = "Leader1"
-Debug.Assert Hdr.TripChiNm = "2015-02-01-Trip-001"
+FillHdr.Init C_Fdr
+Debug.Assert FillHdr.Driver = "Driver1"
+Debug.Assert FillHdr.DriverTy = "DriverTy"
+Debug.Assert FillHdr.Ft = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\Trip-2015-01-01#001\hdr.txt"
+Debug.Assert FillHdr.Member = "Member1"
+Debug.Assert FillHdr.NoEr = True
+Debug.Assert FillHdr.Leader = "Leader1"
+Debug.Assert FillHdr.TripChiNm = "2015-02-01-Trip-001"
 
-Set Hdr = New Hdr
-Hdr.Init "abc"
-Debug.Assert Hdr.Driver = ""
-Debug.Assert Hdr.DriverTy = ""
-Debug.Assert Hdr.Ft = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\abc\hdr.txt"
-Debug.Assert Hdr.Member = ""
-Debug.Assert Hdr.NoEr = False
-Debug.Assert Hdr.Leader = ""
-Debug.Assert Hdr.TripChiNm = ""
+Set FillHdr = New FillHdr
+FillHdr.Init "abc"
+Debug.Assert FillHdr.Driver = ""
+Debug.Assert FillHdr.DriverTy = ""
+Debug.Assert FillHdr.Ft = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\Que\abc\hdr.txt"
+Debug.Assert FillHdr.Member = ""
+Debug.Assert FillHdr.NoEr = False
+Debug.Assert FillHdr.Leader = ""
+Debug.Assert FillHdr.TripChiNm = ""
 BrwLog
-Pass "Tst_Hdr_Init"
+Pass "Tst_FillHdr_Init"
 End Sub
 
-Sub Tst_Hdr_Fill()
+Private Sub Tst_FillHdr_Fill()
 Dim Ws As Worksheet, Wb As Workbook
 Set Wb = WbNew
-Ws1.Init C_Fdr
-Ws1.Hdr.Fillin Ws1.A_Ws
-Set Wb = Ws1.A_Ws.Parent
+FillWs1.Init C_Fdr
+FillWs1.FillHdr.Fillin FillWs1.A_Ws
+Set Wb = FillWs1.A_Ws.Parent
 Wb.Close False
-Pass "Tst_Hdr_Fill"
+Pass "Tst_FillHdr_Fill"
 End Sub
 
-Sub Tst_Rmk_Init()
-Shell PthCur & "CpyQue.bat"
-Rmk.Init C_Fdr
-Const Exp_NLin% = 4
-Debug.Assert Rmk.NLin = Exp_NLin
-Act_Ay = Rmk.RmkAy
-Debug.Assert Sz(Act_Ay) = Exp_NLin
-Debug.Assert Act_Ay(0) = ""
-    Act_Ay(0) = "RmkKey-1,RmkKey-1 Line#1 of 3\nRmkKey-1 Line#2 of 3.....\nRmkKey-1 Line#3 of 3....."
-    Act_Ay(1) = "RmkKey-2,RmkKey-1 Line#1 of 1"
-    Act_Ay(2) = "RmkKey-3,RmkKey-1 Line#1 of 2\nRmkKey-1 Line#2 of 2"
-Pass "Tst_Rmk_Init    "
-End Sub
+Private Sub Tst_FillRmk_Init()
+Shell PthQue & "CpyQue.bat"
+FillRmk.Init C_Fdr
 
-Sub Tst_Rmk_Fill()
+Debug.Assert FillRmk.NLin = 6 + 3
+
+Dim A$()
+
+A = FillRmk.RmkAy_OfAdr
+    Debug.Assert A(0) = "Adr Rmk 1 Line1\nLine2\nLine3"
+    Debug.Assert A(1) = "Adr Rmk 2 Line1\nLine2\nLine3"
+    Debug.Assert A(2) = "Adr Rmk 3 Line1\nLine2\nLine3"
+
+
+A = FillRmk.RmkAy_OfOrd
+    Debug.Assert A(0) = "Ord Rmk 1 Line1\nLine2\nLine3"
+    Debug.Assert A(1) = "Ord Rmk 2 Line1\nLine2\nLine3"
+    Debug.Assert A(2) = "Ord Rmk 3 Line1\nLine2\nLine3"
+Pass "Tst_FillRmk_Init    "
+End Sub
+Sub AAAA()
+Tst_FillRmk_Fill
+End Sub
+Private Sub Tst_FillRmk_Fill()
+Application.ScreenUpdating = False
+
 Dim Ws As Worksheet
 Dim Wb As Workbook, App As Application
     Set Ws = WsNew
     Set Wb = Ws.Parent
-    Set App = Wb.Application
-    App.ScreenUpdating = False
     
-Rmk.Init C_Fdr
+FillRmk.Init C_Fdr
 
-Act_Bool = Rmk.FillRmk(Ws, 12)
+Act_Bool = FillRmk.FillRmk(Ws, 12) '<====
 Debug.Assert Act_Bool = False
 
-'Rmk.Txt
-'1,Rmk#1 Line#1 sdlkf jslkdf slkdjf sdf jsdf\nLIne#2 sldkfj sldkfj sdlfjk dfs\nLine#3 sldkfj sldkfj dklfj sdklfdf
-'1(-1),Rmk#2 lskdjf lskdjf lskdjf skldfj slkdfj
-'1.1,Rmk#3 sdlfj sdlkfj dsklfj sdlkj dfj sdlf
-'1.2,Rmk#3 sdlfj sdlkfj dsklfj sdlkj dfj sdlf
 
-Debug.Assert Ws.Range("A13").Value = "#1"
-Debug.Assert Ws.Range("A14").Value = "#2"
-Debug.Assert Ws.Range("A15").Value = "#3"
-Debug.Assert Ws.Range("A16").Value = "#4"
+Debug.Assert Ws.Range("A12").Value = "*琠ゴ癳砯ボ"
+Debug.Assert Ws.Range("A13").Value = "*1"
+Debug.Assert Ws.Range("A14").Value = "*2"
+Debug.Assert Ws.Range("A15").Value = "*3"
 
-Debug.Assert Ws.Range("B13").Value = "1"
-Debug.Assert Ws.Range("B14").Value = "1(-1)"
-Debug.Assert Ws.Range("B15").Value = "1.1"
-Debug.Assert Ws.Range("B16").Value = "1.2"
+Debug.Assert Ws.Range("B13").Value = Replace("Ord Rmk 1 Line1\nLine2\nLine3", "\n", vbCrLf)
+Debug.Assert Ws.Range("B14").Value = Replace("Ord Rmk 2 Line1\nLine2\nLine3", "\n", vbCrLf)
+Debug.Assert Ws.Range("B15").Value = Replace("Ord Rmk 3 Line1\nLine2\nLine3", "\n", vbCrLf)
 
-Debug.Assert Ws.Range("C13").Value = Replace("Rmk#1 Line#1 sdlkf jslkdf slkdjf sdf jsdf\nLIne#2 sldkfj sldkfj sdlfjk dfs\nLine#3 sldkfj sldkfj dklfj sdklfdf", "\n", vbCrLf)
-Debug.Assert Ws.Range("C14").Value = "Rmk#2 lskdjf lskdjf lskdjf skldfj slkdfj"
-Debug.Assert Ws.Range("C15").Value = Replace("Rmk#3 sdlfj sdlkfj dsklfj sdlkj dfj sdlf", "\n", vbCrLf)
-Debug.Assert Ws.Range("C16").Value = Replace("Rmk#3 sdlfj sdlkfj dsklfj sdlkj dfj sdlf", "\n", vbCrLf)
-Stop
+Debug.Assert Ws.Range("A17").Value = "@癳砯ボ"
+Debug.Assert Ws.Range("A18").Value = "@1"
+Debug.Assert Ws.Range("A19").Value = "@2"
+Debug.Assert Ws.Range("A20").Value = "@3"
+
+Debug.Assert Ws.Range("B18").Value = Replace("Adr Rmk 1 Line1\nLine2\nLine3", "\n", vbCrLf)
+Debug.Assert Ws.Range("B19").Value = Replace("Adr Rmk 2 Line1\nLine2\nLine3", "\n", vbCrLf)
+Debug.Assert Ws.Range("B20").Value = Replace("Adr Rmk 3 Line1\nLine2\nLine3", "\n", vbCrLf)
+'Stop
 Wb.Close False
-App.ScreenUpdating = True
+Application.ScreenUpdating = True
 Pass "Tst_FillRmk"
 End Sub
 
-Sub Tst_BarCd_PutBarCd()
+Private Sub Tst_FillBarCd_PutBarCd()
 Dim Ws As Worksheet, Wb As Workbook
 Set Ws = WsNew
 Set Wb = Ws.Parent
 WsLoadSheet.Copy Ws
 Set Ws = Wb.Sheets(1)
 
-BarCd.Init C_Fdr
-BarCd.PutBarCd Ws
+FillBarCd.Init C_Fdr
+FillBarCd.PutBarCd Ws
 Ws.Application.Visible = True
 BrwLog
 Pass "Tst_PutBarCd"
 End Sub
 
-Sub Tst_Ws2_PutOneAtt()
+Private Sub Tst_FillWs2_rPutOneAtt()
 Dim Ws As Worksheet, Wb As Workbook
-Dim AttFn$
+Dim AttFn$, CusCd$, ContentRmk$
 Dim Rno%
 
-Ws2.Init C_Fdr
+FillWs2.Init C_Fdr
 
 Rno = 2
 AttFn = "Trip-2015-01-01#001 Att-02 (Ord-2015-01-01#1234 Content-02).png"
@@ -277,39 +285,40 @@ Set Wb = WbNew
 WsAtt.Copy Wb.Sheets(1)
 Set Ws = Wb.Sheets(1)
 
-Act_Bool = Ws2.PutOneAtt(Ws, Rno, AttFn)
+Act_Bool = FillWs2.rPutOneAtt(Ws, Rno, CusCd, ContentRmk, AttFn)
 Debug.Assert Rno = 7
 Pass "Tst_PutOneAtt"
 End Sub
 
-Sub Tst_Ws2_Init()
+Private Sub Tst_FillWs2_Init()
 Que.ClrQue
 CpyQue1
-Ws2.Init C_Fdr
+FillWs2.Init C_Fdr
 Dim Ay$()
-Ay = Ws2.AttFnAy
+Ay = FillWs2.AttFnAy
 Debug.Assert Sz(Ay) = 2
-Debug.Assert Ay(0) = "Trip-2015-01-01#001 Att-01 (Ord-2015-01-01#1234 Content-01).PNG"
-Debug.Assert Ay(1) = "Trip-2015-01-01#001 Att-02 (Ord-2015-01-01#1234 Content-02).PNG"
+Debug.Assert Ay(0) = "Trip-2015-01-01#001 att-01 (ord-2015-01-01#1234 content-01).png"
+Debug.Assert Ay(1) = "Trip-2015-01-01#001 att-02 (ord-2015-01-01#1234 content-02).png"
 
-Debug.Assert Ws2.Name = ""
+Debug.Assert FillWs2.Name = ""
 Que.ClrQue
 CpyQue
-Pass "Tst_Ws2_Init"
+Pass "Tst_FillWs2_Init"
 End Sub
 
-Sub Tst_Ws2_FillIn()
+Private Sub Tst_FillWs2_FillIn()
 Dim Wb As Workbook
 Application.ScreenUpdating = False
 Set Wb = WbNew
-Act_Bool = Ws2.Init(C_Fdr).Fillin(Wb)
+FillWs2.Init C_Fdr
+Act_Bool = FillWs2.Fillin(Wb)
 Debug.Assert Act_Bool = False ' false for no error
 Stop
 Wb.Close False
-Pass "Tst_Ws2_FillIn"
+Pass "Tst_FillWs2_FillIn"
 End Sub
 
-Sub Tst_Que_SchNxtTick_TmrChkQue()
+Private Sub Tst_Que_SchNxtTick_TmrChkQue()
 Que.ClrQue
 CpyQue
 Que.SchNxtTick_TmrChkQue
@@ -318,11 +327,11 @@ BrwLog
 Pass "Tst_Que_Timer_Check"
 End Sub
 
-Sub Tst_FfnContent()
+Private Sub Tst_FfnContent()
 Debug.Assert FfnContent("150101", 1, 1) = "C:\xampp\htdocs\loadPlan\ordContent\2015\01\01\0001\Ord-20150101-0001-01.png"
 End Sub
 
-Sub Tst_Fdr_MovToEr()
+Private Sub Tst_Fdr_MovToEr()
 CpyQue
 Dim Ay$()
     Ay = Que.FdrAy
@@ -347,38 +356,8 @@ CpyQue
 Pass "Tst_MovFdrToEr"
 End Sub
 
-Sub Tst_LoadSheet_Gen()
-Const OFdr = "C:\xampp\htdocs\loadPlan\loadSheet\2015\01\01\"
-    PthDlt_File OFdr
-    Debug.Assert Sz(PthAyFn(OFdr)) = 0
 
-CpyQue
-Debug.Assert Sz(PthAyFdr(PthQue)) = 2
-
-Dim Ay$()
-    Ay = Que.FdrAy()
-Dim J%, NOk%, NEr%
-For J = 0 To Sz(Ay) - 1
-    If LoadSheet.Init(Ay(J)).Gen Then '<=======
-        NEr = NEr + 1
-    Else
-        NOk = NOk + 1
-    End If
-Next
-
-Debug.Assert NEr = 0
-Debug.Assert NOk = 2
-Debug.Assert Sz(PthAyFdr(PthQue)) = 2     '<== LoadSheet.Gen does not mov/dlt of folder
-
-Ay = PthAyFn(OFdr)
-    Debug.Assert Sz(Ay) = 2
-    Debug.Assert Ay(0) = "LoadSheet-2015-01-01#001.xlsx"
-    Debug.Assert Ay(1) = "LoadSheet-2015-01-01#002.xlsx"
-
-Pass "Tst_LoadSheet_Gen"
-End Sub
-
-Sub Tst_PthQueErr()
+Private Sub Tst_PthQueErr()
 Debug.Assert PthQueErr = "C:\xampp\htdocs\loadPlan\pgm\loadSheet\QueErr\"
 End Sub
 Sub CpyQue()
@@ -406,25 +385,57 @@ Else
 End If
 End Sub
 
-Sub Tst_LoadSheet_Fx()
-LoadSheet.Init C_Fdr
-Act = LoadSheet.Fx
-Exp = "C:\xampp\htdocs\loadPlan\loadSheet\2015\01\01\LoadSheet-2015-01-01#12.xlsx"
+Private Sub Tst_FillLoadSheet_Fx()
+FillLoadSheet.Init C_Fdr
+Act = FillLoadSheet.Fx
+Exp = "C:\xampp\htdocs\loadPlan\loadSheet\2015\01\01\LoadSheet-2015-01-01#001.xlsx"
 Debug.Assert Act = Exp
-Pass "Tst_LoadSheet"
+Pass "Tst_FillLoadSheet"
 End Sub
 
-Sub Tst_LoadSheet_Init()
-Dim Ws As Worksheet
-LoadSheet.Init C_Fdr
-Act = LoadSheet.Fx
-Exp = "C:\xampp\htdocs\loadPlan\loadSheet\2015\01\01\LoadSheet-2015-01-01#001"
-Debug.Assert IsPfx(Exp, Act)
-Debug.Assert IsSfx(".xlsx", Act)
-Debug.Assert LoadSheet.Wb.Sheets.Count = 2
-Set Ws = LoadSheet.Wb.Sheets(1): Debug.Assert Ws.Name = "更砯"
-Set Ws = LoadSheet.Wb.Sheets(2): Debug.Assert Ws.Name = ""
-Pass "Tst_LoadSheet_Init"
+Private Sub Tst_FillLoadSheet_Gen()
+Const OFdr = "C:\xampp\htdocs\loadPlan\loadSheet\2015\01\01\"
+    PthDlt_File OFdr
+    Debug.Assert Sz(PthAyFn(OFdr)) = 0
+
+CpyQue
+Debug.Assert Sz(PthAyFdr(PthQue)) = 2
+
+Dim Ay$()
+    Ay = Que.FdrAy()
+Dim J%, NOk%, NEr%
+For J = 0 To Sz(Ay) - 1
+    FillLoadSheet.Init Ay(J)
+    If FillLoadSheet.Gen Then '<=======
+        NEr = NEr + 1
+    Else
+        NOk = NOk + 1
+    End If
+Next
+
+Debug.Assert NEr = 0
+Debug.Assert NOk = 2
+Debug.Assert Sz(PthAyFdr(PthQue)) = 2     '<== LoadSheet.Gen does not mov/dlt of folder
+
+Ay = PthAyFn(OFdr)
+    Debug.Assert Sz(Ay) = 2
+    Debug.Assert Ay(0) = "LoadSheet-2015-01-01#001.xlsx"
+    Debug.Assert Ay(1) = "LoadSheet-2015-01-01#002.xlsx"
+
+Dim Wb As Workbook, Ws As Worksheet
+    Set Wb = Application.Workbooks.Open(OFdr & Ay(0))
+    Debug.Assert Wb.Sheets.Count = 2
+    Set Ws = Wb.Sheets(1): Debug.Assert Ws.Name = "更砯"
+    Set Ws = Wb.Sheets(2): Debug.Assert Ws.Name = ""
+    Wb.Close False
+
+    Set Wb = Application.Workbooks.Open(OFdr & Ay(1))
+    Debug.Assert Wb.Sheets.Count = 2
+    Set Ws = Wb.Sheets(1): Debug.Assert Ws.Name = "更砯"
+    Set Ws = Wb.Sheets(2): Debug.Assert Ws.Name = ""
+    Wb.Close False
+
+Pass "Tst_FillLoadSheet_Gen"
 End Sub
 
 Property Get PthQueTest$()

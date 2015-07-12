@@ -1,14 +1,11 @@
 Attribute VB_Name = "M_Func"
 Option Explicit
-Private A_Que As New Que
 Public Const Ws1LastCol = "M"
+Public Que As New Que
 Function SchNxtTick_TmrChkQue()
 'it is required by [Que.SchNxtTick]
 Que.SchNxtTick_TmrChkQue
 End Function
-Property Get Que() As Que
-Set Que = A_Que
-End Property
 
 Property Get PthQue$()
 Static O$

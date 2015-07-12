@@ -19,6 +19,43 @@ function ay_dltEle_assoc(array $ay, $key)
     return $o;
 }
 
+function dta_joinLine_byKey // return a new [dta] with [key] is unique [line] with joined with \n and with optional $pfx
+($dta, // $dta has 2 columns: $keyFldNm &  $linFldNm.  $key is not unique.
+ $keyFldNm, // the key-field of $dta
+ $linFldNm, // the line-field of $dta to join
+ $pfx = "") // what pfx to be added to each line
+{
+    $f1 = $keyFldNm;
+    $f2 = $linFldNm;
+
+    $o = [];
+    if (sizeof($dta) === 0) return [];
+    $k = $dta[0][$f1];      // first line in $dta
+    $l = $dta[0][$f2];      // first line in $dta
+    $m = [];
+    $m[$f1] = $k;
+    $m[$f2] = $pfx . $l;     // first record
+    $first = true;
+    foreach ($dta as $dr) {
+        if ($first) {
+            $first = false;
+            continue;
+        }
+        $k1 = $dr[$f1];
+        $l1 = $dr[$f2];
+        if ($k1 === $k) {
+            $m[$f2] .= "\r\n" . $l1;
+        } else {
+            array_push($o, $m);
+            $m[$f1] = $k1;
+            $m[$f2] = $pfx . $l1;
+            $k = $k1;
+        }
+    }
+    array_push($o, $m);
+    return $o;
+}
+
 function ay_rmvDup(array $ay)
 {
     $o = [];

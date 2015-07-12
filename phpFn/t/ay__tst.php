@@ -11,8 +11,9 @@ require_once '..\str.php';
 function run()
 {
     if (true) {
-        test_ay_dltEle_assoc();
+        test_dta_joinLine_byKey();
     } else {
+        test_dta_joinLine_byKey();
         test_ay_dltEle_assoc();
         test_ay_rmvDup();
         test_ay_rmvDup_rev();
@@ -27,6 +28,37 @@ function run()
         test_ay_pk();
         test_ay_firstKey();
     }
+}
+
+function test_dta_joinLine_byKey()
+{
+    $dta = [
+        ["ord" => 1, "instTxt" => '1 Line1'],
+        ["ord" => 1, "instTxt" => '1 Line2'],
+        ["ord" => 1, "instTxt" => '1 Line3'],
+        ["ord" => 1, "instTxt" => '1 Line4'],
+        ["ord" => 2, "instTxt" => '2 Line1'],
+        ["ord" => 2, "instTxt" => '2 Line2'],
+        ["ord" => 9, "instTxt" => '9 Line1'],
+    ];
+    $pfx = "(*) ";
+    $exp = [
+        ["ord" => 1, 'instTxt' => "(*) 1 Line1
+1 Line2
+1 Line3
+1 Line4"],
+        ["ord" => 2, 'instTxt' => "(*) 2 Line1
+2 Line2"],
+        ["ord" => 9, 'instTxt' => "(*) 9 Line1"],
+    ];
+
+    $act = dta_joinLine_byKey($dta, "ord", "instTxt", "(*) ");
+    $a = $act[0];
+    $e = $exp[0];
+    assert($act[0] === $exp[0]);
+    assert($act[1] === $exp[1]);
+    assert($act[2] === $exp[2]);
+    pass(__FUNCTION__);
 }
 
 function test_ay_dltEle_assoc()

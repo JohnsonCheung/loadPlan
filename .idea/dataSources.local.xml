@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - loadplanChk@localhost" uuid="f6989ee4-c688-45dc-9228-46b90fc54803">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>loadplanChk.*</schema-pattern>
+      <default-schemas>loadplanChk.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - loadplan@localhost" uuid="00ea908f-abd2-4dac-a8bd-f3dac836a196">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>loadplan.*</schema-pattern>
+      <default-schemas>loadplan.*</default-schemas>
+    </data-source>
+  </component>
+</project>
+

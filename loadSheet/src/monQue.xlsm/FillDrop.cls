@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Drop"
+Attribute VB_Name = "FillDrop"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
@@ -19,7 +19,7 @@ Public Contact As String
 Public RmkNo As String
 Public NoEr As Boolean
 Public Ft$
-Function Init(Fdr$, Fn$) As Drop
+Sub Init(Fdr$, Fn$)
 Ft = PthQue & Fdr & "\" & Fn
 Dim S As TextStream
 On Error GoTo X
@@ -35,12 +35,11 @@ Contact = S.ReadLine ' 8
 RmkNo = S.ReadLine   ' 9
 S.Close
 NoEr = True
-Set Init = Me
-Exit Function
+Exit Sub
 X:
 ClsTextStream S
 WrtLog vbTab & "Cannot read drop-??.txt  File name=[" & Ft & "].  ErMsg=[" & Err.Description & "]"
-End Function
+End Sub
 Function Fillin(Ws As Worksheet, Rno%, CnoAy%()) As Boolean
 Dim RgeAy(8) As Range, J%
 For J = 0 To UB(CnoAy)

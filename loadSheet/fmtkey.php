@@ -58,4 +58,3 @@ function fmt_dropKey($ordNo, $ordDelvDte, $tripDelvDte, $adrNo, $dropNo)
     $nDaysBef = nDays($tripDelvDte, $ordDelvDte);
     return keyOf_drop($ordNo, $nDaysBef, $adrNo, $dropNo, $ordDelvDte);
 }
-

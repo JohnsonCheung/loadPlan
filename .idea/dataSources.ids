@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - loadplanChk@localhost" uuid="f6989ee4-c688-45dc-9228-46b90fc54803">
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="loadplanChk"/>
+    <table name="ordadr_ordContentLvs" schema="" catalog="loadplanChk" type="TABLE">
+      <column name="ordAdr" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ordContent" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ord" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4" remarks="VGhlIG9yZC1pZCBjb21pbmcgZnJvbSB0YWJsZS1bb3JkQ29udGVudF0="/>
+      <column name="ordContentLvc" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12" remarks="VGhlIFtvcmRDb250ZW50THZjXSBjb21pbmcgZnJvbSB0YWJsZS1bb3JkQ29udGVudF0="/>
+      <column name="ErNo" sqlType="ENUM" precision="5" scale="0" nullable="true" jdbcType="1" def="J05vRXIn"/>
+      <column name="ErMsg" sqlType="TINYTEXT" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ord1" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4" remarks="b3JkLUlkIGNvbWluZyBmcm9tIHRhYmxlLVtvcmRDb250ZW50XSwgaXQgZG9lcyBub3QgbWF0Y2ggd2l0aCB0aGUgb3JkLUlkIG9mIHRhYmxlLVtvcmRhZHJdLg=="/>
+      <primary-key name="PRIMARY" columns="ordAdr,ordContent"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - loadplan@localhost" uuid="00ea908f-abd2-4dac-a8bd-f3dac836a196">
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="loadplan"/>
+    <table name="actlog" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="auth" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="chk_ordadr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="cus" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="cusadr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="cuscontact" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="dayperson" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="daytruck" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="fixschedule" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="gps" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="inst" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lang" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblBtn" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblFld" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblMap" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblMsg" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblPgm" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="lblTxt" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="loadsheet_drop" schema="" catalog="loadplan" type="VIEW"/>
+    <table name="majreg" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="nearby" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="ord" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="ordadr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="ordcontent" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="orddrop" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="ordinst" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="person" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="pgm" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="pgmNm" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="pickadr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="planord" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="planordadr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="planordcontent" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="plantrip" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="region" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="trip" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="truck" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="usr" schema="" catalog="loadplan" type="TABLE"/>
+    <table name="vDropContent" schema="" catalog="loadplan" type="VIEW"/>
+    <procedure name="chk_ordAdr" schema="" catalog="loadplan" type="2">
+      <prototype>
+        <parameter name="" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_adrRmkKey" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_adrRmkTxt" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_content" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_drop" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_ordRmkKey" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_ordRmkTxt" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="loadsheet_trip" schema="" catalog="loadplan" type="1">
+      <prototype>
+        <parameter name="p_trip" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="newContentNo" schema="" catalog="loadplan" type="2">
+      <prototype>
+        <parameter name="p_ord" sqlType="MEDIUMINT" precision="7" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="newDropNo" schema="" catalog="loadplan" type="2">
+      <prototype>
+        <parameter name="p_ordAdr" sqlType="MEDIUMINT" precision="7" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="newOrdNo" schema="" catalog="loadplan" type="2">
+      <prototype>
+        <parameter name="p_ordDelvDte" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="1"/>
+        <parameter name="" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="5" index="0"/>
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

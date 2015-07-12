@@ -9,18 +9,18 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 Public A_Fdr$
-Public LoadSheet As New LoadSheet
+Public FillLoadSheet As New FillLoadSheet
 Public PthInp$
 Function Init(Fdr$) As Fdr
 A_Fdr = Fdr
 PthInp = PthQue & Fdr & "\"
-LoadSheet.Init Fdr
+FillLoadSheet.Init Fdr
 Set Init = Me
 End Function
 
 Function Gen() As Boolean
 Dim O As Boolean
-O = LoadSheet.Gen
+O = FillLoadSheet.Gen
 If O Then
     MovToEr
 Else

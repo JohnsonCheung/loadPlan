@@ -1,1 +1,0 @@
-xcopy C:\xampp\htdocs\loadPlan\pgm\loadSheet\queueTest\Trip-2015-01-01#001 C:\xampp\htdocs\loadPlan\pgm\loadSheet\queue\Trip-2015-01-01#001\ /s/y

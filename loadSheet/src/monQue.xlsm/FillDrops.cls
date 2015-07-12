@@ -2,17 +2,17 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Drops"
+Attribute VB_Name = "FillDrops"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-Private DropAy() As Drop
+Private DropAy() As FillDrop
 Public NDrop%
-Function Init(Fdr$) As Drops
+Sub Init(Fdr$)
 Erase DropAy
-Dim DropFnAy$(), P$, M As Drop
+Dim DropFnAy$(), P$, M As FillDrop
 P = PthQue & Fdr & "\"
 DropFnAy = PthAyFn(P, "Drop-??.txt")
 Dim J%, A$
@@ -21,13 +21,13 @@ If UB(DropFnAy) >= 0 Then
     For J = 0 To UB(DropFnAy)
         A = "drop-" & Format(J + 1, "00") & ".txt"
         If Not IsSfx(A, DropFnAy(J)) Then WrtLog "Warning: DropFnAy(J)=[" & DropFnAy(J) & "] not expected.  Expected Sfx=[" & A & "]!!"
-        Set M = New Drop
-        If M.Init(Fdr, DropFnAy(J)).NoEr Then PushObj DropAy, M
+        Set M = New FillDrop
+        M.Init Fdr, DropFnAy(J)
+        PushObj DropAy, M
     Next
 End If
 NDrop = Sz(DropAy)
-Set Init = Me
-End Function
+End Sub
 
 Function Fillin(Ws As Worksheet, ByRef ORno%) As Boolean
 Dim J%, CnoAy%(), N%
