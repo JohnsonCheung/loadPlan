@@ -2,14 +2,14 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "FillLoadSheet"
+Attribute VB_Name = "LoadSheet"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-Public Ws1 As New FillWs1
-Public Ws2 As New FillWs2
+Public Ws1 As New Ws1
+Public Ws2 As New Ws2
 Public Fx$
 Sub Init(Fdr$)
 Fx = Init__GetFx(Fdr)
@@ -24,8 +24,8 @@ Application.ScreenUpdating = False
 '---- Gen 2 worksheets
 Dim Wb As Workbook
     Set Wb = WbNew
-    If Ws2.Fillin(Wb) Then Gen = True
-    If Ws1.Fillin(Wb) Then Gen = True
+    If Ws2.FillWs(Wb) Then Gen = True
+    If Ws1.FillWs(Wb) Then Gen = True
 
 '--- Delete all other worksheet except, Nm1 Nm2
 Dim Nm1$, Nm2$, Nm, Ws As Worksheet, WsNmAy$()

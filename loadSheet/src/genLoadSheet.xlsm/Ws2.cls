@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "FillWs2"
+Attribute VB_Name = "Ws2"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
@@ -74,7 +74,7 @@ On Error Resume Next
 NAtt = UBound(A_AttAy) + 1
 End Property
 
-Function Fillin(Wb As Workbook) As Boolean
+Function FillWs(Wb As Workbook) As Boolean
 Wb.Application.ScreenUpdating = False
 WsAtt.Copy Wb.Sheets(1)
 Dim Ws As Worksheet
@@ -91,7 +91,7 @@ Else
         CusCd = M.CusCd
         ContentRmk = M.ContentRmk
         AttFn = M.AttFn
-        If rPutOneAtt(Ws, ORno, CusCd, ContentRmk, AttFn) Then Fillin = True
+        If rPutOneAtt(Ws, ORno, CusCd, ContentRmk, AttFn) Then FillWs = True
     Next
     '--
     Dim TripNm$

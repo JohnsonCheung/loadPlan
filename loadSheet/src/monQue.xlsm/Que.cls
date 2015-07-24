@@ -93,15 +93,6 @@ Sub Start_UpdStartTime()
 ThisWorkbook.Names("Started").RefersToRange.Value = NowStr
 End Sub
 
-Function FillLoadSheet() As FillLoadSheet
-Dim A$()
-A = FdrAy
-If Sz(A) = 0 Then Exit Function
-Dim O As New FillLoadSheet
-O.Init FdrObj
-Set FillLoadSheet = O
-End Function
-
 Property Get FdrObj() As Fdr
 'Return a new FdrObj by using the first element in Me.FdrAy if any, else return nothing
 Dim A$()
@@ -112,6 +103,7 @@ If Sz(A) > 0 Then
     Set FdrObj = O
 End If
 End Property
+
 Property Get NewFdrAy() As String()
 Static LastFdrAy$()
 Dim O$()

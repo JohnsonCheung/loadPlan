@@ -5,6 +5,7 @@ Type S1S2
     S1 As String
     S2 As String
 End Type
+
 Function NowStr$()
 NowStr = "'" & Format(Now(), "YYYY-MM-DD HH:MM:SS")
 End Function
@@ -15,9 +16,11 @@ N = Sz(Ay)
 ReDim Preserve Ay(N)
 Set Ay(N) = Obj
 End Sub
+
 Function IsStr(V) As Boolean
 IsStr = VarType(V) = vbString
 End Function
+
 Function IsNum(V) As Boolean
 IsNum = True
 If IsInt(V) Then Exit Function
@@ -58,20 +61,10 @@ Function IsSfx(Sfx$, S$) As Boolean
 IsSfx = Right(S, Len(Sfx)) = Sfx
 End Function
 
-Private Sub IsSfx__Tst()
-Debug.Assert IsSfx("ab", "aab")
-Debug.Assert Not IsSfx("Ab", "aab")
-Debug.Assert Not IsSfx("ba", "aab")
-End Sub
-
-Private Sub IsPfx__Tst()
-Debug.Assert IsPfx("aa", "aab")
-Debug.Assert Not IsPfx("Aa", "aab")
-Debug.Assert Not IsPfx("ba", "aab")
-End Sub
 Function IsPfx(Pfx$, S$) As Boolean
 IsPfx = Left(S, Len(Pfx)) = Pfx
 End Function
+
 Function WbWsNmAy(Wb As Workbook) As String()
 Dim J%, O$(), Ws As Worksheet
 For Each Ws In Wb.Sheets
@@ -79,13 +72,7 @@ For Each Ws In Wb.Sheets
 Next
 WbWsNmAy = O
 End Function
-Sub PthAyFnLik__Tst()
-Dim Act$()
-Act = PthAyFnLik("C:\", "Pytho##")
-Debug.Assert Sz(Act) = 2
-Debug.Assert Act(0) = "Python27"
-Debug.Assert Act(0) = "Python33"
-End Sub
+
 Function PthAyFnLik(Pth$, Lik$) As String()
 Dim O$(), M$
 M = Dir(Pth)
@@ -95,13 +82,16 @@ While M <> ""
 Wend
 PthAyFnLik = O
 End Function
+
 Function Sz&(Ay)
 On Error Resume Next
 Sz = UBound(Ay) + 1
 End Function
+
 Function WbNew() As Workbook
 Set WbNew = Application.Workbooks.Add
 End Function
+
 Sub PthOpn(Pth$)
 Shell "explorer """ & Pth & """"
 End Sub
@@ -115,16 +105,11 @@ Set Ws = Wb.Sheets(2): Ws.Delete
 Wb.Application.DisplayAlerts = True
 Set WsNew = Wb.Sheets(1)
 End Function
+
 Function FfnFnn$(Ffn$)
 FfnFnn = FfnCutExt(FfnFn(Ffn))
 End Function
-Sub TstFtBrw()
-Open "C:\Temp\a.txt" For Output As #1
-Print #1, "asdfsdf"
-Print #1, "lsdkfjsdlf"
-Close #1
-FtBrw "C:\Temp\a.txt"
-End Sub
+
 Function AyIsEq(A1$(), A2$()) As Boolean
 Dim N&, J&
 N = Sz(A1)
@@ -134,15 +119,19 @@ For J = 0 To N - 1
 Next
 AyIsEq = True
 End Function
+
 Sub Pass(PgmNm$)
 Debug.Print "Pass: " & PgmNm
 End Sub
+
 Function IsNothing(Obj) As Boolean
 IsNothing = TypeName(Obj) = "Nothing"
 End Function
+
 Sub FtBrw(Ft$)
 Shell "NotePad """ & Ft & """"
 End Sub
+
 Function RgePutImgFfn(Rge As Range, ImgFfn$, Optional PicNm$ = "") As Shape
 If Not IsFile(ImgFfn) Then Exit Function
 Dim O As Shape, Ws As Worksheet
@@ -171,7 +160,6 @@ For J = 1 To 10000 ' Assume max 10000 rows
 Next
 End Function
 
-
 Function TakAftLastX$(S, X$, Optional AlsoTakX As Boolean = False, Optional ReturnS_IfNoX As Boolean)
 Dim P%, L%
 P = InStrRev(S, X)
@@ -186,9 +174,11 @@ End Function
 Function UB&(Ay)
 UB = Sz(Ay) - 1
 End Function
+
 Function FfnFn$(Ffn$)
 FfnFn = Dft(TakAftLastX(Ffn, "\"), Ffn$)
 End Function
+
 Function Dft(V$, pDft$)
 Dft = IIf(V = "", pDft, V)
 End Function
@@ -208,29 +198,61 @@ While M <> ""
 Wend
 PthAyFdr = O
 End Function
+
 Sub AyDmp(Ay)
 Dim J&
 For J = 0 To UB(Ay)
     Debug.Print J & ":[" & Ay(J) & "]"
 Next
 End Sub
+
 Function AyLasEle(Ay)
 AyLasEle = Ay(UB(Ay))
 End Function
+
 Sub FxOpn(Fx$)
 Application.Workbooks.Open Fx
 End Sub
+
 Function FtAy(Ft$) As String()
 Dim A$
 A = Fso.OpenTextFile(Ft).ReadAll
 FtAy = Split(A, vbCrLf)
 End Function
+
 Function IsFile(File$) As Boolean
 IsFile = Fso.FileExists(File)
 End Function
+
 Function IsPth(Pth$) As Boolean
 IsPth = Fso.FolderExists(Pth)
 End Function
+
+Sub WsFillCellByDic(Ws As Worksheet, Dic As Dictionary)
+Dim K(), J%
+K = Dic.Keys
+For J = 0 To UB(K)
+    Ws.Names(K(J)).RefersToRange.Value = Dic(K)
+Next
+End Sub
+
+Sub WbFillCellByDic(Wb As Workbook, Dic As Dictionary)
+Dim K(), J%
+K = Dic.Keys
+For J = 0 To UB(K)
+    Wb.Names(K(J)).RefersToRange.Value = Dic(K(J))
+Next
+End Sub
+
+Sub WsFillRowByDic(Ws As Worksheet, Rno&, Dic As Dictionary)
+Dim K$(), J%, Cno%, Rge As Range
+K = Dic.Keys
+For J = 0 To UB(K)
+    Cno = Ws.Names(K(J)).RefersToRange.Column
+    Set Rge = Ws.Cells(Rno, Cno)
+    Rge.Value = Dic(K)
+Next
+End Sub
 
 Sub Push(Ay, I)
 Dim N&
@@ -473,11 +495,7 @@ With Rge.Borders(XlBordersIndex.xlInsideHorizontal)
     .Weight = XlBorderWeight.xlThin
 End With
 End Sub
-Private Sub StrSubStrCnt__Tst()
-Dim A$
-A = "lskdf\n\lskdf\nlskdfdf"
-Debug.Assert StrSubStrCnt(A, "\n") = 2
-End Sub
+
 Function StrSubStrCnt%(Str$, SubStr$)
 Dim P%, O%
 P = InStr(Str, SubStr)
@@ -498,13 +516,4 @@ Next
 WbNmAy = O
 End Function
 
-Sub StrAyDmp(Ay$())
-Dim J&
-For J = 0 To UB(Ay)
-    Debug.Print J & "=[" & Ay(J) & "]"
-Next
-End Sub
 
-Sub WbNmDmp(Wb As Workbook, NmAy$())
-
-End Sub

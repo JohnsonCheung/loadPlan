@@ -5,7 +5,7 @@
  * Date: 8/6/2015
  * Time: 18:47
  */
-include_once "/../phpFn/cmn.php";
+// include_once "/../phpFn/cmn.php";
 include_once "/../phpFn/lbl.php";
 include_once '/../dbTools/addMissingNearBy.php';
 
