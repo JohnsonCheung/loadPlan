@@ -1,4 +1,4 @@
-Attribute VB_Name = "GlobalObj"
+Attribute VB_Name = "VeIde"
 Option Explicit
 Property Get CurApp() As App
 Static O As App
@@ -13,7 +13,6 @@ Set CurVenv = CurApp.Venv
 End Property
 Property Get CurPj() As Pj
 Dim O As New Pj
-O.Init CurApp.A_App.Vbe.ActiveVBProject
-Set CurPj = O
+Set CurPj = O.NewPj(CurApp.A_App.Vbe.ActiveVBProject)
 End Property
 

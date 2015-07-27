@@ -6,7 +6,7 @@ Attribute VB_Name = "DropLin"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
 Public OrdNo As String
 Public Cus As String
@@ -18,19 +18,19 @@ Public OrdBy As String
 Public Contact As String
 Public RmkOrdNo As String
 Public RmkAdrNo As String
-Sub Init(Fdr$, Fn$)
+Function NewDropLin(Seg$, Fn$) As DropLin
 Dim F$
-    F = Pth.Que & Fdr & "\" & Fn
+    F = LSPth.Que & Seg & "\" & Fn
 
 Dim Dy As Dy
-    Set Dy = NewDy.ByFt(F)
+    Set Dy = NewDyByFt(F)
     Dy.Assign "OrdNo Cus Adr Content Qty PagList OrdBy Contact RmkOrdNo RmkAdrNo", OrdNo, Cus, Adr, Content, Qty, PagList, OrdBy, Contact, RmkOrdNo, RmkAdrNo
-
-Exit Sub
+Set NewDropLin = Me
+Exit Function
 X:
-    WrtLog vbTab & "Cannot read drop-??.txt  File name=[" & F & "].  ErMsg=[" & Err.Description & "]"
-End Sub
-Function FillWs(Ws As Worksheet, Rno%) As Boolean
+    Logr.WrtMsg vbTab & "Cannot read drop-??.txt  File name=[" & F & "].  ErMsg=[" & Err.Description & "]"
+End Function
+Sub FillWs(Ws As Worksheet, Rno%)
 Dim RgeAy(8) As Range, J%
 Dim CnoAy%()
     CnoAy = GetCnoAy(Ws)
@@ -48,7 +48,7 @@ RgeAy(6).Value = OrdBy
 RgeAy(7).Value = Contact
 RgeAy(8).Value = RmkOrdNo
 RgeAy(9).Value = RmkAdrNo
-End Function
+End Sub
 
 
 Private Function GetCnoAy(Ws As Worksheet) As Integer()

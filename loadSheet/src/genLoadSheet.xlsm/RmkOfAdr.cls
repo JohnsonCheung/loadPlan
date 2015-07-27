@@ -6,32 +6,33 @@ Attribute VB_Name = "RmkOfAdr"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
 Private A_RmkLinAy() As RmkLinOfAdr
-Sub Init(Fdr$)
+Function NewRmkOfAdr(Seg$) As RmkOfAdr
 Dim Ay$()
     Dim P$, F$
-    P = Pth.Que & Fdr & "\"
+    P = LSPth.Que & Seg & "\"
     F = P & "rmk_OfAdr.Txt"
     If Fso.FileExists(F) Then Ay = FtAy(F)
 Dim J%
 For J = 0 To UB(Ay)
     Dim M As New RmkLinOfAdr
-    M.ReadLin Ay(J)
-    PushObj A_RmkLinAy, M
+    PushObj A_RmkLinAy, M.NewRmkLinOfAdr(Ay(J))
 Next
-End Sub
+Set NewRmkOfAdr = Me
+End Function
+
 Property Get NLin%()
 NLin = Sz(A_RmkLinAy)
 End Property
 
-Function FillWs(Ws As Worksheet, ByRef ORno&) As Boolean
+Sub FillWs(Ws As Worksheet, ByRef ORno&)
 Const C = "*柯打送貨指示"
 If NLin = 0 Then
     Ws.Range("A" & ORno).Value = "沒有 " & C
     ORno = ORno + 2
-    Exit Function
+    Exit Sub
 End If
 
 
@@ -51,8 +52,7 @@ Dim Rge5 As Range
     RgeSetBdrGrid Rge5 '<== Set Border
 
 ORno = ORno + 2
-Exit Function
+Exit Sub
 Er:
-    WrtLog vbTab & "Err in fill remark. ErMsg=[" & Err.Description & "]"
-    FillWs = True
-End Function
+    Logr.WrtMsg vbTab & "Err in fill remark. ErMsg=[" & Err.Description & "]"
+End Sub

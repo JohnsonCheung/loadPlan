@@ -3,8 +3,8 @@
  *      oup: $scope.appRegion.cusCd
  *      inp: $scope.sess.lang
  */
-angular.module('app').controller('cur', ['$scope', '$http', '$app', '$obj', '$ay', '$dta', function ($scope, $http, $app, $obj, $ay, $dta) {
-    var sortFldNm = "ordNoFmt";
+angular.module('app').controller('cur', ['$scope', '$http', '$app', '$obj', '$ay', '$dta', 'curHlp', function ($scope, $http, $app, $obj, $ay, $dta, $hlp) {
+    var sortFldNmLvs = "ordNoFmt";
     var sortDes = false; // sorting is in descending
     $scope.do_dspOrd = do_dspOrd;
     $scope.$watch("sess.lang", function (lang) {
@@ -31,14 +31,13 @@ angular.module('app').controller('cur', ['$scope', '$http', '$app', '$obj', '$ay
         $scope.appOrd.ord = ord;
     }
 
-    function do_sort(fldNm) {
-        if (fldNm === sortFldNm) {
+    function do_sort(fldNmLvs) {
+        if (fldNmLvs === sortFldNmLvs) {
             sortDes = !sortDes;
         } else {
-            sortFldNm = fldNm;
+            sortFldNmLvs = fldNmLvs;
             sortDes = true;
         }
-        console.log(sortFldNm, sortDes);
         bld_and_set_tar_data();
     }
 
@@ -75,41 +74,11 @@ angular.module('app').controller('cur', ['$scope', '$http', '$app', '$obj', '$ay
         if ($scope.src.data === undefined) return;
         var filter = $scope.filter;
         var dta = $scope.src.data;
-        dta = bld_and_set_tar_data__filter(dta, filter);
-        dta = bld_and_set_tar_data__sort(dta, sortFldNm, sortDes);
+        dta = $hlp.filter_and_sort(dta, filter, sortFldNmLvs, sortDes);
         $scope.tar = $scope.tar || {};
         $scope.tar.data = dta;
     }
 
-    function bld_and_set_tar_data__filter(dta, filter) {
-        var d = new $dta.Dta(dta);
-        return d.filter(filter);
-    }
-
-    function bld_and_set_tar_data__sort(dta, sortFldNm, sortDes) {
-        var dta1 = dta.sort(function (dr1, dr2) {
-            var aa = dr1[sortFldNm];
-            var bb = dr2[sortFldNm];
-            if (false) {
-                if (aa === null || aa === undefined || aa === '') {
-                    if (bb === null || bb === undefined || bb === '') return 0;
-                    return -1;
-                } else if (bb === null || bb === undefined || bb === '') {
-                    return -1;
-                }
-            }
-            if (sortDes) {
-                if (aa < bb) return -1;
-                if (aa > bb) return 1;
-                return 0;
-            } else {
-                if (aa < bb) return 1;
-                if (aa > bb) return -1;
-                return 0;
-            }
-        });
-        return dta1;
-    }
 
     function do_sel_row() {
         $scope.rno = this.$index + 1;

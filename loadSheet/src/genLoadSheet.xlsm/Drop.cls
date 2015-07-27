@@ -6,21 +6,21 @@ Attribute VB_Name = "Drop"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
 Private DropLinAy() As DropLin
 Property Get NDrop%()
 NDrop = Sz(DropLinAy)
 End Property
-Sub Init(Fdr$)
+Function NewDrop(Seg$) As Drop
 Dim U%
     Dim Ay$(), P$
-    P = Pth.Que & Fdr & "\"
+    P = LSPth.Que & Seg & "\"
     Ay = PthAyFn(P, "Drop-??.txt")
     U = UB(Ay)
 
 Erase DropLinAy
-    If U >= 0 Then Exit Sub
+    If U >= 0 Then Exit Function
 
     Dim J%
     For J = 0 To UB(Ay)
@@ -28,16 +28,17 @@ Erase DropLinAy
             Dim Fn$
             Fn = "drop-" & Format(J + 1, "00") & ".txt"
             Set M = New DropLin
-            M.Init Fdr, Fn
+            M.NewDropLin Seg, Fn
         PushObj DropLinAy, M
     Next
-End Sub
+Set NewDrop = Me
+End Function
 
-Function FillWs(Ws As Worksheet, ByRef ORno%) As Boolean
+Sub FillWs(Ws As Worksheet, ByRef ORno%)
 Dim J%
 ORno = 11
 For J = 0 To NDrop - 1
-    If DropLinAy(J).FillWs(Ws, ORno) Then FillWs = True
+    DropLinAy(J).FillWs Ws, ORno
     ORno = ORno + 1
 Next
 Dim C1, C2, R1, R2
@@ -48,5 +49,5 @@ Dim BdrRge As Range
     R2 = 11 + NDrop - 1
     Set BdrRge = Ws.Range(Ws.Cells(R1, C1), Ws.Cells(R2, C2))
 RgeSetBdrGrid BdrRge    '<== Border
-End Function
+End Sub
 

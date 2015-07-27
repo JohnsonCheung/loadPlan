@@ -10,10 +10,12 @@ Attribute VB_Exposed = True
 Option Explicit
 Public A_App As Application
 Public A_Venv As New Venv
+
 Sub Init(App As Application)
 Set A_App = App
 A_Venv.Init App.Vbe
 End Sub
+
 Property Get Venv() As Venv
 Set Venv = A_Venv
 End Property

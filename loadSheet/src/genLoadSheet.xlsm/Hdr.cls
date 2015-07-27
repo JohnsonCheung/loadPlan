@@ -6,30 +6,42 @@ Attribute VB_Name = "Hdr"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
 Public A_Dic As Dictionary
+Public A_Ft$
 Public TripChiNm$
 Public Driver$
 Public DriverTy$
 Public Member$
 Public Leader$
 
-Sub Init(Fdr$)
-Dim F$
-F = PthQue & Fdr & "Hdr.txt"
-Set A_Dic = NewDy.ByFt(F).A_Dic
-TripChiNm = A_Dic("TripChiNm")
-Driver = A_Dic("Driver")
-DriverTy = A_Dic("DriverTy")
-Member = A_Dic("Member")
-Leader = A_Dic("Leader")
-End Sub
+Function NewHdr(Seg$) As Hdr
+A_Ft = LSPth.Que & Seg & "\Hdr.txt"
 
-Sub BrwHdrFt()
-FtBrw A_Ft
-End Sub
+Set A_Dic = NewDyByFt(A_Ft).A_Dic
 
-Function FillWs(Ws As Worksheet) As Boolean
-WbFillCellByDic Ws.Parent, A_Dic
+Dim A As Dictionary
+    Set A = A_Dic
+TripChiNm = A("TripChiNm")
+   Driver = A("Driver")
+ DriverTy = A("DriverTy")
+   Member = A("Member")
+   Leader = A("Leader")
+Set NewHdr = Me
 End Function
+
+Function BrwFt() As Hdr
+FtBrw A_Ft
+End Function
+
+Function Brw() As Hdr
+Dim T$
+T = TmpFt
+A_Dic.WrtFt T
+      FtBrw T
+End Function
+
+Sub FillWs(Ws As Worksheet)
+WsFillCellByDic Ws, A_Dic
+End Sub

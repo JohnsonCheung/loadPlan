@@ -9,9 +9,10 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Option Explicit
 Public A_Pj As VBProject
-Sub Init(Pj As VBProject)
+Function NewPj(Pj As VBProject) As Pj
 Set A_Pj = Pj
-End Sub
+Set NewPj = Me
+End Function
 Function Md(Idx) As Md
 Dim O As New Md
 If IsStr(Idx) Then
@@ -65,8 +66,7 @@ Fn = FfnFn(A_Pj.Filename)
 End Function
 Function Expr() As PjExpr
 Dim O As New PjExpr
-O.Init Me
-Set Expr = O
+Set Expr = O.NewPjExpr(Me)
 End Function
 Function MdAn() As String()
 Dim A() As Md, J%

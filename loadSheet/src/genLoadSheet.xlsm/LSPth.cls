@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Pth"
+Attribute VB_Name = "LSPth"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
@@ -11,14 +11,14 @@ Option Explicit
 
 Property Get Que$()
 Static O$
-If O = "" Then O = Cur & "Que\"
+If O = "" Then O = Hom & "Que\"
 Que = O
 End Property
 
-Property Get Cur()
+Property Get Hom()
 Static O$
 If O = "" Then O = FfnPth(ThisWorkbook.FullName)
-Cur = O
+Hom = O
 End Property
 
 Property Get QueErr()
@@ -29,3 +29,10 @@ If O = "" Then
 End If
 QueErr = O
 End Property
+
+Property Get QueTst$()
+Static O$
+If O = "" Then O = PthCur & "QueTst\"
+QueTst = O
+End Property
+

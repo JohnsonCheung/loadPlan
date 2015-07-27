@@ -9,6 +9,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Option Explicit
 Public A_Pj As Pj
+
 Property Get Pth$()
 Dim O$
 O = A_Pj.Pth & "Src\": If Not Fso.FolderExists(O) Then MkDir O
@@ -16,9 +17,10 @@ O = O & A_Pj.Fn & "\": If Not Fso.FolderExists(O) Then MkDir O
 Pth = O
 End Property
 
-Sub Init(Pj As Pj)
+Function NewPjExpr(Pj As Pj) As PjExpr
 Set A_Pj = Pj
-End Sub
+Set NewPjExpr = Me
+End Function
 
 Function Export() As PjExpr
 PthDlt_File Me.Pth

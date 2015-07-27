@@ -5,25 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillBarCd.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillDrop.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillDrops.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillHdr.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillLoadSheet.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillRmk.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillWs1.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\monQue.xlsm\FillWs2.cls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/M_Tst.bas" afterPath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/M_Tst.bas" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\GlobalObj.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Func.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Log.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Start_Stop.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Tst.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\Pth.cls" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\Cmd.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\Dy__Test.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\GlobalFn.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\GlobalObj.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\NewDy.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\modLib.bas" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\modLib__Test.bas" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfAdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfAdr.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfOrd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfOrd.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws1.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws1.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws2.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws2.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" afterPath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/lib.xlam" afterPath="$PROJECT_DIR$/loadSheet/lib.xlam" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/monQue.xlsm" afterPath="$PROJECT_DIR$/loadSheet/monQue.xlsm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/Fdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/Fdr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/Que.cls" afterPath="$PROJECT_DIR$/loadSheet/src/monQue.xlsm/Que.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbTools/addMissingNearBy.php" afterPath="$PROJECT_DIR$/dbTools/addMissingNearBy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/queTest/Trip-2015-01-01#001/hdr.txt" afterPath="$PROJECT_DIR$/loadSheet/queTest/Trip-2015-01-01#001/hdr.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/queTest/Trip-2015-01-01#002/hdr.txt" afterPath="$PROJECT_DIR$/loadSheet/queTest/Trip-2015-01-01#002/hdr.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/que/Trip-2015-01-01#002/hdr.txt" afterPath="$PROJECT_DIR$/loadSheet/que/Trip-2015-01-01#002/hdr.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/modLib.bas" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/modLib.bas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/region/upd.php" afterPath="$PROJECT_DIR$/region/upd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/App.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/App.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/BarCd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/BarCd.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Drop.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Drop.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/DropLin.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/DropLin.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Dy.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Dy.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Fdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Fdr.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Hdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Hdr.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/LoadSheet.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/LoadSheet.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Md.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Md.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Pj.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Pj.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/PjExpr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/PjExpr.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Rmk.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Rmk.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfAdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfAdr.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfOrd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfOrd.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Venv.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Venv.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/cur.js" afterPath="$PROJECT_DIR$/ord/cur.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/cur_test.html" afterPath="$PROJECT_DIR$/ord/cur_test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/index1.html" afterPath="$PROJECT_DIR$/ord/index1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pgm.iws" />
@@ -106,88 +124,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="upd.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/region/upd.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.464286" vertical-offset="0" max-vertical-offset="2432">
-              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-              <folding>
-                <element signature="e#6#84#0#PHP" expanded="true" />
-                <marker date="1437470407169" expanded="true" signature="1402:1448" placeholder="select regCd..region..." />
-                <marker date="1437470407169" expanded="true" signature="2019:2134" placeholder="update regio..." />
-                <marker date="1437470407169" expanded="true" signature="2271:2329" placeholder="delete from ..." />
-                <marker date="1437470407169" expanded="true" signature="2440:2503" placeholder="insert into ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cmn.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.7407408" vertical-offset="2528" max-vertical-offset="26030">
-              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-              <folding>
-                <element signature="e#13954#14192#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-33.92857" vertical-offset="0" max-vertical-offset="1881">
+            <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
               <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addMissingNearBy.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dbTools/addMissingNearBy.php">
+      <file leaf-file-name="btn_recSts.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ord/btn_recSts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27636364" vertical-offset="0" max-vertical-offset="550">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="931">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1437470540809" expanded="true" signature="218:249" placeholder="SELECT regCd..nearBy..." />
-                <marker date="1437470540809" expanded="true" signature="380:426" placeholder="select regCd..nearBy..." />
-                <marker date="1437470540809" expanded="true" signature="459:521" placeholder="insert into ..." />
+                <marker date="1434941271161" expanded="true" signature="468:510" placeholder="SELECT isDea..cus..." />
+                <marker date="1434941271161" expanded="true" signature="771:813" placeholder="select cusCd..ord..." />
+                <marker date="1434941271161" expanded="true" signature="889:934" placeholder="select cusCd..cusadr..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lbl.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpFn/lbl.php">
+      <file leaf-file-name="cur.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ord/cur.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="323">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.3615917" vertical-offset="0" max-vertical-offset="1729">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding>
-                <element signature="e#6#85#0#PHP" expanded="false" />
-                <element signature="n#lbl#0;n#!!top" expanded="false" />
-                <element signature="n#lblMsg#0;n#!!top" expanded="false" />
-                <element signature="n#lblDic#0;n#!!top" expanded="false" />
-                <element signature="e#1362#1394#0#PHP" expanded="false" />
-                <element signature="e#1900#2076#0#PHP" expanded="false" />
-                <element signature="e#1934#2070#0#PHP" expanded="false" />
-                <element signature="e#2021#2070#0#PHP" expanded="false" />
-                <element signature="e#2081#2399#0#PHP" expanded="false" />
-                <element signature="e#2228#2393#0#PHP" expanded="false" />
-                <element signature="e#2305#2383#0#PHP" expanded="false" />
-                <element signature="e#2418#2480#0#PHP" expanded="false" />
-                <marker date="1436266719023" expanded="false" signature="442:539" placeholder="select btnNm..lblpgm..." />
-                <marker date="1436266719023" expanded="false" signature="1154:1221" placeholder="select msgNm..lblpgm..." />
+                <element signature="e#0#89#0" expanded="true" />
+                <element signature="e#1854#2290#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/a.php">
+      <file leaf-file-name="cur.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ord/cur.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1919">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cur_test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ord/cur_test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.7142856" vertical-offset="171" max-vertical-offset="798">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ord/index1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="741">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dspH.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ord/dspH.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="$lib.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ngSvc/$lib.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8474">
+              <caret line="7" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ay_facFn_test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ngSvc/ay_facFn_test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="475">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -206,8 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/phpFn/t/lbl__tst.php" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/ngSvc/$lib.js" />
         <option value="$PROJECT_DIR$/ord/dspHHdr__test.html" />
         <option value="$PROJECT_DIR$/ngSvc/app_facFn.js" />
@@ -228,7 +258,6 @@
         <option value="$PROJECT_DIR$/ord/dspH__test1.html" />
         <option value="$PROJECT_DIR$/ord/dspHContent__test.html" />
         <option value="$PROJECT_DIR$/ord/dspH__test2.html" />
-        <option value="$PROJECT_DIR$/ord/index1.html" />
         <option value="$PROJECT_DIR$/ord/dspH.html" />
         <option value="$PROJECT_DIR$/ord/dspHContentNN__test.html" />
         <option value="$PROJECT_DIR$/ord/dspHContent__test1.html" />
@@ -241,7 +270,6 @@
         <option value="$PROJECT_DIR$/ord/cur.php" />
         <option value="$PROJECT_DIR$/ord/dspHHdr.html" />
         <option value="$PROJECT_DIR$/ord/dspH_hlp.js" />
-        <option value="$PROJECT_DIR$/ord/cur.js" />
         <option value="$PROJECT_DIR$/ord/dspH.js" />
         <option value="$PROJECT_DIR$/ord/dspH.php" />
         <option value="$PROJECT_DIR$/ord/dspHAdr.html" />
@@ -257,6 +285,10 @@
         <option value="$PROJECT_DIR$/a.php" />
         <option value="$PROJECT_DIR$/region/upd.php" />
         <option value="$PROJECT_DIR$/dbTools/addMissingNearBy.php" />
+        <option value="$PROJECT_DIR$/ord/index1.html" />
+        <option value="$PROJECT_DIR$/ord/cur_hlp.js" />
+        <option value="$PROJECT_DIR$/ord/cur_test.html" />
+        <option value="$PROJECT_DIR$/ord/cur.js" />
       </list>
     </option>
   </component>
@@ -293,6 +325,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -335,13 +368,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dbTools" />
+              <option name="myItemId" value="ord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pgm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pgm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ngSvc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -556,31 +602,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="748" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1374" height="748" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17522658" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17522658" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25075528" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1918429" sideWeight="0.22742476" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6634921" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4047619" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19108762" sideWeight="0.22742476" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2674772" sideWeight="0.77257526" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1174" height="524" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6634921" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66831684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4047619" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -602,9 +648,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2674772" sideWeight="0.4987715" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67892975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -721,6 +767,57 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbTools/addMissingNearBy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="SELECT regCd..nearBy..." />
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="select regCd..nearBy..." />
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/lbl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="323">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#85#0#PHP" expanded="false" />
+            <element signature="n#lbl#0;n#!!top" expanded="false" />
+            <element signature="n#lblMsg#0;n#!!top" expanded="false" />
+            <element signature="n#lblDic#0;n#!!top" expanded="false" />
+            <element signature="e#1362#1394#0#PHP" expanded="false" />
+            <element signature="e#1900#2076#0#PHP" expanded="false" />
+            <element signature="e#1934#2070#0#PHP" expanded="false" />
+            <element signature="e#2021#2070#0#PHP" expanded="false" />
+            <element signature="e#2081#2399#0#PHP" expanded="false" />
+            <element signature="e#2228#2393#0#PHP" expanded="false" />
+            <element signature="e#2305#2383#0#PHP" expanded="false" />
+            <element signature="e#2418#2480#0#PHP" expanded="false" />
+            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
+            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="5054">
@@ -753,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="7866">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4959">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,34 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4591" max-vertical-offset="7296">
           <caret line="309" column="54" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
-          <folding>
-            <element signature="e#431#510#0#PHP" expanded="false" />
-            <element signature="e#516#1353#0#PHP" expanded="false" />
-            <element signature="e#563#701#1#PHP" expanded="false" />
-            <element signature="e#734#1111#0#PHP" expanded="false" />
-            <element signature="e#782#896#0#PHP" expanded="false" />
-            <element signature="e#948#1075#0#PHP" expanded="false" />
-            <element signature="e#1154#1288#0#PHP" expanded="false" />
-            <element signature="e#1200#1278#0#PHP" expanded="false" />
-            <element signature="n#tripNm#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dta#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dro#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_ay#0;n#!!block;n#Fn#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_barCdFile#0;n#!!block;n#BarCd#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_hdrFile#0;n#!!block;n#Hdr#0;n#!!top" expanded="false" />
-            <element signature="e#11070#11276#0#PHP" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="e#13218#13429#1#PHP" expanded="false" />
-            <element signature="n#bld_qty#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <element signature="n#bld_cus#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <marker date="1436545044239" expanded="false" signature="-1:-1" placeholder="select trip ..trip..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ord f..ordContent..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -840,34 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6119" max-vertical-offset="16321">
           <caret line="337" column="17" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="17" />
-          <folding>
-            <element signature="e#431#510#0#PHP" expanded="false" />
-            <element signature="e#516#1353#0#PHP" expanded="false" />
-            <element signature="e#563#701#1#PHP" expanded="false" />
-            <element signature="e#734#1111#0#PHP" expanded="false" />
-            <element signature="e#782#896#0#PHP" expanded="false" />
-            <element signature="e#948#1075#0#PHP" expanded="false" />
-            <element signature="e#1154#1288#0#PHP" expanded="false" />
-            <element signature="e#1200#1278#0#PHP" expanded="false" />
-            <element signature="n#tripNm#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dta#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dro#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_ay#0;n#!!block;n#Fn#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_barCdFile#0;n#!!block;n#BarCd#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_hdrFile#0;n#!!block;n#Hdr#0;n#!!top" expanded="false" />
-            <element signature="e#11070#11276#0#PHP" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="e#13218#13429#1#PHP" expanded="false" />
-            <element signature="n#bld_qty#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <element signature="n#bld_cus#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <marker date="1436545044239" expanded="false" signature="-1:-1" placeholder="select trip ..trip..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ord f..ordContent..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,7 +923,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
           <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="true" />
+            <element signature="e#13954#14192#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -928,34 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="9086" max-vertical-offset="16321">
           <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
-          <folding>
-            <element signature="e#431#510#0#PHP" expanded="false" />
-            <element signature="e#516#1353#0#PHP" expanded="false" />
-            <element signature="e#563#701#1#PHP" expanded="false" />
-            <element signature="e#734#1111#0#PHP" expanded="false" />
-            <element signature="e#782#896#0#PHP" expanded="false" />
-            <element signature="e#948#1075#0#PHP" expanded="false" />
-            <element signature="e#1154#1288#0#PHP" expanded="false" />
-            <element signature="e#1200#1278#0#PHP" expanded="false" />
-            <element signature="n#tripNm#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dta#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dro#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_ay#0;n#!!block;n#Fn#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_barCdFile#0;n#!!block;n#BarCd#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_hdrFile#0;n#!!block;n#Hdr#0;n#!!top" expanded="false" />
-            <element signature="e#11070#11276#0#PHP" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="e#13218#13429#1#PHP" expanded="false" />
-            <element signature="n#bld_qty#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <element signature="n#bld_cus#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <marker date="1436545044239" expanded="false" signature="-1:-1" placeholder="select trip ..trip..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ord f..ordContent..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -963,7 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5928">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,7 +990,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
           <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="true" />
+            <element signature="e#13954#14192#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1083,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.178571" vertical-offset="369" max-vertical-offset="4959">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8214285" vertical-offset="3180" max-vertical-offset="6517">
           <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,7 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="7866">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.142857" vertical-offset="2829" max-vertical-offset="5643">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,40 +1139,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.678571" vertical-offset="4591" max-vertical-offset="7296">
           <caret line="309" column="54" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
-          <folding>
-            <element signature="e#431#510#0#PHP" expanded="false" />
-            <element signature="e#516#1353#0#PHP" expanded="false" />
-            <element signature="e#563#701#1#PHP" expanded="false" />
-            <element signature="e#734#1111#0#PHP" expanded="false" />
-            <element signature="e#782#896#0#PHP" expanded="false" />
-            <element signature="e#948#1075#0#PHP" expanded="false" />
-            <element signature="e#1154#1288#0#PHP" expanded="false" />
-            <element signature="e#1200#1278#0#PHP" expanded="false" />
-            <element signature="n#tripNm#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dta#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#runsp_dro#0;n#!!block;n#Gen#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_ay#0;n#!!block;n#Fn#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_barCdFile#0;n#!!block;n#BarCd#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_hdrFile#0;n#!!block;n#Hdr#0;n#!!top" expanded="false" />
-            <element signature="e#11070#11276#0#PHP" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#wrt_rmkFile_OfAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofOrd#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="n#rmkAy_ofAdr#0;n#!!block;n#Rmk#0;n#!!top" expanded="false" />
-            <element signature="e#13218#13429#1#PHP" expanded="false" />
-            <element signature="n#bld_qty#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <element signature="n#bld_cus#0;n#!!block;n#Bld#0;n#!!top" expanded="false" />
-            <marker date="1436545044239" expanded="false" signature="-1:-1" placeholder="select trip ..trip..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ordNo..ord..." />
-            <marker date="1436545044239" expanded="true" signature="-1:-1" placeholder="select ord f..ordContent..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phpFn/lbl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="323">
+        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="323">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="false" />
@@ -1181,39 +1159,39 @@
             <element signature="e#2228#2393#0#PHP" expanded="false" />
             <element signature="e#2305#2383#0#PHP" expanded="false" />
             <element signature="e#2418#2480#0#PHP" expanded="false" />
-            <marker date="1436266719023" expanded="false" signature="442:539" placeholder="select btnNm..lblpgm..." />
-            <marker date="1436266719023" expanded="false" signature="1154:1221" placeholder="select msgNm..lblpgm..." />
+            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
+            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/region/upd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286" vertical-offset="0" max-vertical-offset="2432">
+        <state vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="2432">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
             <element signature="e#6#84#0#PHP" expanded="true" />
-            <marker date="1437470407169" expanded="true" signature="1402:1448" placeholder="select regCd..region..." />
-            <marker date="1437470407169" expanded="true" signature="2019:2134" placeholder="update regio..." />
-            <marker date="1437470407169" expanded="true" signature="2271:2329" placeholder="delete from ..." />
-            <marker date="1437470407169" expanded="true" signature="2440:2503" placeholder="insert into ..." />
+            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="select regCd..region..." />
+            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="update regio..." />
+            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7407408" vertical-offset="2528" max-vertical-offset="26030">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2528" max-vertical-offset="26030">
           <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="true" />
+            <element signature="e#13954#14192#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.92857" vertical-offset="0" max-vertical-offset="1881">
+        <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
           <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
           <folding />
         </state>
@@ -1221,12 +1199,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dbTools/addMissingNearBy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27636364" vertical-offset="0" max-vertical-offset="550">
+        <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="494">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
-            <marker date="1437470540809" expanded="true" signature="218:249" placeholder="SELECT regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="380:426" placeholder="select regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="459:521" placeholder="insert into ..." />
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="SELECT regCd..nearBy..." />
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="select regCd..nearBy..." />
+            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/btn_recSts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1434941271161" expanded="true" signature="468:510" placeholder="SELECT isDea..cus..." />
+            <marker date="1434941271161" expanded="true" signature="771:813" placeholder="select cusCd..ord..." />
+            <marker date="1434941271161" expanded="true" signature="889:934" placeholder="select cusCd..cusadr..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/dspH__test1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="741">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/dspH.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngSvc/$lib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8474">
+          <caret line="7" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngSvc/ay_facFn_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/cur.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1919">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/cur_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7142856" vertical-offset="171" max-vertical-offset="798">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ord/cur.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3615917" vertical-offset="0" max-vertical-offset="1729">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#89#0" expanded="true" />
+            <element signature="e#1854#2290#0" expanded="true" />
           </folding>
         </state>
       </provider>

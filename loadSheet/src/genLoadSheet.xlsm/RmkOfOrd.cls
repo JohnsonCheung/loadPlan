@@ -6,30 +6,30 @@ Attribute VB_Name = "RmkOfOrd"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
 Private A_RmkLinAy() As RmkLinOfOrd
 
-Sub Init(Fdr$)
+Function NewRmkOfOrd(Seg$) As RmkOfOrd
 Dim Ay$()
     Dim P$, F$
-    P = Pth.Que & Fdr & "\"
+    P = LSPth.Que & Seg & "\"
     F = P & "rmk_OfAdr.Txt"
     If Fso.FileExists(F) Then Ay = FtAy(F)
 
 Dim J%
 For J = 0 To UB(Ay)
     Dim M As New RmkLinOfAdr
-    M.ReadLin Ay(J)
-    PushObj A_RmkLinAy, M
+    PushObj A_RmkLinAy, M.NewRmkLinOfAdr(Ay(J))
 Next
-End Sub
+Set NewRmkOfOrd = Me
+End Function
 
 Property Get NLin%()
 NLin = Sz(A_RmkLinAy)
 End Property
 
-Function FillWs(Ws As Worksheet, ByRef ORno&) As Boolean
+Sub FillWs(Ws As Worksheet, ByRef ORno&)
 Dim Step$
 Const C = "@¦a§}°e³f«ü¥Ü"
 
@@ -39,7 +39,7 @@ Step = "1. Fill Tit"
     Ws.Range("A" & ORno).Value = A & C
     ORno = ORno + 2
 
-If NLin = 0 Then Exit Function
+If NLin = 0 Then Exit Sub
 
 Step = "2 Fill Each Line"
     Dim J%
@@ -47,8 +47,7 @@ Step = "2 Fill Each Line"
         A_RmkLinAy(J).FillLin Ws, ORno, J
         ORno = ORno + J + 1
     Next
-Exit Function
+Exit Sub
 Er:
-    WrtLog vbTab & "Err in fill remark. ErMsg=[" & Err.Description & "] Step=[" & Step & "]"
-    FillWs = True
-End Function
+    Logr.WrtMsg vbTab & "Err in fill remark. ErMsg=[" & Err.Description & "] Step=[" & Step & "]"
+End Sub

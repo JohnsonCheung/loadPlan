@@ -1,4 +1,4 @@
-Attribute VB_Name = "Dy__Test"
+Attribute VB_Name = "Dy__Tst"
 Option Explicit
 
 Sub Assign__Tst()

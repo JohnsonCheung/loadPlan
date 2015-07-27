@@ -6,35 +6,33 @@ Attribute VB_Name = "Fdr"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
-Public A_Fdr$
-Public LoadSheet As New LoadSheet
+Public A_Seg$
+Public LoadSheet As LoadSheet
 Public PthInp$
-Function Init(Fdr$) As Fdr
-A_Fdr = Fdr
-PthInp = PthQue & Fdr & "\"
-LoadSheet.Init Fdr
-Set Init = Me
+Function NewFdr(Seg$) As Fdr
+A_Seg = Seg
+PthInp = LSPth.Que & Seg & "\"
+Set LoadSheet = NewLoadSheet(Seg)
+Set NewFdr = Me
 End Function
 
-Function Gen() As Boolean
-Dim O As Boolean
-O = LoadSheet.Gen
-If O Then
+Sub Gen()
+On Error GoTo X
+LoadSheet.Gen
+PthDlt PthInp, Force:=True
+Exit Sub
+X:
     MovToEr
-Else
-    PthDlt PthInp, Force:=True
-End If
-Gen = O
-End Function
+End Sub
 
 Function MovToEr$()
 Dim A$, B$
-A = PthQueErr & TimStmp
+A = LSPth.QueErr & TimStmp
 MkDir A
-A = A & "\" & A_Fdr
-B = PthMov(PthInp, A)       '<=== Move the PthInp to PthQueErr
+A = A & "\" & A_Seg
+B = PthMov(PthInp, A)       '<=== Move the PthInp to LSPth.QueErr
 MovToEr = A
 If B <> "" Then
     Dim M$()
@@ -42,6 +40,6 @@ If B <> "" Then
     Push M, vbTab & "  Fm=[" & PthInp & "]."
     Push M, vbTab & "  To=[" & A & "]."
     Push M, vbTab & "  ErMsg=[" & B & "]"
-    WrtLogAy M
+    Logr.WrtAy M
 End If
 End Function

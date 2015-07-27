@@ -6,7 +6,7 @@ Attribute VB_Name = "Ws2"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Attribute VB_Description = "Attachment --- Delivery Content"
 Option Explicit
 Private Type Att
@@ -14,29 +14,30 @@ Private Type Att
     ContentRmk As String
     AttFn As String
 End Type
-Private A_Fdr$
+Private A_Seg$
 Private A_AttAy() As Att
 
 Function Name$()
-Name = WsAtt.Name
+Name = "附頁"
 End Function
 
-Sub Init(Fdr$)
-A_Fdr = Fdr
+Function NewWs2(Seg$) As Ws2
+A_Seg = Seg
 A_AttAy = Init__AttAy
 Dim J%, M As Att, AttFn$
 For J = 0 To NAtt - 1
     M = A_AttAy(J)
     AttFn = M.AttFn
-    If Len(AttFn) <> 63 Then WrtLog "AttFnAy(" & J & ") len <> 63, but = [" & Len(AttFn) & "].  [" & AttFn & "]"
+    If Len(AttFn) <> 63 Then Logr.WrtMsg "AttFnAy(" & J & ") len <> 63, but = [" & Len(AttFn) & "].  [" & AttFn & "]"
 Next
-End Sub
+Set NewWs2 = Me
+End Function
 
 Private Function Init__AttAy() As Att()
 Dim O() As Att
 Dim U1%, U2%, U3%, J%, A1$(), A2$(), A3$(), M As Att
 Dim Ft1$, Ft2$, Pth$
-Pth = PthQue & A_Fdr & "\"
+Pth = LSPth.Que & A_Seg & "\"
 A3 = PthAyFnLik(Pth, "Trip-####-##-##?### att-## (ord-####-##-##?#### content-##).png")
 If Sz(A3) = 0 Then Exit Function
 
@@ -47,7 +48,7 @@ A2 = FtAy(Ft2)
 U1 = UB(A1)
 U2 = UB(A2)
 U3 = UB(A3)
-If U1 <> U2 Or U2 <> U3 Then WrtLog "Att Error: U1/U2/U3 are diff: " & U1 & "/" & U2 & "/" & U3: Exit Function
+If U1 <> U2 Or U2 <> U3 Then Logr.WrtMsg "Att Error: U1/U2/U3 are diff: " & U1 & "/" & U2 & "/" & U3: Exit Function
 ReDim O(U1)
 For J = 0 To U1
     M.CusCd = A1(J)
@@ -74,9 +75,9 @@ On Error Resume Next
 NAtt = UBound(A_AttAy) + 1
 End Property
 
-Function FillWs(Wb As Workbook) As Boolean
+Sub FillWs(Wb As Workbook)
 Wb.Application.ScreenUpdating = False
-WsAtt.Copy Wb.Sheets(1)
+Set Wb = WbNewWs(Wb, AtEnd:=True)
 Dim Ws As Worksheet
 Set Ws = Wb.Sheets(1)
 Dim J%, ORno%, CusCd$, ContentRmk$, AttFn$, M As Att
@@ -91,7 +92,7 @@ Else
         CusCd = M.CusCd
         ContentRmk = M.ContentRmk
         AttFn = M.AttFn
-        If rPutOneAtt(Ws, ORno, CusCd, ContentRmk, AttFn) Then FillWs = True
+        rPutOneAtt Ws, ORno, CusCd, ContentRmk, AttFn
     Next
     '--
     Dim TripNm$
@@ -99,15 +100,15 @@ Else
     Ws.PageSetup.CenterHeader = "行程 " & TripNm
     Ws.PageSetup.CenterFooter = "附頁 &P 之 &N"
 End If
-End Function
+End Sub
 
-Function rPutOneAtt(Ws As Worksheet, ByRef ORno%, CusCd$, ContentRmk$, AttFn$) As Boolean
+Sub rPutOneAtt(Ws As Worksheet, ByRef ORno%, CusCd$, ContentRmk$, AttFn$)
 'AttFn fmt = Trip-2015-01-01#001 Att-02 (Ord-2015-01-01#1234 Content-02).png
 '            123456789012345678901234567890123456789012345678901234567890123
 '                     1         2         3         4         5         6
 'Fdr   fmt = C:\xampp\htdocs\loadPlan\pgm\loadSheet\QueTest\trip-2015-01-01#002
 Dim Fdr$
-Fdr = A_Fdr
+Fdr = LSPth.Que & A_Seg & "\"
 If ORno <> 1 Then Ws.HPageBreaks.Add Before:=Ws.Range("A" & ORno)      '<== Set page break
 
 Dim A$, J%
@@ -120,11 +121,11 @@ Dim OrdNm$, AttNo%, ContentNo%  '<- AttFn
 
 Ws.Range("A" & ORno).Value = "客戶" '<== Put Nm
 Ws.Range("B" & ORno).Value = CusCd  '<== Put Nm
-ORno = ORno + 1                        '<== ORno++
+ORno = ORno + 1                     '<== ORno++
 
 Ws.Range("A" & ORno).Value = "柯打"  '<== Put Nm
 Ws.Range("B" & ORno).Value = OrdNm   '<== Put Nm
-ORno = ORno + 1                       '<== ORno++
+ORno = ORno + 1                      '<== ORno++
 
 Ws.Range("A" & ORno).Value = "送貨內容"
 Ws.Range("A" & ORno).VerticalAlignment = XlVAlign.xlVAlignCenter
@@ -134,13 +135,11 @@ Ws.Range("B" & ORno).VerticalAlignment = XlVAlign.xlVAlignCenter
 
 ORno = ORno + 1                       '<== ORno++
 
-
 Dim Ffn$
-    Ffn = PthQue & Fdr & "\" & AttFn
+    Ffn = Fdr & "\" & AttFn
 
 If Not IsFile(Ffn) Then
-    WrtLog vbTab & "Order content page not file: [" & Ffn & "]"
-    rPutOneAtt = True                                            '<== Return True for err
+    Logr.WrtMsg vbTab & "Order content page not file: [" & Ffn & "]"
     Ws.Range("A" & ORno).Value = "Image file not found!!"       '<== Put "Img file not found
     Ws.Range("B" & ORno + 1).Value = "Path"                     '<==
     Ws.Range("C" & ORno + 1).Value = FfnPth(Ffn)   '<==
@@ -161,7 +160,7 @@ Else
     
     ORno = ShpNxtRno(Shp, Ws.Range("A" & ORno))    '<=== Set ORno
 End If
-End Function
+End Sub
 
 
 

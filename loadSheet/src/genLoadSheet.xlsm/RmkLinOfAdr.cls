@@ -6,44 +6,55 @@ Attribute VB_Name = "RmkLinOfAdr"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
-Public CusCd$
-Public AdrCd$
+Public Cus$
+Public Adr$
 Public Rmk$
-Sub ReadLin(Lin$)
+
+Function NewRmkLinOfAdr(Lvc$) As RmkLinOfAdr
 Dim Ay$()
-Ay = Split(Lin, ",")
-CusCd = Ay(0)
-AdrCd = Ay(1)
-Rmk = Ay(2)
-End Sub
+Ay = Split(Lvc$, ",")
+Cus = Trim(Ay(0))
+Adr = Trim(Ay(1))
+Rmk = Trim(Ay(2))
+Set NewRmkLinOfAdr = Me
+End Function
 
 Sub FillLin(Ws As Worksheet, Rno&, Idx%)
+Dim R1 As Range
+Dim R2 As Range
+Dim R3 As Range
+Dim R4 As Range
+    Set R1 = Ws.Cells(Rno, "A")
+    Set R2 = Ws.Cells(Rno, "B")
+    Set R3 = Ws.Cells(Rno, "C")
+    Set R4 = Ws.Cells(Rno, "D")
 
-    Dim Rge1 As Range
-        Set Rge1 = Ws.Range("A" & Rno)
-        Rge1.Value = "*" & (Idx + 1)             '<== Put Col-A : @J or *J where @/* comes from first char of Des ==
-        Rge1.HorizontalAlignment = xlHAlignCenter
-        Rge1.VerticalAlignment = xlVAlignCenter
+If Me.NLin > 1 Then R1.RowHeight = R1.RowHeight * (Me.NLin + 1)    '<== Set Height
     
-    Dim Rge2 As Range
-    Dim Rmk$, NLin%
-        Set Rge2 = Ws.Range("B" & Rno)
-        Rmk = Replace(Me.Rmk, "\n", vbCrLf)
-        NLin = StrSubStrCnt(Me.Rmk, "\n")
-        If NLin > 1 Then Rge2.RowHeight = Rge2.RowHeight * (NLin + 1)    '<== Set Height
-        Rge2.Value = Rmk                                                 '<== Set Rmk
-   
-    Dim Rge3 As Range
-        Set Rge3 = Ws.Range(Ws.Cells(Rno, "B"), Ws.Cells(Rno, Ws1LastCol))
-        Rge3.Merge                                   '<== Merge
+'----
+    R1.Value = "*" & (Idx + 1)
+    R2.Value = Me.Cus
+    R3.Value = Me.Adr
+    R4.Value = UnEscLf(Me.Rmk)
     
-    Dim Rge4 As Range
-        Set Rge4 = Ws.Range("A" & Rno & ":B" & Rno)
-        With Rge4
-            .WrapText = True
-            .VerticalAlignment = XlVAlign.xlVAlignCenter
-        End With
+
+Ws.Range(Ws.Cells(Rno, "B"), Ws.Cells(Rno, Ws1LastCol)).Merge '<== Merge
+
+'----
+    R1.HorizontalAlignment = xlHAlignCenter
+    R1.VerticalAlignment = xlVAlignCenter
+
+
+Dim Rge As Range
+    Set Rge = Ws.Range("A" & Rno & ":B" & Rno)
+    With Rge
+        .WrapText = True
+        .VerticalAlignment = XlVAlign.xlVAlignCenter
+    End With
 End Sub
 
+Property Get NLin%()
+NLin = StrSubStrCnt(Me.Rmk, "\n")
+End Property

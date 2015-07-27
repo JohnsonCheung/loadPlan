@@ -6,21 +6,21 @@ Attribute VB_Name = "BarCd"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Option Explicit
-Public BarCdFfn$
-Sub Init(Fdr$)
-BarCdFfn = PthQue & Fdr & "\BarCd.png"
-End Sub
+Public A_BarCdFfn$
+Function NewBarCd(Seg$) As BarCd
+A_BarCdFfn = LSPth.Que & Seg & "\BarCd.png"
+Set NewBarCd = Me
+End Function
 
-Function PutBarCd(Ws As Worksheet) As Boolean
+Sub PutBarCd(Ws As Worksheet)
 Dim Shp As Shape
     Set Shp = Ws.Shapes("BarCode")
 
-If Not IsFile(BarCdFfn) Then
-    WrtLog "BarCd.PutBarCd: BarCode file not found: [" & BarCdFfn & "]"
-    PutBarCd = True
-    Exit Function
+If Not IsFile(A_BarCdFfn) Then
+    Logr.WrtMsg "BarCd.PutBarCd: BarCode file not found: [" & A_BarCdFfn & "]"
+    Exit Sub
 End If
 
 Dim T!, L!, H!, W!
@@ -29,7 +29,6 @@ L = Shp.Left
 H = Shp.Height
 W = Shp.Width
 Shp.Delete
-
-WsPutImgFfn Ws, BarCdFfn, T, L, H, W, "BarCode"
-End Function
+WsPutImgFfn Ws, A_BarCdFfn, T, L, H, W, "BarCode"
+End Sub
 

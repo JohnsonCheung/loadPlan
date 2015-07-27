@@ -6,21 +6,22 @@ Attribute VB_Name = "Ws1"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+Attribute VB_Exposed = True
 Attribute VB_Description = "Loading Sheet Ws1"
 Option Explicit
 Public A_Ws As Worksheet
-Public Hdr As New Hdr
-Public Rmk As New Rmk
-Public Drop As New Drop
-Public BarCd As New BarCd
+Public Hdr As Hdr
+Public Rmk As Rmk
+Public Drop As Drop
+Public BarCd As BarCd
 
-Sub Init(Fdr$)
-Drop.Init Fdr
-Hdr.Init Fdr
-Rmk.Init Fdr
-BarCd.Init Fdr
-End Sub
+Function NewWs1(Seg$) As Ws1
+Set Drop = NewDrop(Seg)
+Set Hdr = NewHdr(Seg)
+Set Rmk = NewRmk(Seg)
+Set BarCd = NewBarCd(Seg)
+Set NewWs1 = Me
+End Function
 
 Function Name$()
 Name = WsLoadSheet.Name
@@ -32,7 +33,7 @@ Set A_Ws = Wb.Sheets(1)
 Set AddWs = A_Ws
 End Function
 
-Function FillWs(Wb As Workbook) As Boolean
+Sub FillWs(Wb As Workbook)
 Wb.Application.ScreenUpdating = False
 Dim AA As Boolean
 AA = Application.DisplayAlerts
@@ -44,12 +45,12 @@ Set Ws = A_Ws
 
 Application.DisplayAlerts = AA
 
-If Hdr.FillWs(Ws) Then FillWs = True       '<-- FillHdr
-If BarCd.PutBarCd(Ws) Then FillWs = True           '<-- PutBarCd
+Hdr.FillWs Ws      '<-- Hdr
+BarCd.PutBarCd Ws  '<-- PutBarCd
 Dim Rno%
 Rno = 11
-If Drop.FillWs(Ws, Rno) Then FillWs = True
-If Rmk.FillWs(Ws, Rno + 1) Then FillWs = True  '<-- FillRmk
+Drop.FillWs Ws, Rno
+Rmk.FillWs Ws, Rno + 1 '<-- Rmk
 
 Dim C1%, R1%, C2, R2%
 
@@ -67,4 +68,4 @@ Dim A$, B$
     B = "¦æµ{: " & Hdr.TripChiNm
 Ws.PageSetup.LeftFooter = A     '<== Set Footer
 Ws.PageSetup.RightFooter = B    '<== Set Footer
-End Function
+End Sub

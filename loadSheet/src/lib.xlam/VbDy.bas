@@ -1,23 +1,21 @@
-Attribute VB_Name = "NewDy"
+Attribute VB_Name = "VbDy"
 Option Explicit
 
-Function ByLpAp(Lp$, ParamArray Ap())
+Function NewDyByLpAp(Lp$, ParamArray Ap())
 Dim A$(), O As New Dy, M As New Dictionary, J%
 A = Split(Lp, " ")
 For J = 0 To UB(A)
     M.Add A(J), Ap(J)
 Next
-O.Init M
-Set ByLpAp = O
+Set NewDyByLpAp = NewDy(M)
 End Function
 
-Function Init(Dic As Dictionary) As Dy
+Function NewDy(Dic As Dictionary) As Dy
 Dim O As New Dy
-O.Init Dic
-Set Init = O
+Set NewDy = O.NewDy(Dic)
 End Function
 
-Function ByFt(Ft$) As Dy
+Function NewDyByFt(Ft$) As Dy
 Dim A$(), M As New Dictionary, O As New Dy, J%
 A = FtAy(Ft)
 For J = 0 To UB(A)
@@ -27,6 +25,9 @@ For J = 0 To UB(A)
         End With
     End If
 Next
-O.Init M
-Set ByFt = O
+Set NewDyByFt = NewDy(M)
 End Function
+
+Sub DicDmp(Dic As Dictionary)
+NewDy(Dic).Dmp
+End Sub

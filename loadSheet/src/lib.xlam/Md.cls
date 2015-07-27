@@ -30,8 +30,7 @@ Property Get Pj() As Pj
 Dim A As VBComponent, O As New Pj
 Set A = Cmp
 If IsNothing(A) Then Exit Function
-O.Init A.Collection.Parent
-Set Pj = O
+Set Pj = O.NewPj(A.Collection.Parent)
 End Property
 Sub Export()
 Cmp.Export Pj.Expr.Pth & Fn
