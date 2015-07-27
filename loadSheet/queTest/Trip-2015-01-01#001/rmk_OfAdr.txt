@@ -1,3 +1,0 @@
-Adr Rmk 1 Line1\nLine2\nLine3
-Adr Rmk 2 Line1\nLine2\nLine3
-Adr Rmk 3 Line1\nLine2\nLine3

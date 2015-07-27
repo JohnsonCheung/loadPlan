@@ -4,46 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\GlobalObj.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Func.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Log.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Start_Stop.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\M_Tst.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\genLoadSheet.xlsm\Pth.cls" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\Cmd.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\Dy__Test.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\GlobalFn.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\GlobalObj.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\NewDy.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\modLib.bas" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\src\lib.xlam\modLib__Test.bas" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfAdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfAdr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfOrd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkOfOrd.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws1.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws1.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws2.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Ws2.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" afterPath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/lib.xlam" afterPath="$PROJECT_DIR$/loadSheet/lib.xlam" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/App.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/App.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/BarCd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/BarCd.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Drop.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Drop.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/DropLin.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/DropLin.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Dy.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Dy.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Fdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Fdr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Hdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Hdr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/LoadSheet.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/LoadSheet.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Md.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Md.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Pj.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Pj.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/PjExpr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/PjExpr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Rmk.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/Rmk.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfAdr.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfAdr.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfOrd.cls" afterPath="$PROJECT_DIR$/loadSheet/src/genLoadSheet.xlsm/RmkLinOfOrd.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Venv.cls" afterPath="$PROJECT_DIR$/loadSheet/src/lib.xlam/Venv.cls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/cur.js" afterPath="$PROJECT_DIR$/ord/cur.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/cur_test.html" afterPath="$PROJECT_DIR$/ord/cur_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ord/index1.html" afterPath="$PROJECT_DIR$/ord/index1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="" />
     <ignored path="pgm.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

@@ -1,5 +1,5 @@
-TripChiNm  = 2015-02-01-Trip-001
-DriverTy   = DriverTy   
-Driver     = Driver
-Leader     = Leader
-Member     = Member
+TripChiNm = 2015-02-01-Trip-001
+DriverTy = DriverTy2
+Driver = Driver2
+Leader = Leader2
+Member = Member2
