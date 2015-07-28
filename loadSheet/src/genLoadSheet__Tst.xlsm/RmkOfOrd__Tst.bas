@@ -2,9 +2,6 @@ Attribute VB_Name = "RmkOfOrd__Tst"
 Option Explicit
 Dim M As RmkOfOrd
 'Private Const Inspect = True
-Sub AAA()
-TstAll_RmkOfOrd
-End Sub
 
 Sub TstAll_RmkOfOrd()
 Debug.Print "TstAll_RmkOfOrd ------------------------"

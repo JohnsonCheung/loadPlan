@@ -8,28 +8,25 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Option Explicit
-Public A_Pj As VBProject
-Function NewPj(Pj As VBProject) As Pj
-Set A_Pj = Pj
+Public A_VbPj As VBProject
+Function NewPj(VbPj As VBProject) As Pj
+Set A_VbPj = VbPj
 Set NewPj = Me
 End Function
 Function Md(Idx) As Md
 Dim O As New Md
 If IsStr(Idx) Then
-    O.Init A_Pj.VBComponents(Idx).CodeModule
-    Set Md = O
+    Set Md = NewMd(A_VbPj.VBComponents(Idx).CodeModule)
     Exit Function
 End If
 If IsNum(Idx) Then
     Idx = CInt(Idx)
     Dim I As VBComponent
     Dim J%
-    For Each I In A_Pj.VBComponents
+    For Each I In A_VbPj.VBComponents
         If I.Type = vbext_ct_StdModule Or I.Type = vbext_ct_ClassModule Then
             If J = Idx Then
-                Set O = New Md
-                O.Init I.CodeModule
-                Set Md = O
+                Set Md = NewMd(I.CodeModule)
                 Exit Function
             End If
             J = J + 1
@@ -41,19 +38,17 @@ Function ExpPth$()
 
 End Function
 Function Nm$()
-Nm = A_Pj.Name
+Nm = A_VbPj.Name
 End Function
 Function Pth$()
-Pth = FfnPth(A_Pj.Filename)
+Pth = FfnPth(A_VbPj.Filename)
 End Function
 Function MdAy() As Md()
 Dim O() As Md, M As Md
 Dim I As VBComponent
-For Each I In A_Pj.VBComponents
+For Each I In A_VbPj.VBComponents
     If I.Type = vbext_ct_StdModule Or I.Type = vbext_ct_ClassModule Then
-        Set M = New Md
-        M.Init I.CodeModule
-        PushObj O, M
+        PushObj O, NewMd(I.CodeModule)
     End If
 Next
 MdAy = O
@@ -61,9 +56,11 @@ End Function
 Function Export() As PjExpr
 Set Export = Expr.Export
 End Function
+
 Function Fn$()
-Fn = FfnFn(A_Pj.Filename)
+Fn = FfnFn(A_VbPj.Filename)
 End Function
+
 Function Expr() As PjExpr
 Dim O As New PjExpr
 Set Expr = O.NewPjExpr(Me)
@@ -73,7 +70,7 @@ Dim A() As Md, J%
 Dim O$()
 A = MdAy
 For J = 0 To UB(A)
-    Push O, A(J).A_Md.Name
+    Push O, A(J).A_CdMd.Name
 Next
 MdAn = O
 End Function

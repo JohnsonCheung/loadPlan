@@ -10,9 +10,10 @@ Attribute VB_Exposed = True
 Option Explicit
 Public A_Vbe As Vbe
 
-Sub Init(Vbe As Vbe)
+Function NewVenv(Vbe As Vbe) As Venv
 Set A_Vbe = Vbe
-End Sub
+Set NewVenv = Me
+End Function
 
 Function Pj(PjNm$) As Pj
 Dim O As New Pj
@@ -22,7 +23,9 @@ End Function
 Function PjAy(Optional InclStdPj As Boolean = False) As Pj()
 Dim O() As Pj, M As Pj, I As VBProject
 For Each I In A_Vbe.VBProjects
-    If Not IsStdPjNm(I.Name) Then PushObj O, NewPj(I)
+    If Not IsStdPjNm(I.Name) Then
+        PushObj O, NewPj(I)
+    End If
 Next
 PjAy = O
 End Function
@@ -31,7 +34,7 @@ Function ExpSrc() As Venv
 Dim I, Pj As Pj
 For Each I In PjAy
     Set Pj = I
-    I.Export
+    Pj.Export
 Next
 Set ExpSrc = Me
 End Function

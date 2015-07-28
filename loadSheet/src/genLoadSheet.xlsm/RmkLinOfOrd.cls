@@ -34,7 +34,7 @@ If Me.NLin > 1 Then R1.RowHeight = 15 * Me.NLin    '<== Set Height
 '----
     R1.Value = "*" & (Idx + 1)
     R2.Value = Me.Cus
-    R3.Value = UnEscLf(Me.Rmk)
+    R3.Value = UnEscLF(Me.Rmk)
 
 Ws.Range(Ws.Cells(Rno, "C"), Ws.Cells(Rno, Ws1LastCol)).Merge '<== Merge
 

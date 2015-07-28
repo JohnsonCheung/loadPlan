@@ -11,6 +11,13 @@ Next
 AyIsEq = True
 End Function
 
+Function AyHas(Ay, Itm) As Boolean
+Dim J&
+For J = 0 To UB(Ay)
+    If Ay(J) = Itm Then AyHas = True: Exit Function
+Next
+End Function
+
 Sub PushObj(Ay, Obj As Object)
 Dim N&
 N = Sz(Ay)

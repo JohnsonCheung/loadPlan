@@ -1,9 +1,0 @@
-2013-12-25 柯打#1 地址#3 交貨#3
-shtNm-cus1
-載貨計劃系統地址3
-sdf content Rmk 4\nsdf content Rmk 5\nsdf content Rmk 6
-4.0 CBM
-4, 5
-ordBy - ABC
-
-1, 4

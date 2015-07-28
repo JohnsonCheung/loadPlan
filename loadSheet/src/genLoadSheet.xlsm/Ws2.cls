@@ -77,13 +77,14 @@ End Property
 
 Sub FillWs(Wb As Workbook)
 Wb.Application.ScreenUpdating = False
-Set Wb = WbNewWs(Wb, AtEnd:=True)
 Dim Ws As Worksheet
-Set Ws = Wb.Sheets(1)
+    Set Ws = WbNewWs(Wb, AtEnd:=True)
+    Ws.Name = "附頁"
+
 Dim J%, ORno%, CusCd$, ContentRmk$, AttFn$, M As Att
 ORno = 1
 If NAtt = 0 Then
-    Ws.Range("A1").Value = "No attachement pages"
+    Ws.Range("A1").Value = "沒有附頁"
 Else
     Ws.Range("A:A").ColumnWidth = 10
     Ws.Range("B:B").ColumnWidth = 70
@@ -95,14 +96,20 @@ Else
         rPutOneAtt Ws, ORno, CusCd, ContentRmk, AttFn
     Next
     '--
-    Dim TripNm$
-    TripNm = Mid(AttFn, 6, 20 - 6)
-    Ws.PageSetup.CenterHeader = "行程 " & TripNm
-    Ws.PageSetup.CenterFooter = "附頁 &P 之 &N"
+    Dim PS As PageSetup
+        Dim TripNm$
+        TripNm = Mid(AttFn, 6, 20 - 6)
+        Set PS = Ws.PageSetup
+        PS.FitToPagesWide = 1
+        PS.FitToPagesTall = False
+        PS.Zoom = False
+        PS.CenterHeader = "行程 " & TripNm
+        PS.CenterFooter = "附頁 &P 之 &N"
+
 End If
 End Sub
 
-Sub rPutOneAtt(Ws As Worksheet, ByRef ORno%, CusCd$, ContentRmk$, AttFn$)
+Sub rPutOneAtt(Ws As Worksheet, ByRef ORno%, Cus$, Content$, AttFn$)
 'AttFn fmt = Trip-2015-01-01#001 Att-02 (Ord-2015-01-01#1234 Content-02).png
 '            123456789012345678901234567890123456789012345678901234567890123
 '                     1         2         3         4         5         6
@@ -113,27 +120,44 @@ If ORno <> 1 Then Ws.HPageBreaks.Add Before:=Ws.Range("A" & ORno)      '<== Set 
 
 Dim A$, J%
 
-Dim OrdNm$, AttNo%, ContentNo%  '<- AttFn
+Dim Ord$, AttNo%, ContentNo%  '<- AttFn
     A = AttFn
     AttNo = Mid(A, 25, 2)
-    OrdNm = Mid(A, 33, 48 - 33)
+    Ord = Mid(A, 33, 48 - 33)
     ContentNo = Mid(A, 57, 2)
 
-Ws.Range("A" & ORno).Value = "客戶" '<== Put Nm
-Ws.Range("B" & ORno).Value = CusCd  '<== Put Nm
-ORno = ORno + 1                     '<== ORno++
+Dim A1 As Range, B1 As Range
+Dim A2 As Range, B2 As Range
+Dim A3 As Range, B3 As Range
 
-Ws.Range("A" & ORno).Value = "柯打"  '<== Put Nm
-Ws.Range("B" & ORno).Value = OrdNm   '<== Put Nm
-ORno = ORno + 1                      '<== ORno++
+    Set A1 = WsRC(Ws, ORno, "A")
+    Set B1 = WsRC(Ws, ORno, "B")
+    Set A2 = WsRC(Ws, ORno + 1, "A")
+    Set B2 = WsRC(Ws, ORno + 1, "B")
+    Set A3 = WsRC(Ws, ORno + 2, "A")
+    Set B3 = WsRC(Ws, ORno + 2, "B")
+    
+    
+A1.Value = "客戶" '<== Put Nm
+A2.Value = "柯打"  '<== Put Nm
+A3.Value = "送貨內容"
 
-Ws.Range("A" & ORno).Value = "送貨內容"
-Ws.Range("A" & ORno).VerticalAlignment = XlVAlign.xlVAlignCenter
-Ws.Range("B" & ORno).WrapText = True
-Ws.Range("B" & ORno).Value = "(" & ContentNo & ") " & Replace(ContentRmk, "\n", Chr(10))
-Ws.Range("B" & ORno).VerticalAlignment = XlVAlign.xlVAlignCenter
+B1.Value = Cus
+B2.Value = Ord
+B3.Value = UnEscLF(Content)
+B3.EntireRow.AutoFit
 
-ORno = ORno + 1                       '<== ORno++
+A1.ColumnWidth = 10
+B1.ColumnWidth = 80
+
+Dim R As Range
+    Set R = Ws.Range(A1, B3)
+    RgeSetBdrGrid R
+
+
+A3.VerticalAlignment = XlVAlign.xlVAlignCenter
+
+ORno = ORno + 2                       '<== ORno++
 
 Dim Ffn$
     Ffn = Fdr & "\" & AttFn

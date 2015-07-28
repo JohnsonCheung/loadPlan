@@ -10,6 +10,7 @@ Attribute VB_Exposed = True
 Option Explicit
 Public A_Dic As Dictionary
 Public Adr As String
+Public AdrCd As String
 Public AdrContact As String
 Public AdrPhone As String
 Public Content As String
@@ -29,6 +30,7 @@ Set A_Dic = NewDyByFt(F).A_Dic
      Set D = A_Dic
      OrdNo = D("OrdNo")
        Cus = D("Cus")
+     AdrCd = D("AdrCd")
        Adr = D("Adr")
    Content = D("Content")
        Qty = D("Qty")
@@ -42,6 +44,5 @@ Set NewDropLin = Me
 End Function
 
 Sub FillWs(Ws As Worksheet, Rno&)
-WsFillRowByDic Ws, Rno, A_Dic, NmPfx:="L_", Span2Lvs:="Adr"
-
+WsFillRowByDic Ws, Rno, A_Dic, NmPfx:="L_", AlignLeftLvs:="Adr Content"
 End Sub

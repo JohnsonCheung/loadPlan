@@ -1,6 +1,0 @@
-2015-01-01
-1
-INT
-aa
-leader-trip1
-member-trip1

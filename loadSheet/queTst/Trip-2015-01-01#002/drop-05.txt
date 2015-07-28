@@ -1,5 +1,6 @@
 OrdNo = OrdNo#5\nAdr#2\nDrop#1
 Cus = Cus5
+AdrCd = AdrCd-5
 Adr = Adr5-Line#1\nAdr-Line#2\nAdr-Line#3 Long-Long-Line sldkjf lskdj flskdj flskdj f\nAdr-Line#4
 Content = Content5-Line#1  sdlf sdlf sldkf skdl fslkdjf skdljf ksdj fklsd flksd jfklsd jflkds flskd f\nContent-Line#2 lksdjf\nContent-Line#3
 Qty = Qty5 123 CBM

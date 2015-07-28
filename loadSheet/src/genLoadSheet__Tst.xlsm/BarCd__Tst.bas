@@ -1,20 +1,23 @@
 Attribute VB_Name = "BarCd__Tst"
 Option Explicit
+'Const Inspect = True
 Sub TstAll_BarCd()
+Debug.Print "TstAll_BarCd -----------------"
 NewBarCd__Tst
 PutBarCd__Tst
 End Sub
 
 Private Sub PutBarCd__Tst()
-Dim Ws As Worksheet, Wb As Workbook
-Set Ws = WsNew
-Set Wb = Ws.Parent
-WsLoadSheet.Copy Ws
-Set Ws = Wb.Sheets(1)
+CpyQue2
+Dim Ws As Worksheet
+    Set Ws = NewWs1(C_Seg2).AddWs1(WbNew)
 
 NewBarCd(C_Seg1).PutBarCd Ws
-Ws.Application.Visible = True
-Logr.Brw
+If Inspect Then
+    Ws.Application.Visible = True
+    Stop
+End If
+WsWb(Ws).Close False
 Pass "PutBarCd__Tst"
 End Sub
 

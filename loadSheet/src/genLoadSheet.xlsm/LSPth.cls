@@ -36,3 +36,8 @@ If O = "" Then O = PthCur & "QueTst\"
 QueTst = O
 End Property
 
+Function Oup$(YY%, MM%, DD%)
+Dim A$
+    A = PthNorm(PthCur & "..\..\loadSheet\")
+Oup = A & YY & "\" & Format(MM, "00") & "\" & Format(DD, "00") & "\"
+End Function

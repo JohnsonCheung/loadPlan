@@ -15,6 +15,7 @@ Function NewLoadSheet(Seg$)
 Fx = NewLoadSheet__GetFx(Seg)
 Ws2.NewWs2 Seg     '<- must before Ws1.Init ..
 Ws1.NewWs1 Seg
+Set NewLoadSheet = Me
 End Function
 
 Sub Gen()
@@ -42,10 +43,6 @@ Dim Nm1$, Nm2$, Nm, Ws As Worksheet, WsNmAy$()
 '--- Activate Ws A1
 Set Ws = Wb.Sheets(1)
 Ws.Activate
-Ws.Range("A1").Select
-Ws.Range("A1").Activate
-Ws.Range("A1").Show
-Ws.Range("D2").Select
 
 '-- Save and Close the Wb
 Gen__SavWb Wb, Fx

@@ -41,25 +41,25 @@ Application.DisplayAlerts = False ' Because there is invisible Wb-names: LOCAL_D
                                   ' When copying two worksheet the Wb-names will exist
 Set A_Ws = AddWs1(Wb)
 Dim Ws As Worksheet
-Set Ws = A_Ws
+    Set Ws = A_Ws
 
 Application.DisplayAlerts = AA
 
+Dim Rno&
+    Rno = 12
+
 Hdr.FillWs Ws      '<-- Hdr
 BarCd.PutBarCd Ws  '<-- PutBarCd
-Dim Rno&
-Rno = 11
 Drop.FillWs Ws, Rno
 Rmk.FillWs Ws, Rno + 1 '<-- Rmk
 
-Dim C1%, R1%, C2, R2%
-
 Dim PrtAreaRge As Range
+    Dim C1%, R1%, C2, R2%
     C1 = 1
-    R1 = 11
+    R1 = 12
     C2 = Ws1LastCol
-    R2 = 11 + Drop.NDrop + (Rmk.NLin) + 1
-    Set PrtAreaRge = Ws.Range(Ws.Cells(R1, C1), Ws.Cells(R2, C2))
+    R2 = 12 + Drop.NDrop + (Rmk.NLin)
+    Set PrtAreaRge = WsRCRC(Ws, R1, C1, R2, C2)
 
 PrtAreaRge.Worksheet.PageSetup.PrintArea = PrtAreaRge.Address   '<== Set print area
 
@@ -68,4 +68,9 @@ Dim A$, B$
     B = "¦æµ{: " & Hdr.TripChiNm
 Ws.PageSetup.LeftFooter = A     '<== Set Footer
 Ws.PageSetup.RightFooter = B    '<== Set Footer
+
+Ws.Range("A1").Select
+Ws.Range("A1").Activate
+Ws.Range("A1").Show
+Ws.Range("E2").Select
 End Sub

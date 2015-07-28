@@ -1,9 +1,0 @@
-2013-12-25 柯打#1 地址#1
-shtNm
-載貨計劃系統地址1
-sdf content Rmk 1\nsdf content Rmk 2\nsdf content Rmk 3
-1.0 CBM
-
-
-
-1, 2

@@ -12,10 +12,19 @@ Public A_Pj As Pj
 
 Property Get Pth$()
 Dim O$
-O = A_Pj.Pth & "Src\": If Not Fso.FolderExists(O) Then MkDir O
+Dim F$
+    F = Pth__File
+If F = "" Then Exit Property
+O = FfnPth(F) & "Src\": If Not Fso.FolderExists(O) Then MkDir O
 O = O & A_Pj.Fn & "\": If Not Fso.FolderExists(O) Then MkDir O
 Pth = O
 End Property
+
+Private Function Pth__File$()
+On Error GoTo X
+Pth__File = A_Pj.A_VbPj.Filename
+X:
+End Function
 
 Function NewPjExpr(Pj As Pj) As PjExpr
 Set A_Pj = Pj
@@ -23,12 +32,17 @@ Set NewPjExpr = Me
 End Function
 
 Function Export() As PjExpr
-PthDlt_File Me.Pth
-Dim A() As Md, J%
-A = A_Pj.MdAy
-For J = 0 To UB(A)
-    A(J).Export
-Next
+Dim P$
+    P = Pth
+
+If P <> "" Then
+    PthDlt_File Me.Pth
+    Dim A() As Md, J%
+    A = A_Pj.MdAy
+    For J = 0 To UB(A)
+        A(J).Export
+    Next
+End If
 Set Export = Me
 End Function
 

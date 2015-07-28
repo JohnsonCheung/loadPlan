@@ -1,5 +1,11 @@
 Attribute VB_Name = "Ws1__Tst"
 Option Explicit
+Const Inspect = True
+
+Sub AAA()
+FillWs__Tst
+End Sub
+
 Sub TstAll_Ws1()
 NewWs1__Tst
 FillWs__Tst
@@ -8,9 +14,12 @@ End Sub
 Private Sub FillWs__Tst()
 CpyQue1
 Dim Wb As Workbook
-Set Wb = WbNew
+    Set Wb = WbNew
 NewWs1(C_Seg1).FillWs Wb
-Stop
+If Inspect Then
+    Application.Visible = True
+    Stop
+End If
 Wb.Close False
 Pass "FillWs__Tst"
 End Sub

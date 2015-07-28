@@ -8,20 +8,21 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Option Explicit
-Public A_Md As CodeModule
-Sub Init(Md As CodeModule)
-Set A_Md = Md
-End Sub
+Public A_CdMd As CodeModule
+Function NewMd(CdMd As CodeModule) As Md
+Set A_CdMd = CdMd
+Set NewMd = Me
+End Function
 Property Get Cmp() As VBComponent
 If IsNoMd Then Exit Property
-Set Cmp = A_Md.Parent
+Set Cmp = A_CdMd.Parent
 End Property
 Property Get IsNoMd() As Boolean
-IsNoMd = IsNothing(A_Md)
+IsNoMd = IsNothing(A_CdMd)
 End Property
 Property Get Nm$()
 If IsNoMd Then Exit Function
-Nm = A_Md.Parent.Name
+Nm = A_CdMd.Parent.Name
 End Property
 Sub BrwExportSrc()
 FtBrw Pj.Pth & Fn

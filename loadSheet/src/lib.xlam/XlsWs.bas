@@ -17,7 +17,11 @@ Function WsWb(Ws As Worksheet) As Workbook
 Set WsWb = Ws.Parent
 End Function
 
-Sub WsFillRowByDic(Ws As Worksheet, Rno&, Dic As Dictionary, Optional NmPfx$ = "", Optional Span2Lvs$ = "")
+Function WsRCRC(Ws As Worksheet, R1, C1, R2, C2) As Range
+Set WsRCRC = Ws.Range(WsRC(Ws, R1, C1), WsRC(Ws, R2, C2))
+End Function
+
+Sub WsFillRowByDic(Ws As Worksheet, Rno&, Dic As Dictionary, Optional NmPfx$ = "", Optional Span2Lvs$ = "", Optional AlignLeftLvs$ = "")
 Dim K(), J%, Cno%, Rge As Range, Nm As Name
 K = Dic.Keys
 For J = 0 To UB(K)
@@ -35,6 +39,17 @@ For J = 0 To UB(Ay)
     Set Nm = Ws.Names(NmPfx & Ay(J))
     C = Nm.RefersToRange.Column
     WsRCC(Ws, Rno, C, C + 1).MergeCells = True
+Next
+
+Dim Ay1$()
+    Ay1 = Split(AlignLeftLvs, " ")
+For J = 0 To UB(K)
+    Set Nm = Ws.Names(NmPfx & K(J))
+    Cno = Nm.RefersToRange.Column
+    Set Rge = Ws.Cells(Rno, Cno)
+    Dim A As XlHAlign
+    A = IIf(AyHas(Ay1, K(J)), xlHAlignLeft, xlHAlignCenter)
+    Rge.HorizontalAlignment = A
 Next
 End Sub
 

@@ -1,9 +1,12 @@
-OrdNo#1\nAdr#1\nDrop#1
-Cust
-Adr-Line#1\nAdr-Line#2\nAdr-Line#3 Long-Long-Line sldkjf lskdj flskdj flskdj f\nAdr-Line#4
-Content-Line#1  sdlf sdlf sldkf skdl fslkdjf skdljf ksdj fklsd flksd jfklsd jflkds flskd f\nContent-Line#2 lksdjf\nContent-Line#3
-10 Packs
-PagList 1 2 3
-OrdBy#1\nTel#123456
-Contactsld sldkf\nslkdfjsdf
-RmkNo 1 2 3
+OrdNo = OrdNo#2\nAdr#1\nDrop#1
+Cus = Cus2
+AdrCd = AdrCd-2
+Adr = Adr-Line#1\nAdr-Line#2\nAdr-Line#3 Long-Long-Line sldkjf lskdj flskdj flskdj f\nAdr-Line#4
+Content = Content-Line#1  sdlf sdlf sldkf skdl fslkdjf skdljf ksdj fklsd flksd jfklsd jflkds flskd f\nContent-Line#2 lksdjf\nContent-Line#3
+Qty = 10 Packs
+PagList = 1 2 3
+OrdBy = OrdBy#2\nTel#123456
+AdrContact = Contact1 sld sldkf\nslkdfjsdf
+AdrPhone = AdrPhone2
+RmkOfAdr = @1
+RmkOfOrd = *1

@@ -47,8 +47,10 @@ End Sub
 Private Sub Gen__Tst()
 CpyQue
 
-Dim N%
-    N = Sz(PthAyFdr(LSPth.QueErr))
+Dim NErSeg%
+Dim NOupSeg%
+    NErSeg = Sz(PthAyFdr(LSPth.QueErr))
+    NOupSeg = Sz(PthAyFn(LSPth.Oup(2015, 1, 1)))
 
 Dim Ay$()
     Ay = PthAyFdr(LSPth.Que)
@@ -60,16 +62,15 @@ NewFdr(C_Seg1).Gen
     Ay = PthAyFdr(LSPth.Que)
     Debug.Assert Sz(Ay) = 1
     Debug.Assert Ay(0) = C_Seg2
-
-Debug.Assert N = Sz(PthAyFdr(LSPth.QueErr))
+    Debug.Assert NErSeg = Sz(PthAyFdr(LSPth.QueErr))
+    Debug.Assert NOupSeg + 1 = Sz(PthAyFn(LSPth.Oup(2015, 1, 1))) '<-- 1 Oup is generated
 
 NewFdr(C_Seg2).Gen
     Ay = PthAyFdr(LSPth.Que)
     Debug.Assert Sz(Ay) = 0
+    Debug.Assert NErSeg = Sz(PthAyFdr(LSPth.QueErr))
+    Debug.Assert NOupSeg + 2 = Sz(PthAyFn(LSPth.Oup(2015, 1, 1))) '<-- 2 Oup is generated
 
-Debug.Assert N = Sz(PthAyFdr(LSPth.QueErr))
-
-CpyQue
 Pass "Gen__Tst"
 End Sub
 
