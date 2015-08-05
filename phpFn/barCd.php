@@ -23,13 +23,6 @@ class BarCd
         imagedestroy($t);
     }
 
-    function save_file($file)
-    {
-        $t = $this->thumb();
-        imagepng($t, $file);
-        imagedestroy($t);
-    }
-
     function thumb() //Get the barcode font (called 'free3of9') from here http://www.barcodesinc.com/free-barcode-font/
     {
         $s = $this->s;
@@ -50,5 +43,12 @@ class BarCd
         imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, 40, 10, 10); // copy image to thumb
         imagettftext($thumb, $font_height, 0, 1, 40, $black, 'c:\\windows\\fonts\\Free3of9.ttf', $s); // add text to image
         return $thumb;
+    }
+
+    function save_file($file)
+    {
+        $t = $this->thumb();
+        imagepng($t, $file);
+        imagedestroy($t);
     }
 }

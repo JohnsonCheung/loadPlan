@@ -1,20 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: USER
+ * Date: 2015-07-08
+ * Time: 15:38
+ */
+
 require_once 'ay.php';
 require_once 'str.php';
 const Q = "'";
-function is_server() {
-    return isset($_SERVER['HTTP_HOST']);
-}
-function pgmMsg($con, $lang, $msgNm, ...$ay)
+
+function db_con($dbNm = "loadplan")
 {
-    $sql = "select lbl from lblMsg where msgNm='$msgNm' and lang='$lang'; ";
-    $isAny = runsql_isAny($con, $sql);
-    if(!$isAny) {
-        runsql_exec($con, "insert into lblMsg (lang, msgNm, lbl) values ('$lang', '$msgNm', '$msgNm');");
-        return $msgNm + ": " + print_r($ay, true);
-    }
-    $msgTxt = runsql_val($con, $sql);
-    return fmtAy($msgTxt,$ay);
+    $o = new mysqli("localhost", "root", "ritachan", $dbNm);
+    if ($o->connect_errno)
+        die("Failed to connect to MySQL: " . $o->connect_error);
+    mysqli_set_charset($o, 'utf8');
+    return $o;
 }
 
 function db_cvStr(mysqli $con, $s)
@@ -27,88 +29,17 @@ function db_cvStr(mysqli $con, $s)
     throw new Exception("dta is not string nor NULL, but [$a]");
 }
 
-function logFt($varNm, $val, $ft)
+function nz($a, $nz)
 {
-    $fd = fopen("c:/temp/$ft", "a");
-    fwrite($fd, "\r\n-------------\r\n");
-    fwrite($fd, $varNm . "\r\n");
-    $o = print_r($val, true);
-    fwrite($fd, $o);
-    fclose($fd);
+    return $a ? $a : $nz;
 }
 
-function runsql_dataObj(mysqli $con, $sql)
-{
-    $o = [];
-    $res = runsql($con, $sql);
-    for ($j = 0; $j < $res->num_rows; $j++) {
-        $res->data_seek($j);
-        $row = $res->fetch_object();
-        array_push($o, $row);
-    }
-    $res->free();
-    $con->next_result();
-    return $o;
-}
 
-function runsql_dro(mysqli $con, $sql)
+function runsp(mysqli $con, $sql)
 {
-    $res = runsql($con, $sql);
-    $o = $res->fetch_object();
-    $res->free();
-    $con->next_result();
-    return $o;
-}
-
-function runsql_exec(mysqli $con, $sql)
-{
-    runsql($con, $sql);
-    $o = $con->affected_rows;
-    $con->next_result();
-    return $o;
-}
-
-function runsql_pk(mysqli $con, $sql, $pk, $resulttype = MYSQLI_ASSOC)
-{
-    return ay_pk(runsql_dta($con, $sql, $resulttype), $pk);
-}
-
-function runsql_keyVal(mysqli $con, $sql)
-{
-    // return all records from $sql as Key=>Val.  Assuming $sql return 2 columns: first column is unique
-    $o = [];
-    $res = $con->query($sql);
+    $res = $con->real_query($sql);
     if ($res === false) throw new Exception("{$con->error}\nSql: [$sql]\n\n");
-    for ($j = 0; $j < $res->num_rows; $j++) {
-        $res->data_seek($j);
-        $row = $res->fetch_array(MYSQLI_NUM);
-        $o[$row[0]] = $row[1];
-    }
-    $res->free();
-    $con->next_result();
-    return $o;
-}
-
-function runsp_dro(mysqli $con, $sql)
-{
-    /** @var  $res mysqli_result */
-    $res = runsql($con, $sql);
-    if ($res->num_rows !== 1) throw Exception("sql return 0 rows.  Sql=[$sql]");
-    $o = $res->fetch_object();
-    $res->free();
-    $con->next_result();
-    return $o;
-}
-
-function runsp_rs(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
-{
-    /** @var  $res string */
-    $res = runsql($con, $sql);
-    if ($res->num_rows === 0) return [];
-    $dta = $res->fetch_all($resulttype);
-    $res->free();
-    $con->next_result();
-    return dta_rs($dta);
+    return $con->store_result();
 }
 
 function runsp_dic(mysqli $con, $sp_ofTwoCol_first_isPk)
@@ -125,6 +56,17 @@ function runsp_dic(mysqli $con, $sp_ofTwoCol_first_isPk)
     return $o;
 }
 
+function runsp_dro(mysqli $con, $sql)
+{
+    /** @var  $res mysqli_result */
+    $res = runsql($con, $sql);
+    if ($res->num_rows !== 1) throw Exception("sql return 0 rows.  Sql=[$sql]");
+    $o = $res->fetch_object();
+    $res->free();
+    $con->next_result();
+    return $o;
+}
+
 function runsp_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
 {
     $res = runsql($con, $sql);
@@ -134,20 +76,15 @@ function runsp_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
     return $dta;
 }
 
-function dta_rs(array $dta)
+function runsp_rs(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
 {
-    if (count($dta) === 0) return [];
-    $row0 = $dta[0];
-    reset($row0);
-    $pkNm = each($row0)["key"];
-    $o = [];
-    foreach ($dta as $dr) {
-        $pk = $dr[$pkNm];
-        if (in_array($pk, $o))
-            throw new Exception("dup pk: $pkNm[$pk]");
-        $o[$pk] = $dr;
-    }
-    return $o;
+    /** @var  $res string */
+    $res = runsql($con, $sql);
+    if ($res->num_rows === 0) return [];
+    $dta = $res->fetch_all($resulttype);
+    $res->free();
+    $con->next_result();
+    return dta_rs($dta);
 }
 
 /** @return mysqli_result */
@@ -158,27 +95,23 @@ function runsql(mysqli $con, $sql)
     return $res;
 }
 
-function runsp(mysqli $con, $sql)
+function runsql_bool(mysqli $con, $sql)
 {
-    $res = $con->real_query($sql);
-    if ($res === false) throw new Exception("{$con->error}\nSql: [$sql]\n\n");
-    return $con->store_result();
+    return boolval(runsql_val($con, $sql));
 }
 
-function runsql_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
+function runsql_dataObj(mysqli $con, $sql)
 {
-    /** @var $res mysqli_result */
+    $o = [];
     $res = runsql($con, $sql);
-    $o = $res->fetch_all($resulttype);
+    for ($j = 0; $j < $res->num_rows; $j++) {
+        $res->data_seek($j);
+        $row = $res->fetch_object();
+        array_push($o, $row);
+    }
     $res->free();
     $con->next_result();
     return $o;
-}
-
-function runsql_isAny(mysqli $con, $sql)
-{
-    $res = runsql($con, $sql);
-    return $res->num_rows > 0;
 }
 
 function runsql_datetime(mysqli $con, $sql)
@@ -202,37 +135,6 @@ function runsql_dc(mysqli $con, $sql)
     return $o;
 }
 
-function runsql_bool(mysqli $con, $sql)
-{
-    return boolval(runsql_val($con, $sql));
-}
-
-function runsql_val(mysqli $con, $sql)
-{
-    $res = runsql($con, $sql);
-    if ($res->num_rows == 0) {
-        $msg = $con->error;
-        throw new Exception("no rec return sql[$sql]  sqlMsg=[$msg]");
-    }
-    $o = $res->fetch_row()[0];
-    $res->free();
-    $con->next_result();
-    return $o;
-}
-
-function runsql_drObj(mysqli $con, $sql)
-{
-    $res = runsql($con, $sql);
-    if ($res->num_rows == 0) {
-        return [];
-    }
-    $res->data_seek(0);
-    $o = $res->fetch_object();
-    $res->free();
-    $con->next_result();
-    return $o;
-}
-
 function runsql_dic(mysqli $con, $sql_ofTwoCol_first_isPk)
 {
     $res = runsql($con, $sql_ofTwoCol_first_isPk);
@@ -245,20 +147,6 @@ function runsql_dic(mysqli $con, $sql_ofTwoCol_first_isPk)
         $o[$pk] = $dr[1];
     }
     return $o;
-}
-
-function runsql_rs(mysqli $con, $sql)
-{
-    $res = runsql($con, $sql);
-    $dta = $res->fetch_all(MYSQLI_ASSOC);
-    $res->free();
-    $con->next_result();
-    return dta_rs($dta);
-}
-
-function runsql_list(mysqli $con, $sql)
-{
-    return runsql_dr($con, $sql, MYSQLI_NUM);
 }
 
 /** @return array */
@@ -277,18 +165,101 @@ function runsql_dr(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
     }
 }
 
+function runsql_drObj(mysqli $con, $sql)
+{
+    $res = runsql($con, $sql);
+    if ($res->num_rows == 0) {
+        return [];
+    }
+    $res->data_seek(0);
+    $o = $res->fetch_object();
+    $res->free();
+    $con->next_result();
+    return $o;
+}
+
+function runsql_dro(mysqli $con, $sql)
+{
+    $res = runsql($con, $sql);
+    $o = $res->fetch_object();
+    $res->free();
+    $con->next_result();
+    return $o;
+}
+
+function runsql_dta(mysqli $con, $sql, $resulttype = MYSQLI_ASSOC)
+{
+    /** @var $res mysqli_result */
+    $res = runsql($con, $sql);
+    $o = $res->fetch_all($resulttype);
+    $res->free();
+    $con->next_result();
+    return $o;
+}
+
+function runsql_exec(mysqli $con, $sql)
+{
+    runsql($con, $sql);
+    $o = $con->affected_rows;
+    $con->next_result();
+    return $o;
+}
+
 function runsql_int(mysqli $con, $sql)
 {
     return intval(runsql_val($con, $sql));
 }
 
-function db_con($dbNm = "loadplan")
+function runsql_isAny(mysqli $con, $sql)
 {
-    $o = new mysqli("localhost", "root", "ritachan", $dbNm);
-    if ($o->connect_errno)
-        die("Failed to connect to MySQL: " . $o->connect_error);
-    mysqli_set_charset($o, 'utf8');
+    $res = runsql($con, $sql);
+    return $res->num_rows > 0;
+}
+
+function runsql_keyVal(mysqli $con, $sql)
+{
+    // return all records from $sql as Key=>Val.  Assuming $sql return 2 columns: first column is unique
+    $o = [];
+    $res = $con->query($sql);
+    if ($res === false) throw new Exception("{$con->error}\nSql: [$sql]\n\n");
+    for ($j = 0; $j < $res->num_rows; $j++) {
+        $res->data_seek($j);
+        $row = $res->fetch_array(MYSQLI_NUM);
+        $o[$row[0]] = $row[1];
+    }
+    $res->free();
+    $con->next_result();
     return $o;
 }
 
-?>
+function runsql_list(mysqli $con, $sql)
+{
+    return runsql_dr($con, $sql, MYSQLI_NUM);
+}
+
+function runsql_pk(mysqli $con, $sql, $pk, $resulttype = MYSQLI_ASSOC)
+{
+    return ay_pk(runsql_dta($con, $sql, $resulttype), $pk);
+}
+
+function runsql_rs(mysqli $con, $sql)
+{
+    $res = runsql($con, $sql);
+    $dta = $res->fetch_all(MYSQLI_ASSOC);
+    $res->free();
+    $con->next_result();
+    return dta_rs($dta);
+}
+
+function runsql_val(mysqli $con, $sql)
+{
+    $res = runsql($con, $sql);
+    if ($res->num_rows == 0) {
+        $msg = $con->error;
+        throw new Exception("no rec return sql[$sql]  sqlMsg=[$msg]");
+    }
+    $o = $res->fetch_row()[0];
+    $res->free();
+    $con->next_result();
+    return $o;
+}

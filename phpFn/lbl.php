@@ -63,16 +63,29 @@ function lblDic($XXX, $nmLvs, $lang, $con)
             $o[$xxxNm] = $xxxNm;
         }
     }
-    foreach($o as $k=>$v) {
-        $ay= preg_split('/\~/', $v);   // if $k is aaa~bbb~ccc, return an array of [aaa bbb ccc] else return null;
-        if(sizeof($ay)>0) {
-            $o[$k] = str_replace("~","",$v);
-            foreach($ay as $i=>$v1) {
-                $o[$k . ($i+1)] = $v1;
+    foreach ($o as $k => $v) {
+        $ay = preg_split('/\~/', $v);   // if $k is aaa~bbb~ccc, return an array of [aaa bbb ccc] else return null;
+        if (sizeof($ay) > 0) {
+            $o[$k] = str_replace("~", "", $v);
+            foreach ($ay as $i => $v1) {
+                $o[$k . ($i + 1)] = $v1;
             }
         }
     }
     return $o;
+}
+
+
+function pgmMsg($con, $lang, $msgNm, ...$ay)
+{
+    $sql = "select lbl from lblMsg where msgNm='$msgNm' and lang='$lang'; ";
+    $isAny = runsql_isAny($con, $sql);
+    if (!$isAny) {
+        runsql_exec($con, "insert into lblMsg (lang, msgNm, lbl) values ('$lang', '$msgNm', '$msgNm');");
+        return $msgNm + ": " + print_r($ay, true);
+    }
+    $msgTxt = runsql_val($con, $sql);
+    return fmtAy($msgTxt, $ay);
 }
 
 if (@$_SERVER['argv'][0] === __FILE__) {

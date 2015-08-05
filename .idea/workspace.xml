@@ -4,7 +4,43 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="" />
+    <list default="true" id="f72027e4-76ee-4a33-a12e-fed71ee5b535" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xlsm/~$jjVb.xlam" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xlsm/~$jjXls.xlam" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/Ds.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/t/Ds__tst.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/Dt.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/t/Dt__tst.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/ffn.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/ft.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/t/ft__tst.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/obj.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpFn/test.php" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\loadSheet\t\LoadSheet__tst1.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\phpFn\db_new.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\loadPlan\pgm\phpFn\pass.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" afterPath="$PROJECT_DIR$/loadSheet/genLoadSheet.xlsm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/genLoadSheet__Tst.xlsm" afterPath="$PROJECT_DIR$/loadSheet/genLoadSheet__Tst.xlsm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/lib.xlam" afterPath="$PROJECT_DIR$/loadSheet/lib.xlam" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/lib__Tst.xlsm" afterPath="$PROJECT_DIR$/loadSheet/lib__Tst.xlsm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/LoadSheet.php" afterPath="$PROJECT_DIR$/loadSheet/LoadSheet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" afterPath="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/ay.php" afterPath="$PROJECT_DIR$/phpFn/ay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/t/ay__tst.php" afterPath="$PROJECT_DIR$/phpFn/t/ay__tst.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/barCd.php" afterPath="$PROJECT_DIR$/phpFn/barCd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/cmn.php" afterPath="$PROJECT_DIR$/phpFn/cmn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/db.php" afterPath="$PROJECT_DIR$/phpFn/db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/t/dte__tst.php" afterPath="$PROJECT_DIR$/phpFn/t/dte__tst.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/lbl.php" afterPath="$PROJECT_DIR$/phpFn/lbl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pgm.iml" afterPath="$PROJECT_DIR$/.idea/pgm.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/pth.php" afterPath="$PROJECT_DIR$/phpFn/pth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/str.php" afterPath="$PROJECT_DIR$/phpFn/str.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/t/str__tst.php" afterPath="$PROJECT_DIR$/phpFn/t/str__tst.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/sys.php" afterPath="$PROJECT_DIR$/phpFn/sys.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpFn/.idea/workspace.xml" afterPath="$PROJECT_DIR$/phpFn/.idea/workspace.xml" />
+    </list>
     <ignored path="pgm.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -85,102 +121,214 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pth.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
+      <file leaf-file-name="LoadSheet__tst.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
-              <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="btn_recSts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/btn_recSts.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="931">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.0" vertical-offset="7412" max-vertical-offset="8120">
+              <caret line="934" column="13" selection-start-line="934" selection-start-column="13" selection-end-line="934" selection-end-column="13" />
               <folding>
-                <marker date="1434941271161" expanded="true" signature="468:510" placeholder="SELECT isDea..cus..." />
-                <marker date="1434941271161" expanded="true" signature="771:813" placeholder="select cusCd..ord..." />
-                <marker date="1434941271161" expanded="true" signature="889:934" placeholder="select cusCd..cusadr..." />
+                <element signature="e#6#84#0#PHP" expanded="false" />
+                <element signature="e#435#2602#0#PHP" expanded="false" />
+                <element signature="e#470#806#1#PHP" expanded="false" />
+                <element signature="e#841#1163#1#PHP" expanded="false" />
+                <element signature="e#1198#1520#1#PHP" expanded="false" />
+                <element signature="e#1555#1877#1#PHP" expanded="false" />
+                <element signature="e#1912#2234#1#PHP" expanded="false" />
+                <element signature="e#2269#2591#1#PHP" expanded="false" />
+                <element signature="e#3084#5689#0#PHP" expanded="false" />
+                <element signature="e#3108#3400#1#PHP" expanded="false" />
+                <element signature="e#3419#3714#1#PHP" expanded="false" />
+                <element signature="e#3733#4024#1#PHP" expanded="false" />
+                <element signature="e#4043#4449#1#PHP" expanded="false" />
+                <element signature="e#4468#4858#1#PHP" expanded="false" />
+                <element signature="e#4877#5266#1#PHP" expanded="false" />
+                <element signature="e#5285#5678#1#PHP" expanded="false" />
+                <element signature="n#GenPng__tst#0;n#!!top" expanded="false" />
+                <element signature="n#setup#0;n#GenPng__tst#0;n#!!top" expanded="false" />
+                <element signature="n#GenRmkOfAdr__tst#0;n#!!top" expanded="false" />
+                <element signature="e#7127#7272#0#PHP" expanded="false" />
+                <element signature="e#7397#7596#0#PHP" expanded="false" />
+                <element signature="e#7708#7871#0#PHP" expanded="false" />
+                <element signature="e#8002#8157#0#PHP" expanded="false" />
+                <element signature="n#setup#0;n#GenRmkOfAdr__tst#0;n#!!top" expanded="false" />
+                <element signature="e#8247#8649#0#PHP" expanded="false" />
+                <element signature="n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+                <element signature="e#9266#9388#0#PHP" expanded="false" />
+                <element signature="n#test_ord_cus#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+                <element signature="e#9506#9638#0#PHP" expanded="false" />
+                <element signature="e#9737#9820#0#PHP" expanded="false" />
+                <element signature="n#test_oupAy#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+                <element signature="e#9951#10078#0#PHP" expanded="false" />
+                <element signature="n#setup#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+                <element signature="e#10168#10510#0#PHP" expanded="false" />
+                <element signature="n#test_inpRmk_OfAdr#0;n#Inp__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_inpRmk_OfOrd#0;n#Inp__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_inpTrip#0;n#Inp__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_hdrAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="n#test_ord_n_contentNo__pagNo__dic#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#28111#28232#0#PHP" expanded="false" />
+                <element signature="n#test_rmkAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+                <element signature="e#28365#28899#0#PHP" expanded="false" />
+                <element signature="n#test_rmkNo_OfAdr#0;n#functions__tst#0;n#!!top" expanded="false" />
+                <element signature="e#29739#29844#0#PHP" expanded="false" />
+                <element signature="n#test_rmkNo_OfOrdAdr#0;n#functions__tst#0;n#!!top" expanded="false" />
+                <element signature="e#29997#30114#0#PHP" expanded="false" />
+                <element signature="n#setup#0;n#functions__tst#0;n#!!top" expanded="false" />
+                <element signature="e#30216#30497#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cur.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ord/cur.js">
+      <file leaf-file-name="Dta.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/phpFn/Dta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3615917" vertical-offset="0" max-vertical-offset="1729">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#89#0" expanded="true" />
-                <element signature="e#1854#2290#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cur.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/cur.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1919">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.375" vertical-offset="2409" max-vertical-offset="5530">
+              <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cur_test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/cur_test.html">
+      <file leaf-file-name="LoadSheet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7142856" vertical-offset="171" max-vertical-offset="798">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/index1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="741">
-              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dspH.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ord/dspH.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.9565217" vertical-offset="268" max-vertical-offset="812">
+              <caret line="385" column="1" selection-start-line="385" selection-start-column="1" selection-end-line="385" selection-end-column="1" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#6#84#0#PHP" expanded="false" />
+                <element signature="n#LoadSheet#0;n#!!top" expanded="false" />
+                <element signature="n#gen#0;n#LoadSheet#0;n#!!top" expanded="false" />
+                <element signature="e#421#520#0#PHP" expanded="false" />
+                <element signature="n#getTripId#0;n#LoadSheet#0;n#!!top" expanded="false" />
+                <element signature="e#1648#1786#1#PHP" expanded="false" />
+                <element signature="e#1819#2196#0#PHP" expanded="false" />
+                <element signature="e#1867#1981#0#PHP" expanded="false" />
+                <element signature="e#2033#2160#0#PHP" expanded="false" />
+                <element signature="e#2239#2373#0#PHP" expanded="false" />
+                <element signature="e#2285#2363#0#PHP" expanded="false" />
+                <element signature="n#GenBarCd#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenBarCd#0;n#!!top" expanded="false" />
+                <element signature="n#gen#0;n#GenBarCd#0;n#!!top" expanded="false" />
+                <element signature="n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+                <element signature="e#3451#3744#0#PHP" expanded="false" />
+                <element signature="n#ordAdr_cus_adr#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+                <element signature="e#3950#4373#0#PHP" expanded="false" />
+                <element signature="n#gen#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+                <element signature="n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+                <element signature="e#5005#5216#0#PHP" expanded="false" />
+                <element signature="n#ord_cus#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+                <element signature="e#5380#5626#0#PHP" expanded="false" />
+                <element signature="n#gen#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+                <element signature="n#GenHdr#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenHdr#0;n#!!top" expanded="false" />
+                <element signature="e#5956#6149#0#PHP" expanded="false" />
+                <element signature="n#gen#0;n#GenHdr#0;n#!!top" expanded="false" />
+                <element signature="n#GenPng#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenPng#0;n#!!top" expanded="false" />
+                <element signature="e#6418#7037#0#PHP" expanded="false" />
+                <element signature="e#6776#7027#0#PHP" expanded="false" />
+                <element signature="n#gen#0;n#GenPng#0;n#!!top" expanded="false" />
+                <element signature="e#7085#7194#0#PHP" expanded="false" />
+                <element signature="n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="e#7823#9178#0#PHP" expanded="false" />
+                <element signature="n#dicOf_contentLines#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#dicOf_pageNoList#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#dicOf_rmkNoList#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#bld_qty#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#gen#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="e#10034#10172#0#PHP" expanded="false" />
+                <element signature="n#dropFfn#0;n#GenDrop#0;n#!!top" expanded="false" />
+                <element signature="n#Trip#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#Trip#0;n#!!top" expanded="false" />
+                <element signature="n#nm#0;n#Trip#0;n#!!top" expanded="false" />
+                <element signature="n#__construct#0;n#Inp#0;n#!!top" expanded="false" />
+                <element signature="e#11431#11536#1#PHP" expanded="false" />
+                <element signature="e#11553#11658#1#PHP" expanded="false" />
+                <element signature="n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="n#attDta#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#12454#12691#0#PHP" expanded="false" />
+                <element signature="e#12584#12681#0#PHP" expanded="false" />
+                <element signature="e#12738#13608#0#PHP" expanded="false" />
+                <element signature="e#13010#13598#0#PHP" expanded="false" />
+                <element signature="e#13108#13584#0#PHP" expanded="false" />
+                <element signature="e#13171#13531#0#PHP" expanded="false" />
+                <element signature="e#13266#13531#0#PHP" expanded="false" />
+                <element signature="n#ordContent__contentLines__dic#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#13826#14333#0#PHP" expanded="false" />
+                <element signature="e#13963#14093#0#PHP" expanded="false" />
+                <element signature="e#14106#14281#0#PHP" expanded="false" />
+                <element signature="n#ordDrop_contentLines_dic#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#14656#15251#0#PHP" expanded="false" />
+                <element signature="e#14789#15241#0#PHP" expanded="false" />
+                <element signature="e#14923#15128#0#PHP" expanded="false" />
+                <element signature="n#ordDrop_pagNo#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#15456#15920#0#PHP" expanded="false" />
+                <element signature="e#15659#15910#0#PHP" expanded="false" />
+                <element signature="n#ordDrop_pagNoList_dic#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#16033#16140#0#PHP" expanded="false" />
+                <element signature="e#16167#16402#0#PHP" expanded="false" />
+                <element signature="n#ord_n_contentNo__pagNo__dic#0;n#AttDta#0;n#!!top" expanded="false" />
+                <element signature="e#16771#16977#0#PHP" expanded="false" />
+                <element signature="e#17006#17528#0#PHP" expanded="false" />
+                <element signature="e#17178#17518#0#PHP" expanded="false" />
+                <element signature="e#17266#17504#0#PHP" expanded="false" />
+                <element signature="e#17385#17486#0#PHP" expanded="false" />
+                <element signature="n#rmkNo_OfOrdAdr#0;n#!!top" expanded="false" />
+                <element signature="e#17686#17840#0#PHP" expanded="false" />
+                <element signature="e#17755#17834#0#PHP" expanded="false" />
+                <element signature="n#rmkNo_OfOrd#0;n#!!top" expanded="false" />
+                <element signature="e#17979#18121#0#PHP" expanded="false" />
+                <element signature="e#18042#18115#0#PHP" expanded="false" />
+                <element signature="n#bld_cus#0;n#!!top" expanded="false" />
+                <element signature="n#bld_adr#0;n#!!top" expanded="false" />
+                <element signature="n#pngFile#0;n#!!top" expanded="false" />
+                <element signature="e#18585#18876#1#PHP" expanded="false" />
+                <element signature="e#18890#19017#1#PHP" expanded="false" />
+                <marker date="1438657722739" expanded="true" signature="1735:1768" placeholder="select trip ..trip..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="$lib.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/$lib.js">
+      <file leaf-file-name="Dta__tst.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpFn/t/Dta__tst.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8474">
-              <caret line="7" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-5.0" vertical-offset="3371" max-vertical-offset="5600">
+              <caret line="249" column="10" selection-start-line="249" selection-start-column="10" selection-end-line="249" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ay_facFn_test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngSvc/ay_facFn_test.html">
+      <file leaf-file-name="Assert.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="475">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.826087" vertical-offset="500" max-vertical-offset="3822">
+              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpFn/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.695652" vertical-offset="519" max-vertical-offset="924">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ay.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.086957" vertical-offset="1051" max-vertical-offset="4718">
+              <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -199,23 +347,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ngSvc/$lib.js" />
-        <option value="$PROJECT_DIR$/ord/dspHHdr__test.html" />
-        <option value="$PROJECT_DIR$/ngSvc/app_facFn.js" />
-        <option value="$PROJECT_DIR$/ord/dspH.js.html" />
-        <option value="$PROJECT_DIR$/cus/dsp.js" />
-        <option value="$PROJECT_DIR$/phpFn/db_new.php" />
-        <option value="$PROJECT_DIR$/phpFn/db_new1.php" />
-        <option value="$PROJECT_DIR$/cus/dsp.html" />
-        <option value="$PROJECT_DIR$/ord/index.js" />
-        <option value="$PROJECT_DIR$/ord/cur.html" />
-        <option value="$PROJECT_DIR$/ord/dsp.js" />
-        <option value="$PROJECT_DIR$/ord/dsp.php" />
-        <option value="$PROJECT_DIR$/phpFn/cmn.php" />
-        <option value="$PROJECT_DIR$/ord/dspHAdr__test.html" />
-        <option value="$PROJECT_DIR$/ord/dspHInst__test.html" />
-        <option value="$PROJECT_DIR$/ord/dspHInst.html" />
-        <option value="$PROJECT_DIR$/ord/dspH__test.html" />
         <option value="$PROJECT_DIR$/ord/dspH__test1.html" />
         <option value="$PROJECT_DIR$/ord/dspHContent__test.html" />
         <option value="$PROJECT_DIR$/ord/dspH__test2.html" />
@@ -234,15 +365,9 @@
         <option value="$PROJECT_DIR$/ord/dspH.js" />
         <option value="$PROJECT_DIR$/ord/dspH.php" />
         <option value="$PROJECT_DIR$/ord/dspHAdr.html" />
-        <option value="$PROJECT_DIR$/phpFn/str.php" />
-        <option value="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" />
         <option value="$PROJECT_DIR$/phpChk/ordadr.php" />
         <option value="$PROJECT_DIR$/loadSheet/loadSheetClass.php" />
-        <option value="$PROJECT_DIR$/phpFn/ay.php" />
-        <option value="$PROJECT_DIR$/phpFn/t/ay__tst.php" />
         <option value="$PROJECT_DIR$/loadSheet/fmtkey.php" />
-        <option value="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst1.php" />
-        <option value="$PROJECT_DIR$/loadSheet/LoadSheet.php" />
         <option value="$PROJECT_DIR$/a.php" />
         <option value="$PROJECT_DIR$/region/upd.php" />
         <option value="$PROJECT_DIR$/dbTools/addMissingNearBy.php" />
@@ -250,15 +375,43 @@
         <option value="$PROJECT_DIR$/ord/cur_hlp.js" />
         <option value="$PROJECT_DIR$/ord/cur_test.html" />
         <option value="$PROJECT_DIR$/ord/cur.js" />
+        <option value="$PROJECT_DIR$/phpFn/obj.php" />
+        <option value="$PROJECT_DIR$/phpFn/pth.php" />
+        <option value="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst1.php" />
+        <option value="$PROJECT_DIR$/phpFn/ffn.php" />
+        <option value="$PROJECT_DIR$/phpFn/cmn.php" />
+        <option value="$PROJECT_DIR$/loadSheet/LoadSheet.php" />
+        <option value="$PROJECT_DIR$/phpFn/ft.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/ft__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/dte__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/dta__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/str__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/ay__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/dta.php" />
+        <option value="$PROJECT_DIR$/phpFn/Ds.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/Ds__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/Dt__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/Dt.php" />
+        <option value="$PROJECT_DIR$/phpFn/t/Dta__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/test.php" />
+        <option value="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php" />
+        <option value="$PROJECT_DIR$/phpFn/ay.php" />
+        <option value="$PROJECT_DIR$/phpFn/Dta.php" />
+        <option value="$PROJECT_DIR$/phpFn/str.php" />
       </list>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP">
+    <include_path>
+      <path value="c:\xampp\htdocs\loadplan\pgm\phpFn" />
+      <path value="C:\xampp\php\PEAR" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-4" />
     <option name="y" value="-4" />
     <option name="width" value="1374" />
-    <option name="height" value="748" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -267,7 +420,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -293,6 +446,40 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="pgm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pear" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pgm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pear" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHPUnit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -329,7 +516,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ord" />
+              <option name="myItemId" value="phpFn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,7 +534,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ngSvc" />
+              <option name="myItemId" value="loadSheet" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,11 +543,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="Configurable.PHP.Composer" />
+    <property name="options.lastSelected" value="preferences.sourceCode.PHP" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../try" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="true" />
     <property name="recentsLimit" value="5" />
@@ -392,12 +583,7 @@
       <recent name="C:\xampp\htdocs\loadPlan\pgm\ngSvc" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.upd.php">
-    <configuration default="false" name="ordadr.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpChk/ordadr.php">
-      <RunnerSettings RunnerId="PhpRunner" />
-      <ConfigurationWrapper RunnerId="PhpRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="PHP Script.LoadSheet__tst.php">
     <configuration default="false" name="ay__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/ay__tst.php">
       <RunnerSettings RunnerId="PhpRunner" />
       <RunnerSettings RunnerId="PhpScriptDebugRunner" />
@@ -405,21 +591,32 @@
       <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="LoadSheet__tst1.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst1.php">
+    <configuration default="false" name="dta__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/dta__tst.php">
       <RunnerSettings RunnerId="PhpRunner" />
       <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="upd.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/region/upd.php">
+    <configuration default="false" name="str__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/str__tst.php">
       <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="addMissingNearBy.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dbTools/addMissingNearBy.php">
+    <configuration default="false" name="LoadSheet__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
       <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Dt__tst.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/phpFn/t/Dt__tst.php">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
@@ -493,25 +690,25 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="PHP Script.add.php" />
       <item index="1" class="java.lang.String" itemvalue="PHP Script.lbl.php" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Script.ordadr.php" />
-      <item index="3" class="java.lang.String" itemvalue="PHP Script.ay__tst.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst1.php" />
-      <item index="5" class="java.lang.String" itemvalue="PHP Script.upd.php" />
-      <item index="6" class="java.lang.String" itemvalue="PHP Script.addMissingNearBy.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.ay__tst.php" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.dta__tst.php" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.str__tst.php" />
+      <item index="5" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst.php" />
+      <item index="6" class="java.lang.String" itemvalue="PHP Script.Dt__tst.php" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.upd.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.addMissingNearBy.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst1.php" />
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.LoadSheet__tst.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.dta__tst.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.Dt__tst.php" />
         <item index="3" class="java.lang.String" itemvalue="PHP Script.ay__tst.php" />
-        <item index="4" class="java.lang.String" itemvalue="PHP Script.ordadr.php" />
+        <item index="4" class="java.lang.String" itemvalue="PHP Script.str__tst.php" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",HIDE_INHERITED,VISIBILITY_SORTER,HIDE_INHERITED_FROM_OBJECT" />
+    <option name="ACTIVE_ACTIONS" value=",HIDE_INHERITED,HIDE_INHERITED_FROM_OBJECT,ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -563,31 +760,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="748" extended-state="7" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="724" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.66831684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17522658" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25075528" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25302115" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19108762" sideWeight="0.22742476" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.519802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6765677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2674772" sideWeight="0.77257526" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1174" height="524" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6634921" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66831684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4047619" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -609,9 +806,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2674772" sideWeight="0.4987715" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67892975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67892975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -684,12 +881,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/phpFn/t/dte__tst.php</url>
-          <line>16</line>
+          <line>15</line>
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/phpFn/t/dte__tst.php</url>
-          <line>13</line>
+          <line>12</line>
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -718,33 +915,35 @@
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/phpFn/ay.php</url>
+          <line>295</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php</url>
-          <line>14</line>
-          <option name="timeStamp" value="166" />
+          <line>336</line>
+          <option name="timeStamp" value="236" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/phpFn/t/Dta__tst.php</url>
+          <line>50</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/phpFn/t/Dta__tst.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="274" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="174" />
+      <option name="time" value="293" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
+    <entry file="file://$PROJECT_DIR$/a.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbTools/addMissingNearBy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="SELECT regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="select regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -761,367 +960,6 @@
             <element signature="e#1900#2076#0#PHP" expanded="false" />
             <element signature="e#1934#2070#0#PHP" expanded="false" />
             <element signature="e#2021#2070#0#PHP" expanded="false" />
-            <element signature="e#2081#2399#0#PHP" expanded="false" />
-            <element signature="e#2228#2393#0#PHP" expanded="false" />
-            <element signature="e#2305#2383#0#PHP" expanded="false" />
-            <element signature="e#2418#2480#0#PHP" expanded="false" />
-            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
-            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/a.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="5054">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="false" />
-            <element signature="e#2241#2647#1#PHP" expanded="false" />
-            <element signature="e#2666#3056#1#PHP" expanded="false" />
-            <element signature="e#3075#3464#1#PHP" expanded="false" />
-            <element signature="e#3483#3876#1#PHP" expanded="false" />
-            <element signature="e#4120#4427#1#PHP" expanded="false" />
-            <element signature="e#4462#4769#1#PHP" expanded="false" />
-            <element signature="e#4804#5111#1#PHP" expanded="false" />
-            <element signature="e#5146#5453#1#PHP" expanded="false" />
-            <element signature="e#5488#5795#1#PHP" expanded="false" />
-            <element signature="e#7885#8091#0#PHP" expanded="false" />
-            <element signature="e#10204#10877#1#PHP" expanded="false" />
-            <element signature="e#10912#11589#1#PHP" expanded="false" />
-            <element signature="e#11624#12293#1#PHP" expanded="false" />
-            <element signature="e#12328#12997#1#PHP" expanded="false" />
-            <element signature="e#13032#13700#1#PHP" expanded="false" />
-            <element signature="e#13888#14009#0#PHP" expanded="false" />
-            <element signature="e#14142#14676#0#PHP" expanded="false" />
-            <element signature="e#15491#15756#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="7866">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/t/ay__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4959">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4591" max-vertical-offset="7296">
-          <caret line="309" column="54" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/a.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3534">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="false" />
-            <element signature="e#2241#2647#1#PHP" expanded="false" />
-            <element signature="e#2666#3056#1#PHP" expanded="false" />
-            <element signature="e#3075#3464#1#PHP" expanded="false" />
-            <element signature="e#3483#3876#1#PHP" expanded="false" />
-            <element signature="e#4120#4427#1#PHP" expanded="false" />
-            <element signature="e#4462#4769#1#PHP" expanded="false" />
-            <element signature="e#4804#5111#1#PHP" expanded="false" />
-            <element signature="e#5146#5453#1#PHP" expanded="false" />
-            <element signature="e#5488#5795#1#PHP" expanded="false" />
-            <element signature="e#7885#8091#0#PHP" expanded="false" />
-            <element signature="e#10204#10877#1#PHP" expanded="false" />
-            <element signature="e#10912#11589#1#PHP" expanded="false" />
-            <element signature="e#11624#12293#1#PHP" expanded="false" />
-            <element signature="e#12328#12997#1#PHP" expanded="false" />
-            <element signature="e#13032#13700#1#PHP" expanded="false" />
-            <element signature="e#13888#14009#0#PHP" expanded="false" />
-            <element signature="e#14142#14676#0#PHP" expanded="false" />
-            <element signature="e#15491#15756#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6119" max-vertical-offset="16321">
-          <caret line="337" column="17" selection-start-line="337" selection-start-column="17" selection-end-line="337" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1881">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
-          <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
-          <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="973" max-vertical-offset="2109">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="false" />
-            <element signature="e#2241#2647#1#PHP" expanded="false" />
-            <element signature="e#2666#3056#1#PHP" expanded="false" />
-            <element signature="e#3075#3464#1#PHP" expanded="false" />
-            <element signature="e#3483#3876#1#PHP" expanded="false" />
-            <element signature="e#4120#4427#1#PHP" expanded="false" />
-            <element signature="e#4462#4769#1#PHP" expanded="false" />
-            <element signature="e#4804#5111#1#PHP" expanded="false" />
-            <element signature="e#5146#5453#1#PHP" expanded="false" />
-            <element signature="e#5488#5795#1#PHP" expanded="false" />
-            <element signature="e#7885#8091#0#PHP" expanded="false" />
-            <element signature="e#10204#10877#1#PHP" expanded="false" />
-            <element signature="e#10912#11589#1#PHP" expanded="false" />
-            <element signature="e#11624#12293#1#PHP" expanded="false" />
-            <element signature="e#12328#12997#1#PHP" expanded="false" />
-            <element signature="e#13032#13700#1#PHP" expanded="false" />
-            <element signature="e#13888#14009#0#PHP" expanded="false" />
-            <element signature="e#14142#14676#0#PHP" expanded="false" />
-            <element signature="e#15491#15756#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9086" max-vertical-offset="16321">
-          <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5928">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1881">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7088" max-vertical-offset="25935">
-          <caret line="392" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
-          <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="5187">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/str.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.100352116" vertical-offset="1083" max-vertical-offset="8360">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/ec837a21/f6989ee4-c688-45dc-9228-46b90fc54803/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/ec837a21/00ea908f-abd2-4dac-a8bd-f3dac836a196/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/ec837a21/00ea908f-abd2-4dac-a8bd-f3dac836a196/loadplan..ordadr">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="114">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpChk/ordadr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.142857" vertical-offset="739" max-vertical-offset="1254">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/loadSheetClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857" vertical-offset="0" max-vertical-offset="228">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/fmtkey.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8020833" vertical-offset="564" max-vertical-offset="1140">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="5054">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#84#0#PHP" expanded="false" />
-            <element signature="e#2241#2647#1#PHP" expanded="false" />
-            <element signature="e#2666#3056#1#PHP" expanded="false" />
-            <element signature="e#3075#3464#1#PHP" expanded="false" />
-            <element signature="e#3483#3876#1#PHP" expanded="false" />
-            <element signature="e#4120#4427#1#PHP" expanded="false" />
-            <element signature="e#4462#4769#1#PHP" expanded="false" />
-            <element signature="e#4804#5111#1#PHP" expanded="false" />
-            <element signature="e#5146#5453#1#PHP" expanded="false" />
-            <element signature="e#5488#5795#1#PHP" expanded="false" />
-            <element signature="e#7885#8091#0#PHP" expanded="false" />
-            <element signature="e#10204#10877#1#PHP" expanded="false" />
-            <element signature="e#10912#11589#1#PHP" expanded="false" />
-            <element signature="e#11624#12293#1#PHP" expanded="false" />
-            <element signature="e#12328#12997#1#PHP" expanded="false" />
-            <element signature="e#13032#13700#1#PHP" expanded="false" />
-            <element signature="e#13888#14009#0#PHP" expanded="false" />
-            <element signature="e#14142#14676#0#PHP" expanded="false" />
-            <element signature="e#15491#15756#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/t/ay__tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.178571" vertical-offset="369" max-vertical-offset="4959">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8214285" vertical-offset="3180" max-vertical-offset="6517">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="7866">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.142857" vertical-offset="2829" max-vertical-offset="5643">
-          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/ec837a21/00ea908f-abd2-4dac-a8bd-f3dac836a196/loadplan..ordcontent">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="114">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/a.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.678571" vertical-offset="4591" max-vertical-offset="7296">
-          <caret line="309" column="54" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/lbl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="323">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="false" />
-            <element signature="n#lbl#0;n#!!top" expanded="false" />
-            <element signature="n#lblMsg#0;n#!!top" expanded="false" />
-            <element signature="n#lblDic#0;n#!!top" expanded="false" />
-            <element signature="e#1362#1394#0#PHP" expanded="false" />
-            <element signature="e#1900#2076#0#PHP" expanded="false" />
-            <element signature="e#1934#2070#0#PHP" expanded="false" />
-            <element signature="e#2021#2070#0#PHP" expanded="false" />
-            <element signature="e#2081#2399#0#PHP" expanded="false" />
-            <element signature="e#2228#2393#0#PHP" expanded="false" />
-            <element signature="e#2305#2383#0#PHP" expanded="false" />
-            <element signature="e#2418#2480#0#PHP" expanded="false" />
-            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
-            <marker date="1436266719023" expanded="false" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
           </folding>
         </state>
       </provider>
@@ -1131,30 +969,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="2432">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
-            <element signature="e#6#84#0#PHP" expanded="true" />
-            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="select regCd..region..." />
-            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="update regio..." />
-            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1437470407169" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <element signature="e#6#84#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2528" max-vertical-offset="26030">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="e#13954#14192#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1881">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,11 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.428571" vertical-offset="0" max-vertical-offset="494">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="SELECT regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="select regCd..nearBy..." />
-            <marker date="1437470540809" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1174,11 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1434941271161" expanded="true" signature="468:510" placeholder="SELECT isDea..cus..." />
-            <marker date="1434941271161" expanded="true" signature="771:813" placeholder="select cusCd..ord..." />
-            <marker date="1434941271161" expanded="true" signature="889:934" placeholder="select cusCd..cusadr..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1186,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="741">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,9 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,9 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8474">
           <caret line="7" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1919">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,18 +1034,501 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7142856" vertical-offset="171" max-vertical-offset="798">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ord/cur.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3615917" vertical-offset="0" max-vertical-offset="1729">
+        <state vertical-scroll-proportion="-8.038462" vertical-offset="0" max-vertical-offset="1729">
           <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29595014" vertical-offset="0" max-vertical-offset="2622">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/obj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="323">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_9.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34895834" vertical-offset="2212" max-vertical-offset="3553">
+          <caret line="703" column="9" selection-start-line="703" selection-start-column="9" selection-end-line="703" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/ffn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39583334" vertical-offset="0" max-vertical-offset="576">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/TestSuite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51282054" vertical-offset="840" max-vertical-offset="1680">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/barCd__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="434">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.478261" vertical-offset="2156" max-vertical-offset="4158">
+          <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/TestResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.304348" vertical-offset="1427" max-vertical-offset="2562">
+          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/ft.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.347826" vertical-offset="0" max-vertical-offset="546">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/ft__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8695652" vertical-offset="107" max-vertical-offset="532">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36290324" vertical-offset="2248" max-vertical-offset="4382">
+          <caret line="259" column="9" selection-start-line="259" selection-start-column="9" selection-end-line="259" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/cmn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.26087" vertical-offset="11911" max-vertical-offset="19040">
+          <caret line="880" column="14" selection-start-line="880" selection-start-column="14" selection-end-line="880" selection-end-column="14" />
           <folding>
-            <element signature="e#0#89#0" expanded="true" />
-            <element signature="e#1854#2290#0" expanded="true" />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="update :_a s..." />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="select btnNm..lblpgm..." />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="select :_XXX..lbl..." />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="select msgNm..lblpgm..." />
+            <marker date="1438492421611" expanded="true" signature="-1:-1" placeholder="select msgNm..lblPgm..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/dte__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.869565" vertical-offset="0" max-vertical-offset="504">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/db__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.347826" vertical-offset="63" max-vertical-offset="882">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <marker date="1433842878235" expanded="true" signature="-1:-1" placeholder="select * fro..ordAdr..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/Cipher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/Cipher__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/cmn__test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6086956" vertical-offset="126" max-vertical-offset="4732">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="update cus s..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="DROP TABLE I..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..dicDic..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="SELECT k1,k2..dicDic..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="DROP TABLE d..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..trip..." />
+            <marker date="1435709903562" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..trip..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/sec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4298">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="SELECT prmVa..prm..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select usr f..usrPgm..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select tim f..act..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select sess ..act..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select sess ..act..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select usrId..sess..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select act f..act..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select usrId..sess..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select isDis..usr..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select sess ..sess..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="select usrId..usr..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1434641194375" expanded="true" signature="-1:-1" placeholder="update sess ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/pth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-43.826088" vertical-offset="0" max-vertical-offset="1456">
+          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38686132" vertical-offset="1361" max-vertical-offset="2324">
+          <caret line="474" column="9" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/str__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2173913" vertical-offset="80" max-vertical-offset="1946">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/ay__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.521739" vertical-offset="0" max-vertical-offset="3192">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/Ds.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="1414">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding>
+            <element signature="e#6#86#0#PHP" expanded="false" />
+            <marker date="1438746877675" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/Ds__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.478261" vertical-offset="0" max-vertical-offset="210">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#87#0#PHP" expanded="false" />
+            <element signature="n#Ds__tst#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/Dt__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4782608" vertical-offset="200" max-vertical-offset="448">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#86#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4782608" vertical-offset="592" max-vertical-offset="1750">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/Dt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.434783" vertical-offset="1277" max-vertical-offset="1834">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#86#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35738832" vertical-offset="1492" max-vertical-offset="2310">
+          <caret line="688" column="9" selection-start-line="688" selection-start-column="9" selection-end-line="688" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../php/pear/PHPUnit/Assert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.826087" vertical-offset="500" max-vertical-offset="3822">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loadSheet/LoadSheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9565217" vertical-offset="268" max-vertical-offset="812">
+          <caret line="385" column="1" selection-start-line="385" selection-start-column="1" selection-end-line="385" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#84#0#PHP" expanded="false" />
+            <element signature="n#LoadSheet#0;n#!!top" expanded="false" />
+            <element signature="n#gen#0;n#LoadSheet#0;n#!!top" expanded="false" />
+            <element signature="e#421#520#0#PHP" expanded="false" />
+            <element signature="n#getTripId#0;n#LoadSheet#0;n#!!top" expanded="false" />
+            <element signature="e#1648#1786#1#PHP" expanded="false" />
+            <element signature="e#1819#2196#0#PHP" expanded="false" />
+            <element signature="e#1867#1981#0#PHP" expanded="false" />
+            <element signature="e#2033#2160#0#PHP" expanded="false" />
+            <element signature="e#2239#2373#0#PHP" expanded="false" />
+            <element signature="e#2285#2363#0#PHP" expanded="false" />
+            <element signature="n#GenBarCd#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenBarCd#0;n#!!top" expanded="false" />
+            <element signature="n#gen#0;n#GenBarCd#0;n#!!top" expanded="false" />
+            <element signature="n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+            <element signature="e#3451#3744#0#PHP" expanded="false" />
+            <element signature="n#ordAdr_cus_adr#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+            <element signature="e#3950#4373#0#PHP" expanded="false" />
+            <element signature="n#gen#0;n#GenRmkOfAdr#0;n#!!top" expanded="false" />
+            <element signature="n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+            <element signature="e#5005#5216#0#PHP" expanded="false" />
+            <element signature="n#ord_cus#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+            <element signature="e#5380#5626#0#PHP" expanded="false" />
+            <element signature="n#gen#0;n#GenRmkOfOrd#0;n#!!top" expanded="false" />
+            <element signature="n#GenHdr#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenHdr#0;n#!!top" expanded="false" />
+            <element signature="e#5956#6149#0#PHP" expanded="false" />
+            <element signature="n#gen#0;n#GenHdr#0;n#!!top" expanded="false" />
+            <element signature="n#GenPng#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenPng#0;n#!!top" expanded="false" />
+            <element signature="e#6418#7037#0#PHP" expanded="false" />
+            <element signature="e#6776#7027#0#PHP" expanded="false" />
+            <element signature="n#gen#0;n#GenPng#0;n#!!top" expanded="false" />
+            <element signature="e#7085#7194#0#PHP" expanded="false" />
+            <element signature="n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="e#7823#9178#0#PHP" expanded="false" />
+            <element signature="n#dicOf_contentLines#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#dicOf_pageNoList#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#dicOf_rmkNoList#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#bld_qty#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#gen#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="e#10034#10172#0#PHP" expanded="false" />
+            <element signature="n#dropFfn#0;n#GenDrop#0;n#!!top" expanded="false" />
+            <element signature="n#Trip#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#Trip#0;n#!!top" expanded="false" />
+            <element signature="n#nm#0;n#Trip#0;n#!!top" expanded="false" />
+            <element signature="n#__construct#0;n#Inp#0;n#!!top" expanded="false" />
+            <element signature="e#11431#11536#1#PHP" expanded="false" />
+            <element signature="e#11553#11658#1#PHP" expanded="false" />
+            <element signature="n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="n#attDta#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#12454#12691#0#PHP" expanded="false" />
+            <element signature="e#12584#12681#0#PHP" expanded="false" />
+            <element signature="e#12738#13608#0#PHP" expanded="false" />
+            <element signature="e#13010#13598#0#PHP" expanded="false" />
+            <element signature="e#13108#13584#0#PHP" expanded="false" />
+            <element signature="e#13171#13531#0#PHP" expanded="false" />
+            <element signature="e#13266#13531#0#PHP" expanded="false" />
+            <element signature="n#ordContent__contentLines__dic#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#13826#14333#0#PHP" expanded="false" />
+            <element signature="e#13963#14093#0#PHP" expanded="false" />
+            <element signature="e#14106#14281#0#PHP" expanded="false" />
+            <element signature="n#ordDrop_contentLines_dic#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#14656#15251#0#PHP" expanded="false" />
+            <element signature="e#14789#15241#0#PHP" expanded="false" />
+            <element signature="e#14923#15128#0#PHP" expanded="false" />
+            <element signature="n#ordDrop_pagNo#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#15456#15920#0#PHP" expanded="false" />
+            <element signature="e#15659#15910#0#PHP" expanded="false" />
+            <element signature="n#ordDrop_pagNoList_dic#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#16033#16140#0#PHP" expanded="false" />
+            <element signature="e#16167#16402#0#PHP" expanded="false" />
+            <element signature="n#ord_n_contentNo__pagNo__dic#0;n#AttDta#0;n#!!top" expanded="false" />
+            <element signature="e#16771#16977#0#PHP" expanded="false" />
+            <element signature="e#17006#17528#0#PHP" expanded="false" />
+            <element signature="e#17178#17518#0#PHP" expanded="false" />
+            <element signature="e#17266#17504#0#PHP" expanded="false" />
+            <element signature="e#17385#17486#0#PHP" expanded="false" />
+            <element signature="n#rmkNo_OfOrdAdr#0;n#!!top" expanded="false" />
+            <element signature="e#17686#17840#0#PHP" expanded="false" />
+            <element signature="e#17755#17834#0#PHP" expanded="false" />
+            <element signature="n#rmkNo_OfOrd#0;n#!!top" expanded="false" />
+            <element signature="e#17979#18121#0#PHP" expanded="false" />
+            <element signature="e#18042#18115#0#PHP" expanded="false" />
+            <element signature="n#bld_cus#0;n#!!top" expanded="false" />
+            <element signature="n#bld_adr#0;n#!!top" expanded="false" />
+            <element signature="n#pngFile#0;n#!!top" expanded="false" />
+            <element signature="e#18585#18876#1#PHP" expanded="false" />
+            <element signature="e#18890#19017#1#PHP" expanded="false" />
+            <marker date="1438657722739" expanded="true" signature="1735:1768" placeholder="select trip ..trip..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.695652" vertical-offset="519" max-vertical-offset="924">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/intl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.521739" vertical-offset="16850" max-vertical-offset="26138">
+          <caret line="4299" column="9" selection-start-line="4299" selection-start-column="9" selection-end-line="4299" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/ay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.086957" vertical-offset="1051" max-vertical-offset="4718">
+          <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/t/Dta__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="3371" max-vertical-offset="5600">
+          <caret line="249" column="10" selection-start-line="249" selection-start-column="10" selection-end-line="249" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loadSheet/t/LoadSheet__tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0" vertical-offset="7412" max-vertical-offset="8120">
+          <caret line="934" column="13" selection-start-line="934" selection-start-column="13" selection-end-line="934" selection-end-column="13" />
+          <folding>
+            <element signature="e#6#84#0#PHP" expanded="false" />
+            <element signature="e#435#2602#0#PHP" expanded="false" />
+            <element signature="e#470#806#1#PHP" expanded="false" />
+            <element signature="e#841#1163#1#PHP" expanded="false" />
+            <element signature="e#1198#1520#1#PHP" expanded="false" />
+            <element signature="e#1555#1877#1#PHP" expanded="false" />
+            <element signature="e#1912#2234#1#PHP" expanded="false" />
+            <element signature="e#2269#2591#1#PHP" expanded="false" />
+            <element signature="e#3084#5689#0#PHP" expanded="false" />
+            <element signature="e#3108#3400#1#PHP" expanded="false" />
+            <element signature="e#3419#3714#1#PHP" expanded="false" />
+            <element signature="e#3733#4024#1#PHP" expanded="false" />
+            <element signature="e#4043#4449#1#PHP" expanded="false" />
+            <element signature="e#4468#4858#1#PHP" expanded="false" />
+            <element signature="e#4877#5266#1#PHP" expanded="false" />
+            <element signature="e#5285#5678#1#PHP" expanded="false" />
+            <element signature="n#GenPng__tst#0;n#!!top" expanded="false" />
+            <element signature="n#setup#0;n#GenPng__tst#0;n#!!top" expanded="false" />
+            <element signature="n#GenRmkOfAdr__tst#0;n#!!top" expanded="false" />
+            <element signature="e#7127#7272#0#PHP" expanded="false" />
+            <element signature="e#7397#7596#0#PHP" expanded="false" />
+            <element signature="e#7708#7871#0#PHP" expanded="false" />
+            <element signature="e#8002#8157#0#PHP" expanded="false" />
+            <element signature="n#setup#0;n#GenRmkOfAdr__tst#0;n#!!top" expanded="false" />
+            <element signature="e#8247#8649#0#PHP" expanded="false" />
+            <element signature="n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+            <element signature="e#9266#9388#0#PHP" expanded="false" />
+            <element signature="n#test_ord_cus#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+            <element signature="e#9506#9638#0#PHP" expanded="false" />
+            <element signature="e#9737#9820#0#PHP" expanded="false" />
+            <element signature="n#test_oupAy#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+            <element signature="e#9951#10078#0#PHP" expanded="false" />
+            <element signature="n#setup#0;n#GenRmkOfOrd__tst#0;n#!!top" expanded="false" />
+            <element signature="e#10168#10510#0#PHP" expanded="false" />
+            <element signature="n#test_inpRmk_OfAdr#0;n#Inp__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_inpRmk_OfOrd#0;n#Inp__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_inpTrip#0;n#Inp__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_hdrAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="n#test_ord_n_contentNo__pagNo__dic#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#28111#28232#0#PHP" expanded="false" />
+            <element signature="n#test_rmkAy#0;n#LoadSheet__tst#0;n#!!top" expanded="false" />
+            <element signature="e#28365#28899#0#PHP" expanded="false" />
+            <element signature="n#test_rmkNo_OfAdr#0;n#functions__tst#0;n#!!top" expanded="false" />
+            <element signature="e#29739#29844#0#PHP" expanded="false" />
+            <element signature="n#test_rmkNo_OfOrdAdr#0;n#functions__tst#0;n#!!top" expanded="false" />
+            <element signature="e#29997#30114#0#PHP" expanded="false" />
+            <element signature="n#setup#0;n#functions__tst#0;n#!!top" expanded="false" />
+            <element signature="e#30216#30497#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/str.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24955116" vertical-offset="3445" max-vertical-offset="6566">
+          <caret line="256" column="28" selection-start-line="256" selection-start-column="28" selection-end-line="256" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpFn/Dta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.375" vertical-offset="2409" max-vertical-offset="5530">
+          <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

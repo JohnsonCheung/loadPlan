@@ -6,7 +6,6 @@
  * Time: 14:56
  */
 include '/../dte.php';
-include '/../pass.php';
 function tst__isPastDte() {
     $act = is_pastDte("2014-10-01");
     assert($act===true);

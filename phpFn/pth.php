@@ -8,34 +8,14 @@
 include_once "str.php";
 include_once "System/Launcher.php";
 const PTH_TMP_HOM = "c:\\Temp\\";
-
-function pth_tmp($seg = null)
+function add_backSlash($pth)
 {
-    $o = is_null($seg)
-        ? PTH_TMP_HOM
-        : PTH_TMP_HOM . $seg . "\\" . tim_stmp() . "\\";
-    pth_create_if_not_exist($o);
-    return $o;
+    return right($pth, 1) === '\\' ? $pth : $pth . '\\';
 }
 
 function is_pth($pth)
 {
     return is_dir($pth);
-}
-
-function rmv_end_backSlash($pth)
-{
-    if (is_sfx($pth, "\\"))
-        return rmv_lastchr($pth);
-    return $pth;
-}
-
-function pth_create_if_not_exist($pth)
-{
-    $a = rmv_end_backSlash($pth);
-    if (!is_dir($a)) {
-        mkdir($a, 0777, true);
-    }
 }
 
 function pth_clear_files($pth)
@@ -46,15 +26,12 @@ function pth_clear_files($pth)
     }
 }
 
-function add_backSlash($pth)
+function pth_create_if_not_exist($pth)
 {
-    return right($pth, 1) === '\\' ? $pth : $pth . '\\';
-}
-
-function pth_opn($pth)
-{
-    $cmd = "explorer " . '"'. $pth .'"';
-    exec($cmd);
+    $a = rmv_end_backSlash($pth);
+    if (!is_dir($a)) {
+        mkdir($a, 0777, true);
+    }
 }
 
 function pth_fnAy($pth)
@@ -100,4 +77,31 @@ function pth_norm($pth, $pthBase = "")
         $p = strpos($o, '\\..\\');
     }
     return $o;
+}
+
+function pth_opn($pth)
+{
+    $cmd = "explorer " . '"' . $pth . '"';
+    exec($cmd);
+}
+
+function pth_tmp($seg = null)
+{
+    $o = is_null($seg)
+        ? PTH_TMP_HOM
+        : PTH_TMP_HOM . $seg . "\\" . tim_stmp() . "\\";
+    pth_create_if_not_exist($o);
+    return $o;
+}
+
+function rmv_end_backSlash($pth)
+{
+    if (is_sfx($pth, "\\"))
+        return rmv_lastchr($pth);
+    return $pth;
+}
+
+function tmpPth()
+{
+    return "c:\\temp\\";
 }

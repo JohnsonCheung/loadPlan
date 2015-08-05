@@ -5,8 +5,14 @@
     <option name="skippedFunctions">
       <list>
         <option value="in_ay" />
+        <option value="GenRmkOfAdr-&gt;ordAdr_cus_adr" />
       </list>
     </option>
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings />
+    </phpunit_settings>
   </component>
 </project>
 

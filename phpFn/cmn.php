@@ -133,11 +133,6 @@ class AyGluer
 
 }
 
-function add_backSlash($pth)
-{
-    return right($pth, 1) === '\\' ? $pth : $pth . '\\';
-}
-
 function assert_key_exists($key, array $ay)
 {
     if (!array_key_exists($key, $ay)) {
@@ -878,10 +873,10 @@ function rmv_end_backSlash($pth)
     return $pth;
 }
 
-function rmv_ffx($s, $pfx)
+function rmv_pfx($s, $pfx)
 {
     if (is_pfx($s, $pfx)) {
-        return substr($s, strlen($pfx) + 1);
+        return substr($s, strlen($pfx));
     }
     return $s;
 }

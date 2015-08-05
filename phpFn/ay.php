@@ -6,53 +6,196 @@
  * Time: 10:45
  */
 require_once "pth.php";
-require_once "System\Launcher.php";
 require_once 'str.php';
-function ay_dltEle_assoc(array $ay, $key)
+
+//class ay_fn
+//{
+function assert_key_exists($key, array $ay)
 {
+    if (!array_key_exists($key, $ay)) {
+        $keys = join(' ', array_keys($ay));
+        throw new Exception("key[$key] not found\nin array_keys=[$keys]");
+    }
+}
+
+/** return new array by lvs.  Each element of $lvs may be $v or $k:$v format */
+function ay_ByLvs($lvs)
+{
+    $eleAy = split_lvs($lvs);
     $o = [];
-    foreach ($ay as $k => $v) {
-        if ($k !== $key) {
-            $o[$k] = $v;
-        }
+    foreach ($eleAy as $ele) {
+        $a = strbrk2($ele, ":");
+        $k = $a[0];
+        if ($k === '')
+            array_push($o, $a[1]);
+        else
+            $o[$k] = $a[1];
     }
     return $o;
 }
 
-function dta_joinLine_byKey // return a new [dta] with [key] is unique [line] with joined with \n and with optional $pfx
-($dta, // $dta has 2 columns: $keyFldNm &  $linFldNm.  $key is not unique.
- $keyFldNm, // the key-field of $dta
- $linFldNm, // the line-field of $dta to join
- $pfx = "") // what pfx to be added to each line
+function ay_addPfx(array $ay, $pfx)
 {
-    $f1 = $keyFldNm;
-    $f2 = $linFldNm;
-
     $o = [];
-    if (sizeof($dta) === 0) return [];
-    $k = $dta[0][$f1];      // first line in $dta
-    $l = $dta[0][$f2];      // first line in $dta
-    $m = [];
-    $m[$f1] = $k;
-    $m[$f2] = $pfx . $l;     // first record
-    $first = true;
-    foreach ($dta as $dr) {
-        if ($first) {
-            $first = false;
-            continue;
-        }
-        $k1 = $dr[$f1];
-        $l1 = $dr[$f2];
-        if ($k1 === $k) {
-            $m[$f2] .= "\r\n" . $l1;
-        } else {
-            array_push($o, $m);
-            $m[$f1] = $k1;
-            $m[$f2] = $pfx . $l1;
-            $k = $k1;
-        }
+    foreach ($ay as $k => $v) {
+        $o[$k] = $pfx . $v;
     }
-    array_push($o, $m);
+    return $o;
+}
+
+function ay_convert_decoding(array $ay, $encoding = "BIG-5")
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        $o[$k] = mb_convert_encoding($v, "UTF-8", $encoding);
+    }
+    return $o;
+}
+
+function ay_convert_encoding(array $ay, $encoding = "BIG-5")
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        $o[$k] = mb_convert_encoding($v, $encoding);
+    }
+    return $o;
+}
+
+function ay_csvStr(array $ay)
+{
+    $o = [];
+    $i = 0;
+    foreach ($ay as $v) {
+        if (is_numeric($v) || is_null($v))
+            $o[$i++] = $v;
+        elseif (is_string($v))
+            $o[$i++] = esc_dblQuote($v);
+        else
+            throw new Exception("ay has element of type none of (str num null)");
+    }
+    return join(",", $o);
+}
+
+/** return new array by deleting the element of $key if any else return $ay */
+function ay_dltEle(array $ay, $key)
+{
+    $idx = ay_keyIdx($ay, $key);
+    if ($idx === -1) return $ay;
+    array_splice($ay, $idx, 1);
+    return $ay;
+}
+
+/** return new array of same key but the value is mb_strwidth */
+function ay_eleWdt(array $ay)
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        $o[$k] = (is_object($v) || is_array($v)) ? 0 : mb_strwidth($v);
+    }
+    return $o;
+}
+
+function ay_escLF(array $ay)
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        $o[$k] = esc_lf($v);
+    }
+    return $o;
+}
+
+function ay_extract($ay, $names)
+{
+    $o = [];
+    $nm_ay = split_lvs($names);
+    foreach ($nm_ay as $nm) {
+        assert_key_exists($nm, $ay);
+        array_push($o, $ay[$nm]);
+    }
+    return $o;
+}
+
+function ay_firstKey($Ay)
+{
+    reset($Ay);
+    return each($Ay)["key"];
+}
+
+/** return the first index of $key in $ay if any else return -1 */
+function ay_keyIdx(array $ay, $key)
+{
+    $o = 0;
+    foreach ($ay as $k => $v) {
+        if ($k === $key) return $o;
+        $o++;
+    }
+    return -1;
+}
+
+/** return new array of merging keys from $ay1 & $ay2 with element which is greater */
+function ay_maxEle(array $ay1, array $ay2)
+{
+    $o = $ay1;
+    foreach ($ay2 as $i => $a2) {
+        $a1 = @$o[$i];
+        $a = max($a1, $a2);
+        $o[$i] = $a;
+    }
+    return $o;
+}
+
+function ay_minus($new, $old)
+{
+    $o = [];
+    foreach ($new as $v) {
+        if (!in_array($v, $old))
+            array_push($o, $v);
+    }
+    return $o;
+}
+
+function ay_newByLpAp($lp, ...$ap)
+{
+    $kAy = preg_split('/ / ', $lp);
+    $o = [];
+    reset($ap);
+    foreach ($kAy as $k) {
+        $o[$k] = current($ap);
+        next($ap);
+    }
+    return $o;
+}
+
+function ay_pk($assoc_ay, $pk)
+{
+    $o = [];
+    foreach ($assoc_ay as $rec) {
+        $pkVal = $rec[$pk];
+        $o[$pkVal] = $rec;
+    }
+    return $o;
+}
+
+function ay_push_array(array &$o, array $ay)
+{
+    foreach ($ay as $i => $v) {
+        array_push($o, $v);
+    }
+}
+
+function ay_push_noDup(array &$ay, $itm)
+{
+    if (!(in_array($itm, $ay))) {
+        array_push($ay, $itm);
+    }
+}
+
+function ay_quote($ay, $q = "'")
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        $o[$k] = quote($v, $q);
+    }
     return $o;
 }
 
@@ -69,17 +212,6 @@ function ay_rmvDup(array $ay)
     return $o;
 }
 
-function in_ay($needle, array $haystack, $fmIdx = null, $toIdx = null)
-{
-    $fmIdx = is_null($fmIdx) ? 0 : $fmIdx;
-    $toIdx = is_null($toIdx) ? sizeof($haystack) - 1 : $toIdx;
-    for ($j = $fmIdx; $j <= $toIdx; $j++) {
-        if ($haystack[$j] === $needle)
-            return true;
-    }
-    return false;
-}
-
 function ay_rmvDup_rev(array $ay)
 {
     $o = [];
@@ -94,38 +226,21 @@ function ay_rmvDup_rev(array $ay)
     return array_reverse($o);
 }
 
-function ay_newByLpAp($lp, ...$ap)
+/** return new array by splice the element of $key and all next $len element if any else return $ay.  If $len is specified, all element will be deleted */
+function ay_splice(array $ay, $key, $len = 0)
 {
-    $kAy = preg_split('/ / ', $lp);
-    $o = [];
-    reset($ap);
-    foreach ($kAy as $k) {
-        $o[$k] = current($ap);
-        next($ap);
-    }
-    return $o;
+    $idx = ay_keyIdx($ay, $key);
+    if ($idx === -1) return $ay;
+    array_splice($ay, $idx, $len);
+    return $ay;
 }
 
-function push_noDup(array &$ay, $i)
-{
-    ay_push_noDup($ay, $i);
-}
-
-function ay_minus($new, $old)
+/** return new array which is subset of $ay by using given $keyAy */
+function ay_subSet(array $ay, array $keyAy)
 {
     $o = [];
-    foreach ($new as $v) {
-        if (!in_array($v, $old))
-            array_push($o, $v);
-    }
-    return $o;
-}
-
-function ay_quote($ay, $q = "'")
-{
-    $o = [];
-    foreach ($ay as $k => $v) {
-        $o[$k] = quote($v, $q);
+    foreach ($keyAy as $k) {
+        $o[$k] = @$ay[$k];
     }
     return $o;
 }
@@ -140,56 +255,6 @@ function ay_swapKV(array $ay)
     return $o;
 }
 
-/** return a dic by using first column as key and 2nd column as val */
-function dta2dic($twoColDta)
-{
-    $o = [];
-    if (count($twoColDta) === 0) return $o;
-    $a = array_keys($twoColDta[0]);
-    $k0 = $a[0];
-    $k1 = $a[1];
-    foreach ($twoColDta as $i) {
-        $key = $i[$k0];
-        $val = $i[$k1];
-        $o[$key] = $val;
-    }
-    return $o;
-}
-
-function ay_extract($ay, $names)
-{
-    $o = [];
-    $nm_ay = split_lvs($names);
-    foreach ($nm_ay as $nm) {
-        assert_key_exists($nm, $ay);
-        array_push($o, $ay[$nm]);
-    }
-    return $o;
-}
-
-function assert_key_exists($key, array $ay)
-{
-    if (!array_key_exists($key, $ay)) {
-        $keys = join(' ', array_keys($ay));
-        throw new Exception("key[$key] not found\nin array_keys=[$keys]");
-    }
-}
-
-function dta_extract($dta, $lvs)
-{
-    $nm_ay = split_lvs($lvs);
-    $o = [];
-    foreach ($dta as $dr) {
-        $m = [];
-        foreach ($nm_ay as $nm) {
-            assert_key_exists($nm, $dr);
-            $m[$nm] = $dr[$nm];
-        }
-        array_push($o, $m);
-    }
-    return $o;
-}
-
 function ay_trim(array $ay)
 {
     $o = [];
@@ -198,141 +263,69 @@ function ay_trim(array $ay)
     return $o;
 }
 
-function ay_firstKey($Ay)
+/** return the first $key of given $val in given $ay if such $val exist in $ay else throw exception */
+function ay_valFirstKey(array $ay, $val)
 {
-    reset($Ay);
-    return each($Ay)["key"];
+    foreach ($ay as $k => $v) {
+        if ($v === $val) return $k;
+    }
+    throw new Exception("no such val[$val] in given array");
+}
+
+/** return the first index of $val in $ay if any else return -1 */
+function ay_valIdx(array $ay, $val)
+{
+    $o = 0;
+    foreach ($ay as $v) {
+        if ($v === $val) return $o;
+        $o++;
+    }
+    return -1;
+}
+
+/** return the first $key of given $val in given $ay if such $val exist in $ay else push $val to $ay */
+function ay_valKey(&$ay, $val)
+{
+    if (in_array($val, $ay)) return ay_valFirstKey($ay, $val);
+    array_push($ay, $val);
+}
+
+function ay_write_dic(array $ay, $file)
+{
+    $o = [];
+    foreach ($ay as $k => $v) {
+        array_push($o, $k . ' = ' . $v);
+    }
+    ay_write_file($ay, $file);
 }
 
 function ay_write_file(array $ay, $file)
 {
-    if ($ay == null) return;
-    $fd = fopen($file, "c");
-    foreach ($ay as $line) {
-        fwrite($fd, $line . "\r\n");
+    $a = ay_escLF($ay);
+    $b = ay_convert_encoding($ay);
+    $c = join($b, "\n");
+    file_put_contents($file, $c);
+}
+
+function in_ay($needle, array $haystack, $fmIdx = null, $toIdx = null)
+{
+    $fmIdx = is_null($fmIdx) ? 0 : $fmIdx;
+    $toIdx = is_null($toIdx) ? sizeof($haystack) - 1 : $toIdx;
+    for ($j = $fmIdx; $j <= $toIdx; $j++) {
+        if ($haystack[$j] === $needle)
+            return true;
     }
-    fclose($fd);
+    return false;
 }
 
-function ay_push_noDup(array &$ay, $itm)
+function push_noDup(array &$ay, $i)
 {
-    if (!(in_array($itm, $ay))) {
-        array_push($ay, $itm);
-    }
+    ay_push_noDup($ay, $i);
 }
 
-class AyGluer
+function push_noNull(&$ay, $i)
 {
-    private $glue;
-
-    function __construct($Glue)
-    {
-        $this->glue = $Glue;
-    }
-
-    function glueFn()
-    {
-        return function ($Ay, $Dr) {
-            $m = join($this->glue, $Dr);
-            array_push($Ay, $m);
-            return $Ay;
-        };
-    }
+    if (is_null($i)) return;
+    array_push($ay, $i);
 }
-
-function ayGluer($Glue)
-{
-    return (new AyGluer($Glue))->glueFn();
-}
-
-function dta_join($Glue, $Dta)
-{
-    $a = ayGluer($Glue);
-    return array_reduce($Dta, $a, []);
-}
-
-function ay_pk($assoc_ay, $pk)
-{
-    $o = [];
-    foreach ($assoc_ay as $rec) {
-        $pkVal = $rec[$pk];
-        $o[$pkVal] = $rec;
-    }
-    return $o;
-}
-
-function brw_ft($ft)
-{
-    $a = new System_Launcher;
-    $a->Launch($ft);
-}
-
-function brw_dtaAy($nm_lvs, ...$dtaAy)
-{
-    $csvPth = dtaAy_tmpPth_array($nm_lvs, $dtaAy);
-    $fm = pth_norm(__DIR__ . "/../xlsm/OpnCsvPth.xlsm");
-    $to = $csvPth . "OpnCsvPth.xlsm";
-    copy($fm, $to);
-    $a = new System_Launcher;
-    $a->Launch($to);
-}
-
-/** return the tmpPth which has each $dtaAy written as a csv file */
-function dtaAy_tmpPth_array($nm_lvs, array $dtaAy)
-{
-    $p = pth_tmp("dtaAy");
-    $nmAy = split_lvs($nm_lvs);
-    $j = 0;
-    foreach ($dtaAy as $dta) {
-        $file = $p . $nmAy[$j++] . ".csv";
-        $f = fopen($file, "c");
-
-        if (count($dta) === 0) {
-            fclose($f);
-            continue;
-        };
-        $dta1 = dta_convert_encoding($dta);
-        $fldNmAy = array_keys($dta1[0]);   // use for row as fldNmAy
-        fputcsv($f, $fldNmAy);
-        foreach ($dta1 as $dr) {
-            $fields = [];
-            foreach ($fldNmAy as $nm)
-                array_push($fields, @$dr[$nm]);
-            fputcsv($f, $fields);
-        }
-        fclose($f);
-    }
-    return $p;
-}
-
-function ay_convert_encoding(array $ay, $encoding = "BIG-5")
-{
-    $o = [];
-    foreach ($ay as $k => $v) {
-        $o[$k] = mb_convert_encoding($v, $encoding);
-    }
-    return $o;
-}
-
-function ay_convert_decoding(array $ay, $encoding = "BIG-5")
-{
-    $o = [];
-    foreach ($ay as $k => $v) {
-        $o[$k] = mb_convert_encoding($v, "UTF-8", $encoding);
-    }
-    return $o;
-}
-
-function dta_convert_encoding($dta, $encoding = "BIG-5")
-{
-    $o = [];
-    foreach ($dta as $k => $dr) {
-        $o[$k] = ay_convert_encoding($dr, $encoding);
-    }
-    return $o;
-}
-
-function dtaAy_tmpPth($nm_lvs, ...$dtaAy)
-{
-    return dtaAy_tmpPth_array($nm_lvs, $dtaAy);
-}
+//} // ay_fn endClass

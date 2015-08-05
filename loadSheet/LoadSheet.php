@@ -5,24 +5,60 @@
  * Date: 31/5/2015
  * Time: 4:22
  */
-namespace {
-    require_once 'db.php';
-    require_once 'barCd.php';
-    require_once "pth.php";
-    require_once "ay.php";
-    require_once "fmtkey.php";
-    use LoadSheet\FmtKey as Fmt;
-    const QUEUE_PTH = "c:/xampp/htdocs/loadplan/pgm/loadsheet/queue/";
+require_once 'db.php';
+require_once 'barCd.php';
+require_once "pth.php";
+require_once "ay.php";
+require_once "fmtkey.php";
+const QUEUE_PTH = "c:/xampp/htdocs/loadplan/pgm/loadsheet/queue/";
+use LoadSheet\FmtKey as Fmt;
 
-    $trip = getTrip();
-    if (is_null($trip))
-        echo "trip is not give\n";
-    else {
-        LoadSheet\gen($trip);
-        echo "trip=" . $trip . "\n";
+class LoadSheet
+{
+    public $tripId;
+
+    function gen()
+    {
+        $this->tripId = $this->getTripId();
+        if (is_null($this->tripId)) {
+            echo "trip is not given\n";
+            exit();
+        }
+
+        $con = db_con();
+        $a = new Inp($this->tripId, $con);
+        $inpRmk_OfOrd = $a->rmk_OfOrd;
+        $inpRmk_OfAdr = $a->rmk_OfAdr;
+        $inpContent = $a->content;
+        $inpDrop = $a->drop;
+        $inpTrip = $a->trip;
+        $inpOrdAdr = $a->ordAdr;
+        $inpOrd = $a->ord;
+
+        $a = new Trip($inpTrip->tripDelvDte, $inpTrip->tripNo);
+        $tripNo = $a->no;
+        $tripPth = $a->pth;
+        $tripDelvDte = $a->dte;
+
+        pth_create_if_not_exist($tripPth);
+        pth_clear_files($tripPth);
+
+        $a = new GenHdr($inpTrip);
+        $b = new GenDrop($inpDrop, $inpRmk_OfOrd, $inpRmk_OfAdr, $tripDelvDte, $inpContent, $tripPth);
+        $c = new GenRmkOfAdr($inpRmk_OfOrd, $inpDrop, $inpOrdAdr);
+        $d = new GenRmkOfOrd($inpRmk_OfAdr, $inpDrop, $inpOrd);
+        $e = new GenBarCd($tripDelvDte, $tripNo);
+        $f = new GenPng($con, $inpContent, $tripPth);
+
+        $a->gen($tripPth);
+        $b->gen($tripPth);
+        $c->gen($tripPth);
+        $d->gen($tripPth);
+        $e->gen($tripPth);
+        $f->gen($tripPth);
     }
 
-    function getTrip()
+    function getTripId()
     {
         $isVdt_trip = function ($trip) {
             $con = db_con();
@@ -53,45 +89,292 @@ namespace {
     }
 }
 
-namespace LoadSheet {
+class GenBarCd
+{
+    private $tripDelvDte, $tripNo;
 
-    function gen($trip)
+    function __construct($tripDelvDte, $tripNo)
     {
-        $con = db_con();
-        $inpRmk_OfAdr = Gen\runsp_dta("rmk_OfAdr", $trip, $con); // ordAdr instTxt
-        $inpRmk_OfOrd = Gen\runsp_dta("rmk_OfOrd", $trip, $con); // ord instTxt
-        $inpDrop = Gen\runsp_dta("drop", $trip, $con); // ordDrop |  ordAdr ord ordDelvDte ordNo cusCd engShtNm chiShtNm ordBy adr adrContact adrPhone ordContentLvc nBox nPallet nCBM nCage trip
-        $inpContent = Gen\runsp_dta("content", $trip, $con); // ordContent | ord ordDelvDte ordNo cusCd contentRmk withImg
-        $inpTrip = Gen\runsp_dro("trip", $trip, $con); // trip | dte tripNo driver driverTy leader member truckCd plateNo
+        $this->tripDelvDte = $tripDelvDte;
+        $this->tripNo = $tripNo;
+    }
 
-        $tripDelvDte = $inpTrip->dte;
-        $tripNo = $inpTrip->tripNo;
-        $tripNm = Gen\tripNm($tripDelvDte, $tripNo);
-        $tripPth = Gen\tripPth($tripNm);
-
-        $f1 = $tripPth . "hdr.txt";
-        $f2 = $tripPth . "rmk_OfAdr.txt";
-        $f3 = $tripPth . "rmk_OfOrd.txt";
-        $f4 = $tripPth . "barCd.png";
-
-        pth_create_if_not_exist($tripPth);
-        pth_clear_files($tripPth);
-
-        Hdr\wrt_hdrFile($f1, $inpTrip);
-        Rmk\wrt_rmkFile_OfAdr($f2, $inpRmk_OfAdr, $inpDrop);
-        Rmk\wrt_rmkFile_OfOrd($f3, $inpRmk_OfOrd, $inpDrop);
-        BarCd\wrt_barCdFile($f4, $tripDelvDte, $tripNo);
-        Drop\wrt_dropFile($inpDrop, $inpRmk_OfOrd, $inpRmk_OfAdr, $tripDelvDte, $inpContent, $tripPth);
-        Png\cpy_pngFile($con, $inpContent, $tripPth);
+    function gen($oupPth)
+    {
+        $file = $oupPth . 'barCd.png';
+        $s = $this->tripDelvDte . ' ' . sprintf("%3d", $this->tripNo);
+        $m = new \BarCd($s);
+        $m->save_file($file);
     }
 }
-namespace LoadSheet\Gen {
-    function tripPth($tripNm)
+
+class GenRmkOfAdr
+{
+    /** @var array "$cus,$instLin" each ordAdrId, one record in $oupAy */
+    public $oupAy; // "$cus,$instLin"  each ordAdrId, one record
+
+    function __construct(
+        $inpRmk_OfAdr,  // ordAdr instTxt
+        $inpDrop,       // ordDrop | .. ordAdr ..
+        $inpOrdAdr      // ordAdr | cusCd engShtNm chiShtNm adrCd adrNm
+    )
     {
-        return QUEUE_PTH . $tripNm . "\\";
+        $dta = dta_joinLine_byKey($inpRmk_OfAdr, "ordAdr", "instTxt", "(*) ");
+        $dic = rmkNo_OfOrdAdr($inpDrop);
+        $ordAdr_cus_adr = GenRmkOfAdr::ordAdr_cus_adr($inpOrdAdr);
+        $o = array_fill(0, sizeof($dic) - 1, null);
+        foreach ($dta as $dr) {
+            $ordAdr = $dr['ordAdr'];
+            $instTxt = $dr['instTxt'];
+            $no = $dic[$ordAdr];
+            $a = $ordAdr_cus_adr[$ordAdr];
+            $cus = $a['cus'];
+            $adr = $a['adr'];
+            $o[$no - 1] = "$cus,$adr,$instTxt";
+        }
+        $this->oupAy = $o;
     }
 
-    function tripNm($tripDelvDte, $tripNo)
+    /** return $ordAdr => [$cus,$adr] from [ordAdr | cusCd engShtNm chiShtNm adrCd adrNm] */
+    static function ordAdr_cus_adr($inpOrdAdr)
+    {
+        $o = [];
+        foreach ($inpOrdAdr as $dr) {
+            $ordAdr = $dr['ordAdr'];
+            $cusCd = $dr['cusCd'];
+            $engShtNm = $dr['engShtNm'];
+            $chiShtNm = $dr['chiShtNm'];
+            $adrCd = $dr['adrCd'];
+            $adrNm = $dr['adrNm'];
+            $cus = bld_cus($cusCd, $chiShtNm, $engShtNm);
+            $adr = bld_adr($adrCd, $adrNm);
+            $o[$ordAdr] = ['cus' => $cus, 'adr' => $adr];
+        }
+        return $o;
+    }
+
+    function gen($oupPth)
+    {
+        $file = $oupPth . 'rmk_OfAdr.txt';
+        ay_write_file($this->oupAy, $file);
+    }
+}
+
+class GenRmkOfOrd
+{
+    public $oupAy; // "$cus,$instLin"  : each ordId  one record
+
+    function __construct(
+        $inpRmk_OfOrd,  //  ord instTxt
+        $inpDrop, // ordDrop | .. ord ..
+        $inpOrd // ord | cusCd chiShtNm engShtNm
+    )
+    {
+        $dta = dta_joinLine_byKey($inpRmk_OfOrd, "ord", "instTxt", "(*) ");
+        $dic = rmkNo_OfOrd($inpDrop);
+        $ord_cus = GenRmkOfOrd::ord_cus($inpOrd);
+        $o = array_fill(0, sizeof($dic) - 1, null);
+        foreach ($dta as $dr) {
+            $ord = $dr['ord'];
+            $instTxt = $dr['instTxt'];
+            $no = $dic[$ord];
+            $cus = $ord_cus[$ord];
+            $o[$no - 1] = "$cus,$instTxt";
+        }
+        $this->oupAy = $o;
+    }
+
+    function ord_cus( // return ord => cus
+        $inpOrd // ord | cusCd engShtNm chiShtNm
+    )
+    {
+        $o = [];
+        foreach ($inpOrd as $dr) {
+            $ord = $dr['ord'];
+            $cusCd = $dr['cusCd'];
+            $engShtNm = $dr['engShtNm'];
+            $chiShtNm = $dr['chiShtNm'];
+            $o[$ord] = bld_cus($cusCd, $chiShtNm, $engShtNm);
+        }
+        return $o;
+    }
+
+    function gen($oupPth)
+    {
+        $file = $oupPth . 'rmk_OfOrd.txt';
+        ay_write_file($this->oupAy, $file);
+    }
+}
+
+class GenHdr
+{
+    private $ay;
+
+    function __construct($inpTrip)
+    {
+        $a = $inpTrip;
+        $driverTy = ($a->driverTy = 'INT') ? '司機' : '街車';
+        $this->ay = ["tripDelvDte" => $a->dte . ' 行程#' . $a->tripNo,
+            "driverTy" => $driverTy,
+            "driver" => $a->driver,
+            "leader" => $a->leader,
+            "member" => $a->member];
+    }
+
+    function gen($oupPth)
+    {
+        ay_write_dic($this->ay, $oupPth . 'hdr.txt');
+    }
+}
+
+class GenPng
+{
+    public $fmAy, $toAy;
+
+    function __construct(
+        $inpContent, // .. ordContent withImg ordNo ordDelvDte ..
+        $tripPth)
+    {
+        foreach ($inpContent as $i) {
+            {
+                $ordContent = $i['ordContent'];
+                $withImg = $i['withImg'];
+                $ordNo = $i['ordNo'];
+                $ordDelvDte = $i['ordDelvDte'];
+            }
+            if ($withImg === '0') continue;
+            $fm = pngFile($ordContent, $ordNo, $ordDelvDte)['ffn'];
+            if (is_file($fm)) {
+                $to = $tripPth . $ordContent . '.png';
+                array_push($this->fmAy, $fm);
+                array_push($this->toAy, $to);
+            } else
+                echo "'Fm - file not exist, cannot copy [$fm]\n";
+        }
+    }
+
+    function gen($oupPth)
+    {
+        foreach ($this->fmAy as $i => $fm) {
+            $to = $this->toAy[$i];
+            copy($fm, $to);
+        }
+    }
+}
+
+class GenDrop
+{
+    public $dropDta; // Adr AdrCd AdrContact AdrPhone Content Cus OrdBy OrdNo PagList Qty RmkOfAdr RmkOfOrd
+
+    // above Lvs comes from genLoadSheet.xlsm->DropLinItmLvs
+
+    function __construct($inpDrop,
+                         $inpRmk_OfOrd,
+                         $inpRmk_OfAdr,
+                         $tripDelvDte,
+                         $inpContent)
+    {
+        $o = [];
+        $j = 0;
+        $a = $inpDrop;
+        $d1 = $this->dicOf_contentLines();
+        $d2 = $this->dicOf_pageNoList($inpDrop);
+        $d3 = $this->dicOf_rmkNoList($inpDrop, $inpRmk_OfOrd, $inpRmk_OfAdr);
+        foreach ($inpDrop as $idx => $dr) {
+            $ordDrop = $dr["ordDrop"];
+            $ordAdr = $dr["ordAdr"];
+            $ord = $dr["ord"];
+            $ordDelvDte = $dr["ordDelvDte"];
+            $ordNo = $dr["ordNo"];
+            $cusCd = $dr["cusCd"];
+            $engShtNm = $dr["engShtNm"];
+            $chiShtNm = $dr["chiShtNm"];
+            $ordBy = $dr["ordBy"];
+            $adr = $dr["adr"];
+            $adrContact = $dr["adrContact"];
+            $adrPhone = $dr["adrPhone"];
+            $nBox = $dr["nBox"];
+            $nPallet = $dr["nPallet"];
+            $nCBM = $dr["nCBM"];
+            $nCage = $dr["nCage"];
+
+            $m = [];
+            // the order must follow!!!  because the xlsm read drop-NN.txt content in following order.
+            $adrNo = 0;
+            $m['ord'] = Fmt\fmt_dropKey($ordNo, $ordDelvDte, $tripDelvDte, $adrNo, $idx);
+            $m['cus'] = $this->bld_cus($cusCd, $engShtNm, $chiShtNm);
+            $m['adr'] = esc_lf($adr);
+            $m['contentLines'] = @$d1[$ordDrop];
+            $m['qty'] = $this->bld_qty($nBox, $nPallet, $nCBM, $nCage);
+            $m['pagNoList'] = @$d2[$ordDrop];
+            $m['ordBy'] = esc_lf($ordBy);
+            $m['adrContact'] = $adrContact;
+            $m['adrPhone'] = $adrPhone;
+            $m['rmkNoList'] = @$d3[$ordDrop];
+
+            $o[$j++] = $m;
+        }
+        $this->dta = $o;
+    }
+
+    function dicOf_contentLines()
+    {
+        return [];
+    }
+
+    function dicOf_pageNoList($inpDrop)
+    {
+        return [];
+    }
+
+    function dicOf_rmkNoList // return ordDrop => [*nn, @nn], where *nn is {OrdRmkIdx + 1},  @nn is {AdrRmkIdx + 1}
+    ($inpDrop, // [ordDrop ordAdr ord ..]
+     $inpRmkAy_OfOrd, // ord instTxt
+     $inpRmkAy_OfAdr) // ordAdr instTxt
+    {
+        return [];
+    }
+
+    private function bld_qty($nBox, $nPallet, $nCBM, $nCage)
+    {
+        $o = [];
+        if (trim($nBox) !== '') array_push($o, $nBox . ' 箱');
+        if (trim($nPallet) !== '') array_push($o, $nPallet . '板');
+        if (trim($nCBM) !== '') array_push($o, $nCBM . ' CBM');
+        if (trim($nCage) !== '') array_push($o, $nCage . ' 籠');
+        return join(' ', $o);
+    }
+
+    function gen($oupPth)
+    {
+        foreach ($this->dropDta as $idx => $dr) {
+            $f = $this->dropFfn($idx + 1, $oupPth);
+            ay_write_dic($dr, $f);
+        }
+    }
+
+    function dropFfn($dropIdx, $outPth)
+    {
+        $n = sprintf("%02d", $dropIdx + 1);
+        return $outPth . "drop-$n.txt";
+    }
+}
+
+class Trip
+{
+    public
+        $no,
+        $nm,
+        $pth;
+
+    function __construct($tripDelvDte, $tripNo)
+    {
+        $this->no = $tripNo;
+        $this->nm = $this->nm($tripDelvDte, $tripNo);
+        $this->pth = QUEUE_PTH . $this->nm . "\\";
+    }
+
+    private function nm($tripDelvDte, $tripNo)
     {
         $i = $tripDelvDte;
         $a = date_parse($i);
@@ -100,129 +383,40 @@ namespace LoadSheet\Gen {
         $d = $a['day'];
         return sprintf("Trip-%d-%02d-%02d#%03d", $y, $m, $d, $tripNo);
     }
+}
 
-    function runsp_dta($nm, $trip, $con)
-    {
-        return \runsp_dta($con, "call loadsheet_$nm($trip)");
-    }
+class Inp
+{
+    public
+        $content,  // ordContent | ord ordDelvDte ordNo cusCd contentRmk withImg
+        $drop,  // ordDrop |  ordAdr ord ordDelvDte ordNo cusCd engShtNm chiShtNm ordBy adr adrContact adrPhone ordContentLvc nBox nPallet nCBM nCage trip
+        $rmk_OfAdr, // ordAdr instTxt
+        $rmk_OfOrd, // ord instTxt
+        $trip, // trip | dte tripNo driver driverTy leader member truckCd plateNo
+        $ord, // ord | cusCd engShtNm chiShtNm
+        $ordAdr; // ordAdr | cusCd engShtNm chiShtNm adrCd adrNm
 
-    function runsp_dro($nm, $trip, $con)
+    function __construct($tripId, $con)
     {
-        return \runsp_dro($con, "call loadsheet_$nm($trip)");
+        $dta = function ($nm, $trip, $con) {
+            return \runsp_dta($con, "call loadsheet_$nm($trip)");
+        };
+        $dro = function ($nm, $trip, $con) {
+            return \runsp_dro($con, "call loadsheet_$nm($trip)");
+        };
+
+        $this->rmk_OfAdr = $dta("rmk_OfAdr", $tripId, $con);
+        $this->rmk_OfOrd = $dta("rmk_OfOrd", $tripId, $con);
+        $this->drop = $dta("drop", $tripId, $con);
+        $this->content = $dta("content", $tripId, $con);
+        $this->trip = $dro("trip", $tripId, $con);
+        $this->ord = $dta("ord", $tripId, $con);
+        $this->ordAdr = $dta("ordAdr", $tripId, $con);
     }
 }
-namespace LoadSheet\Fn {
-    function wrt_ay(array $rmkAy, $file)
-    {
-        $a = ay_convert_encoding($rmkAy);
-        ay_write_file($a, $file);
-    }
-}
-namespace LoadSheet\BarCd {
-    function wrt_barCdFile($file, $tripDelvDte, $tripNo)
-    {
-        $s = $tripDelvDte . ' ' . sprintf("%3d", $tripNo);
-        $m = new \BarCd($s);
-        $m->save_file($file);
-    }
-}
-namespace LoadSheet\Png {
-    function cpy_pngFile($con, $inpContent, $tripPth)
-    {
-        foreach ($inpContent as $i) {
-            list($ordContent, $withImg) = ay_extract($i, "ordContent withImg");
-            if ($withImg === '0') continue;
-            $fm = \LoadSheet\OrdContent\ffn($con, $ordContent);
-            if (!is_file($fm))
-                echo "'Fm - file not exist, cannot copy [$fm]\n";
-            else {
-                $to = $tripPth . $ordContent . '.png';
-                copy($fm, $to);
-            }
-        }
-    }
-}
-namespace LoadSheet\Png\X {
 
-    function ordDrop_contentLines_dic(
-        $inpDrop,  // ordDrop | ..ordContentLvc ord ..
-        $ord_n_contentNo__contentLines__dic)
-    {
-        $o = [];
-        $dic = $ord_n_contentNo__contentLines__dic;
-        foreach ($inpDrop as $i) {
-            list($ordDrop, $contentNoLvc, $ord) = ay_extract($i, "ordDrop contentNoLvc ord");
-            if (!is_null($contentNoLvc)) {
-                $linAy = [];
-                $noAy = preg_split('/,/', $contentNoLvc);
-                foreach ($noAy as $contentNo) {
-                    $key = "$ord+$contentNo";
-                    if (array_key_exists($key, $dic))
-                        array_push($linAy, $dic[$key]);
-                }
-                $contentLines = join("\\n", $linAy);
-                $o[$ordDrop] = $contentLines;
-            }
-        }
-        return $o;
-    }
-
-    function ordContent__contentLines__dic
-    ($inpContent) // ord, contentNo, contentRmk;
-    {
-        $o = [];
-        $a = $inpContent;
-        $k_last = null;
-        $ay = [];
-        foreach ($a as $i) {
-            list($ord, $contentNo, $contentRmk) = array_values($i);
-            $k = "$ord+$contentNo";
-            if (is_null($k_last)) {
-                $ay = [$contentRmk];
-                $k_last = $k;
-                continue;
-            }
-            if ($k_last !== $k) {
-                $o[$k_last] = join("\n", $ay);
-                $k_last = $k;
-                $ay = [$contentRmk];
-                continue;
-            }
-            array_push($ay, $contentRmk);
-        }
-        if (!is_null($k_last))
-            $o[$k_last] = join("\n", $ay);
-        return $o;
-    }
-
-    function ord_n_contentNo__pagNo__dic(
-        $inpDrop, // ordDrop | .. ord contentNoLvc
-        $inpContent)  // ord contentNo | contentRmk withImg
-        // return only those ord+contactNo with image will be put in the dic
-    {
-        $o = [];
-        $dic = []; // $dic = ord+contentNo => 1 for those ord+contentNo withImg.
-        foreach ($inpContent as $i) {
-            list($ord, $contentNo, $withImg) = ay_extract($i, "ord contentNo withImg");
-            if ($withImg === '1')
-                $dic["$ord+$contentNo"] = 1;
-        }
-        $pagNo = 0;
-        foreach ($inpDrop as $i) {
-            list($ord, $contentNoLvc) = ay_extract($i, ["ord", "contentNoLvc"]);
-            $ay = preg_split('/,/', $contentNoLvc);
-            foreach ($ay as $contentNo) {
-                $key = "$ord+$contentNo";
-                if (array_key_exists($key, $dic)) {  // $dic = ord+contentNo => 1 for those ord+contentNo withImg.
-                    if (!array_key_exists($key, $o)) {
-                        $o[$key] = ++$pagNo;
-                    }
-                }
-            }
-        }
-        return $o;
-    }
-
+class AttDta
+{
     function attDta(
         $inpDrop, // ordDrop | .. ord contentNoLvc ordDelvDte
         $inpContent) // ord contentNo |  contentRmk withImg
@@ -263,20 +457,53 @@ namespace LoadSheet\Png\X {
         return $o;
     }
 
-    function ordDrop_pagNoList_dic($ordDrop_pagNo)  // ordDrop pagNo_ay
+    function ordContent__contentLines__dic
+    ($inpContent) // ord, contentNo, contentRmk;
     {
-        if (false) {
-            echo "inp: ordDrop pagNo |<br > ";
-            var_dump($ordDrop_pagNo);
-        }
-
         $o = [];
-        foreach ($ordDrop_pagNo as $i) {
-            list($ordDrop, $pagNo) = $i;
-            $o[$ordDrop] =
-                array_key_exists($ordDrop, $o)
-                    ? $o[$ordDrop] . ", $pagNo"
-                    : $pagNo;
+        $a = $inpContent;
+        $k_last = null;
+        $ay = [];
+        foreach ($a as $i) {
+            list($ord, $contentNo, $contentRmk) = array_values($i);
+            $k = "$ord+$contentNo";
+            if (is_null($k_last)) {
+                $ay = [$contentRmk];
+                $k_last = $k;
+                continue;
+            }
+            if ($k_last !== $k) {
+                $o[$k_last] = join("\n", $ay);
+                $k_last = $k;
+                $ay = [$contentRmk];
+                continue;
+            }
+            array_push($ay, $contentRmk);
+        }
+        if (!is_null($k_last))
+            $o[$k_last] = join("\n", $ay);
+        return $o;
+    }
+
+    function ordDrop_contentLines_dic(
+        $inpDrop,  // ordDrop | ..ordContentLvc ord ..
+        $ord_n_contentNo__contentLines__dic)
+    {
+        $o = [];
+        $dic = $ord_n_contentNo__contentLines__dic;
+        foreach ($inpDrop as $i) {
+            list($ordDrop, $contentNoLvc, $ord) = ay_extract($i, "ordDrop contentNoLvc ord");
+            if (!is_null($contentNoLvc)) {
+                $linAy = [];
+                $noAy = preg_split('/,/', $contentNoLvc);
+                foreach ($noAy as $contentNo) {
+                    $key = "$ord+$contentNo";
+                    if (array_key_exists($key, $dic))
+                        array_push($linAy, $dic[$key]);
+                }
+                $contentLines = join("\\n", $linAy);
+                $o[$ordDrop] = $contentLines;
+            }
         }
         return $o;
     }
@@ -297,186 +524,126 @@ namespace LoadSheet\Png\X {
         }
         return $o;
     }
-}
 
-namespace LoadSheet\OrdContent {
-    function ffn($con, $ordContent)
+    function ordDrop_pagNoList_dic($ordDrop_pagNo)  // ordDrop pagNo_ay
     {
-        $sql = "select ordNo, ordDelvDte from ord where ord in (select ord from ordcontent where ordContent=$ordContent);";
-        list($ordNo, $ordDelvDte) = runsql_dr($con, $sql, MYSQLI_NUM);
-        $ordNoFmt = sprintf("%04d", $ordNo);
-        $tripPth = "";
-        $pth = pth($ordNoFmt, $ordDelvDte, $tripPth);
-        $fn = fn($ordNoFmt, $ordDelvDte, $ordContent);
-        return $pth . $fn;
+        if (false) {
+            echo "inp: ordDrop pagNo |<br > ";
+            var_dump($ordDrop_pagNo);
+        }
+
+        $o = [];
+        foreach ($ordDrop_pagNo as $i) {
+            list($ordDrop, $pagNo) = $i;
+            $o[$ordDrop] =
+                array_key_exists($ordDrop, $o)
+                    ? $o[$ordDrop] . ", $pagNo"
+                    : $pagNo;
+        }
+        return $o;
     }
 
-    function pth($ordNoFmt, $ordDelvDte, $tripPth)
+    function ord_n_contentNo__pagNo__dic(
+        $inpDrop, // ordDrop | .. ord contentNoLvc
+        $inpContent)  // ord contentNo | contentRmk withImg
+        // return only those ord+contactNo with image will be put in the dic
     {
+        $o = [];
+        $dic = []; // $dic = ord+contentNo => 1 for those ord+contentNo withImg.
+        foreach ($inpContent as $i) {
+            list($ord, $contentNo, $withImg) = ay_extract($i, "ord contentNo withImg");
+            if ($withImg === '1')
+                $dic["$ord+$contentNo"] = 1;
+        }
+        $pagNo = 0;
+        foreach ($inpDrop as $i) {
+            list($ord, $contentNoLvc) = ay_extract($i, ["ord", "contentNoLvc"]);
+            $ay = preg_split('/,/', $contentNoLvc);
+            foreach ($ay as $contentNo) {
+                $key = "$ord+$contentNo";
+                if (array_key_exists($key, $dic)) {  // $dic = ord+contentNo => 1 for those ord+contentNo withImg.
+                    if (!array_key_exists($key, $o)) {
+                        $o[$key] = ++$pagNo;
+                    }
+                }
+            }
+        }
+        return $o;
+    }
+}
+
+/** return ordAdr=>rmkNo by $inpDrop (ordDrop | .. ordAdr .. */
+function rmkNo_OfOrdAdr($inpDrop)
+{
+    $o = [];
+    $n = 0;
+    foreach ($inpDrop as $dr) {
+        $ordAdr = $dr['ordAdr'];
+        if (!array_key_exists($ordAdr, $o)) {
+            $o[$ordAdr] = ++$n;
+        }
+    }
+    return $o;
+}
+
+/** return ord=>rmkNo by $inpDrop (ordDrop | .. ord .. */
+function rmkNo_OfOrd($inpDrop)
+{
+    $o = [];
+    $n = 0;
+    foreach ($inpDrop as $dr) {
+        $ord = $dr['ord'];
+        if (!array_key_exists($ord, $o)) {
+            $o[$ord] = ++$n;
+        }
+    }
+    return $o;
+}
+
+function bld_cus($cusCd, $chiShtNm, $engShtNm)
+{
+    return trim($chiShtNm) !== '' ? $chiShtNm
+        : (trim($engShtNm) !== '' ? $engShtNm
+            : $cusCd);
+}
+
+function bld_adr($adrCd, $adrNm)
+{
+    $o = [];
+    if ($adrCd !== '' && !is_null($adrCd)) array_push($o, $adrCd);
+    if ($adrNm !== '' && !is_null($adrNm)) array_push($o, $adrNm);
+    return join($o, "-");
+}
+
+function pngFile($ordContentId, $ordNo, $ordDelvDte)
+{
+    $_pth = function ($ordNoFmt, $ordDelvDte, $hom) {
         $a = date_parse($ordDelvDte);
         $y = $a['year'];
         $m = $a['month'];
         $d = $a['day'];
         $mm = sprintf("%2d", $m);
         $dd = sprintf("%2d", $d);
-        $hom = pth_norm("{$tripPth}..\\ ..\\ ..\\ ..\\");
+
         return "{$hom}ordContent\\$y\\$mm\\$dd\\$ordNoFmt\\";
-    }
+    };
 
-    function fn($ordNoFmt, $ordDelvDte, $ordContent)
-    {
-        return "Ord-$ordDelvDte #$ordNoFmt content-$ordContent.png";
-    }
+    $_fn = function ($ordNoFmt, $ordDelvDte, $ordContentId) {
+        return "Ord-$ordDelvDte #$ordNoFmt content-$ordContentId.png";
+    };
+    //$sql = "select ordNo, ordDelvDte from ord where ord in (select ord from ordcontent where ordContent=$ordContentId);";
+    //list($ordNo, $ordDelvDte) = runsql_dr($con, $sql, MYSQLI_NUM);
+    $ordNoFmt = sprintf("%04d", $ordNo);
+    $hom = pth_norm(__DIR__ . "\\..\\ ..\\ ..\\ ..\\");
+    $pth = $_pth($ordNoFmt, $ordDelvDte, $hom);
+    $fn = $_fn($ordNoFmt, $ordDelvDte, $ordContentId);
+    $ffn = $pth . $fn;
 
-}
-namespace LoadSheet\Hdr {
-    function wrt_hdrFile($file, $inpTrip)
-    {
-        $a = $inpTrip;
-        if ($a->driverTy = 'INT')
-            $driverTy = '司機';
-        else
-            $driverTy = '街車';
-        $ay = [
-            "tripDelvDte" => $a->dte . ' 行程#' . $a->tripNo,
-            "driverTy" => $driverTy,
-            "driver" => $a->driver,
-            "leader" => $a->leader,
-            "member" => $a->member];
-        \LoadSheet\Fn\wrt_ay($ay, $file);
-    }
-}
+    $o = [];
+    $o['hom'] = $hom;
+    $o['pth'] = $pth;
+    $o['fn'] = $fn;
+    $o['ffn'] = $ffn;
 
-namespace LoadSheet\Rmk {
-    use LoadSheet\FmtKey as Fmt;
-
-    function wrt_rmkFile_OfOrd()
-    {
-
-    }
-
-    function wrt_rmkFile_OfAdr()
-    {
-
-    }
-
-    function rmkAy_ofOrd  // return [ ord instTxt ]
-    ($inpRmk_OfOrd /* [ ord instTxt ] */)
-    {
-        return dta_joinLine_byKey($inpRmk_OfOrd, "ord", "instTxt", "(*) ");
-    }
-
-    function rmkAy_ofAdr  // return [ ordAdr instTxt ]
-    ($inpRmk_OfAdr /* [ ordAdr instTxt ] */)
-    {
-        return dta_joinLine_byKey($inpRmk_OfAdr, "ordAdr", "instTxt", "(*) ");
-    }
-}
-
-namespace LoadSheet\Drop {
-    use LoadSheet\Fn as Fn;
-
-    function wrt_dropFile($inpDrop, $inpRmkAy_OfOrd, $inpRmkAy_OfAdr, $tripDelvDte, $inpContent, $tripPth)
-    {
-        $drop_file = function ($dropIdx, $tripPth) {
-            $n = sprintf("%02d", $dropIdx + 1);
-            return $tripPth . "drop-$n.txt";
-        };
-
-        $dropDta = Dta\dropDta($inpDrop, $inpRmkAy_OfOrd, $inpRmkAy_OfAdr, $tripDelvDte, $inpContent);
-        foreach ($dropDta as $idx => $dr) {
-            $f = $drop_file($idx, $tripPth);
-            Fn\wrt_ay($dr, $f);
-        }
-    }
-}
-namespace LoadSheet\Drop\Dta {
-    use LoadSheet\FmtKey as Fmt;
-
-    function dropDta
-// return dropDta [
-//    ord
-//    cus
-//    adr
-//    contentLines
-//    qty
-//    pagNoList
-//    ordBy
-//    adrContact
-//    rmkNoList]
-    ($inpDrop,
-     $inpRmkAy_OfOrd,
-     $inpRmkAy_OfAdr,
-     $tripDelvDte)
-    {
-        $o = [];
-        $j = 0;
-        $a = $inpDrop;
-        $d1 = Dic\dicOf_contentLines();
-        $d2 = Dic\dicOf_pageNoList($inpDrop);
-        $d3 = Dic\dicOf_rmkNoList($inpDrop, $inpRmkAy_OfOrd, $inpRmkAy_OfAdr);
-        foreach ($inpDrop as $idx => $dr) {
-            list($ordDrop, $ordAdr, $ord, $ordDelvDte, $ordNo,
-                $cusCd, $engShtNm, $chiShtNm, $ordBy,
-                $adr, $adrContact, $adrPhone,
-                $nBox, $nPallet, $nCBM, $nCage) = ay_extract($dr,
-                "ordDrop ordAdr ord ordDelvDte ordNo"
-                . " cusCd engShtNm chiShtNm ordBy"
-                . " adr adrContact adrPhone"
-                . " nBox nPallet nCBM nCage");
-            $m = [];
-            // the order must follow!!!  because the xlsm read drop-NN.txt content in following order.
-            $adrNo = 0;
-            $m['ord'] = Fmt\fmt_dropKey($ordNo, $ordDelvDte, $tripDelvDte, $adrNo, $idx);
-            $m['cus'] = Bld\bld_cus($cusCd, $engShtNm, $chiShtNm);
-            $m['adr'] = esc_lf($adr);
-            $m['contentLines'] = @$d1[$ordDrop];
-            $m['qty'] = Bld\bld_qty($nBox, $nPallet, $nCBM, $nCage);
-            $m['pagNoList'] = @$d2[$ordDrop];
-            $m['ordBy'] = esc_lf($ordBy);
-            $m['adrContact'] = $adrContact . '/' . $adrPhone;
-            $m['rmkNoList'] = @$d3[$ordDrop];
-
-            $o[$j++] = $m;
-        }
-        return $o;
-    }
-}
-namespace LoadSheet\Drop\Dta\Dic {
-    function dicOf_contentLines()
-    {
-        return [];
-    }
-
-    function dicOf_pageNoList($inpDrop)
-    {
-        return [];
-    }
-
-    function dicOf_rmkNoList // return ordDrop => [*nn, @nn], where *nn is {OrdRmkIdx + 1},  @nn is {AdrRmkIdx + 1}
-    ($inpDrop, // [ordDrop ordAdr ord ..]
-     $inpRmkAy_OfOrd, // ord instTxt
-     $inpRmkAy_OfAdr) // ordAdr instTxt
-    {
-        return [];
-    }
-}
-namespace LoadSheet\Drop\Dta\Bld {
-    function bld_qty($nBox, $nPallet, $nCBM, $nCage)
-    {
-        $o = [];
-        if (trim($nBox) !== '') array_push($o, $nBox . ' 箱');
-        if (trim($nPallet) !== '') array_push($o, $nPallet . '板');
-        if (trim($nCBM) !== '') array_push($o, $nCBM . ' CBM');
-        if (trim($nCage) !== '') array_push($o, $nCage . ' 籠');
-
-        return join(' ', $o);
-    }
-
-    function bld_cus($cusCd, $chiShtNm, $engShtNm)
-    {
-        return trim($chiShtNm) !== '' ? $chiShtNm
-            : trim($engShtNm) !== '' ? $engShtNm
-                : $cusCd;
-    }
+    return $o;
 }

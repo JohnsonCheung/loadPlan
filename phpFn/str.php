@@ -5,7 +5,13 @@
  * Date: 20/5/2015
  * Time: 9:42
  */
-include_once 'ay.php';
+require_once 'ay.php';
+require_once 'ft.php';
+
+//class str_fn
+//{
+const LF = "\n";
+const CRLF = "\r\n";
 const eUniq = 0;
 const eYYYY = "Y";
 const eYYYYMM = "Y-m";
@@ -13,6 +19,7 @@ const eYYYYMMDD = "Y-m-d";
 const eYYYYMMDDHH = "Y-m-d H";
 const eYYYYMMDDHHMM = "Y-m-d Hi";
 const eYYYYMMDDHHMMSS = "Y-m-d His";
+
 function brk_quote($q)
 {
     $p = strpos($q, "*");
@@ -32,19 +39,15 @@ function brk_quote($q)
     return ['', ''];
 }
 
-/**  cut the first occurance of $chr in $s if any else return $s */
-function cut_chr_and_aft($s, $chr)
+/** replace dblQuote to sngQuote in $s and quote it with dblQuote */
+function esc_dblQuote($s)
 {
-    $p = strpos($s, $chr);
-    if ($p > 0) {
-        return substr($s, $p - 1);
-    }
-    return $s;
+    return '"' . str_replace('"', "'", $s) . '"';
 }
 
-function cut_lastchr($s)
+function esc_crlf($s)
 {
-    return left($s, strlen($s) - 1);
+    return str_replace("\r\n", '\r\n', $s);
 }
 
 function esc_lf($s)
@@ -70,6 +73,11 @@ function fmtAy($s, array $ay)
         $s = str_replace($m, $ay[$j++], $s);
     }
     return $s;
+}
+
+function is_blankStr($s)
+{
+    return trim($s) === '';
 }
 
 function is_intStr($s)
@@ -138,17 +146,6 @@ function padR($s, $len)
     return $s & space($len - $len);
 }
 
-function pass($s)
-{
-    echo 'pass: ' . $s . "\n";
-}
-
-function push_noNull(&$ay, $i)
-{
-    if (is_null($i)) return;
-    array_push($ay, $i);
-}
-
 function quote($s, $q)
 {
     list($q1, $q2) = brk_quote($q);
@@ -180,6 +177,16 @@ function right($s, $len)
     return substr($s, -$len);
 }
 
+/**  cut the first occurance of $chr in $s if any else return $s */
+function rmv_chr_and_aft($s, $chr)
+{
+    $p = strpos($s, $chr);
+    if ($p > 0) {
+        return substr($s, $p - 1);
+    }
+    return $s;
+}
+
 function rmv_dbl_spc($s)
 {
     $o = trim($s);
@@ -191,17 +198,17 @@ function rmv_dbl_spc($s)
     return $o;
 }
 
-function rmv_ffx($s, $pfx)
-{
-    if (is_pfx($s, $pfx)) {
-        return substr($s, strlen($pfx) + 1);
-    }
-    return $s;
-}
-
-function rmv_lastChr($s)
+function rmv_lastchr($s)
 {
     return left($s, strlen($s) - 1);
+}
+
+function rmv_pfx($s, $pfx)
+{
+    if (is_pfx($s, $pfx)) {
+        return substr($s, strlen($pfx));
+    }
+    return $s;
 }
 
 function rmv_sfx($s, $sfx)
@@ -215,7 +222,12 @@ function rmv_sfx($s, $sfx)
 
 function space($len)
 {
-    return str_repeat(" ", $len);
+    return str_repeat(' ', $len);
+}
+
+function split_lines($lines)
+{
+    return preg_split("/\r\n|\n/", $lines);
 }
 
 function split_lvs($lvs_or_array)
@@ -228,18 +240,40 @@ function split_lvs($lvs_or_array)
     throw new Exception("given \$lvs_or_array  should be string or array, but now[$ty]");
 }
 
+function split_vbar($s)
+{
+    return preg_split('/\s*\|\s*/', $s);
+}
+
 function str2macroAy($s)
 {
     $ay = preg_match_all('/\$[0-9a-zA-Z_]+/', $s, $matches);
     return ay_rmvDup_rev($matches[0]);
 }
 
-function strSplitIntoChrAy($s)
+function str_align($s, $wdt = 0, $align = null)
 {
-//forFor J = 0 To strlen($s) - 1
-//O(J) = substr($s, J + 1, 1)
-//}
-//StrSplitIntoChrAy = O
+    $w = (int)$wdt;
+    if ($w === 0) return $s;
+    $l = mb_strwidth($s);
+    if ($l === $w) return $s;
+    if ($l > $w) {
+        if ($w <= 3) return substr($s, 0, $w);
+        return substr($s, 0, $w - 2) . "..";
+    }
+    $align = strtoupper($align);
+    switch ($align) {
+        case "R":
+            return space($w - $l) . $s;
+        case "C":
+            $a = (int)(($w - $l) / 2);
+            $b = $w - $a;
+            return space($a) . $s . space($b);
+            break;
+        default:
+            return $s . space($w - $l);
+    }
+
 }
 
 function str_brw($s)
@@ -247,11 +281,6 @@ function str_brw($s)
     $ft = tmpFt();
     str_wrt($s, $ft);
     ft_brw($ft);
-}
-
-function str_is_blank($s)
-{
-    return trim($s) === '';
 }
 
 function str_nz($s, $blank_val)
@@ -323,15 +352,15 @@ function strbrk1_rev($s, $brkchr)
     return [$O1, $O2];
 }
 
+/** return 2-ele-array by breaking $s using $brkchr.  If $brkchr not exist returned-ele-1 will be '' and ele-2 will be $s */
 function strbrk2($s, $brkchr)
 {
-//Aim: if BrkChr not found assign to o2 and clear o1
     $p = strpos($s, $brkchr);
-    if ($p === 0) {
+    if ($p === false) {
         return ['', trim($s)];
     }
     $len = strlen($brkchr);
-    $o1 = trim(substr($s, $p - 1));
+    $o1 = trim(substr($s, 0, $p));
     $o2 = trim(substr($s, $p + $len));
     return [$o1, $o2];
 }
@@ -432,3 +461,4 @@ function tim_stmp($fmt = 0)
     }
     return date_create()->format($fmt);
 }
+//} // str_fn endclass

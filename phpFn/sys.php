@@ -9,6 +9,18 @@
 function launch($cmd) {
     exec("start $cmd");
 }
-function nz($a, $nz) {
-    return $a ? $a : $nz;
+
+function is_server()
+{
+    return isset($_SERVER['HTTP_HOST']);
+}
+
+function logFt($varNm, $val, $ft)
+{
+    $fd = fopen("c:/temp/$ft", "a");
+    fwrite($fd, "\r\n-------------\r\n");
+    fwrite($fd, $varNm . "\r\n");
+    $o = print_r($val, true);
+    fwrite($fd, $o);
+    fclose($fd);
 }
